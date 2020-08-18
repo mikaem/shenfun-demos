@@ -2,6 +2,7 @@
 
 - part: Shenfun executable demos
   chapters:
+    - file: content/newdemo
     - file: content/poisson
     - file: content/kleingordon
     - file: content/poisson3d
