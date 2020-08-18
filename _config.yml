@@ -2,7 +2,7 @@
 title                       : Shenfun executable demos  # The title of the book. Will be placed in the left navbar.
 author                      : Mikael Mortensen  # The author of the book
 copyright                   : "2020"  # Copyright year to be placed in the footer
-logo                        : ""  # A path to the book logo
+logo                        : seashell3.png  # A path to the book logo
 exclude_patterns            : []  # Patterns to skip when building the book. Can be glob-style (e.g. "*skip.ipynb")
 
 #######################################################################################
@@ -34,7 +34,7 @@ launch_buttons:
   thebe                     : true  # Add a thebe button to pages (requires the repository to run on Binder)
 
 repository:
-  url                       : https://github.com/spectralDNS/shenfun-demos  # The URL to your book's repository
+  url                       : https://github.com/mikaem/shenfun-demos  # The URL to your book's repository
   path_to_book              : ""  # A path to your book's folder, relative to the repository root.
   branch                    : master  # Which branch of the repository should be used when creating links
 

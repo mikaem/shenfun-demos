@@ -1,15 +1,15 @@
-- file: intro
+- file: content/intro
 
-- part: Shenfun demos
+- part: Shenfun executable demos
   chapters:
-    - file: poisson
-    - file: kleingordon
-    - file: poisson3d
-    - file: polarhelmholtz
-    - file: sphericalhelmholtz
-    - file: kuramatosivashinsky
-    - file: stokes
-    - file: drivencavity
-    - file: rayleighbenard
-    - file: functions
-    - file: surfaceintegration
+    - file: content/poisson
+    - file: content/kleingordon
+    - file: content/poisson3d
+    - file: content/polarhelmholtz
+    - file: content/sphericalhelmholtz
+    - file: content/kuramatosivashinsky
+    - file: content/stokes
+    - file: content/drivencavity
+    - file: content/rayleighbenard
+    - file: content/functions
+    - file: content/surfaceintegration
