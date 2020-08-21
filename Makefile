@@ -9,7 +9,10 @@ help:
 
 
 book:
+	python add_metadata.py
+	python add_tag.py thebe-init
 	jupyter-book build ./
+	ghp-import -n -p -f _build/html
 
 commit:
 	jupyter-book build ./
