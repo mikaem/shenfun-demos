@@ -221,6 +221,26 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/mikaem/shenfun-demos/master?urlpath=tree/content/surfaceintegration.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
     </div>
 
     <!-- Table of contents -->
@@ -278,7 +298,7 @@
 <!-- dom:AUTHOR: Mikael Mortensen Email:mikaem@math.uio.no at Department of Mathematics, University of Oslo. -->
 <!-- Author: -->  
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
-<p>Date: <strong>Aug 18, 2020</strong></p>
+<p>Date: <strong>Aug 21, 2020</strong></p>
 <p>Copyright 2020, Mikael Mortensen. Released under CC Attribution 4.0 license</p>
 <p><strong>Summary.</strong> This is a demonstration of how the Python module <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a> can be used to
 integrate over 1D curves and 2D surfaces in 3D space.
@@ -321,7 +341,7 @@ an unweighted integral of <span class="math notranslate nohighlight">\(u\)</span
 <h3>Curve integrals<a class="headerlink" href="#curve-integrals" title="Permalink to this headline">¶</a></h3>
 <p>For example, if we create some function space on the line from
 0 to 1, then we can get the length of this domain using <code class="docutils literal notranslate"><span class="pre">inner</span></code></p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">shenfun</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="n">B</span> <span class="o">=</span> <span class="n">FunctionSpace</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
@@ -336,7 +356,7 @@ an unweighted integral of <span class="math notranslate nohighlight">\(u\)</span
 length is simply the domain length.
 Not very impressive, but the same goes for multidimensional
 tensor product domains</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">F</span> <span class="o">=</span> <span class="n">FunctionSpace</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
 <span class="n">T</span> <span class="o">=</span> <span class="n">TensorProductSpace</span><span class="p">(</span><span class="n">comm</span><span class="p">,</span> <span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">F</span><span class="p">))</span>
@@ -371,7 +391,7 @@ be written as</p>
 a function space in curvilinear coordinates, providing
 the position vector <span class="math notranslate nohighlight">\(\mathbf{r} = x(t)\mathbf{i} + y(t) \mathbf{j} + z(t) \mathbf{k}\)</span>
 as input</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sp</span>
 <span class="kn">from</span> <span class="nn">shenfun</span> <span class="kn">import</span> <span class="o">*</span>
@@ -383,7 +403,7 @@ as input</p>
 </div>
 </div>
 <p>Then compute the arclength using <code class="docutils literal notranslate"><span class="pre">inner</span></code></p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">length</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">Array</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Length of spiral =&#39;</span><span class="p">,</span> <span class="n">length</span><span class="p">)</span>
@@ -393,7 +413,7 @@ as input</p>
 </div>
 <p>The arclength is found to be slightly longer than <span class="math notranslate nohighlight">\(4 \pi\)</span>. Looking at the
 spiral below, the result looks reasonable.</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 
@@ -410,7 +430,7 @@ spiral below, the result looks reasonable.</p>
 </div>
 <p>The term <span class="math notranslate nohighlight">\(\sqrt{\left(\frac{d x}{d t}\right)^2 + \left(\frac{d y}{d t}\right)^2 + \left(\frac{d z}{d t}\right)^2}\)</span>
 is actually here a constant <span class="math notranslate nohighlight">\(\sqrt{4.25}\)</span>, found in shenfun as</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="o">.</span><span class="n">coors</span><span class="o">.</span><span class="n">sg</span>
 </pre></div>
@@ -423,7 +443,7 @@ For example, lets integrate the function <span class="math notranslate nohighlig
 \[
 \int_C \sin^2 x ds = \int_{t=0}^{2\pi} \sin^2 (\sin 2t) \sqrt{\left(\frac{d x}{d t}\right)^2 + \left(\frac{d y}{d t}\right)^2 + \left(\frac{d z}{d t}\right)^2} dt
 \]</div>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">inner</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">Array</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">buffer</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">rv</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
 </pre></div>
@@ -431,7 +451,7 @@ For example, lets integrate the function <span class="math notranslate nohighlig
 </div>
 </div>
 <p>which can be easily verified using, e.g., Wolfram Alpha</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
 <span class="n">IFrame</span><span class="p">(</span><span class="s2">&quot;https://www.wolframalpha.com/input/?i=integrate+sin</span><span class="si">%5E</span><span class="s2">2</span><span class="si">%28s</span><span class="s2">in%282t</span><span class="si">%29%</span><span class="s2">29+sqrt</span><span class="si">%284.25%</span><span class="s2">29+from+t%3D0+to+2pi&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s2">&quot;500px&quot;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s2">&quot;350px&quot;</span><span class="p">)</span>
@@ -484,7 +504,7 @@ z(\theta, \phi) &amp;= \cos \theta
 \end{split}\]</div>
 <p>The straight forward implementation of a function space for
 the unit sphere reads</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sp</span>
 
@@ -501,7 +521,7 @@ the unit sphere reads</p>
 <p>where <code class="docutils literal notranslate"><span class="pre">sp.Q.positive(sp.sin(theta))</span></code> is a restriction that
 helps <code class="docutils literal notranslate"><span class="pre">Sympy</span></code> in computing the Jacobian required for the integral.
 We can now approximate the function <span class="math notranslate nohighlight">\(f\)</span> on this surface</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">Array</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">buffer</span><span class="o">=</span><span class="n">rv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
@@ -509,7 +529,7 @@ We can now approximate the function <span class="math notranslate nohighlight">\
 </div>
 </div>
 <p>and we can integrate over <span class="math notranslate nohighlight">\(S\)</span></p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">I</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
 </pre></div>
@@ -517,7 +537,7 @@ We can now approximate the function <span class="math notranslate nohighlight">\
 </div>
 </div>
 <p>and finally compare to the exact result, which is <span class="math notranslate nohighlight">\(4 \pi / 3\)</span></p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Error =&#39;</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">I</span><span class="o">-</span><span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">3</span><span class="p">))</span>
 </pre></div>
@@ -526,7 +546,7 @@ We can now approximate the function <span class="math notranslate nohighlight">\
 </div>
 <p>Note that we can here achieve better accuracy by using
 more quadrature points. For example by refining <code class="docutils literal notranslate"><span class="pre">f</span></code></p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">get_refined</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">global_shape</span><span class="p">))</span>
 <span class="n">f</span> <span class="o">=</span> <span class="n">Array</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">buffer</span><span class="o">=</span><span class="n">rv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
@@ -539,7 +559,7 @@ more quadrature points. For example by refining <code class="docutils literal no
 <p>To go a little deeper into the integral, we can get the
 term <span class="math notranslate nohighlight">\(\left|\frac{\partial \mathbf{r}}{\partial u} \times \frac{\partial \mathbf{r}}{\partial v} \right|\)</span>
 as</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="o">.</span><span class="n">coors</span><span class="o">.</span><span class="n">sg</span><span class="p">)</span>
 </pre></div>
@@ -554,7 +574,7 @@ used above: <code class="docutils literal notranslate"><span class="pre">theta,<
 basis vectors used by shenfun for the surface <span class="math notranslate nohighlight">\(S\)</span>. The basis
 vectors are obtainable as <code class="docutils literal notranslate"><span class="pre">T.coors.b</span></code>, and can also be printed
 in latex using:</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Math</span>
 <span class="n">Math</span><span class="p">(</span><span class="n">T</span><span class="o">.</span><span class="n">coors</span><span class="o">.</span><span class="n">latex_basis_vectors</span><span class="p">(</span><span class="n">covariant</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">symbol_names</span><span class="o">=</span><span class="p">{</span><span class="n">theta</span><span class="p">:</span> <span class="s1">&#39;</span><span class="se">\\</span><span class="s1">theta&#39;</span><span class="p">,</span> <span class="n">phi</span><span class="p">:</span> <span class="s1">&#39;</span><span class="se">\\</span><span class="s1">phi&#39;</span><span class="p">}))</span>
@@ -581,7 +601,7 @@ f = \sqrt{1+x^2+y^2}
 <p>with <span class="math notranslate nohighlight">\(0 \le u \le 2, 0 \le v \le 2\pi\)</span>.</p>
 <p>The implementation is only a few lines, and we end by comparing
 to the exact solution <span class="math notranslate nohighlight">\(14 \pi /3\)</span></p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">psi</span> <span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;x,y&#39;</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">rv</span> <span class="o">=</span> <span class="p">(</span><span class="n">u</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="n">u</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="n">v</span><span class="p">)</span>
@@ -595,7 +615,7 @@ to the exact solution <span class="math notranslate nohighlight">\(14 \pi /3\)</
 </div>
 </div>
 <p>In this case the integral measure is</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="o">.</span><span class="n">coors</span><span class="o">.</span><span class="n">sg</span><span class="p">)</span>
 </pre></div>
@@ -625,7 +645,7 @@ vector</p>
 f(x,y,z) = x+y+z
 \]</div>
 <p>The implementation is</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rv</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">v</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">v</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">sp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">u</span><span class="p">))</span><span class="o">/</span><span class="mi">4</span> <span class="o">+</span> <span class="n">sp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">v</span><span class="p">),</span>
       <span class="mi">5</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">v</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">v</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">sp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">u</span><span class="p">))</span><span class="o">/</span><span class="mi">4</span> <span class="o">+</span> <span class="n">sp</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">v</span><span class="p">),</span>
@@ -645,7 +665,7 @@ f(x,y,z) = x+y+z
 </div>
 <p>which agrees very well with chebfun’s result. The basis vectors
 for the surface of the seashell are</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Math</span><span class="p">(</span><span class="n">T</span><span class="o">.</span><span class="n">coors</span><span class="o">.</span><span class="n">latex_basis_vectors</span><span class="p">(</span><span class="n">covariant</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">symbol_names</span><span class="o">=</span><span class="p">{</span><span class="n">u</span><span class="p">:</span> <span class="s1">&#39;u&#39;</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="s1">&#39;v&#39;</span><span class="p">}))</span>
 </pre></div>

@@ -222,6 +222,26 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/mikaem/shenfun-demos/master?urlpath=tree/content/kleingordon.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
     </div>
 
     <!-- Table of contents -->
@@ -274,7 +294,7 @@
 <!-- dom:AUTHOR: Mikael Mortensen Email:mikaem@math.uio.no at Department of Mathematics, University of Oslo. -->
 <!-- Author: -->  
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
-<p>Date: <strong>Aug 18, 2020</strong></p>
+<p>Date: <strong>Aug 21, 2020</strong></p>
 <p>Copyright 2020, Mikael Mortensen. Released under CC Attribution 4.0 license</p>
 <p><strong>Summary.</strong> This is a demonstration of how the Python module <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a> can be used to solve the time-dependent,
 nonlinear Klein-Gordon equation, in a triply periodic domain. The demo is implemented in
@@ -285,7 +305,7 @@ method is given first, before we turn to the actual details of the <code class="
 implementation.</p>
 <p><a id="mov:kleingordon"></a></p>
 <!-- dom:MOVIE: [https://rawgit.com/spectralDNS/spectralutilities/master/movies/KleinGordon.gif] -->
-<!-- begin movie --><div class="cell docutils container">
+<!-- begin movie --><div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
 <span class="n">_s</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
@@ -701,7 +721,7 @@ real to complex class for one (but only one) of the directions, by specifying
 real-to-complex class for the direction that we choose to transform first with the forward
 FFT, and the reason is obviously that the output from a forward transform of
 real data is now complex. We may start implementing the solver as follows</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">shenfun</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -728,7 +748,7 @@ real data is now complex. We may start implementing the solver as follows</p>
 one-dimensional problems. However, we want to solve a 3D problem, and for this
 we need a tensor product space, like (<a class="reference external" href="#eq:kg:Wn">14</a>), created as a tensor
 product of these three spaces</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="n">TensorProductSpace</span><span class="p">(</span><span class="n">comm</span><span class="p">,</span> <span class="p">(</span><span class="n">K0</span><span class="p">,</span> <span class="n">K1</span><span class="p">,</span> <span class="n">K2</span><span class="p">),</span> <span class="o">**</span><span class="p">{</span><span class="s1">&#39;planner_effort&#39;</span><span class="p">:</span>
                                               <span class="s1">&#39;FFTW_MEASURE&#39;</span><span class="p">})</span>
@@ -746,7 +766,7 @@ and then simply import the result of that planning later, as wisdom.</p>
 computing inner products or fast transforms between real and wavenumber space.
 However, since we are going to solve for a mixed system, it is convenient to also use the
 <code class="docutils literal notranslate"><span class="pre">MixedTensorProductSpace</span></code> class</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TT</span> <span class="o">=</span> <span class="n">MixedTensorProductSpace</span><span class="p">([</span><span class="n">T</span><span class="p">,</span> <span class="n">T</span><span class="p">])</span>
 <span class="n">TV</span> <span class="o">=</span> <span class="n">VectorTensorProductSpace</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
@@ -761,7 +781,7 @@ e.g., the Runge-Kutta method. Arrays are created using
 <a class="reference external" href="http://www.sympy.org/en/index.html">Sympy</a> for
 initialization. Below <code class="docutils literal notranslate"><span class="pre">f</span></code> is initialized to 0,
 whereas <code class="docutils literal notranslate"><span class="pre">u</span> <span class="pre">=</span> <span class="pre">0.1*sp.exp(-(x**2</span> <span class="pre">+</span> <span class="pre">y**2</span> <span class="pre">+</span> <span class="pre">z**2))</span></code>.</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use sympy to set up initial condition</span>
 <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;x,y,z&quot;</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -802,7 +822,7 @@ requires one function to compute nonlinear terms,
 and one to compute linear. But here we will make
 just one function that computes both, and call it
 <code class="docutils literal notranslate"><span class="pre">NonlinearRHS</span></code>:</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">uh</span> <span class="o">=</span> <span class="n">TrialFunction</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
 <span class="n">vh</span> <span class="o">=</span> <span class="n">TestFunction</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
@@ -828,7 +848,7 @@ solutions, compute intermediate energies, and plot
 intermediate solutions. Since we will plot the same plot
 many times, we create the figure first, and then simply update
 the plotted arrays in the <code class="docutils literal notranslate"><span class="pre">update</span></code> function.</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 
@@ -844,7 +864,7 @@ the plotted arrays in the <code class="docutils literal notranslate"><span class
 </div>
 </div>
 <p>The actual <code class="docutils literal notranslate"><span class="pre">update</span></code> function is</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get wavenumbers</span>
 <span class="n">K</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">T</span><span class="o">.</span><span class="n">local_wavenumbers</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span>
@@ -882,7 +902,7 @@ the plotted arrays in the <code class="docutils literal notranslate"><span class
 </div>
 <p>With all functions in place, the actual integrator
 can be created and called as</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">par</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Compute_energy&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
        <span class="s1">&#39;plot_tstep&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>

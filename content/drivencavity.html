@@ -222,6 +222,26 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/mikaem/shenfun-demos/master?urlpath=tree/content/drivencavity.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
     </div>
 
     <!-- Table of contents -->
@@ -272,7 +292,7 @@
 <!-- dom:AUTHOR: Mikael Mortensen Email:mikaem@math.uio.no at Department of Mathematics, University of Oslo. -->
 <!-- Author: -->  
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
-<p>Date: <strong>Aug 18, 2020</strong></p>
+<p>Date: <strong>Aug 21, 2020</strong></p>
 <p>Copyright 2020, Mikael Mortensen. Released under CC Attribution 4.0 license</p>
 <p><strong>Summary.</strong> The lid driven cavity is a classical benchmark for Navier Stokes solvers.
 This is a demonstration of how the Python module <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a> can be used to solve the lid
@@ -319,7 +339,7 @@ ill conditioned.</p>
 method, using the <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a> Python
 package. The first thing we need to do then is to import all of shenfun’s
 functionality</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 
@@ -388,7 +408,7 @@ at <span class="math notranslate nohighlight">\(y=\pm 1\)</span>. As such, the b
 condition for the entire domain.</p>
 <p>With shenfun we create these homogeneous spaces, <span class="math notranslate nohighlight">\(D_0^{N_0}(x)=\text{span}\{L_k-L_{k+2}\}_{k=0}^{N_0-2}\)</span> and
 <span class="math notranslate nohighlight">\(D_0^{N_1}(y)=\text{span}\{L_l-L_{l+2}\}_{l=0}^{N_1-2}\)</span> as</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="p">(</span><span class="mi">45</span><span class="p">,</span> <span class="mi">45</span><span class="p">)</span>
 <span class="n">family</span> <span class="o">=</span> <span class="s1">&#39;Legendre&#39;</span> <span class="c1"># or use &#39;Chebyshev&#39;</span>
@@ -438,7 +458,7 @@ the unknown at <span class="math notranslate nohighlight">\(N_1-1\)</span> decid
 add the <span class="math notranslate nohighlight">\(N_1-2\)</span> component, but for generality this is implemented in shenfun
 using both additional basis functions. We create the space
 <span class="math notranslate nohighlight">\(D_1^{N_1}(y)=\text{span}\{\mathcal{Y}_l(y)\}_{l=0}^{N_1-1}\)</span> as</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">D1Y</span> <span class="o">=</span> <span class="n">FunctionSpace</span><span class="p">(</span><span class="n">N</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">family</span><span class="p">,</span> <span class="n">quad</span><span class="o">=</span><span class="n">quad</span><span class="p">,</span> <span class="n">bc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 </pre></div>
@@ -450,7 +470,7 @@ For a regularized lid driven cavity the velocity of the top lid is
 <span class="math notranslate nohighlight">\((1-x)^2(1+x)^2\)</span> and not unity. To implement this boundary condition
 instead, we can make use of <a class="reference external" href="https://www.sympy.org">sympy</a> and
 quite straight forward do</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
@@ -474,7 +494,7 @@ Legendre basis functions, but for
 <span class="math notranslate nohighlight">\((k, l) \in \boldsymbol{k}^{N_0-2} \times \boldsymbol{l}^{N_1-2}\)</span>.
 The bases <span class="math notranslate nohighlight">\(P^{N_0}(x)=\text{span}\{L_k(x)\}_{k=0}^{N_0-3}\)</span> and
 <span class="math notranslate nohighlight">\(P^{N_1}(y)=\text{span}\{L_l(y)\}_{l=0}^{N_1-3}\)</span> are created as</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PX</span> <span class="o">=</span> <span class="n">FunctionSpace</span><span class="p">(</span><span class="n">N</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">family</span><span class="p">,</span> <span class="n">quad</span><span class="o">=</span><span class="n">quad</span><span class="p">)</span>
 <span class="n">PY</span> <span class="o">=</span> <span class="n">FunctionSpace</span><span class="p">(</span><span class="n">N</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">family</span><span class="p">,</span> <span class="n">quad</span><span class="o">=</span><span class="n">quad</span><span class="p">)</span>
@@ -520,7 +540,7 @@ P^{\boldsymbol{N}}(\boldsymbol{x}) = P^{N_0}(x) \otimes P^{N_1}(y).
 \end{equation}
 \]</div>
 <p>With shenfun the tensor product spaces are created as</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">V1</span> <span class="o">=</span> <span class="n">TensorProductSpace</span><span class="p">(</span><span class="n">comm</span><span class="p">,</span> <span class="p">(</span><span class="n">D0X</span><span class="p">,</span> <span class="n">D1Y</span><span class="p">))</span>
 <span class="n">V0</span> <span class="o">=</span> <span class="n">TensorProductSpace</span><span class="p">(</span><span class="n">comm</span><span class="p">,</span> <span class="p">(</span><span class="n">D0X</span><span class="p">,</span> <span class="n">D0Y</span><span class="p">))</span>
@@ -533,7 +553,7 @@ P^{\boldsymbol{N}}(\boldsymbol{x}) = P^{N_0}(x) \otimes P^{N_1}(y).
 The velocity is a vector, and a vector requires a mixed vector basis like
 <span class="math notranslate nohighlight">\(W_1^{\boldsymbol{N}} = V_1^{\boldsymbol{N}} \times V_0^{\boldsymbol{N}}\)</span>. The vector basis is created
 in shenfun as</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">W1</span> <span class="o">=</span> <span class="n">VectorTensorProductSpace</span><span class="p">([</span><span class="n">V1</span><span class="p">,</span> <span class="n">V0</span><span class="p">])</span>
 <span class="n">W0</span> <span class="o">=</span> <span class="n">VectorTensorProductSpace</span><span class="p">([</span><span class="n">V0</span><span class="p">,</span> <span class="n">V0</span><span class="p">])</span>
@@ -657,7 +677,7 @@ sections. First of all, since we want to solve for the velocity and pressure
 in a coupled solver, we have to
 create a mixed tensor product space <span class="math notranslate nohighlight">\(VQ = W_1^{\boldsymbol{N}} \times P^{\boldsymbol{N}}\)</span> that
 couples velocity and pressure</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">VQ</span> <span class="o">=</span> <span class="n">MixedTensorProductSpace</span><span class="p">([</span><span class="n">W1</span><span class="p">,</span> <span class="n">P</span><span class="p">])</span>    <span class="c1"># Coupling velocity and pressure</span>
 </pre></div>
@@ -666,7 +686,7 @@ couples velocity and pressure</p>
 </div>
 <p>We can now create test- and trialfunctions for the coupled space <span class="math notranslate nohighlight">\(VQ\)</span>,
 and then split them up into components afterwards:</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">up</span> <span class="o">=</span> <span class="n">TrialFunction</span><span class="p">(</span><span class="n">VQ</span><span class="p">)</span>
 <span class="n">vq</span> <span class="o">=</span> <span class="n">TestFunction</span><span class="p">(</span><span class="n">VQ</span><span class="p">)</span>
@@ -684,7 +704,7 @@ boundary conditions.</p>
 <p>With the basisfunctions in place we may assemble the different blocks of the
 final coefficient matrix. For this we also need to specify the kinematic
 viscosity, which is given here in terms of the Reynolds number:</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Re</span> <span class="o">=</span> <span class="mf">100.</span>
 <span class="n">nu</span> <span class="o">=</span> <span class="mf">2.</span><span class="o">/</span><span class="n">Re</span>
@@ -787,7 +807,7 @@ tensor product matrix into two contributions and obtain</p>
 can be moved to the right hand side of the linear algebra equation system.</p>
 <p>All the parts of the matrices that are to be moved to the right hand side
 can be extracted from A, G and D as follows</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Extract the boundary matrices</span>
 <span class="n">bc_mats</span> <span class="o">=</span> <span class="n">extract_bc_matrices</span><span class="p">([</span><span class="n">A</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">D</span><span class="p">])</span>
@@ -811,7 +831,7 @@ M =
 \end{split}\]</div>
 <p>This matrix, and the matrix responsible for the boundary degrees of freedom,
 can be assembled from the pieces we already have as</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">BlockMatrix</span><span class="p">(</span><span class="n">A</span><span class="o">+</span><span class="n">G</span><span class="o">+</span><span class="n">D</span><span class="p">)</span>
 <span class="n">BM</span> <span class="o">=</span> <span class="n">BlockMatrix</span><span class="p">(</span><span class="n">bc_mats</span><span class="p">)</span>
@@ -822,7 +842,7 @@ can be assembled from the pieces we already have as</p>
 <p>We now have all the matrices we need in order to solve the Navier Stokes equations.
 However, we also need some work arrays for iterations and we need to
 assemble the constant boundary contribution to the right hand side</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create Function to hold solution. Use set_boundary_dofs to fix the degrees</span>
 <span class="c1"># of freedom in uh_hat that determines the boundary conditions.</span>
@@ -851,7 +871,7 @@ to spectral. For this we need to evaluate the velocity vector on the
 quadrature mesh. We also need a rank 2 Array to hold the outer
 product <span class="math notranslate nohighlight">\(\boldsymbol{u}\boldsymbol{u}\)</span>. The required arrays and spaces are
 created as</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bh_hat</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">VQ</span><span class="p">)</span>
 
@@ -868,7 +888,7 @@ created as</p>
 </div>
 <p>The right hand side <span class="math notranslate nohighlight">\(L((\boldsymbol{v}, q);\boldsymbol{u}^{k});\)</span> is computed in its
 own function <code class="docutils literal notranslate"><span class="pre">compute_rhs</span></code> as</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">compute_rhs</span><span class="p">(</span><span class="n">ui_hat</span><span class="p">,</span> <span class="n">bh_hat</span><span class="p">):</span>
     <span class="k">global</span> <span class="n">ui</span><span class="p">,</span> <span class="n">uiuj</span><span class="p">,</span> <span class="n">uiuj_hat</span><span class="p">,</span> <span class="n">V1</span><span class="p">,</span> <span class="n">bh_hat0</span>
@@ -895,7 +915,7 @@ is added to the right hand side vector.</p>
 <p>Now all that remains is to guess an initial solution and solve
 iteratively until convergence. For initial solution we simply set the
 velocity and pressure to zero and solve the Stokes equations:</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.sparse.linalg</span> <span class="kn">import</span> <span class="n">splu</span>
 <span class="n">uh_hat</span><span class="p">,</span> <span class="n">Ai</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">bh_hat0</span><span class="p">,</span> <span class="n">u</span><span class="o">=</span><span class="n">uh_hat</span><span class="p">,</span> <span class="n">constraints</span><span class="o">=</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),),</span> <span class="n">return_system</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># Constraint for component 2 of mixed space</span>
@@ -927,7 +947,7 @@ and update the solution each time step as</p>
 <p>where <span class="math notranslate nohighlight">\(\hat{\boldsymbol{u}}^*\)</span> and <span class="math notranslate nohighlight">\(\hat{p}^*\)</span> are the newly computed velocity
 and pressure returned from <code class="docutils literal notranslate"><span class="pre">M.solve</span></code>. Without underrelaxation the solution
 will quickly blow up. The iteration loop goes as follows</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">converged</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>

@@ -319,7 +319,7 @@
 <!-- dom:AUTHOR: Mikael Mortensen Email:mikaem@math.uio.no at Department of Mathematics, University of Oslo. -->
 <!-- Author: -->  
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
-<p>Date: <strong>Aug 18, 2020</strong></p>
+<p>Date: <strong>Aug 21, 2020</strong></p>
 <p>Copyright 2020, Mikael Mortensen. Released under CC Attribution 4.0 license</p>
 <p><strong>Summary.</strong> This is a demonstration of how the Python module <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a> can be used to solve Poisson’s
 equation with Dirichlet boundary conditions in one dimension. Spectral convergence, as
@@ -548,7 +548,7 @@ and compute error norms.</p>
 <p>We will solve Poisson’s equation using the <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a> Python module. The first thing needed
 is then to import some of this module’s functionality
 plus some other helper modules, like <a class="reference external" href="https://numpy.org">Numpy</a> and <a class="reference external" href="https://sympy.org">Sympy</a>:</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">shenfun</span> <span class="kn">import</span> <span class="n">inner</span><span class="p">,</span> <span class="n">div</span><span class="p">,</span> <span class="n">grad</span><span class="p">,</span> <span class="n">TestFunction</span><span class="p">,</span> <span class="n">TrialFunction</span><span class="p">,</span> <span class="n">Function</span><span class="p">,</span> \
     <span class="n">project</span><span class="p">,</span> <span class="n">Dx</span><span class="p">,</span> <span class="n">Array</span><span class="p">,</span> <span class="n">FunctionSpace</span><span class="p">,</span> <span class="n">dx</span>
@@ -564,7 +564,7 @@ plus some other helper modules, like <a class="reference external" href="https:/
 <h3>Manufactured solution<a class="headerlink" href="#manufactured-solution" title="Permalink to this headline">¶</a></h3>
 <p>The exact solution <span class="math notranslate nohighlight">\(u_e(x)\)</span> and the right hand side <span class="math notranslate nohighlight">\(f_e(x)\)</span> are created using
 <code class="docutils literal notranslate"><span class="pre">Sympy</span></code> as follows</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
 <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span>
@@ -588,7 +588,7 @@ easier to experiment and quickly change the solution.</p>
 <h3>Discretization<a class="headerlink" href="#discretization" title="Permalink to this headline">¶</a></h3>
 <p>We create a basis with a given number of basis functions, and extract the computational
 mesh from the basis itself</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">32</span>
 <span class="n">SD</span> <span class="o">=</span> <span class="n">FunctionSpace</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="s1">&#39;Chebyshev&#39;</span><span class="p">,</span> <span class="n">bc</span><span class="o">=</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
@@ -604,7 +604,7 @@ mesh from the basis itself</p>
 <h3>Variational formulation<a class="headerlink" href="#variational-formulation" title="Permalink to this headline">¶</a></h3>
 <p>The variational problem (<a class="reference external" href="#eq:varform">9</a>) can be assembled using <code class="docutils literal notranslate"><span class="pre">shenfun</span></code>’s
 <code class="docutils literal notranslate"><span class="pre">TrialFunction</span></code>, <code class="docutils literal notranslate"><span class="pre">TestFunction</span></code> and <code class="docutils literal notranslate"><span class="pre">inner</span></code> functions.</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="n">TrialFunction</span><span class="p">(</span><span class="n">SD</span><span class="p">)</span>
 <span class="n">v</span> <span class="o">=</span> <span class="n">TestFunction</span><span class="p">(</span><span class="n">SD</span><span class="p">)</span>
@@ -630,7 +630,7 @@ is required as input to the <code class="docutils literal notranslate"><span cla
 and then check how the solution corresponds with the exact solution <span class="math notranslate nohighlight">\(u_e\)</span>.
 To this end we compute the <span class="math notranslate nohighlight">\(L_2\)</span>-errornorm using the <code class="docutils literal notranslate"><span class="pre">shenfun</span></code> function
 <code class="docutils literal notranslate"><span class="pre">dx</span></code></p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">u_hat</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">f_hat</span><span class="p">)</span>
 <span class="n">uj</span> <span class="o">=</span> <span class="n">SD</span><span class="o">.</span><span class="n">backward</span><span class="p">(</span><span class="n">u_hat</span><span class="p">)</span>

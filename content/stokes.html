@@ -222,6 +222,26 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/mikaem/shenfun-demos/master?urlpath=tree/content/stokes.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
     </div>
 
     <!-- Table of contents -->
@@ -286,7 +306,7 @@
 <!-- dom:AUTHOR: Mikael Mortensen Email:mikaem@math.uio.no at Department of Mathematics, University of Oslo. -->
 <!-- Author: -->  
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
-<p>Date: <strong>Aug 18, 2020</strong></p>
+<p>Date: <strong>Aug 21, 2020</strong></p>
 <p>Copyright 2020, Mikael Mortensen. Released under CC Attribution 4.0 license</p>
 <p><strong>Summary.</strong> The Stokes equations describe the flow of highly viscous fluids.
 This is a demonstration of how the Python module <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a> can be used to solve Stokes
@@ -532,7 +552,7 @@ linear form will assemble to block vectors.</p>
 <p>We will solve the Stokes equations using the <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a> Python module. The first thing needed
 is then to import some of this module’s functionality
 plus some other helper modules, like <a class="reference external" href="https://numpy.org">Numpy</a> and <a class="reference external" href="https://sympy.org">Sympy</a>:</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">sys</span>
@@ -555,7 +575,7 @@ conditions, and the right hand sides <span class="math notranslate nohighlight">
 computed exactly using <code class="docutils literal notranslate"><span class="pre">Sympy</span></code>. These exact right hand sides will then be used to
 compute a numerical solution that can be verified against the manufactured
 solution. The chosen solution with computed right hand sides are:</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;x,y,z&#39;</span><span class="p">)</span>
 <span class="n">uex</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">y</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">z</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
@@ -576,7 +596,7 @@ solution. The chosen solution with computed right hand sides are:</p>
 <p>One-dimensional spaces are created using the <code class="docutils literal notranslate"><span class="pre">FunctionSpace</span></code> function. A choice of
 polynomials between Legendre or Chebyshev can be made, and the size
 of the domain is given</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
 <span class="n">family</span> <span class="o">=</span> <span class="s1">&#39;Legendre&#39;</span>
@@ -595,7 +615,7 @@ quadrature points, the same as for the Dirichlet basis.</p>
 <p>Next the one-dimensional spaces are used to create two tensor product spaces Q = <span class="math notranslate nohighlight">\(W^{\mathbf{N}}\)</span>
 and TD = <span class="math notranslate nohighlight">\(W_0^{\mathbf{N}}\)</span>, one vector V = <span class="math notranslate nohighlight">\([W_0^{\mathbf{N}}]^3\)</span> and one mixed
 space  VQ = V <span class="math notranslate nohighlight">\(\times\)</span> Q.</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TD</span> <span class="o">=</span> <span class="n">TensorProductSpace</span><span class="p">(</span><span class="n">comm</span><span class="p">,</span> <span class="p">(</span><span class="n">K0</span><span class="p">,</span> <span class="n">K1</span><span class="p">,</span> <span class="n">SD</span><span class="p">),</span> <span class="n">axes</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 <span class="n">Q</span> <span class="o">=</span> <span class="n">TensorProductSpace</span><span class="p">(</span><span class="n">comm</span><span class="p">,</span> <span class="p">(</span><span class="n">K0</span><span class="p">,</span> <span class="n">K1</span><span class="p">,</span> <span class="n">ST</span><span class="p">),</span> <span class="n">axes</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
@@ -613,7 +633,7 @@ Fourier matrices are, naturally, diagonal.</p>
 <p>Test- and trialfunctions are created much like in a regular, non-mixed,
 formulation. However, one has to create one test- and trialfunction for
 the mixed space, and then split them up afterwards</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">up</span> <span class="o">=</span> <span class="n">TrialFunction</span><span class="p">(</span><span class="n">VQ</span><span class="p">)</span>
 <span class="n">vq</span> <span class="o">=</span> <span class="n">TestFunction</span><span class="p">(</span><span class="n">VQ</span><span class="p">)</span>
@@ -626,7 +646,7 @@ the mixed space, and then split them up afterwards</p>
 <p>With the basisfunctions in place we may assemble the different blocks of the
 final coefficient matrix. Since Legendre is using a constant weight function,
 the equations may also be integrated by parts to obtain a symmetric system:</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">family</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;chebyshev&#39;</span><span class="p">:</span>
     <span class="n">A</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">div</span><span class="p">(</span><span class="n">grad</span><span class="p">(</span><span class="n">u</span><span class="p">)))</span>
@@ -720,7 +740,7 @@ loop over these wavenumbers and solve the assembled linear systems one by one.
 An example of the block matrix, for <span class="math notranslate nohighlight">\(l=m=5\)</span> and <span class="math notranslate nohighlight">\(\mathbf{N}=(20, 20, 20)\)</span> is given
 in Fig. <a class="reference external" href="#fig:BlockMat">fig:BlockMat</a>.</p>
 <p>In the end we create a block matrix through</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">BlockMatrix</span><span class="p">(</span><span class="n">A</span><span class="o">+</span><span class="n">G</span><span class="o">+</span><span class="n">D</span><span class="p">)</span>
 </pre></div>
@@ -729,7 +749,7 @@ in Fig. <a class="reference external" href="#fig:BlockMat">fig:BlockMat</a>.</p>
 </div>
 <p>The right hand side can easily be assembled since we have already
 defined the functions <span class="math notranslate nohighlight">\(\mathbf{f}\)</span> and <span class="math notranslate nohighlight">\(h\)</span>, see Sec. <a class="reference external" href="#sec:mansol">Manufactured solution</a></p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get mesh (quadrature points)</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">TD</span><span class="o">.</span><span class="n">local_mesh</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
@@ -749,7 +769,7 @@ defined the functions <span class="math notranslate nohighlight">\(\mathbf{f}\)<
 </div>
 <p>In the end all that is left is to solve and compare with
 the exact solution.</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solve problem</span>
 <span class="n">up_hat</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">fh_hat</span><span class="p">,</span> <span class="n">constraints</span><span class="o">=</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">N</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)))</span>

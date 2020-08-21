@@ -222,6 +222,26 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/mikaem/shenfun-demos/master?urlpath=tree/content/functions.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
     </div>
 
     <!-- Table of contents -->
@@ -282,7 +302,7 @@
 <!-- dom:AUTHOR: Mikael Mortensen Email:mikaem@math.uio.no at Department of Mathematics, University of Oslo. -->
 <!-- Author: -->  
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
-<p>Date: <strong>Aug 18, 2020</strong></p>
+<p>Date: <strong>Aug 21, 2020</strong></p>
 <p>Copyright 2020, Mikael Mortensen. Released under CC Attribution 4.0 license</p>
 <p><strong>Summary.</strong> This is a demonstration of how the Python module <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a> can be used to work with
 global spectral functions in one and several dimensions.</p>
@@ -305,7 +325,7 @@ specified when a function space is created. To create a function space
 <span class="math notranslate nohighlight">\(T=\text{span}\{T_k\}_{k=0}^{N-1}\)</span> for
 the first N Chebyshev polynomials of the first kind on the default domain <span class="math notranslate nohighlight">\([-1, 1]\)</span>,
 do</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">shenfun</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="n">N</span> <span class="o">=</span> <span class="mi">8</span>
@@ -316,7 +336,7 @@ do</p>
 </div>
 <p>The function <span class="math notranslate nohighlight">\(u(x)\)</span> can now be created with all N coefficients
 equal to zero as</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
 </pre></div>
@@ -326,7 +346,7 @@ equal to zero as</p>
 <p>When using Chebyshev polynomials the computational domain is always
 <span class="math notranslate nohighlight">\([-1, 1]\)</span>. However, we can still use a different physical domain,
 like</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="n">FunctionSpace</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="s1">&#39;Chebyshev&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 </pre></div>
@@ -346,7 +366,7 @@ u(x) = \sum_{k=0}^{N-1} \hat{u}_k \psi_k(2(x-0.5))
 valued coefficients, which is the default. Alternatively,
 a <code class="docutils literal notranslate"><span class="pre">Function</span></code> may be initialized using a constant
 value</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="n">FunctionSpace</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="s1">&#39;Chebyshev&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 <span class="n">u</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -357,7 +377,7 @@ value</p>
 <p>but that is not very useful. A third method to initialize
 a <code class="docutils literal notranslate"><span class="pre">Function</span></code> is to interpolate using an analytical
 Sympy function.</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sp</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -425,7 +445,7 @@ expansion coefficients. In matrix notation</p>
 <h2>Adaptive function size<a class="headerlink" href="#adaptive-function-size" title="Permalink to this headline">¶</a></h2>
 <p>The number of basis functions can also be left open during creation
 of the function space, through</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="n">FunctionSpace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Chebyshev&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 </pre></div>
@@ -436,7 +456,7 @@ of the function space, through</p>
 are uncertain how many basis functions that are required.
 For example, you may want to approximate the function <span class="math notranslate nohighlight">\(\cos(20 x)\)</span>.
 You can then find the required <code class="docutils literal notranslate"><span class="pre">Function</span></code> using</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">buffer</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">20</span><span class="o">*</span><span class="n">x</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">u</span><span class="p">))</span>
@@ -449,7 +469,7 @@ well with what is reported also by <a class="reference external" href="https://w
 Note that in this process a new <code class="docutils literal notranslate"><span class="pre">FunctionSpace</span></code> has been
 created under the hood. The function space of <code class="docutils literal notranslate"><span class="pre">u</span></code> can be
 extracted using</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Tu</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">function_space</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">Tu</span><span class="o">.</span><span class="n">N</span><span class="p">)</span>
@@ -459,7 +479,7 @@ extracted using</p>
 </div>
 <p>To further show that shenfun is compatible with Chebfun we can also
 approximate the Bessel function</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">T1</span> <span class="o">=</span> <span class="n">FunctionSpace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Chebyshev&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
 <span class="n">u</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">T1</span><span class="p">,</span> <span class="n">buffer</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">besselj</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
@@ -472,7 +492,7 @@ approximate the Bessel function</p>
 The difference lies only in the cut-off criteria. We cut frequencies
 with a relative tolerance of 1e-12 by default, but if we make this criteria
 a little bit stronger, then we will also arrive at a slightly higher number:</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">T1</span><span class="p">,</span> <span class="n">buffer</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">besselj</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">x</span><span class="p">),</span> <span class="n">reltol</span><span class="o">=</span><span class="mf">1e-14</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">u</span><span class="p">))</span>
@@ -482,7 +502,7 @@ a little bit stronger, then we will also arrive at a slightly higher number:</p>
 </div>
 <p>Plotting the function on its quadrature points looks
 a bit ragged, though:</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 
@@ -495,7 +515,7 @@ a bit ragged, though:</p>
 </div>
 <p>To improve the quality of this plot we can instead evaluate the
 function on more points</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xj</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xj</span><span class="p">,</span> <span class="n">u</span><span class="p">(</span><span class="n">xj</span><span class="p">))</span>
@@ -505,7 +525,7 @@ function on more points</p>
 </div>
 <p>Alternatively, we can refine the function, which simply
 pads zeros to <span class="math notranslate nohighlight">\(\hat{u}\)</span></p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">up</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">refine</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
 <span class="n">Tp</span> <span class="o">=</span> <span class="n">up</span><span class="o">.</span><span class="n">function_space</span><span class="p">()</span>
@@ -515,7 +535,7 @@ pads zeros to <span class="math notranslate nohighlight">\(\hat{u}\)</span></p>
 </div>
 </div>
 <p>The padded expansion coefficients are now given as</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">up</span><span class="p">)</span>
 </pre></div>
@@ -529,7 +549,7 @@ pads zeros to <span class="math notranslate nohighlight">\(\hat{u}\)</span></p>
 are many more features that could be explored simply by going through
 <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.polynomials.chebyshev.html">Numpy’s Chebyshev module</a>.
 For example, we can create a Chebyshev series like</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy.polynomial.chebyshev</span> <span class="k">as</span> <span class="nn">cheb</span>
 <span class="n">c</span> <span class="o">=</span> <span class="n">cheb</span><span class="o">.</span><span class="n">Chebyshev</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
@@ -543,7 +563,7 @@ However, we may also work directly with the Chebyshev
 coefficients already in <code class="docutils literal notranslate"><span class="pre">u</span></code>. To find the roots of the
 polynomial that approximates the Bessel function on
 domain <span class="math notranslate nohighlight">\([0, 100]\)</span>, we can do</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">Tu</span><span class="o">.</span><span class="n">map_true_domain</span><span class="p">(</span><span class="n">cheb</span><span class="o">.</span><span class="n">chebroots</span><span class="p">(</span><span class="n">u</span><span class="p">))</span>
 </pre></div>
@@ -554,7 +574,7 @@ domain <span class="math notranslate nohighlight">\([0, 100]\)</span>, we can do
 and as such we need to move the result to the physical domain using
 <code class="docutils literal notranslate"><span class="pre">map_true_domain</span></code>. The resulting roots <code class="docutils literal notranslate"><span class="pre">z</span></code> are both real and imaginary,
 so to extract the real roots we need to filter a little bit</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">z2</span> <span class="o">=</span> <span class="n">z</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">z</span><span class="o">.</span><span class="n">imag</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">z</span><span class="o">.</span><span class="n">real</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">z</span><span class="o">.</span><span class="n">real</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">))]</span><span class="o">.</span><span class="n">real</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">z2</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
@@ -571,7 +591,7 @@ series has been generated with the non-standard domain) because
 Numpy only looks for roots in the reference domain <span class="math notranslate nohighlight">\([-1, 1]\)</span>.</p>
 <p>We could also use a function space with boundary conditions built
 in, like</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Td</span> <span class="o">=</span> <span class="n">FunctionSpace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="n">bc</span><span class="o">=</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">besselj</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">sp</span><span class="o">.</span><span class="n">besselj</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)),</span> <span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
 <span class="n">ud</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">Td</span><span class="p">,</span> <span class="n">buffer</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">besselj</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
@@ -593,7 +613,7 @@ well as Chebyshev.</p>
 <p>Multidimensional tensor product spaces are created
 by taking the tensor products of one-dimensional function spaces.
 For example</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C0</span> <span class="o">=</span> <span class="n">FunctionSpace</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">)</span>
 <span class="n">C1</span> <span class="o">=</span> <span class="n">FunctionSpace</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">)</span>
@@ -611,7 +631,7 @@ u(x, y) = \sum_{i=0}^{7} \sum_{j=0}^7 \hat{u}_{ij} T_i(x) T_j(y).
 \]</div>
 <p>The multidimensional Functions work more or less exactly like for the
 1D case. We can here interpolate 2D Sympy functions</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">u</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">buffer</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="n">y</span><span class="p">))</span>
@@ -626,7 +646,7 @@ where the exact function is evaluated on all quadrature points
 in the mesh.</p>
 <p>The Cartesian mesh represents the quadrature points of the
 two function spaces, and can be visualized as follows</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">mesh</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">xj</span> <span class="ow">in</span> <span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
@@ -638,7 +658,7 @@ two function spaces, and can be visualized as follows</p>
 </div>
 </div>
 <p>We may alternatively plot on a uniform mesh</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">local_mesh</span><span class="p">(</span><span class="n">broadcast</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">uniform</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">u</span><span class="o">.</span><span class="n">backward</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">))</span>
@@ -664,7 +684,7 @@ the position vector <span class="math notranslate nohighlight">\(\mathbf{r}\)</s
 whereas the computational domain is the Cartesian product
 <span class="math notranslate nohighlight">\(D = \{(r, \theta) \in [0, 1] \times [0, 2 \pi]\}\)</span>.</p>
 <p>We create this domain in shenfun through</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">r</span><span class="p">,</span> <span class="n">theta</span> <span class="o">=</span> <span class="n">psi</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;x,y&#39;</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">rv</span> <span class="o">=</span> <span class="p">(</span><span class="n">r</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="n">r</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">))</span>
@@ -679,7 +699,7 @@ whereas the computational domain is the Cartesian product
 direction, since the solution here needs to be periodic.
 We can now create functions on the space using an
 analytical function in computational coordinates</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">buffer</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">r</span><span class="p">)</span><span class="o">*</span><span class="n">r</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)))</span>
 </pre></div>
@@ -687,7 +707,7 @@ analytical function in computational coordinates</p>
 </div>
 </div>
 <p>However, when this is plotted it may not be what you expect</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">local_mesh</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">u</span><span class="o">.</span><span class="n">backward</span><span class="p">(),</span> <span class="mi">100</span><span class="p">)</span>
@@ -698,7 +718,7 @@ analytical function in computational coordinates</p>
 <p>We see that the function has been plotted in computational coordinates,
 and not on the disc, as you probably expected. To plot on
 the disc we need the physical mesh, and not the computational</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">local_curvilinear_mesh</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">u</span><span class="o">.</span><span class="n">backward</span><span class="p">(),</span> <span class="mi">100</span><span class="p">)</span>
@@ -711,7 +731,7 @@ the disc we need the physical mesh, and not the computational</p>
 not wrong, we have simply not used the same point twice, but it
 does not look very good. To overcome this problem we can wrap the
 grid all the way around and re-plot.</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xj</span><span class="p">,</span> <span class="n">yj</span> <span class="o">=</span> <span class="n">X</span>
 <span class="n">xp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">xj</span><span class="p">,</span> <span class="n">xj</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">][:,</span> <span class="kc">None</span><span class="p">]])</span>
@@ -729,7 +749,7 @@ grid all the way around and re-plot.</p>
 <p>If you want to find a good resolution for a function in multiple
 dimensions, the procedure is exactly like in 1D. First create function
 spaces with 0 quadrature points, and then call <code class="docutils literal notranslate"><span class="pre">Function</span></code></p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">B0</span> <span class="o">=</span> <span class="n">FunctionSpace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 <span class="n">F0</span> <span class="o">=</span> <span class="n">FunctionSpace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">)</span>

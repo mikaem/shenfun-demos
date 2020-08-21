@@ -222,6 +222,26 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/mikaem/shenfun-demos/master?urlpath=tree/content/sphericalhelmholtz.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
     </div>
 
     <!-- Table of contents -->
@@ -262,7 +282,7 @@
 <!-- dom:AUTHOR: Mikael Mortensen Email:mikaem@math.uio.no at Department of Mathematics, University of Oslo. -->
 <!-- Author: -->  
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
-<p>Date: <strong>Aug 18, 2020</strong></p>
+<p>Date: <strong>Aug 21, 2020</strong></p>
 <p>Copyright 2020, Mikael Mortensen. Released under CC Attribution 4.0 license</p>
 <p><strong>Summary.</strong> This is a demonstration of how the Python module <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a> can be used to solve the
 Helmholtz equation on a unit sphere, using spherical
@@ -394,7 +414,7 @@ Here we give a brief explanation for the implementation. Start by
 importing all functionality from <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a>
 and <a class="reference external" href="https://sympy.org">sympy</a>, where Sympy is required for handeling the
 spherical coordinates.</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">shenfun</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sp</span>
@@ -414,7 +434,7 @@ Also note that Sympy symbols are both positive and real, and <span class="math n
 chosen to be along the first axis and <span class="math notranslate nohighlight">\(\phi\)</span> second. This has to agree with
 the next step, which is the creation of tensorproductspaces
 <span class="math notranslate nohighlight">\(V^N \otimes V_F^N\)</span>.</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">N</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">30</span>
 <span class="n">L0</span> <span class="o">=</span> <span class="n">FunctionSpace</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
@@ -432,7 +452,7 @@ items of <code class="docutils literal notranslate"><span class="pre">Function</
 <p>To define the equation (<a class="reference external" href="#eq:u0">8</a>) we first declare
 these test- and trialfunctions, and then use code that
 is very similar to the mathematics.</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">alpha</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="n">v</span> <span class="o">=</span> <span class="n">TestFunction</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
@@ -462,7 +482,7 @@ manufactured solution to define a possible solution <code class="docutils litera
 and then compute <code class="docutils literal notranslate"><span class="pre">f</span></code> exactly using exact differentiation. We use
 the <a class="reference external" href="https://docs.sympy.org/latest/modules/functions/special.html#spherical-harmonics">spherical harmonics function</a>
 to define an analytical solution</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">alpha</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="n">sph</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">functions</span><span class="o">.</span><span class="n">special</span><span class="o">.</span><span class="n">spherical_harmonics</span><span class="o">.</span><span class="n">Ynm</span>
@@ -486,7 +506,7 @@ to define an analytical solution</p>
 </div>
 <p>Having found the solution in spectral space all that is
 left is to transform it back to real space.</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">uj</span> <span class="o">=</span> <span class="n">u_hat</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
 <span class="n">uq</span> <span class="o">=</span> <span class="n">Array</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">buffer</span><span class="o">=</span><span class="n">ue</span><span class="p">)</span>

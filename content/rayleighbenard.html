@@ -222,6 +222,26 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/mikaem/shenfun-demos/master?urlpath=tree/content/rayleighbenard.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
     </div>
 
     <!-- Table of contents -->
@@ -274,7 +294,7 @@
 <!-- dom:AUTHOR: Mikael Mortensen Email:mikaem@math.uio.no at Department of Mathematics, University of Oslo. -->
 <!-- Author: -->  
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
-<p>Date: <strong>Aug 18, 2020</strong></p>
+<p>Date: <strong>Aug 21, 2020</strong></p>
 <p>Copyright 2020, Mikael Mortensen. Released under CC Attribution 4.0 license</p>
 <p><strong>Summary.</strong> Rayleigh-Benard convection arise
 due to temperature gradients in a fluid. The governing equations are
@@ -725,7 +745,7 @@ to specify the family and the dimension of each space. Here we simply
 choose Chebyshev and Fourier with 100 and 256 quadrature points in <span class="math notranslate nohighlight">\(x\)</span> and
 <span class="math notranslate nohighlight">\(y\)</span>-directions, respectively. We could replace ‘Chebyshev’ by ‘Legendre’,
 but the former is known to be faster due to the existence of fast transforms.</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">shenfun</span> <span class="kn">import</span> <span class="o">*</span>
 
@@ -741,7 +761,7 @@ but the former is known to be faster due to the existence of fast transforms.</p
 </div>
 </div>
 <p>And then we create tensor product spaces by combining these bases (like in Eqs. (<a class="reference external" href="#eq:WBF">14</a>)-(<a class="reference external" href="#eq:WWF">17</a>)).</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">W_BF</span> <span class="o">=</span> <span class="n">TensorProductSpace</span><span class="p">(</span><span class="n">comm</span><span class="p">,</span> <span class="p">(</span><span class="n">VB</span><span class="p">,</span> <span class="n">VF</span><span class="p">))</span>    <span class="c1"># Wall-normal velocity</span>
 <span class="n">W_DF</span> <span class="o">=</span> <span class="n">TensorProductSpace</span><span class="p">(</span><span class="n">comm</span><span class="p">,</span> <span class="p">(</span><span class="n">VD</span><span class="p">,</span> <span class="n">VF</span><span class="p">))</span>    <span class="c1"># Streamwise velocity</span>
@@ -759,7 +779,7 @@ These mixed space will be used to hold the velocity and convection vectors,
 but we will not solve the equations in a coupled manner and continue in the
 segregated approach outlined above.</p>
 <p>We also need containers for the computed solutions. These are created as</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">u_</span>  <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">BD</span><span class="p">)</span>     <span class="c1"># Velocity vector, two components</span>
 <span class="n">u_1</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">BD</span><span class="p">)</span>     <span class="c1"># Velocity vector, previous step</span>
@@ -782,7 +802,7 @@ but we do not add that level of complexity here.</p>
 <p>We implement Eq. (<a class="reference external" href="#eq:u2">5</a>) using the three-stage Runge Kutta equation (<a class="reference external" href="#eq:rk3stagesvar">34</a>).
 To this end we first need to declare some test- and trial functions, as well as
 some model constants</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="n">TrialFunction</span><span class="p">(</span><span class="n">W_BF</span><span class="p">)</span>
 <span class="n">v</span> <span class="o">=</span> <span class="n">TestFunction</span><span class="p">(</span><span class="n">W_BF</span><span class="p">)</span>
@@ -815,7 +835,7 @@ the necessary LU-decomposition is carried out for later use and reuse on each ti
 <p>The right hand side depends on the solution on the previous stage, and the
 convection on two previous stages. The linear part (first term on right hand side of (<a class="reference external" href="#eq:rk3stages">33</a>))
 can be assembled as</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">inner</span><span class="p">(</span><span class="n">div</span><span class="p">(</span><span class="n">grad</span><span class="p">(</span><span class="n">u_</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span> <span class="o">+</span> <span class="p">((</span><span class="n">a</span><span class="p">[</span><span class="n">rk</span><span class="p">]</span><span class="o">+</span><span class="n">b</span><span class="p">[</span><span class="n">rk</span><span class="p">])</span><span class="o">*</span><span class="n">nu</span><span class="o">*</span><span class="n">dt</span><span class="o">/</span><span class="mf">2.</span><span class="p">)</span><span class="o">*</span><span class="n">div</span><span class="p">(</span><span class="n">grad</span><span class="p">(</span><span class="n">div</span><span class="p">(</span><span class="n">grad</span><span class="p">(</span><span class="n">u_</span><span class="p">[</span><span class="mi">0</span><span class="p">])))),</span> <span class="n">v</span><span class="p">)</span>
 </pre></div>
@@ -835,7 +855,7 @@ The velocity is simply transformed backwards.</p>
 <p>If dealiasing is required, it should be used here to create padded backwards transforms of the curl and the velocity,
 before computing the nonlinear term in real space. The nonlinear product should then be forward transformed with
 truncation. To get a space for dealiasing, simply use, e.g., <code class="docutils literal notranslate"><span class="pre">W_BF.get_dealiased()</span></code>.</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get a mask for setting Nyquist frequency to zero</span>
 <span class="n">mask</span> <span class="o">=</span> <span class="n">W_DF</span><span class="o">.</span><span class="n">get_mask_nyquist</span><span class="p">()</span>
@@ -854,7 +874,7 @@ truncation. To get a space for dealiasing, simply use, e.g., <code class="docuti
 <p>Note that the convection has a homogeneous Dirichlet boundary condition in the
 non-periodic direction. With convection computed we can assemble <span class="math notranslate nohighlight">\(\mathcal{N}\)</span>
 and all of the right hand side, using the function <code class="docutils literal notranslate"><span class="pre">compute_rhs_u</span></code></p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 <span class="k">def</span> <span class="nf">compute_rhs_u</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">rhs</span><span class="p">,</span> <span class="n">rk</span><span class="p">):</span>
@@ -886,7 +906,7 @@ time the streamwise velocity is being computed. We will also need the
 wavenumber <span class="math notranslate nohighlight">\(\boldsymbol{l}\)</span>, here retrived using <code class="docutils literal notranslate"><span class="pre">W_BF.local_wavenumbers(scaled=True)</span></code>.
 For (<a class="reference external" href="#eq:vx">29</a>) we preassemble the required Helmholtz solvers, one for
 each RK stage.</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Assemble matrices and solvers for all stages</span>
 <span class="n">B_DD</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="n">TestFunction</span><span class="p">(</span><span class="n">W_DF</span><span class="p">),</span> <span class="n">TrialFunction</span><span class="p">(</span><span class="n">W_DF</span><span class="p">))</span>
@@ -1034,7 +1054,7 @@ of <span class="math notranslate nohighlight">\(y\)</span> and <span class="math
 To implement a non-constant Dirichlet boundary condition, the <code class="docutils literal notranslate"><span class="pre">Basis</span></code> function
 can take any <code class="docutils literal notranslate"><span class="pre">sympy</span></code> function of <code class="docutils literal notranslate"><span class="pre">(y,</span> <span class="pre">t)</span></code>, for exampel by replacing the
 creation of <code class="docutils literal notranslate"><span class="pre">VT</span></code> by</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sp</span>
 <span class="n">y</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;y,t&#39;</span><span class="p">)</span>
@@ -1081,7 +1101,7 @@ from the lists of tensor product matrices returned by <code class="docutils lite
 the temperature equation these boundary matrices are extracted using
 <code class="docutils literal notranslate"><span class="pre">extract_bc_matrices</span></code> below. The regular solver is placed in the
 <code class="docutils literal notranslate"><span class="pre">solverT</span></code> list, one for each stage of the RK3 solver.</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="n">TestFunction</span><span class="p">(</span><span class="n">W_TF</span><span class="p">)</span>
 <span class="n">p</span> <span class="o">=</span> <span class="n">TrialFunction</span><span class="p">(</span><span class="n">W_TF</span><span class="p">)</span>
@@ -1097,7 +1117,7 @@ the temperature equation these boundary matrices are extracted using
 </div>
 <p>The boundary contribution to the right hand side is computed for each
 stage as</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">w0</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">W_WF</span><span class="p">)</span>
 <span class="n">w0</span> <span class="o">=</span> <span class="n">lhs_mat</span><span class="p">[</span><span class="n">rk</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">matvec</span><span class="p">(</span><span class="n">T_</span><span class="p">,</span> <span class="n">w0</span><span class="p">)</span>
@@ -1106,7 +1126,7 @@ stage as</p>
 </div>
 </div>
 <p>The complete right hand side of the temperature equations can be computed as</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">compute_rhs_T</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">rhs</span><span class="p">,</span> <span class="n">rk</span><span class="p">):</span>
     <span class="n">q</span> <span class="o">=</span> <span class="n">TestFunction</span><span class="p">(</span><span class="n">W_TF</span><span class="p">)</span>
@@ -1129,7 +1149,7 @@ stage as</p>
 <p>We now have all the pieces required to solve the Rayleigh Benard problem.
 It only remains to perform an initialization and then create a solver
 loop that integrates the solution forward in time.</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 <span class="c1"># initialization</span>

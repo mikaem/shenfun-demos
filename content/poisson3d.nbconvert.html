@@ -93,7 +93,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="poisson.html">
-   Demo 1D Poisson’s equation
+   Demo - 1D Poisson’s equation
   </a>
  </li>
  <li class="toctree-l1">
@@ -219,6 +219,26 @@
                     class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/mikaem/shenfun-demos/master?urlpath=tree/content/poisson3d.nbconvert.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
 
     </div>
 
@@ -640,7 +660,7 @@ the analytical solution <span class="math notranslate nohighlight">\(u_e(\boldsy
 <p>We will solve the Poisson problem using the <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a> Python module. The first thing needed
 is then to import some of this module’s functionality
 plus some other helper modules, like <a class="reference external" href="https://numpy.org">Numpy</a> and <a class="reference external" href="https://sympy.org">Sympy</a>:</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">symbols</span><span class="p">,</span> <span class="n">cos</span><span class="p">,</span> <span class="n">sin</span><span class="p">,</span> <span class="n">exp</span><span class="p">,</span> <span class="n">lambdify</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -657,7 +677,7 @@ Python (<code class="docutils literal notranslate"><span class="pre">mpi4py</spa
 <div class="section" id="manufactured-solution">
 <h3>Manufactured solution<a class="headerlink" href="#manufactured-solution" title="Permalink to this headline">¶</a></h3>
 <p>The exact solution <span class="math notranslate nohighlight">\(u_e(x, y, z)\)</span> and the right hand side <span class="math notranslate nohighlight">\(f_e(x, y, z)\)</span> are created using <code class="docutils literal notranslate"><span class="pre">Sympy</span></code> as follows</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;x,y,z&quot;</span><span class="p">)</span>
 <span class="n">ue</span> <span class="o">=</span> <span class="p">(</span><span class="n">cos</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">y</span><span class="p">)</span> <span class="o">+</span> <span class="n">sin</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">z</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
@@ -686,7 +706,7 @@ easier to experiment and quickly change the solution.</p>
 <h3>Discretization and MPI<a class="headerlink" href="#discretization-and-mpi" title="Permalink to this headline">¶</a></h3>
 <p>We create three bases with given size, one for each dimension of the problem.
 From these three bases a <code class="docutils literal notranslate"><span class="pre">TensorProductSpace</span></code> is created.</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Size of discretization</span>
 <span class="n">N</span> <span class="o">=</span> <span class="p">[</span><span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">]</span>
@@ -716,7 +736,7 @@ as well have put the nonperiodic direction along either <span class="math notran
 though, but this would then require that the order of the transformed axes be
 changed as well. For example, putting the Dirichlet direction along <span class="math notranslate nohighlight">\(y\)</span>, we
 would need to create the tensorproductspace as</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="n">TensorProductSpace</span><span class="p">(</span><span class="n">comm</span><span class="p">,</span> <span class="p">(</span><span class="n">K1</span><span class="p">,</span> <span class="n">SD</span><span class="p">,</span> <span class="n">K2</span><span class="p">),</span> <span class="n">axes</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 </pre></div>
@@ -733,7 +753,7 @@ two directions may both, or just one of them, be distributed.</p>
 <span class="math notranslate nohighlight">\(\{y_j\}_{j=0}^{N_1-0}\)</span> and <span class="math notranslate nohighlight">\(\{z_k\}_{k=0}^{N_2-1}\)</span>. For example, using 4
 procesors and a processor mesh of shape <span class="math notranslate nohighlight">\(2\times 2\)</span>, then the local slices for
 each processor in spectral space are</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">comm</span><span class="o">.</span><span class="n">Get_rank</span><span class="p">(),</span> <span class="n">T</span><span class="o">.</span><span class="n">local_slice</span><span class="p">())</span>
 </pre></div>
@@ -760,7 +780,7 @@ processor mesh) and the
 MPI distribution is of type <em>pencil</em>. It is also possible to choose a <em>slab</em>
 decomposition, where only one dimension of the array is distributed. This choice
 needs to be made when creating the tensorproductspace as</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="n">TensorProductSpace</span><span class="p">(</span><span class="n">comm</span><span class="p">,</span> <span class="p">(</span><span class="n">SD</span><span class="p">,</span> <span class="n">K1</span><span class="p">,</span> <span class="n">K2</span><span class="p">),</span> <span class="n">axes</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">slab</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
@@ -789,7 +809,7 @@ approach can be used with up to <span class="math notranslate nohighlight">\(\mi
 <h3>Variational formulation<a class="headerlink" href="#variational-formulation" title="Permalink to this headline">¶</a></h3>
 <p>The variational problem (<a class="reference external" href="#eq:3d:varform">14</a>) can be assembled using <code class="docutils literal notranslate"><span class="pre">shenfun</span></code>’s
 form language, which is perhaps surprisingly similar to FEniCS.</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="n">TrialFunction</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
 <span class="n">v</span> <span class="o">=</span> <span class="n">TestFunction</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
@@ -824,7 +844,7 @@ see <a class="reference external" href="https://docs.scipy.org/doc/numpy-1.13.0/
 <h3>Solve linear equations<a class="headerlink" href="#solve-linear-equations" title="Permalink to this headline">¶</a></h3>
 <p>Finally, solve linear equation system and transform solution from spectral
 <span class="math notranslate nohighlight">\(\hat{u}_{\boldsymbol{\textsf{k}}}\)</span> vector to the real space <span class="math notranslate nohighlight">\(u(\boldsymbol{x})\)</span> and then check how the solution corresponds with the exact solution <span class="math notranslate nohighlight">\(u_e\)</span>.</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create Helmholtz linear algebra solver</span>
 <span class="n">Solver</span> <span class="o">=</span> <span class="n">chebyshev</span><span class="o">.</span><span class="n">la</span><span class="o">.</span><span class="n">Helmholtz</span>

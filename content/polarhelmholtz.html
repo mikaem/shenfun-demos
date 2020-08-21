@@ -222,6 +222,26 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/mikaem/shenfun-demos/master?urlpath=tree/content/polarhelmholtz.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
     </div>
 
     <!-- Table of contents -->
@@ -262,7 +282,7 @@
 <!-- dom:AUTHOR: Mikael Mortensen Email:mikaem@math.uio.no at Department of Mathematics, University of Oslo. -->
 <!-- Author: -->  
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
-<p>Date: <strong>Aug 18, 2020</strong></p>
+<p>Date: <strong>Aug 21, 2020</strong></p>
 <p>Copyright 2020, Mikael Mortensen. Released under CC Attribution 4.0 license</p>
 <p><strong>Summary.</strong> This is a demonstration of how the Python module <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a> can be used to solve the
 Helmholtz equation on a circular disc, using polar coordinates. This demo is implemented in
@@ -585,7 +605,7 @@ Here we give a brief explanation for the implementation. Start by
 importing all functionality from <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a>
 and <a class="reference external" href="https://sympy.org">sympy</a>, where Sympy is required for handeling the
 polar coordinates.</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">shenfun</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sp</span>
@@ -604,7 +624,7 @@ the next step, which is the creation of tensorproductspaces
 <code class="docutils literal notranslate"><span class="pre">domain=(0,</span> <span class="pre">1)</span></code> for the radial direction to get a unit disc, whereas
 the default domain for the Fourier bases is already the
 required <span class="math notranslate nohighlight">\((0, 2\pi)\)</span>.</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">32</span>
 <span class="n">F</span> <span class="o">=</span> <span class="n">FunctionSpace</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;d&#39;</span><span class="p">)</span>
@@ -641,7 +661,7 @@ items of <code class="docutils literal notranslate"><span class="pre">Function</
 <p>To define the equations (<a class="reference external" href="#eq:u0">26</a>) and (<a class="reference external" href="#eq:u1">27</a>) we first declare
 these test- and trialfunctions, and then use code that
 is remarkably similar to the mathematics.</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="o">=</span> <span class="n">TestFunction</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
 <span class="n">u</span> <span class="o">=</span> <span class="n">TrialFunction</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
@@ -664,7 +684,7 @@ But first we need to define the function <span class="math notranslate nohighlig
 To this end we use sympy and the method of
 manufactured solution to define a possible solution <code class="docutils literal notranslate"><span class="pre">ue</span></code>,
 and then compute <code class="docutils literal notranslate"><span class="pre">f</span></code> exactly using exact differentiation</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 <span class="c1"># Manufactured solution</span>
@@ -697,7 +717,7 @@ is not sufficient to do this integral numerically. For the <span class="math not
 case we do the integral numerically as part of the <code class="docutils literal notranslate"><span class="pre">inner</span></code> product.
 With the correct right hand side assembled we can solve the
 linear system of equations</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">u_hat</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
 <span class="n">Sol1</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">SolverGeneric1ND</span><span class="p">(</span><span class="n">mats</span><span class="p">)</span>
@@ -715,7 +735,7 @@ linear system of equations</p>
 </div>
 <p>Having found the solution in spectral space all that is
 left is to transform it back to real space.</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Transform back to real space. Broadcast 1D solution</span>
 <span class="n">sl</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">local_slice</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
@@ -729,7 +749,7 @@ left is to transform it back to real space.</p>
 <h2>Postprocessing<a class="headerlink" href="#postprocessing" title="Permalink to this headline">¶</a></h2>
 <p>The solution can now be compared with the exact solution
 through</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">uq</span> <span class="o">=</span> <span class="n">Array</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">buffer</span><span class="o">=</span><span class="n">ue</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Error =&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">uj</span><span class="o">-</span><span class="n">uq</span><span class="p">))</span>
@@ -739,7 +759,7 @@ through</p>
 </div>
 <p>We can also get the gradient of the solution. For this we need
 a space without boundary conditions, and a vector space</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TT</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">get_orthogonal</span><span class="p">()</span>
 <span class="n">V</span> <span class="o">=</span> <span class="n">VectorTensorProductSpace</span><span class="p">(</span><span class="n">TT</span><span class="p">)</span>
@@ -751,7 +771,7 @@ a space without boundary conditions, and a vector space</p>
 in spectral space, since it is a combination of <code class="docutils literal notranslate"><span class="pre">u_hat</span></code> and
 <code class="docutils literal notranslate"><span class="pre">u0_hat</span></code>. For this reason we first transform the solution from
 real space <code class="docutils literal notranslate"><span class="pre">uj</span></code> to the new orthogonal space <code class="docutils literal notranslate"><span class="pre">TT</span></code></p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ua</span> <span class="o">=</span> <span class="n">Array</span><span class="p">(</span><span class="n">TT</span><span class="p">,</span> <span class="n">buffer</span><span class="o">=</span><span class="n">uj</span><span class="p">)</span>
 <span class="n">uh</span> <span class="o">=</span> <span class="n">ua</span><span class="o">.</span><span class="n">forward</span><span class="p">()</span>
@@ -761,7 +781,7 @@ real space <code class="docutils literal notranslate"><span class="pre">uj</span
 </div>
 <p>With the solution as a <code class="docutils literal notranslate"><span class="pre">Function</span></code> we can simply project
 the gradient to <code class="docutils literal notranslate"><span class="pre">V</span></code></p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dv</span> <span class="o">=</span> <span class="n">project</span><span class="p">(</span><span class="n">grad</span><span class="p">(</span><span class="n">uh</span><span class="p">),</span> <span class="n">V</span><span class="p">)</span>
 <span class="n">du</span> <span class="o">=</span> <span class="n">dv</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
@@ -772,7 +792,7 @@ the gradient to <code class="docutils literal notranslate"><span class="pre">V</
 <p>Note that the gradient <code class="docutils literal notranslate"><span class="pre">du</span></code> now contains the contravariant components
 of the covariant basis vector <code class="docutils literal notranslate"><span class="pre">b</span></code>. The basis vector <code class="docutils literal notranslate"><span class="pre">b</span></code> is not normalized
 (it’s length is not unity).</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">coors</span><span class="o">.</span><span class="n">get_covariant_basis</span><span class="p">()</span>
 </pre></div>
@@ -808,7 +828,7 @@ project the gradient to a Cartesian basis</p>
 \end{split}\]</div>
 <p>We compute the Cartesian gradient by assembling (<a class="reference external" href="#eq:gradu">28</a>)
 on the computational grid</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ui</span><span class="p">,</span> <span class="n">vi</span> <span class="o">=</span> <span class="n">TT</span><span class="o">.</span><span class="n">local_mesh</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">bij</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">lambdify</span><span class="p">(</span><span class="n">psi</span><span class="p">,</span> <span class="n">b</span><span class="p">)(</span><span class="n">ui</span><span class="p">,</span> <span class="n">vi</span><span class="p">))</span>
@@ -822,7 +842,7 @@ contain <span class="math notranslate nohighlight">\(\nabla u \cdot \mathbf{i}\)
 <code class="docutils literal notranslate"><span class="pre">gradu[1]</span></code> will contain <span class="math notranslate nohighlight">\(\nabla u \cdot \mathbf{j}\)</span>.
 To validate we compute the exact gradient and compute
 the error norm</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gradue</span> <span class="o">=</span> <span class="n">Array</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">buffer</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">ue</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">r</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">ue</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
 <span class="c1">#or alternatively</span>
@@ -834,7 +854,7 @@ the error norm</p>
 </div>
 <p>We now refine the solution to make it look better,
 and plot on the unit disc.</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 

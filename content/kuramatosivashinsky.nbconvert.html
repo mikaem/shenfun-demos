@@ -220,6 +220,26 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/mikaem/shenfun-demos/master?urlpath=tree/content/kuramatosivashinsky.nbconvert.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
     </div>
 
     <!-- Table of contents -->
@@ -272,7 +292,7 @@ nonlinear Kuramato-Sivashinsky equation, in a doubly periodic domain. The demo i
 a single Python file <a class="reference external" href="https://github.com/spectralDNS/shenfun/blob/master/demo/Kuramato_Sivashinsky.py">KuramatoSivashinsky.py</a>, and it may be run
 in parallel using MPI.</p>
 <!-- dom:MOVIE: [https://rawgit.com/spectralDNS/spectralutilities/master/movies/Kuramato_movie_128.gif] Movie showing the evolution of the solution $u$ from Eq. ([1](#eq:ks)). -->
-<!-- begin movie --><div class="cell docutils container">
+<!-- begin movie --><div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
 <span class="n">_s</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
@@ -539,7 +559,7 @@ both <span class="math notranslate nohighlight">\(x\)</span> and <span class="ma
 functionality from required modules like <a class="reference external" href="https://numpy.org">Numpy</a>, <a class="reference external" href="https://sympy.org">Sympy</a>
 <a class="reference external" href="https://matplotlib.org">matplotlib</a> and <a class="reference external" href="https://bitbucket.org/mpi4py">mpi4py</a>, in
 addition to <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a>:</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 
@@ -557,7 +577,7 @@ basis functions. We also
 create a <code class="docutils literal notranslate"><span class="pre">VectorTensorProductSpace</span></code>, since this is required for computing the
 gradient of the scalar field <code class="docutils literal notranslate"><span class="pre">u</span></code>. The gradient is required for the nonlinear
 term.</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Size of discretization</span>
 <span class="n">N</span> <span class="o">=</span> <span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span>
@@ -573,7 +593,7 @@ term.</p>
 </div>
 </div>
 <p>Test and trialfunctions are required for assembling the variational forms:</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="n">TrialFunction</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
 <span class="n">v</span> <span class="o">=</span> <span class="n">TestFunction</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
@@ -588,7 +608,7 @@ mentioning. The gradient in spectral space can be computed as <code class="docut
 However, since this is an odd derivative, and we are using an even number <code class="docutils literal notranslate"><span class="pre">N</span></code>
 for the size of the domain, the highest wavenumber must be set to zero. This is
 the purpose of the last keyword argument to <code class="docutils literal notranslate"><span class="pre">local_wavenumbers</span></code> below.</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;x,y&quot;</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">ue</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.01</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
@@ -635,7 +655,7 @@ submodule. Two such integrators are the 4th order explicit Runge-Kutta method
 integrators need two methods provided by the problem being solved, representing
 the linear and nonlinear terms in the problem equation. We define two methods
 below, called <code class="docutils literal notranslate"><span class="pre">LinearRHS</span></code> and <code class="docutils literal notranslate"><span class="pre">NonlinearRHS</span></code></p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">LinearRHS</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">):</span>
     <span class="c1"># Assemble diagonal bilinear forms</span>
@@ -660,7 +680,7 @@ it is recommended to use <code class="docutils literal notranslate"><span class=
 format, for later viewing in, e.g., Paraview.</p>
 <p>We create an update function for plotting intermediate results with a
 cool colormap:</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Integrate using an exponential time integrator</span>
 <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">u_hat</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">tstep</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">):</span>
@@ -679,7 +699,7 @@ cool colormap:</p>
 </div>
 </div>
 <p>Now all that remains is to create the integrator and call it</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">par</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;plot_step&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;gradu&#39;</span><span class="p">:</span> <span class="n">gradu</span><span class="p">}</span>
 <span class="n">dt</span> <span class="o">=</span> <span class="mf">0.01</span>
