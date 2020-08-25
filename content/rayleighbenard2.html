@@ -41,8 +41,6 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Demo - Working with Functions" href="functions.html" />
-    <link rel="prev" title="Demo - Lid driven cavity" href="drivencavity.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -87,7 +85,7 @@
   Shenfun executable demos
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="poisson.html">
    Demo - 1D Poisson’s equation
@@ -128,8 +126,8 @@
    Demo - Lid driven cavity
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="rayleighbenard.html">
    Demo - Rayleigh Benard
   </a>
  </li>
@@ -296,21 +294,21 @@ module in the demo folder of shenfun. Below are two example solutions, where the
 has been run at a very high Rayleigh number (<em>Ra</em>), and the lower image with a low <em>Ra</em> (laminar).</p>
 <div class="figure align-default" id="id3">
 <span id="fig-rb"></span><a class="reference internal image-reference" href="https://raw.githack.com/spectralDNS/spectralutilities/master/movies/RB_100x256_100k_fire.png"><img alt="https://raw.githack.com/spectralDNS/spectralutilities/master/movies/RB_100x256_100k_fire.png" src="https://raw.githack.com/spectralDNS/spectralutilities/master/movies/RB_100x256_100k_fire.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Temperature fluctuations in the Rayleigh Benard flow. The top and bottom walls are kept at different temperatures and this sets up the Rayleigh-Benard convection. The simulation is run at <em>Ra</em> =100,000, <em>Pr</em> =0.7 with 100 and 256 quadrature points in <em>x</em> and <em>y</em>-directions, respectively</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Temperature fluctuations in the Rayleigh Benard flow. The top and bottom walls are kept at different temperatures and this sets up the Rayleigh-Benard convection. The simulation is run at <em>Ra</em> =100,000, <em>Pr</em> =0.7 with 100 and 256 quadrature points in <em>x</em> and <em>y</em>-directions, respectively</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-default" id="id4">
 <span id="fig-rb-lam"></span><a class="reference internal image-reference" href="https://raw.githack.com/spectralDNS/spectralutilities/master/figures/RB_40x128_100_fire.png"><img alt="https://raw.githack.com/spectralDNS/spectralutilities/master/figures/RB_40x128_100_fire.png" src="https://raw.githack.com/spectralDNS/spectralutilities/master/figures/RB_40x128_100_fire.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Convection cells for a laminar flow. The simulation is run at <em>Ra</em> =100, <em>Pr</em> =0.7 with 40 and 128 quadrature points in <em>x</em> and <em>y</em>-directions, respectively</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Convection cells for a laminar flow. The simulation is run at <em>Ra</em> =100, <em>Pr</em> =0.7 with 40 and 128 quadrature points in <em>x</em> and <em>y</em>-directions, respectively</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </div>
 <div class="section" id="the-rayleigh-benard-equations">
 <span id="demo-rayleighbenard"></span><h2>The Rayleigh Bénard equations<a class="headerlink" href="#the-rayleigh-benard-equations" title="Permalink to this headline">¶</a></h2>
 <p>The governing equations solved in domain <span class="math notranslate nohighlight">\(\Omega=[-1, 1]\times [0, 2\pi]\)</span> are</p>
 <div class="math notranslate nohighlight" id="equation-eq-momentum">
-<span class="eqno">(1)<a class="headerlink" href="#equation-eq-momentum" title="Permalink to this equation">¶</a></span>\[         \frac{\partial \mathbf{u}}{\partial t} + (\mathbf{u} \cdot \nabla) \mathbf{u} = - \nabla p + \sqrt{\frac{Pr}{Ra}} \nabla^2 \mathbf{u}  + T \mathbf{i},\]</div>
+<span class="eqno">()<a class="headerlink" href="#equation-eq-momentum" title="Permalink to this equation">¶</a></span>\[         \frac{\partial \mathbf{u}}{\partial t} + (\mathbf{u} \cdot \nabla) \mathbf{u} = - \nabla p + \sqrt{\frac{Pr}{Ra}} \nabla^2 \mathbf{u}  + T \mathbf{i},\]</div>
 <div class="math notranslate nohighlight" id="equation-eq-t">
-<span class="eqno">(2)<a class="headerlink" href="#equation-eq-t" title="Permalink to this equation">¶</a></span>\[         \frac{\partial T}{\partial t} +\mathbf{u} \cdot \nabla T = \frac{1}{\sqrt{RaPr}} \nabla^2 T,\]</div>
+<span class="eqno">()<a class="headerlink" href="#equation-eq-t" title="Permalink to this equation">¶</a></span>\[         \frac{\partial T}{\partial t} +\mathbf{u} \cdot \nabla T = \frac{1}{\sqrt{RaPr}} \nabla^2 T,\]</div>
 <div class="math notranslate nohighlight" id="equation-eq-div">
-<span class="eqno">(3)<a class="headerlink" href="#equation-eq-div" title="Permalink to this equation">¶</a></span>\[         \nabla \cdot \mathbf{u} = 0,\]</div>
+<span class="eqno">()<a class="headerlink" href="#equation-eq-div" title="Permalink to this equation">¶</a></span>\[         \nabla \cdot \mathbf{u} = 0,\]</div>
 <p>where <span class="math notranslate nohighlight">\(\mathbf{u}(x, y, t) (= u\mathbf{i} + v\mathbf{j})\)</span> is the velocity vector, <span class="math notranslate nohighlight">\(p(x, y, t)\)</span> is pressure, <span class="math notranslate nohighlight">\(T(x, y, t)\)</span> is the temperature, and <span class="math notranslate nohighlight">\(\mathbf{i}\)</span> and
 <span class="math notranslate nohighlight">\(\mathbf{j}\)</span> are the unity vectors for the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>-directions, respectively.</p>
 <p>The equations are complemented with boundary conditions <span class="math notranslate nohighlight">\(\mathbf{u}(\pm 1, y, t) = (0, 0), \mathbf{u}(x, 2 \pi, t) = \mathbf{u}(x, 0, t), T(1, y, t) = 1, T(-1, y, t) =  0, T(x, 2 \pi, t) = T(x, 0, t)\)</span>.
@@ -329,35 +327,35 @@ direction, using the pressure from the divergence of the momentum equation
 <span class="math notranslate nohighlight">\(\nabla^2 p = -\nabla \cdot \mathbf{H}+\partial T/\partial x\)</span>, where
 <span class="math notranslate nohighlight">\(\mathbf{H} = (H_x, H_y) = (\mathbf{u} \cdot \nabla) \mathbf{u}\)</span></p>
 <div class="math notranslate nohighlight" id="equation-eq-u">
-<span class="eqno">(4)<a class="headerlink" href="#equation-eq-u" title="Permalink to this equation">¶</a></span>\[         \frac{\partial \nabla^2 {u}}{\partial t} = \frac{\partial^2 H_y}{\partial x \partial y} - \frac{\partial^2 H_x}{\partial y\partial y}  + \sqrt{\frac{Pr}{Ra}} \nabla^4 {u}  + \frac{\partial^2 T}{\partial y^2} .\]</div>
+<span class="eqno">()<a class="headerlink" href="#equation-eq-u" title="Permalink to this equation">¶</a></span>\[         \frac{\partial \nabla^2 {u}}{\partial t} = \frac{\partial^2 H_y}{\partial x \partial y} - \frac{\partial^2 H_x}{\partial y\partial y}  + \sqrt{\frac{Pr}{Ra}} \nabla^4 {u}  + \frac{\partial^2 T}{\partial y^2} .\]</div>
 <p>This equation is solved with <span class="math notranslate nohighlight">\(u(\pm 1) = \partial u/\partial x(\pm 1) = 0\)</span>, where the latter follows from the
 divergence constraint. In summary, we now seem to have the following equations to solve:</p>
 <div class="math notranslate nohighlight" id="equation-eq-u2">
-<span class="eqno">(5)<a class="headerlink" href="#equation-eq-u2" title="Permalink to this equation">¶</a></span>\[         \frac{\partial \nabla^2 {u}}{\partial t} = \frac{\partial^2 H_y}{\partial x \partial y} - \frac{\partial^2 H_x}{\partial y\partial y}  + \sqrt{\frac{Pr}{Ra}} \nabla^4 {u}  + \frac{\partial^2 T}{\partial y^2},\]</div>
+<span class="eqno">()<a class="headerlink" href="#equation-eq-u2" title="Permalink to this equation">¶</a></span>\[         \frac{\partial \nabla^2 {u}}{\partial t} = \frac{\partial^2 H_y}{\partial x \partial y} - \frac{\partial^2 H_x}{\partial y\partial y}  + \sqrt{\frac{Pr}{Ra}} \nabla^4 {u}  + \frac{\partial^2 T}{\partial y^2},\]</div>
 <div class="math notranslate nohighlight" id="equation-eq-v">
-<span class="eqno">(6)<a class="headerlink" href="#equation-eq-v" title="Permalink to this equation">¶</a></span>\[         \frac{\partial v}{\partial t} + H_y = -  \frac{\partial p}{\partial y} + \sqrt{\frac{Pr}{Ra}} \nabla^2 v,\]</div>
+<span class="eqno">()<a class="headerlink" href="#equation-eq-v" title="Permalink to this equation">¶</a></span>\[         \frac{\partial v}{\partial t} + H_y = -  \frac{\partial p}{\partial y} + \sqrt{\frac{Pr}{Ra}} \nabla^2 v,\]</div>
 <div class="math notranslate nohighlight" id="equation-eq-t2">
-<span class="eqno">(7)<a class="headerlink" href="#equation-eq-t2" title="Permalink to this equation">¶</a></span>\[         \frac{\partial T}{\partial t} +\mathbf{u} \cdot \nabla T = \frac{1}{\sqrt{RaPr}} \nabla^2 T,\]</div>
+<span class="eqno">()<a class="headerlink" href="#equation-eq-t2" title="Permalink to this equation">¶</a></span>\[         \frac{\partial T}{\partial t} +\mathbf{u} \cdot \nabla T = \frac{1}{\sqrt{RaPr}} \nabla^2 T,\]</div>
 <div class="math notranslate nohighlight" id="equation-eq-div2">
-<span class="eqno">(8)<a class="headerlink" href="#equation-eq-div2" title="Permalink to this equation">¶</a></span>\[         \nabla \cdot \mathbf{u} = 0 .\]</div>
-<p>However, we note that Eqs. <a class="reference internal" href="#equation-eq-u2">(5)</a> and <a class="reference internal" href="#equation-eq-t2">(7)</a> and <a class="reference internal" href="#equation-eq-div2">(8)</a> do not depend on pressure, and,
-apparently, on each time step we can solve <a class="reference internal" href="#equation-eq-u2">(5)</a> for <span class="math notranslate nohighlight">\(u\)</span>, then <a class="reference internal" href="#equation-eq-div2">(8)</a> for <span class="math notranslate nohighlight">\(v\)</span> and finally <a class="reference internal" href="#equation-eq-t2">(7)</a> for <span class="math notranslate nohighlight">\(T\)</span>.
-So what do we need <a class="reference internal" href="#equation-eq-v">(6)</a> for? It appears to have become redundant from the elimination of the
-pressure from Eq. <a class="reference internal" href="#equation-eq-u2">(5)</a>. It turns out that this is actually almost completely true, but
-<a class="reference internal" href="#equation-eq-u2">(5)</a>, <a class="reference internal" href="#equation-eq-t2">(7)</a> and <a class="reference internal" href="#equation-eq-div2">(8)</a> can only provide closure for all but one of the
+<span class="eqno">()<a class="headerlink" href="#equation-eq-div2" title="Permalink to this equation">¶</a></span>\[         \nabla \cdot \mathbf{u} = 0 .\]</div>
+<p>However, we note that Eqs. <a class="reference internal" href="#equation-eq-u2">()</a> and <a class="reference internal" href="#equation-eq-t2">()</a> and <a class="reference internal" href="#equation-eq-div2">()</a> do not depend on pressure, and,
+apparently, on each time step we can solve <a class="reference internal" href="#equation-eq-u2">()</a> for <span class="math notranslate nohighlight">\(u\)</span>, then <a class="reference internal" href="#equation-eq-div2">()</a> for <span class="math notranslate nohighlight">\(v\)</span> and finally <a class="reference internal" href="#equation-eq-t2">()</a> for <span class="math notranslate nohighlight">\(T\)</span>.
+So what do we need <a class="reference internal" href="#equation-eq-v">()</a> for? It appears to have become redundant from the elimination of the
+pressure from Eq. <a class="reference internal" href="#equation-eq-u2">()</a>. It turns out that this is actually almost completely true, but
+<a class="reference internal" href="#equation-eq-u2">()</a>, <a class="reference internal" href="#equation-eq-t2">()</a> and <a class="reference internal" href="#equation-eq-div2">()</a> can only provide closure for all but one of the
 Fourier coefficients. To see this it is necessary to introduce some discretization and basis functions
 that will be used to solve the problem. To this end we use <span class="math notranslate nohighlight">\(P_N\)</span>, which is the set of all real polynomials
 of degree less than or equal to N and introduce the following finite-dimensional approximation spaces</p>
 <div class="math notranslate nohighlight" id="equation-eq-vb">
-<span class="eqno">(9)<a class="headerlink" href="#equation-eq-vb" title="Permalink to this equation">¶</a></span>\[       V_N^B(x) = \{v \in P_N | v(\pm 1) = v´(\pm 1) = 0\},\]</div>
+<span class="eqno">()<a class="headerlink" href="#equation-eq-vb" title="Permalink to this equation">¶</a></span>\[       V_N^B(x) = \{v \in P_N | v(\pm 1) = v´(\pm 1) = 0\},\]</div>
 <div class="math notranslate nohighlight" id="equation-eq-vd">
-<span class="eqno">(10)<a class="headerlink" href="#equation-eq-vd" title="Permalink to this equation">¶</a></span>\[       V_N^D(x) = \{v \in P_N | v(\pm 1) = 0\},\]</div>
+<span class="eqno">()<a class="headerlink" href="#equation-eq-vd" title="Permalink to this equation">¶</a></span>\[       V_N^D(x) = \{v \in P_N | v(\pm 1) = 0\},\]</div>
 <div class="math notranslate nohighlight" id="equation-eq-vt">
-<span class="eqno">(11)<a class="headerlink" href="#equation-eq-vt" title="Permalink to this equation">¶</a></span>\[       V_N^T(x) = \{v \in P_N | v(-1) = 0, v(1) = 1\},\]</div>
+<span class="eqno">()<a class="headerlink" href="#equation-eq-vt" title="Permalink to this equation">¶</a></span>\[       V_N^T(x) = \{v \in P_N | v(-1) = 0, v(1) = 1\},\]</div>
 <div class="math notranslate nohighlight" id="equation-eq-vw">
-<span class="eqno">(12)<a class="headerlink" href="#equation-eq-vw" title="Permalink to this equation">¶</a></span>\[       V_N^W(x) = \{v \in P_N\},\]</div>
+<span class="eqno">()<a class="headerlink" href="#equation-eq-vw" title="Permalink to this equation">¶</a></span>\[       V_N^W(x) = \{v \in P_N\},\]</div>
 <div class="math notranslate nohighlight" id="equation-eq-vf">
-<span class="eqno">(13)<a class="headerlink" href="#equation-eq-vf" title="Permalink to this equation">¶</a></span>\[       V_M^F(y) = \{\exp(\imath l y) | l \in [-M/2, -M/2+1, \ldots M/2-1]\}.\]</div>
+<span class="eqno">()<a class="headerlink" href="#equation-eq-vf" title="Permalink to this equation">¶</a></span>\[       V_M^F(y) = \{\exp(\imath l y) | l \in [-M/2, -M/2+1, \ldots M/2-1]\}.\]</div>
 <p>Here <span class="math notranslate nohighlight">\(\text{dim}(V_N^B) = N-4, \text{dim}(V_N^D) = \text{dim}(V_N^W) = N-2\)</span>, <span class="math notranslate nohighlight">\(\text{dim}(V_N^T) = N\)</span>
 and <span class="math notranslate nohighlight">\(\text{dim}(V_M^F)=M\)</span>. We note that
 <span class="math notranslate nohighlight">\(V_N^B, V_N^D, V_N^W\)</span> and <span class="math notranslate nohighlight">\(V_N^T\)</span> can be used to approximate <span class="math notranslate nohighlight">\(u, v, T\)</span> and <span class="math notranslate nohighlight">\(p\)</span>, respectively, in the <span class="math notranslate nohighlight">\(x\)</span>-direction.
@@ -367,26 +365,26 @@ Chebyshev polynomials. For the Fourier space the basis functions are already giv
 of basis as an implementation option for later. For now we use <span class="math notranslate nohighlight">\(\phi^B(x), \phi^D(x), \phi^W\)</span> and <span class="math notranslate nohighlight">\(\phi^T(x)\)</span>
 as common notation for basis functions in spaces <span class="math notranslate nohighlight">\(V_N^B, V_N^D, V_N^W\)</span> and <span class="math notranslate nohighlight">\(V_N^T\)</span>, respectively.</p>
 <p>To get the required approximation spaces for the entire domain we use tensor products of the
-one-dimensional spaces in <a class="reference internal" href="#equation-eq-vb">(9)</a>-<a class="reference internal" href="#equation-eq-vf">(13)</a></p>
+one-dimensional spaces in <a class="reference internal" href="#equation-eq-vb">()</a>-<a class="reference internal" href="#equation-eq-vf">()</a></p>
 <div class="math notranslate nohighlight" id="equation-eq-wbf">
-<span class="eqno">(14)<a class="headerlink" href="#equation-eq-wbf" title="Permalink to this equation">¶</a></span>\[       W_{BF} = V_N^B \otimes V_M^F,\]</div>
+<span class="eqno">()<a class="headerlink" href="#equation-eq-wbf" title="Permalink to this equation">¶</a></span>\[       W_{BF} = V_N^B \otimes V_M^F,\]</div>
 <div class="math notranslate nohighlight" id="equation-eq-wdf">
-<span class="eqno">(15)<a class="headerlink" href="#equation-eq-wdf" title="Permalink to this equation">¶</a></span>\[       W_{DF} = V_N^D \otimes V_M^F,\]</div>
+<span class="eqno">()<a class="headerlink" href="#equation-eq-wdf" title="Permalink to this equation">¶</a></span>\[       W_{DF} = V_N^D \otimes V_M^F,\]</div>
 <div class="math notranslate nohighlight" id="equation-eq-wtf">
-<span class="eqno">(16)<a class="headerlink" href="#equation-eq-wtf" title="Permalink to this equation">¶</a></span>\[       W_{TF} = V_N^T \otimes V_M^F,\]</div>
+<span class="eqno">()<a class="headerlink" href="#equation-eq-wtf" title="Permalink to this equation">¶</a></span>\[       W_{TF} = V_N^T \otimes V_M^F,\]</div>
 <div class="math notranslate nohighlight" id="equation-eq-wwf">
-<span class="eqno">(17)<a class="headerlink" href="#equation-eq-wwf" title="Permalink to this equation">¶</a></span>\[       W_{WF} = V_N^W \otimes V_M^F.\]</div>
+<span class="eqno">()<a class="headerlink" href="#equation-eq-wwf" title="Permalink to this equation">¶</a></span>\[       W_{WF} = V_N^W \otimes V_M^F.\]</div>
 <p>Space <span class="math notranslate nohighlight">\(W_{BF}\)</span> has 2D tensor product basis functions <span class="math notranslate nohighlight">\(\phi_k^B(x) \exp (\imath l y)\)</span> and
 similar for the others. All in all
 we get the following approximations for the unknowns</p>
 <div class="math notranslate nohighlight" id="equation-auto1">
-<span class="eqno">(18)<a class="headerlink" href="#equation-auto1" title="Permalink to this equation">¶</a></span>\[         u_N(x, y, t) = \sum_{k \in \boldsymbol{k}_B} \sum_{l \in \boldsymbol{l}} \hat{u}_{kl}(t) \phi_k^B(x) \exp(\imath l y),\]</div>
+<span class="eqno">()<a class="headerlink" href="#equation-auto1" title="Permalink to this equation">¶</a></span>\[         u_N(x, y, t) = \sum_{k \in \boldsymbol{k}_B} \sum_{l \in \boldsymbol{l}} \hat{u}_{kl}(t) \phi_k^B(x) \exp(\imath l y),\]</div>
 <div class="math notranslate nohighlight" id="equation-auto2">
-<span class="eqno">(19)<a class="headerlink" href="#equation-auto2" title="Permalink to this equation">¶</a></span>\[         v_N(x, y, t) = \sum_{k \in \boldsymbol{k}_D} \sum_{l \in \boldsymbol{l}} \hat{v}_{kl}(t) \phi_k^D(x) \exp(\imath l y),\]</div>
+<span class="eqno">()<a class="headerlink" href="#equation-auto2" title="Permalink to this equation">¶</a></span>\[         v_N(x, y, t) = \sum_{k \in \boldsymbol{k}_D} \sum_{l \in \boldsymbol{l}} \hat{v}_{kl}(t) \phi_k^D(x) \exp(\imath l y),\]</div>
 <div class="math notranslate nohighlight" id="equation-auto3">
-<span class="eqno">(20)<a class="headerlink" href="#equation-auto3" title="Permalink to this equation">¶</a></span>\[         p_N(x, y, t) = \sum_{k \in \boldsymbol{k}_W} \sum_{l \in \boldsymbol{l}} \hat{p}_{kl}(t) \phi_k^W(x) \exp(\imath l y),\]</div>
+<span class="eqno">()<a class="headerlink" href="#equation-auto3" title="Permalink to this equation">¶</a></span>\[         p_N(x, y, t) = \sum_{k \in \boldsymbol{k}_W} \sum_{l \in \boldsymbol{l}} \hat{p}_{kl}(t) \phi_k^W(x) \exp(\imath l y),\]</div>
 <div class="math notranslate nohighlight" id="equation-auto4">
-<span class="eqno">(21)<a class="headerlink" href="#equation-auto4" title="Permalink to this equation">¶</a></span>\[         T_N(x, y, t) = \sum_{k \in \boldsymbol{k}_T} \sum_{l \in \boldsymbol{l}} \hat{T}_{kl}(t) \phi_k^T(x) \exp(\imath l y),\]</div>
+<span class="eqno">()<a class="headerlink" href="#equation-auto4" title="Permalink to this equation">¶</a></span>\[         T_N(x, y, t) = \sum_{k \in \boldsymbol{k}_T} \sum_{l \in \boldsymbol{l}} \hat{T}_{kl}(t) \phi_k^T(x) \exp(\imath l y),\]</div>
 <p>where <span class="math notranslate nohighlight">\(\boldsymbol{k}_{x} = \{0, 1, \ldots \text{dim}(V_N^x)-1\}, \, \text{for} \, x\in(B, D, W, T)\)</span>
 and <span class="math notranslate nohighlight">\(\boldsymbol{l} = \{-M/2, -M/2+1, \ldots, M/2-1\}\)</span>.
 Note that since the problem is defined in real space we will have Hermitian symmetry. This means
@@ -396,17 +394,17 @@ and similar for <span class="math notranslate nohighlight">\(\hat{v}_{kl}, \hat{
 solving for only the positive <span class="math notranslate nohighlight">\(l\)</span>’s, as long as we remember that the sum in the end goes over both positive
 and negative <span class="math notranslate nohighlight">\(l's\)</span>. This is actually automatically taken care of by the FFT provider and is
 not much of an additional complexity in the implementation. So from now on <span class="math notranslate nohighlight">\(\boldsymbol{l} = \{0, 1, \ldots, M/2\}\)</span>.</p>
-<p>We can now take a look at why Eq. <a class="reference internal" href="#equation-eq-v">(6)</a> is needed. If we first solve <a class="reference internal" href="#equation-eq-u2">(5)</a> for
-<span class="math notranslate nohighlight">\(\hat{u}_{kl}(t), (k, l) \in \boldsymbol{k}_B \times \boldsymbol{l}\)</span>, then we can use <a class="reference internal" href="#equation-eq-div2">(8)</a> to
+<p>We can now take a look at why Eq. <a class="reference internal" href="#equation-eq-v">()</a> is needed. If we first solve <a class="reference internal" href="#equation-eq-u2">()</a> for
+<span class="math notranslate nohighlight">\(\hat{u}_{kl}(t), (k, l) \in \boldsymbol{k}_B \times \boldsymbol{l}\)</span>, then we can use <a class="reference internal" href="#equation-eq-div2">()</a> to
 solve for <span class="math notranslate nohighlight">\(\hat{v}_{kl}(t)\)</span>. But here there is a problem. We can see this by creating the variational
-form required to solve <a class="reference internal" href="#equation-eq-div2">(8)</a> by the spectral Galerkin method. To this end make <span class="math notranslate nohighlight">\(v=v_N\)</span> in <a class="reference internal" href="#equation-eq-div2">(8)</a>
+form required to solve <a class="reference internal" href="#equation-eq-div2">()</a> by the spectral Galerkin method. To this end make <span class="math notranslate nohighlight">\(v=v_N\)</span> in <a class="reference internal" href="#equation-eq-div2">()</a>
 a trial function, use <span class="math notranslate nohighlight">\(u=u_N\)</span> a known function and take the weighted inner product over the
 domain using test function <span class="math notranslate nohighlight">\(q \in W_{DF}\)</span></p>
 <div class="math notranslate nohighlight" id="equation-auto5">
-<span class="eqno">(22)<a class="headerlink" href="#equation-auto5" title="Permalink to this equation">¶</a></span>\[         \left &lt; \frac{\partial u_N}{\partial x} + \frac{\partial v_N}{\partial y}, q \right &gt; _w = 0.\]</div>
+<span class="eqno">()<a class="headerlink" href="#equation-auto5" title="Permalink to this equation">¶</a></span>\[         \left &lt; \frac{\partial u_N}{\partial x} + \frac{\partial v_N}{\partial y}, q \right &gt; _w = 0.\]</div>
 <p>Here we are using the inner product notation</p>
 <div class="math notranslate nohighlight" id="equation-auto6">
-<span class="eqno">(23)<a class="headerlink" href="#equation-auto6" title="Permalink to this equation">¶</a></span>\[         \left &lt; a, b \right &gt; _w = \int_{-1}^1 \int_0^{2\pi} a \overline{b} dx_wdy_w \left(\approx \sum_{i}\sum_{j} a(x_i, y_j) \overline{b}(x_i, y_j) w(x_i) w(y_j)\right),\]</div>
+<span class="eqno">()<a class="headerlink" href="#equation-auto6" title="Permalink to this equation">¶</a></span>\[         \left &lt; a, b \right &gt; _w = \int_{-1}^1 \int_0^{2\pi} a \overline{b} dx_wdy_w \left(\approx \sum_{i}\sum_{j} a(x_i, y_j) \overline{b}(x_i, y_j) w(x_i) w(y_j)\right),\]</div>
 <p>where the exact form of the
 weighted scalar product depends on the chosen basis; Legendre has <span class="math notranslate nohighlight">\(dx_w=dx\)</span>, Chebyshev
 <span class="math notranslate nohighlight">\(dx_w = dx/\sqrt{1-x^2}\)</span> and Fourier <span class="math notranslate nohighlight">\(dy_w=dy/2/\pi\)</span>. The bases also have associated quadrature weights
@@ -414,39 +412,39 @@ weighted scalar product depends on the chosen basis; Legendre has <span class="m
 <p>Inserting now for the known <span class="math notranslate nohighlight">\(u_N\)</span>, the unknown <span class="math notranslate nohighlight">\(v_N\)</span>, and <span class="math notranslate nohighlight">\(q=\phi_m^D(x) \exp(\imath n y)\)</span> the
 continuity equation becomes</p>
 <div class="math notranslate nohighlight" id="equation-eq-u4">
-<span class="eqno">(24)<a class="headerlink" href="#equation-eq-u4" title="Permalink to this equation">¶</a></span>\[\begin{split}       \int_{-1}^1 \int_{0}^{2\pi} \frac{\partial}{\partial x} \left(\sum_{k \in \boldsymbol{k}_B} \sum_{l \in \boldsymbol{l}} \hat{u}_{kl}(t) \phi_k^B(x) \exp(\imath l y) \right) \phi_m^D(x) \exp(-\imath n y) dx_w dy_w + \\
+<span class="eqno">()<a class="headerlink" href="#equation-eq-u4" title="Permalink to this equation">¶</a></span>\[\begin{split}       \int_{-1}^1 \int_{0}^{2\pi} \frac{\partial}{\partial x} \left(\sum_{k \in \boldsymbol{k}_B} \sum_{l \in \boldsymbol{l}} \hat{u}_{kl}(t) \phi_k^B(x) \exp(\imath l y) \right) \phi_m^D(x) \exp(-\imath n y) dx_w dy_w + \\
        \int_{-1}^1 \int_{0}^{2\pi} \frac{\partial}{\partial y} \left(\sum_{k \in \boldsymbol{k}_D} \sum_{l \in \boldsymbol{l}} \hat{v}_{kl}(t) \phi_k^D(x) \exp(\imath l y) \right) \phi_m^D(x) \exp(-\imath n y) dx_w dy_w  = 0.\end{split}\]</div>
 <p>The <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> domains are separable, so we can rewrite as</p>
 <div class="math notranslate nohighlight" id="equation-auto7">
-<span class="eqno">(25)<a class="headerlink" href="#equation-auto7" title="Permalink to this equation">¶</a></span>\[\begin{split}         \sum_{k \in \boldsymbol{k}_B} \sum_{l \in \boldsymbol{l}} \int_{-1}^1 \frac{\partial \phi_k^B(x)}{\partial x}  \phi_m^D(x) dx_w \int_{0}^{2\pi} \exp(\imath l y) \exp(-\imath n y) dy_w \hat{u}_{kl} + \\
+<span class="eqno">()<a class="headerlink" href="#equation-auto7" title="Permalink to this equation">¶</a></span>\[\begin{split}         \sum_{k \in \boldsymbol{k}_B} \sum_{l \in \boldsymbol{l}} \int_{-1}^1 \frac{\partial \phi_k^B(x)}{\partial x}  \phi_m^D(x) dx_w \int_{0}^{2\pi} \exp(\imath l y) \exp(-\imath n y) dy_w \hat{u}_{kl} + \\
          \sum_{k \in \boldsymbol{k}_D} \sum_{l \in \boldsymbol{l}} \int_{-1}^1 \phi_k^D(x) \phi_m^D(x) dx_w   \int_{0}^{2\pi} \frac{\partial \exp(\imath l y)}{\partial y} \exp(-\imath n y) dy_w \hat{v}_{kl} = 0.\end{split}\]</div>
 <p>Now perform some exact manipulations in the Fourier direction and introduce the
 1D inner product notation for the <span class="math notranslate nohighlight">\(x\)</span>-direction</p>
 <div class="math notranslate nohighlight" id="equation-auto8">
-<span class="eqno">(26)<a class="headerlink" href="#equation-auto8" title="Permalink to this equation">¶</a></span>\[         \left(a, b\right)_w = \int_{-1}^1 a(x) b(x) dx_w \left(\approx \sum_{j = 0}^{N-1} a(x_j)b(x_j) w(x_j)\right).\]</div>
+<span class="eqno">()<a class="headerlink" href="#equation-auto8" title="Permalink to this equation">¶</a></span>\[         \left(a, b\right)_w = \int_{-1}^1 a(x) b(x) dx_w \left(\approx \sum_{j = 0}^{N-1} a(x_j)b(x_j) w(x_j)\right).\]</div>
 <p>By also simplifying the notation using summation of repeated indices,
 we get the following equation</p>
 <div class="math notranslate nohighlight" id="equation-auto9">
-<span class="eqno">(27)<a class="headerlink" href="#equation-auto9" title="Permalink to this equation">¶</a></span>\[        \delta_{ln} \left(\frac{\partial \phi_k^B}{\partial x}, \phi_m^D \right)_w \hat{u}_{kl}
+<span class="eqno">()<a class="headerlink" href="#equation-auto9" title="Permalink to this equation">¶</a></span>\[        \delta_{ln} \left(\frac{\partial \phi_k^B}{\partial x}, \phi_m^D \right)_w \hat{u}_{kl}
         + \imath l \delta_{ln} \left(\phi_k^D, \phi_m^D \right)_w \hat{v}_{kl}  = 0.\]</div>
 <p>Now <span class="math notranslate nohighlight">\(l\)</span> must equal <span class="math notranslate nohighlight">\(n\)</span> and we can simplify some more</p>
 <div class="math notranslate nohighlight" id="equation-eq-div3">
-<span class="eqno">(28)<a class="headerlink" href="#equation-eq-div3" title="Permalink to this equation">¶</a></span>\[        \left(\frac{\partial \phi_k^B}{\partial x}, \phi_m^D \right)_w \hat{u}_{kl}
+<span class="eqno">()<a class="headerlink" href="#equation-eq-div3" title="Permalink to this equation">¶</a></span>\[        \left(\frac{\partial \phi_k^B}{\partial x}, \phi_m^D \right)_w \hat{u}_{kl}
         + \imath l \left(\phi_k^D, \phi_m^D \right)_w \hat{v}_{kl}  = 0.\]</div>
 <p>We see that this equation can be solved for
 <span class="math notranslate nohighlight">\(\hat{v}_{kl} \text{ for } (k, l) \in \boldsymbol{k}_D \times [1, 2, \ldots, M/2]\)</span>, but try with
 <span class="math notranslate nohighlight">\(l=0\)</span> and you hit division by zero, which obviously is not allowed. And this is the reason
-why Eq. <a class="reference internal" href="#equation-eq-v">(6)</a> is still needed, to solve for <span class="math notranslate nohighlight">\(\hat{v}_{k,0}\)</span>! Fortunately,
+why Eq. <a class="reference internal" href="#equation-eq-v">()</a> is still needed, to solve for <span class="math notranslate nohighlight">\(\hat{v}_{k,0}\)</span>! Fortunately,
 since <span class="math notranslate nohighlight">\(\exp(\imath 0 y) = 1\)</span>, the pressure derivative <span class="math notranslate nohighlight">\(\frac{\partial p}{\partial y} = 0\)</span>,
 and as such the pressure is still not required. When used only for
-Fourier coefficient 0, Eq. <a class="reference internal" href="#equation-eq-v">(6)</a> becomes</p>
+Fourier coefficient 0, Eq. <a class="reference internal" href="#equation-eq-v">()</a> becomes</p>
 <div class="math notranslate nohighlight" id="equation-eq-vx">
-<span class="eqno">(29)<a class="headerlink" href="#equation-eq-vx" title="Permalink to this equation">¶</a></span>\[     \frac{\partial v}{\partial t} + N_y = \sqrt{\frac{Pr}{Ra}} \nabla^2 v.\]</div>
-<p>There is still one more revelation to be made from Eq. <a class="reference internal" href="#equation-eq-div3">(28)</a>. When <span class="math notranslate nohighlight">\(l=0\)</span> we get</p>
+<span class="eqno">()<a class="headerlink" href="#equation-eq-vx" title="Permalink to this equation">¶</a></span>\[     \frac{\partial v}{\partial t} + N_y = \sqrt{\frac{Pr}{Ra}} \nabla^2 v.\]</div>
+<p>There is still one more revelation to be made from Eq. <a class="reference internal" href="#equation-eq-div3">()</a>. When <span class="math notranslate nohighlight">\(l=0\)</span> we get</p>
 <div class="math notranslate nohighlight" id="equation-auto10">
-<span class="eqno">(30)<a class="headerlink" href="#equation-auto10" title="Permalink to this equation">¶</a></span>\[         \left(\frac{\partial \phi_k^B}{\partial x}, \phi_m^D \right)_w \hat{u}_{k,0} = 0,\]</div>
+<span class="eqno">()<a class="headerlink" href="#equation-auto10" title="Permalink to this equation">¶</a></span>\[         \left(\frac{\partial \phi_k^B}{\partial x}, \phi_m^D \right)_w \hat{u}_{k,0} = 0,\]</div>
 <p>and the only way to satisfy this is if <span class="math notranslate nohighlight">\(\hat{u}_{k,0}=0\)</span> for <span class="math notranslate nohighlight">\(k\in\boldsymbol{k}_B\)</span>. Bottom line is
-that we only need to solve Eq. <a class="reference internal" href="#equation-eq-u2">(5)</a> for <span class="math notranslate nohighlight">\(l \in \boldsymbol{l}/\{0\}\)</span>, whereas we can use
+that we only need to solve Eq. <a class="reference internal" href="#equation-eq-u2">()</a> for <span class="math notranslate nohighlight">\(l \in \boldsymbol{l}/\{0\}\)</span>, whereas we can use
 directly <span class="math notranslate nohighlight">\(\hat{u}_{k,0}=0 \text{ for } k \in \boldsymbol{k}_B\)</span>.</p>
 <p>To sum up, with the solution known at <span class="math notranslate nohighlight">\(t = t - \Delta t\)</span>, we solve</p>
 <table class="table">
@@ -462,19 +460,19 @@ directly <span class="math notranslate nohighlight">\(\hat{u}_{k,0}=0 \text{ for
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><a class="reference internal" href="#equation-eq-u2">(5)</a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#equation-eq-u2">()</a></p></td>
 <td><p><span class="math notranslate nohighlight">\(\hat{u}_{kl}(t)\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\((k, l) \in \boldsymbol{k}_B \times \boldsymbol{l}/\{0\}\)</span></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#equation-eq-div2">(8)</a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#equation-eq-div2">()</a></p></td>
 <td><p><span class="math notranslate nohighlight">\(\hat{v}_{kl}(t)\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\((k, l) \in \boldsymbol{k}_D \times \boldsymbol{l}/\{0\}\)</span></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#equation-eq-vx">(29)</a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#equation-eq-vx">()</a></p></td>
 <td><p><span class="math notranslate nohighlight">\(\hat{v}_{kl}(t)\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\((k, l) \in \boldsymbol{k}_D \times \{0\}\)</span></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#equation-eq-t2">(7)</a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#equation-eq-t2">()</a></p></td>
 <td><p><span class="math notranslate nohighlight">\(\hat{T}_{kl}(t)\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\((k, l) \in \boldsymbol{k}_T \times \boldsymbol{l}\)</span></p></td>
 </tr>
@@ -486,20 +484,20 @@ directly <span class="math notranslate nohighlight">\(\hat{u}_{k,0}=0 \text{ for
 <p>The governing equations are integrated in time using a semi-implicit third order Runge Kutta method.
 This method applies to any generic equation</p>
 <div class="math notranslate nohighlight" id="equation-eq-genericpsi">
-<span class="eqno">(31)<a class="headerlink" href="#equation-eq-genericpsi" title="Permalink to this equation">¶</a></span>\[      \frac{\partial \psi}{\partial t} = \mathcal{N} + \mathcal{L}\psi ,\]</div>
+<span class="eqno">()<a class="headerlink" href="#equation-eq-genericpsi" title="Permalink to this equation">¶</a></span>\[      \frac{\partial \psi}{\partial t} = \mathcal{N} + \mathcal{L}\psi ,\]</div>
 <p>where <span class="math notranslate nohighlight">\(\mathcal{N}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{L}\)</span> represents the nonlinear and linear contributions, respectively.
 With time discretized as <span class="math notranslate nohighlight">\(t_n = n \Delta t, \, n = 0, 1, 2, ...\)</span>, the
 Runge Kutta method also subdivides each timestep into stages
 <span class="math notranslate nohighlight">\(t_n^k = t_n + c_k \Delta t, \, k = (0, 1, .., N_s-1)\)</span>, where <span class="math notranslate nohighlight">\(N_s\)</span> is
 the number of stages. The third order Runge Kutta method implemented here uses three stages.
-On one timestep the generic equation <a class="reference internal" href="#equation-eq-genericpsi">(31)</a>
+On one timestep the generic equation <a class="reference internal" href="#equation-eq-genericpsi">()</a>
 is then integrated from stage <span class="math notranslate nohighlight">\(k\)</span> to <span class="math notranslate nohighlight">\(k+1\)</span> according to</p>
 <div class="math notranslate nohighlight" id="equation-auto11">
-<span class="eqno">(32)<a class="headerlink" href="#equation-auto11" title="Permalink to this equation">¶</a></span>\[         \psi^{k+1} = \psi^k + a_k \mathcal{N}^k + b_k \mathcal{N}^{k-1} + \frac{a_k+b_k}{2}\mathcal{L}(\psi^{k+1}+\psi^{k}),\]</div>
+<span class="eqno">()<a class="headerlink" href="#equation-auto11" title="Permalink to this equation">¶</a></span>\[         \psi^{k+1} = \psi^k + a_k \mathcal{N}^k + b_k \mathcal{N}^{k-1} + \frac{a_k+b_k}{2}\mathcal{L}(\psi^{k+1}+\psi^{k}),\]</div>
 <p>which should be rearranged with the unknowns on the left hand side and the
 knowns on the right hand side</p>
 <div class="math notranslate nohighlight" id="equation-eq-rk3stages">
-<span class="eqno">(33)<a class="headerlink" href="#equation-eq-rk3stages" title="Permalink to this equation">¶</a></span>\[         \big(1-\frac{a_k+b_k}{2}\mathcal{L}\big)\psi^{k+1} = \big(1 + \frac{a_k+b_k}{2}\mathcal{L}\big)\psi^{k} + a_k \mathcal{N}^k + b_k \mathcal{N}^{k-1}.\]</div>
+<span class="eqno">()<a class="headerlink" href="#equation-eq-rk3stages" title="Permalink to this equation">¶</a></span>\[         \big(1-\frac{a_k+b_k}{2}\mathcal{L}\big)\psi^{k+1} = \big(1 + \frac{a_k+b_k}{2}\mathcal{L}\big)\psi^{k} + a_k \mathcal{N}^k + b_k \mathcal{N}^{k-1}.\]</div>
 <p>For the three-stage third order Runge Kutta method the constants are given as</p>
 <table class="table">
 <colgroup>
@@ -530,19 +528,19 @@ knowns on the right hand side</p>
 </table>
 <p>For the spectral Galerkin method used by <code class="docutils literal notranslate"><span class="pre">shenfun</span></code> the governing equation
 is first put in a weak variational form. This will change the appearence of
-Eq. <a class="reference internal" href="#equation-eq-rk3stages">(33)</a> slightly. If <span class="math notranslate nohighlight">\(\phi\)</span> is a test function, <span class="math notranslate nohighlight">\(\psi^{k+1}\)</span>
+Eq. <a class="reference internal" href="#equation-eq-rk3stages">()</a> slightly. If <span class="math notranslate nohighlight">\(\phi\)</span> is a test function, <span class="math notranslate nohighlight">\(\psi^{k+1}\)</span>
 the trial function, and <span class="math notranslate nohighlight">\(\psi^{k}\)</span> a known function, then the variational form
-of <a class="reference internal" href="#equation-eq-rk3stages">(33)</a> is obtained by multiplying <a class="reference internal" href="#equation-eq-rk3stages">(33)</a> by <span class="math notranslate nohighlight">\(\phi\)</span> and
+of <a class="reference internal" href="#equation-eq-rk3stages">()</a> is obtained by multiplying <a class="reference internal" href="#equation-eq-rk3stages">()</a> by <span class="math notranslate nohighlight">\(\phi\)</span> and
 integrating (with weights) over the domain</p>
 <div class="math notranslate nohighlight" id="equation-eq-rk3stagesvar">
-<span class="eqno">(34)<a class="headerlink" href="#equation-eq-rk3stagesvar" title="Permalink to this equation">¶</a></span>\[         \Big &lt; (1-\frac{a_k+b_k}{2}\mathcal{L})\psi^{k+1}, \phi \Big &gt; _w = \Big &lt; (1 + \frac{a_k+b_k}{2}\mathcal{L})\psi^{k}, \phi\Big &gt; _w + \Big &lt; a_k \mathcal{N}^k + b_k \mathcal{N}^{k-1}, \phi \Big &gt; _w.\]</div>
-<p>Equation <a class="reference internal" href="#equation-eq-rk3stagesvar">(34)</a> is the variational form implemented by <code class="docutils literal notranslate"><span class="pre">shenfun</span></code> for the
+<span class="eqno">()<a class="headerlink" href="#equation-eq-rk3stagesvar" title="Permalink to this equation">¶</a></span>\[         \Big &lt; (1-\frac{a_k+b_k}{2}\mathcal{L})\psi^{k+1}, \phi \Big &gt; _w = \Big &lt; (1 + \frac{a_k+b_k}{2}\mathcal{L})\psi^{k}, \phi\Big &gt; _w + \Big &lt; a_k \mathcal{N}^k + b_k \mathcal{N}^{k-1}, \phi \Big &gt; _w.\]</div>
+<p>Equation <a class="reference internal" href="#equation-eq-rk3stagesvar">()</a> is the variational form implemented by <code class="docutils literal notranslate"><span class="pre">shenfun</span></code> for the
 time dependent equations.</p>
 </div>
 <div class="section" id="implementation">
 <h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h2>
 <p>To get started we need instances of the approximation spaces discussed in
-Eqs. <a class="reference internal" href="#equation-eq-vb">(9)</a> - <a class="reference internal" href="#equation-eq-wwf">(17)</a>. When the spaces are created we also need
+Eqs. <a class="reference internal" href="#equation-eq-vb">()</a> - <a class="reference internal" href="#equation-eq-wwf">()</a>. When the spaces are created we also need
 to specify the family and the dimension of each space. Here we simply
 choose Chebyshev and Fourier with 100 and 256 quadrature points in <span class="math notranslate nohighlight">\(x\)</span> and
 <span class="math notranslate nohighlight">\(y\)</span>-directions, respectively. We could replace ‘Chebyshev’ by ‘Legendre’,
@@ -558,7 +556,7 @@ but the former is known to be faster due to the existence of fast transforms.</p
 <span class="n">VF</span> <span class="o">=</span> <span class="n">FunctionSpace</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;d&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>And then we create tensor product spaces by combining these bases (like in Eqs. <a class="reference internal" href="#equation-eq-wbf">(14)</a>-<a class="reference internal" href="#equation-eq-wwf">(17)</a>).</p>
+<p>And then we create tensor product spaces by combining these bases (like in Eqs. <a class="reference internal" href="#equation-eq-wbf">()</a>-<a class="reference internal" href="#equation-eq-wwf">()</a>).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">W_BF</span> <span class="o">=</span> <span class="n">TensorProductSpace</span><span class="p">(</span><span class="n">comm</span><span class="p">,</span> <span class="p">(</span><span class="n">VB</span><span class="p">,</span> <span class="n">VF</span><span class="p">))</span>    <span class="c1"># Wall-normal velocity</span>
 <span class="n">W_DF</span> <span class="o">=</span> <span class="n">TensorProductSpace</span><span class="p">(</span><span class="n">comm</span><span class="p">,</span> <span class="p">(</span><span class="n">VD</span><span class="p">,</span> <span class="n">VF</span><span class="p">))</span>    <span class="c1"># Streamwise velocity</span>
 <span class="n">W_WF</span> <span class="o">=</span> <span class="n">TensorProductSpace</span><span class="p">(</span><span class="n">comm</span><span class="p">,</span> <span class="p">(</span><span class="n">VW</span><span class="p">,</span> <span class="n">VF</span><span class="p">))</span>    <span class="c1"># No bc</span>
@@ -589,7 +587,7 @@ segregated approach outlined above.</p>
 but we do not add that level of complexity here.</p>
 <div class="section" id="wall-normal-velocity-equation">
 <h3>Wall-normal velocity equation<a class="headerlink" href="#wall-normal-velocity-equation" title="Permalink to this headline">¶</a></h3>
-<p>We implement Eq. <a class="reference internal" href="#equation-eq-u2">(5)</a> using the three-stage Runge Kutta equation <a class="reference internal" href="#equation-eq-rk3stagesvar">(34)</a>.
+<p>We implement Eq. <a class="reference internal" href="#equation-eq-u2">()</a> using the three-stage Runge Kutta equation <a class="reference internal" href="#equation-eq-rk3stagesvar">()</a>.
 To this end we first need to declare some test- and trial functions, as well as
 some model constants</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="n">TrialFunction</span><span class="p">(</span><span class="n">W_BF</span><span class="p">)</span>
@@ -612,14 +610,14 @@ some model constants</p>
     <span class="n">solver</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">chebyshev</span><span class="o">.</span><span class="n">la</span><span class="o">.</span><span class="n">Biharmonic</span><span class="p">(</span><span class="o">*</span><span class="n">mats</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>Notice the one-to-one resemblance with the left hand side of <a class="reference internal" href="#equation-eq-rk3stagesvar">(34)</a>, where <span class="math notranslate nohighlight">\(\psi^{k+1}\)</span>
-now has been replaced by <span class="math notranslate nohighlight">\(\nabla^2 u\)</span> (or <code class="docutils literal notranslate"><span class="pre">div(grad(u))</span></code>) from Eq. <a class="reference internal" href="#equation-eq-u2">(5)</a>.
+<p>Notice the one-to-one resemblance with the left hand side of <a class="reference internal" href="#equation-eq-rk3stagesvar">()</a>, where <span class="math notranslate nohighlight">\(\psi^{k+1}\)</span>
+now has been replaced by <span class="math notranslate nohighlight">\(\nabla^2 u\)</span> (or <code class="docutils literal notranslate"><span class="pre">div(grad(u))</span></code>) from Eq. <a class="reference internal" href="#equation-eq-u2">()</a>.
 For each stage we assemble a list of tensor product matrices <code class="docutils literal notranslate"><span class="pre">mats</span></code>, and in <code class="docutils literal notranslate"><span class="pre">chebyshev.la</span></code>
 there is available a very fast direct solver for exactly this type of (biharmonic)
 matrices. The solver is created with <code class="docutils literal notranslate"><span class="pre">chebyshev.la.Biharmonic(*mats)</span></code>, and here
 the necessary LU-decomposition is carried out for later use and reuse on each time step.</p>
 <p>The right hand side depends on the solution on the previous stage, and the
-convection on two previous stages. The linear part (first term on right hand side of <a class="reference internal" href="#equation-eq-rk3stages">(33)</a>)
+convection on two previous stages. The linear part (first term on right hand side of <a class="reference internal" href="#equation-eq-rk3stages">()</a>)
 can be assembled as</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">inner</span><span class="p">(</span><span class="n">div</span><span class="p">(</span><span class="n">grad</span><span class="p">(</span><span class="n">u_</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span> <span class="o">+</span> <span class="p">((</span><span class="n">a</span><span class="p">[</span><span class="n">rk</span><span class="p">]</span><span class="o">+</span><span class="n">b</span><span class="p">[</span><span class="n">rk</span><span class="p">])</span><span class="o">*</span><span class="n">nu</span><span class="o">*</span><span class="n">dt</span><span class="o">/</span><span class="mf">2.</span><span class="p">)</span><span class="o">*</span><span class="n">div</span><span class="p">(</span><span class="n">grad</span><span class="p">(</span><span class="n">div</span><span class="p">(</span><span class="n">grad</span><span class="p">(</span><span class="n">u_</span><span class="p">[</span><span class="mi">0</span><span class="p">])))),</span> <span class="n">v</span><span class="p">)</span>
 </pre></div>
@@ -675,11 +673,11 @@ whereas <code class="docutils literal notranslate"><span class="pre">rhs[0]</spa
 </div>
 <div class="section" id="streamwise-velocity">
 <h3>Streamwise velocity<a class="headerlink" href="#streamwise-velocity" title="Permalink to this headline">¶</a></h3>
-<p>The streamwise velocity is computed using Eq. <a class="reference internal" href="#equation-eq-div3">(28)</a> and <a class="reference internal" href="#equation-eq-vx">(29)</a>. For efficiency we
-can here preassemble both matrices seen in <a class="reference internal" href="#equation-eq-div3">(28)</a> and reuse them every
+<p>The streamwise velocity is computed using Eq. <a class="reference internal" href="#equation-eq-div3">()</a> and <a class="reference internal" href="#equation-eq-vx">()</a>. For efficiency we
+can here preassemble both matrices seen in <a class="reference internal" href="#equation-eq-div3">()</a> and reuse them every
 time the streamwise velocity is being computed. We will also need the
 wavenumber <span class="math notranslate nohighlight">\(\boldsymbol{l}\)</span>, here retrived using <code class="docutils literal notranslate"><span class="pre">W_BF.local_wavenumbers(scaled=True)</span></code>.
-For <a class="reference internal" href="#equation-eq-vx">(29)</a> we preassemble the required Helmholtz solvers, one for
+For <a class="reference internal" href="#equation-eq-vx">()</a> we preassemble the required Helmholtz solvers, one for
 each RK stage.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Assemble matrices and solvers for all stages</span>
 <span class="n">B_DD</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="n">TestFunction</span><span class="p">(</span><span class="n">W_DF</span><span class="p">),</span> <span class="n">TrialFunction</span><span class="p">(</span><span class="n">W_DF</span><span class="p">))</span>
@@ -722,36 +720,36 @@ each RK stage.</p>
 </div>
 <div class="section" id="temperature">
 <h3>Temperature<a class="headerlink" href="#temperature" title="Permalink to this headline">¶</a></h3>
-<p>The temperature equation <a class="reference internal" href="#equation-eq-t">(2)</a> is implemented using a Helmholtz solver.
+<p>The temperature equation <a class="reference internal" href="#equation-eq-t">()</a> is implemented using a Helmholtz solver.
 The main difficulty with the temperature is the non-homogeneous boundary
 condition that requires special attention. A non-zero Dirichlet boundary
 condition is implemented by adding two basis functions to the
 basis of the function space</p>
 <div class="math notranslate nohighlight" id="equation-auto12">
-<span class="eqno">(35)<a class="headerlink" href="#equation-auto12" title="Permalink to this equation">¶</a></span>\[         \phi^D_{N-2} = 0.5(1+x),\]</div>
+<span class="eqno">()<a class="headerlink" href="#equation-auto12" title="Permalink to this equation">¶</a></span>\[         \phi^D_{N-2} = 0.5(1+x),\]</div>
 <div class="math notranslate nohighlight" id="equation-auto13">
-<span class="eqno">(36)<a class="headerlink" href="#equation-auto13" title="Permalink to this equation">¶</a></span>\[         \phi^D_{N-1} = 0.5(1-x),\]</div>
+<span class="eqno">()<a class="headerlink" href="#equation-auto13" title="Permalink to this equation">¶</a></span>\[         \phi^D_{N-1} = 0.5(1-x),\]</div>
 <p>with the approximation now becoming</p>
 <div class="math notranslate nohighlight" id="equation-auto14">
-<span class="eqno">(37)<a class="headerlink" href="#equation-auto14" title="Permalink to this equation">¶</a></span>\[         T_N(x, y, t) = \sum_{k=0}^{N-1} \sum_{l \in \boldsymbol{l}} \hat{T}_{kl} \phi^D_k(x)\exp(\imath l y),\]</div>
+<span class="eqno">()<a class="headerlink" href="#equation-auto14" title="Permalink to this equation">¶</a></span>\[         T_N(x, y, t) = \sum_{k=0}^{N-1} \sum_{l \in \boldsymbol{l}} \hat{T}_{kl} \phi^D_k(x)\exp(\imath l y),\]</div>
 <div class="math notranslate nohighlight" id="equation-auto15">
-<span class="eqno">(38)<a class="headerlink" href="#equation-auto15" title="Permalink to this equation">¶</a></span>\[                      = \sum_{k=0}^{N-3} \sum_{l \in \boldsymbol{l}} \hat{T}_{kl} \phi^D_k(x)\exp(\imath l y) + \sum_{k=N-2}^{N-1} \sum_{l \in \boldsymbol{l}} \hat{T}_{kl} \phi^D_k(x)\exp(\imath l y).\]</div>
+<span class="eqno">()<a class="headerlink" href="#equation-auto15" title="Permalink to this equation">¶</a></span>\[                      = \sum_{k=0}^{N-3} \sum_{l \in \boldsymbol{l}} \hat{T}_{kl} \phi^D_k(x)\exp(\imath l y) + \sum_{k=N-2}^{N-1} \sum_{l \in \boldsymbol{l}} \hat{T}_{kl} \phi^D_k(x)\exp(\imath l y).\]</div>
 <p>The boundary condition requires</p>
 <div class="math notranslate nohighlight" id="equation-auto16">
-<span class="eqno">(39)<a class="headerlink" href="#equation-auto16" title="Permalink to this equation">¶</a></span>\[     T_N(1, y, t) = \sum_{k=N-2}^{N-1} \sum_{l \in \boldsymbol{l}} \hat{T}_{kl} \phi^D_k(1)\exp(\imath l y),\]</div>
+<span class="eqno">()<a class="headerlink" href="#equation-auto16" title="Permalink to this equation">¶</a></span>\[     T_N(1, y, t) = \sum_{k=N-2}^{N-1} \sum_{l \in \boldsymbol{l}} \hat{T}_{kl} \phi^D_k(1)\exp(\imath l y),\]</div>
 <div class="math notranslate nohighlight" id="equation-eq-tn0">
-<span class="eqno">(40)<a class="headerlink" href="#equation-eq-tn0" title="Permalink to this equation">¶</a></span>\[                  = \sum_{l \in \boldsymbol{l}} \hat{T}_{N-2, l} \exp(\imath l y),\]</div>
+<span class="eqno">()<a class="headerlink" href="#equation-eq-tn0" title="Permalink to this equation">¶</a></span>\[                  = \sum_{l \in \boldsymbol{l}} \hat{T}_{N-2, l} \exp(\imath l y),\]</div>
 <p>and</p>
 <div class="math notranslate nohighlight" id="equation-auto17">
-<span class="eqno">(41)<a class="headerlink" href="#equation-auto17" title="Permalink to this equation">¶</a></span>\[     T_N(-1, y, t) = \sum_{k=N-2}^{N-1} \sum_{l \in \boldsymbol{l}} \hat{T}_{kl} \phi^D_k(-1)\exp(\imath l y),\]</div>
+<span class="eqno">()<a class="headerlink" href="#equation-auto17" title="Permalink to this equation">¶</a></span>\[     T_N(-1, y, t) = \sum_{k=N-2}^{N-1} \sum_{l \in \boldsymbol{l}} \hat{T}_{kl} \phi^D_k(-1)\exp(\imath l y),\]</div>
 <div class="math notranslate nohighlight" id="equation-eq-tn1">
-<span class="eqno">(42)<a class="headerlink" href="#equation-eq-tn1" title="Permalink to this equation">¶</a></span>\[                   = \sum_{l \in \boldsymbol{l}} \hat{T}_{N-1, l} \exp(\imath l y).\]</div>
-<p>We find <span class="math notranslate nohighlight">\(\hat{T}_{N-2, l}\)</span> and <span class="math notranslate nohighlight">\(\hat{T}_{N-1, l}\)</span> using orthogonality. Multiply <a class="reference internal" href="#equation-eq-tn0">(40)</a> and
-<a class="reference internal" href="#equation-eq-tn1">(42)</a> by <span class="math notranslate nohighlight">\(\exp(-\imath m y)\)</span> and integrate over the domain <span class="math notranslate nohighlight">\([0, 2\pi]\)</span>. We get</p>
+<span class="eqno">()<a class="headerlink" href="#equation-eq-tn1" title="Permalink to this equation">¶</a></span>\[                   = \sum_{l \in \boldsymbol{l}} \hat{T}_{N-1, l} \exp(\imath l y).\]</div>
+<p>We find <span class="math notranslate nohighlight">\(\hat{T}_{N-2, l}\)</span> and <span class="math notranslate nohighlight">\(\hat{T}_{N-1, l}\)</span> using orthogonality. Multiply <a class="reference internal" href="#equation-eq-tn0">()</a> and
+<a class="reference internal" href="#equation-eq-tn1">()</a> by <span class="math notranslate nohighlight">\(\exp(-\imath m y)\)</span> and integrate over the domain <span class="math notranslate nohighlight">\([0, 2\pi]\)</span>. We get</p>
 <div class="math notranslate nohighlight" id="equation-auto18">
-<span class="eqno">(43)<a class="headerlink" href="#equation-auto18" title="Permalink to this equation">¶</a></span>\[         \hat{T}_{N-2, l} = \int_{0}^{2\pi} T_N(1, y, t) \exp(-\imath l y) dy,\]</div>
+<span class="eqno">()<a class="headerlink" href="#equation-auto18" title="Permalink to this equation">¶</a></span>\[         \hat{T}_{N-2, l} = \int_{0}^{2\pi} T_N(1, y, t) \exp(-\imath l y) dy,\]</div>
 <div class="math notranslate nohighlight" id="equation-auto19">
-<span class="eqno">(44)<a class="headerlink" href="#equation-auto19" title="Permalink to this equation">¶</a></span>\[         \hat{T}_{N-1, l} = \int_{0}^{2\pi} T_N(-1, y, t) \exp(-\imath l y) dy.\]</div>
+<span class="eqno">()<a class="headerlink" href="#equation-auto19" title="Permalink to this equation">¶</a></span>\[         \hat{T}_{N-1, l} = \int_{0}^{2\pi} T_N(-1, y, t) \exp(-\imath l y) dy.\]</div>
 <p>Using this approach it is easy to see that any inhomogeneous function <span class="math notranslate nohighlight">\(T_N(\pm 1, y, t)\)</span>
 of <span class="math notranslate nohighlight">\(y\)</span> and <span class="math notranslate nohighlight">\(t\)</span> can be used for the boundary condition, and not just a constant.
 To implement a non-constant Dirichlet boundary condition, the <code class="docutils literal notranslate"><span class="pre">Basis</span></code> function
@@ -775,9 +773,9 @@ assemble the matrices for the two boundary test functions. That is,
 for the 1D mass matrix with <span class="math notranslate nohighlight">\(u=\sum_{k=0}^{N-1}\hat{T}_k \phi^D_k\)</span> and <span class="math notranslate nohighlight">\(v=\phi^D_m\)</span>,
 we will have</p>
 <div class="math notranslate nohighlight" id="equation-auto20">
-<span class="eqno">(45)<a class="headerlink" href="#equation-auto20" title="Permalink to this equation">¶</a></span>\[         \left(u, v \right)_w = \left( \sum_{k=0}^{N-1} \hat{T}_k \phi^D_k(x), \phi^D_m \right)_w,\]</div>
+<span class="eqno">()<a class="headerlink" href="#equation-auto20" title="Permalink to this equation">¶</a></span>\[         \left(u, v \right)_w = \left( \sum_{k=0}^{N-1} \hat{T}_k \phi^D_k(x), \phi^D_m \right)_w,\]</div>
 <div class="math notranslate nohighlight" id="equation-auto21">
-<span class="eqno">(46)<a class="headerlink" href="#equation-auto21" title="Permalink to this equation">¶</a></span>\[                              = \sum_{k=0}^{N-3} \left(\phi^D_k(x), \phi^D_m \right)_w \hat{T}_k + \sum_{k=N-2}^{N-1} \left( \phi^D_k(x), \phi^D_m \right)_w \hat{T}_k,\]</div>
+<span class="eqno">()<a class="headerlink" href="#equation-auto21" title="Permalink to this equation">¶</a></span>\[                              = \sum_{k=0}^{N-3} \left(\phi^D_k(x), \phi^D_m \right)_w \hat{T}_k + \sum_{k=N-2}^{N-1} \left( \phi^D_k(x), \phi^D_m \right)_w \hat{T}_k,\]</div>
 <p>where the first term on the right hand side is the regular mass matrix for a
 homogeneous boundary condition, whereas the second term is due to the non-homogeneous.
 Since <span class="math notranslate nohighlight">\(\hat{T}_{N-2}\)</span> and <span class="math notranslate nohighlight">\(\hat{T}_{N-1}\)</span> are known, the second term contributes to
@@ -886,8 +884,6 @@ beginning of this demo has been created in Paraview.</p>
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="drivencavity.html" title="previous page">Demo - Lid driven cavity</a>
-    <a class='right-next' id="next-link" href="functions.html" title="next page">Demo - Working with Functions</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
