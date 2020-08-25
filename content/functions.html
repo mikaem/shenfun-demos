@@ -30,7 +30,7 @@
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_CHTML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}, "extensions": ["cancel.js", "AMSmath.js"]}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
@@ -42,7 +42,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Demo - Integration of functions" href="surfaceintegration.html" />
-    <link rel="prev" title="Demo - Rayleigh Benard" href="rayleighbenard.html" />
+    <link rel="prev" title="Demo - Rayleigh Benard" href="rayleighbenard2.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -129,7 +129,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="rayleighbenard.html">
+  <a class="reference internal" href="rayleighbenard2.html">
    Demo - Rayleigh Benard
   </a>
  </li>
@@ -297,7 +297,7 @@
 <!-- dom:AUTHOR: Mikael Mortensen Email:mikaem@math.uio.no at Department of Mathematics, University of Oslo. -->
 <!-- Author: -->  
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
-<p>Date: <strong>Aug 21, 2020</strong></p>
+<p>Date: <strong>Aug 25, 2020</strong></p>
 <p>Copyright 2020, Mikael Mortensen. Released under CC Attribution 4.0 license</p>
 <p><strong>Summary.</strong> This is a demonstration of how the Python module <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a> can be used to work with
 global spectral functions in one and several dimensions.</p>
@@ -595,8 +595,8 @@ in, like</p>
 </div>
 </div>
 </div>
-<p>As we can see this also leads to a function space of dimension 83,
-which is very similar to the orthogonal space.</p>
+<p>As we can see this leads to a function space of dimension
+very similar to the orthogonal space.</p>
 <p>The major advantages of working with a space with boundary conditions
 built in only comes to life when solving differential equations. As
 long as we are only interested in approximating functions, we may just
@@ -622,7 +622,7 @@ For example</p>
 <span class="math notranslate nohighlight">\(T_i(x) T_j(y)\)</span> and the Function <code class="docutils literal notranslate"><span class="pre">u</span></code> is</p>
 <div class="math notranslate nohighlight">
 \[
-u(x, y) = \sum_{i=0}^{7} \sum_{j=0}^7 \hat{u}_{ij} T_i(x) T_j(y).
+u(x, y) = \sum_{i=0}^{N-1} \sum_{j=0}^{N-1} \hat{u}_{ij} T_i(x) T_j(y).
 \]</div>
 <p>The multidimensional Functions work more or less exactly like for the
 1D case. We can here interpolate 2D Sympy functions</p>
@@ -791,7 +791,7 @@ we would first find a space in the first direction by using
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="rayleighbenard.html" title="previous page">Demo - Rayleigh Benard</a>
+    <a class='left-prev' id="prev-link" href="rayleighbenard2.html" title="previous page">Demo - Rayleigh Benard</a>
     <a class='right-next' id="next-link" href="surfaceintegration.html" title="next page">Demo - Integration of functions</a>
 
     </div>

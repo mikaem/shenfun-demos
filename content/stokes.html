@@ -30,7 +30,7 @@
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_CHTML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}, "extensions": ["cancel.js", "AMSmath.js"]}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
@@ -129,7 +129,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="rayleighbenard.html">
+  <a class="reference internal" href="rayleighbenard2.html">
    Demo - Rayleigh Benard
   </a>
  </li>
@@ -301,7 +301,7 @@
 <!-- dom:AUTHOR: Mikael Mortensen Email:mikaem@math.uio.no at Department of Mathematics, University of Oslo. -->
 <!-- Author: -->  
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
-<p>Date: <strong>Aug 21, 2020</strong></p>
+<p>Date: <strong>Aug 25, 2020</strong></p>
 <p>Copyright 2020, Mikael Mortensen. Released under CC Attribution 4.0 license</p>
 <p><strong>Summary.</strong> The Stokes equations describe the flow of highly viscous fluids.
 This is a demonstration of how the Python module <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a> can be used to solve Stokes
@@ -324,22 +324,22 @@ for the Legendre basis.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align*}
-\nabla^2 \mathbf{u} - \nabla p &amp;= \mathbf{f} \quad \text{in }  \Omega, \\ 
-\nabla \cdot \mathbf{u} &amp;= h \quad \text{in } \Omega  \\ 
+\nabla^2 \boldsymbol{u} - \nabla p &amp;= \boldsymbol{f} \quad \text{in }  \Omega, \\ 
+\nabla \cdot \boldsymbol{u} &amp;= h \quad \text{in } \Omega  \\ 
 \int_{\Omega} p dx &amp;= 0
 \end{align*}
 \end{split}\]</div>
-<p>where <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> and <span class="math notranslate nohighlight">\(p\)</span> are, respectively, the
+<p>where <span class="math notranslate nohighlight">\(\boldsymbol{u}\)</span> and <span class="math notranslate nohighlight">\(p\)</span> are, respectively, the
 fluid velocity vector and pressure, and the domain
 <span class="math notranslate nohighlight">\(\Omega = [0, 2\pi]^2 \times [-1, 1]\)</span>. The flow is assumed periodic
 in <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>-directions, whereas there is a no-slip homogeneous Dirichlet
-boundary condition on <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> on the boundaries of the <span class="math notranslate nohighlight">\(z\)</span>-direction, i.e.,
-<span class="math notranslate nohighlight">\(\mathbf{u}(x, y, \pm 1) = (0, 0, 0)\)</span>. (Note that we can configure shenfun with
+boundary condition on <span class="math notranslate nohighlight">\(\boldsymbol{u}\)</span> on the boundaries of the <span class="math notranslate nohighlight">\(z\)</span>-direction, i.e.,
+<span class="math notranslate nohighlight">\(\boldsymbol{u}(x, y, \pm 1) = (0, 0, 0)\)</span>. (Note that we can configure shenfun with
 non-periodicity in any of the three directions. However, since we are to
 solve linear algebraic systems in the non-periodic direction, there is a speed
 benefit from having the nonperiodic direction last. This has to do with Numpy
 using a C-style row-major storage of arrays by default.)
-The right hand side vector <span class="math notranslate nohighlight">\(\mathbf{f}(\mathbf{x})\)</span> is an external applied body force.
+The right hand side vector <span class="math notranslate nohighlight">\(\boldsymbol{f}(\boldsymbol{x})\)</span> is an external applied body force.
 The right hand side <span class="math notranslate nohighlight">\(h\)</span> is usually zero in the regular Stokes equations. Here
 we include it because it will be nonzero in the verification, which is using the
 method of manufactured solutions. Note that the final <span class="math notranslate nohighlight">\(\int_{\Omega} p dx = 0\)</span>
@@ -369,7 +369,7 @@ exponentials, since these functions are periodic:</p>
 <div class="math notranslate nohighlight">
 \[
 \begin{equation}
-\mathcal{X}_l(x) = e^{\imath l x}, \forall \, l \in \mathbf{l}^{N_0}, 
+\mathcal{X}_l(x) = e^{\imath l x}, \forall \, l \in \boldsymbol{l}^{N_0}, 
 \label{_auto2} \tag{2}
 \end{equation}
 \]</div>
@@ -378,14 +378,14 @@ exponentials, since these functions are periodic:</p>
 <div class="math notranslate nohighlight">
 \[
 \begin{equation}  
-\mathcal{Y}_m(y) =  e^{\imath m y}, \forall \, m \in \mathbf{m}^{N_1},
+\mathcal{Y}_m(y) =  e^{\imath m y}, \forall \, m \in \boldsymbol{m}^{N_1},
 \label{_auto3} \tag{3}
 \end{equation}
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(\mathbf{l}^{N_0} = (-N_0/2, -N_0/2+1, \ldots, N_0/2-1)\)</span> and
-<span class="math notranslate nohighlight">\(\mathbf{m}^{N_1} = (-N_1/2, -N_1/2+1, \ldots, N_1/2-1)\)</span>.
+<p>where <span class="math notranslate nohighlight">\(\boldsymbol{l}^{N_0} = (-N_0/2, -N_0/2+1, \ldots, N_0/2-1)\)</span> and
+<span class="math notranslate nohighlight">\(\boldsymbol{m}^{N_1} = (-N_1/2, -N_1/2+1, \ldots, N_1/2-1)\)</span>.
 The size of the discretized problem in real physical space is
-<span class="math notranslate nohighlight">\(\mathbf{N} = (N_0, N_1, N_2)\)</span>, i.e., there are <span class="math notranslate nohighlight">\(N_0 \cdot N_1 \cdot N_2\)</span> quadrature points
+<span class="math notranslate nohighlight">\(\boldsymbol{N} = (N_0, N_1, N_2)\)</span>, i.e., there are <span class="math notranslate nohighlight">\(N_0 \cdot N_1 \cdot N_2\)</span> quadrature points
 in total.</p>
 <p>The basis functions for <span class="math notranslate nohighlight">\(\mathcal{Z}(z)\)</span> remain to be decided.
 For the velocity we need homogeneous Dirichlet boundary conditions, and for this
@@ -395,12 +395,12 @@ we use composite Legendre or Chebyshev polynomials</p>
 <div class="math notranslate nohighlight">
 \[
 \begin{equation}
-\mathcal{Z}^0_n(z) = \phi_n(z) - \phi_{n+2}(z), \forall \, n \in \mathbf{n}^{N_2-2},
+\mathcal{Z}^0_n(z) = \phi_n(z) - \phi_{n+2}(z), \forall \, n \in \boldsymbol{n}^{N_2-2},
 \label{_auto4} \tag{4}
 \end{equation}
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(\phi_n\)</span> is the n’th Legendre or Chebyshev polynomial of the first kind.
-<span class="math notranslate nohighlight">\(\mathbf{n}^{N_2-2} = (0, 1, \ldots, N_2-3)\)</span>, and the zero on <span class="math notranslate nohighlight">\(\mathcal{Z}^0\)</span>
+<span class="math notranslate nohighlight">\(\boldsymbol{n}^{N_2-2} = (0, 1, \ldots, N_2-3)\)</span>, and the zero on <span class="math notranslate nohighlight">\(\mathcal{Z}^0\)</span>
 is there to indicate the zero value on the boundary.</p>
 <p>The pressure basis that comes with no restrictions for the boundary is a
 little trickier. The reason for this has to do with
@@ -411,20 +411,20 @@ Chebyshev basis, which is denoted as</p>
 <div class="math notranslate nohighlight">
 \[
 \begin{equation}
-\mathcal{Z}_n(z) = \phi_n(z),  \forall \, n \in \mathbf{n}^{N_2}. \label{eq:Zn} \tag{5}
+\mathcal{Z}_n(z) = \phi_n(z),  \forall \, n \in \boldsymbol{n}^{N_2}. \label{eq:Zn} \tag{5}
 \end{equation}
 \]</div>
 <p>The problem is that for the natural choice of <span class="math notranslate nohighlight">\(n \in (0, 1, \ldots, N_2-1)\)</span>
 there is a nullspace and one degree of freedom remains unresolved. It turns out
 that the proper choice for the pressure basis is simply (<a class="reference external" href="#eq:Zn">5</a>) for
-<span class="math notranslate nohighlight">\(n \in \mathbf{n}^{N_2-2}\)</span>. (Also remember that we have to fix <span class="math notranslate nohighlight">\(\int_{\Omega} p dx = 0\)</span>.)</p>
+<span class="math notranslate nohighlight">\(n \in \boldsymbol{n}^{N_2-2}\)</span>. (Also remember that we have to fix <span class="math notranslate nohighlight">\(\int_{\Omega} p dx = 0\)</span>.)</p>
 <p>With given basis functions we obtain the spaces</p>
 <!-- Equation labels as ordinary links -->
 <p><a id="_auto5"></a></p>
 <div class="math notranslate nohighlight">
 \[
 \begin{equation}
-V^{N_0} = \text{span}\{ \mathcal{X}_l \}_{l\in\mathbf{l}^{N_0}}, 
+V^{N_0} = \text{span}\{ \mathcal{X}_l \}_{l\in\boldsymbol{l}^{N_0}}, 
 \label{_auto5} \tag{6}
 \end{equation}
 \]</div>
@@ -433,7 +433,7 @@ V^{N_0} = \text{span}\{ \mathcal{X}_l \}_{l\in\mathbf{l}^{N_0}},
 <div class="math notranslate nohighlight">
 \[
 \begin{equation}  
-V^{N_1} = \text{span}\{ \mathcal{Y}_m \}_{m\in\mathbf{m}^{N_1}}, 
+V^{N_1} = \text{span}\{ \mathcal{Y}_m \}_{m\in\boldsymbol{m}^{N_1}}, 
 \label{_auto6} \tag{7}
 \end{equation}
 \]</div>
@@ -442,7 +442,7 @@ V^{N_1} = \text{span}\{ \mathcal{Y}_m \}_{m\in\mathbf{m}^{N_1}},
 <div class="math notranslate nohighlight">
 \[
 \begin{equation}  
-V^{N_2} = \text{span}\{ \mathcal{Z}_n \}_{n\in\mathbf{n}^{N_2-2}}, 
+V^{N_2} = \text{span}\{ \mathcal{Z}_n \}_{n\in\boldsymbol{n}^{N_2-2}}, 
 \label{_auto7} \tag{8}
 \end{equation}
 \]</div>
@@ -451,7 +451,7 @@ V^{N_2} = \text{span}\{ \mathcal{Z}_n \}_{n\in\mathbf{n}^{N_2-2}},
 <div class="math notranslate nohighlight">
 \[
 \begin{equation}  
-V_0^{N_2} = \text{span}\{ \mathcal{Z}^0_n \}_{n\in\mathbf{n}^{N_2-2}},
+V_0^{N_2} = \text{span}\{ \mathcal{Z}^0_n \}_{n\in\boldsymbol{n}^{N_2-2}},
 \label{_auto8} \tag{9}
 \end{equation}
 \]</div>
@@ -461,7 +461,7 @@ V_0^{N_2} = \text{span}\{ \mathcal{Z}^0_n \}_{n\in\mathbf{n}^{N_2-2}},
 <div class="math notranslate nohighlight">
 \[
 \begin{equation}
-W_0^{\mathbf{N}}(\mathbf{x}) = V^{N_0}(x) \otimes V^{N_1}(y) \otimes V_0^{N_2}(z), 
+W_0^{\boldsymbol{N}}(\boldsymbol{x}) = V^{N_0}(x) \otimes V^{N_1}(y) \otimes V_0^{N_2}(z), 
 \label{_auto9} \tag{10}
 \end{equation}
 \]</div>
@@ -470,21 +470,21 @@ W_0^{\mathbf{N}}(\mathbf{x}) = V^{N_0}(x) \otimes V^{N_1}(y) \otimes V_0^{N_2}(z
 <div class="math notranslate nohighlight">
 \[
 \begin{equation}  
-W^{\mathbf{N}}(\mathbf{x}) = V^{N_0}(x) \otimes V^{N_1}(y) \otimes V^{N_2}(z).
+W^{\boldsymbol{N}}(\boldsymbol{x}) = V^{N_0}(x) \otimes V^{N_1}(y) \otimes V^{N_2}(z).
 \label{_auto10} \tag{11}
 \end{equation}
 \]</div>
 <p>The velocity vector is using a mixed basis, such that we will look for
-solutions <span class="math notranslate nohighlight">\(\mathbf{u} \in [W_0^{\mathbf{N}}]^3 \, (=W_0^{\mathbf{N}} \times W_0^{\mathbf{N}} \times W_0^{\mathbf{N}})\)</span>,
+solutions <span class="math notranslate nohighlight">\(\boldsymbol{u} \in [W_0^{\boldsymbol{N}}]^3 \, (=W_0^{\boldsymbol{N}} \times W_0^{\boldsymbol{N}} \times W_0^{\boldsymbol{N}})\)</span>,
 whereas we look for the pressure
-<span class="math notranslate nohighlight">\(p \in W^{\mathbf{N}}\)</span>. We now formulate a variational problem using the Galerkin method: Find
-<span class="math notranslate nohighlight">\(\mathbf{u} \in [W_0^{\mathbf{N}}]^3\)</span> and <span class="math notranslate nohighlight">\(p \in W^{\mathbf{N}}\)</span> such that</p>
+<span class="math notranslate nohighlight">\(p \in W^{\boldsymbol{N}}\)</span>. We now formulate a variational problem using the Galerkin method: Find
+<span class="math notranslate nohighlight">\(\boldsymbol{u} \in [W_0^{\boldsymbol{N}}]^3\)</span> and <span class="math notranslate nohighlight">\(p \in W^{\boldsymbol{N}}\)</span> such that</p>
 <!-- Equation labels as ordinary links -->
 <p><a id="eq:varform"></a></p>
 <div class="math notranslate nohighlight">
 \[
 \begin{equation}
-\int_{\Omega} (\nabla^2 \mathbf{u} - \nabla p ) \cdot \overline{\mathbf{v}} \, dx_w = \int_{\Omega} \mathbf{f} \cdot \overline{\mathbf{v}}\, dx_w \quad\forall \mathbf{v} \, \in \, [W_0^{\mathbf{N}}]^3, \label{eq:varform} \tag{12} 
+\int_{\Omega} (\nabla^2 \boldsymbol{u} - \nabla p ) \cdot \overline{\boldsymbol{v}} \, dx_w = \int_{\Omega} \boldsymbol{f} \cdot \overline{\boldsymbol{v}}\, dx_w \quad\forall \boldsymbol{v} \, \in \, [W_0^{\boldsymbol{N}}]^3, \label{eq:varform} \tag{12} 
 \end{equation}
 \]</div>
 <!-- Equation labels as ordinary links -->
@@ -492,7 +492,7 @@ whereas we look for the pressure
 <div class="math notranslate nohighlight">
 \[
 \begin{equation}  
-\int_{\Omega} \nabla \cdot \mathbf{u} \, \overline{q} \, dx_w = \int_{\Omega} h \overline{q} \, dx_w \quad\forall q \, \in \, W^{\mathbf{N}}.
+\int_{\Omega} \nabla \cdot \boldsymbol{u} \, \overline{q} \, dx_w = \int_{\Omega} h \overline{q} \, dx_w \quad\forall q \, \in \, W^{\boldsymbol{N}}.
 \label{_auto11} \tag{13}
 \end{equation}
 \]</div>
@@ -500,20 +500,20 @@ whereas we look for the pressure
 Note that it is only Chebyshev polynomials that
 make use of a non-constant weight <span class="math notranslate nohighlight">\(w_x=1/\sqrt{1-x^2}\)</span>. The Fourier weights are <span class="math notranslate nohighlight">\(w_y=w_z=1/(2\pi)\)</span>
 and the Legendre weight is <span class="math notranslate nohighlight">\(w_x=1\)</span>.
-The overline in <span class="math notranslate nohighlight">\(\mathbf{\overline{v}}\)</span> and <span class="math notranslate nohighlight">\(\overline{q}\)</span> represents a complex conjugate, which is needed here because
+The overline in <span class="math notranslate nohighlight">\(\boldsymbol{\overline{v}}\)</span> and <span class="math notranslate nohighlight">\(\overline{q}\)</span> represents a complex conjugate, which is needed here because
 the Fourier exponentials are complex functions.</p>
 <div class="section" id="mixed-variational-form">
 <h3>Mixed variational form<a class="headerlink" href="#mixed-variational-form" title="Permalink to this headline">¶</a></h3>
 <p><a id="sec:mixedform"></a></p>
-<p>Since we are to solve for <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> and <span class="math notranslate nohighlight">\(p\)</span> at the same time, we formulate a
-mixed (coupled) problem: find <span class="math notranslate nohighlight">\((\mathbf{u}, p) \in [W_0^{\mathbf{N}}]^3 \times W^{\mathbf{N}}\)</span>
+<p>Since we are to solve for <span class="math notranslate nohighlight">\(\boldsymbol{u}\)</span> and <span class="math notranslate nohighlight">\(p\)</span> at the same time, we formulate a
+mixed (coupled) problem: find <span class="math notranslate nohighlight">\((\boldsymbol{u}, p) \in [W_0^{\boldsymbol{N}}]^3 \times W^{\boldsymbol{N}}\)</span>
 such that</p>
 <!-- Equation labels as ordinary links -->
 <p><a id="_auto12"></a></p>
 <div class="math notranslate nohighlight">
 \[
 \begin{equation}
-a((\mathbf{u}, p), (\mathbf{v}, q)) = L((\mathbf{v}, q)) \quad \forall (\mathbf{v}, q) \in [W_0^{\mathbf{N}}]^3 \times W^{\mathbf{N}},
+a((\boldsymbol{u}, p), (\boldsymbol{v}, q)) = L((\boldsymbol{v}, q)) \quad \forall (\boldsymbol{v}, q) \in [W_0^{\boldsymbol{N}}]^3 \times W^{\boldsymbol{N}},
 \label{_auto12} \tag{14}
 \end{equation}
 \]</div>
@@ -523,7 +523,7 @@ a((\mathbf{u}, p), (\mathbf{v}, q)) = L((\mathbf{v}, q)) \quad \forall (\mathbf{
 <div class="math notranslate nohighlight">
 \[
 \begin{equation}
-    a((\mathbf{u}, p), (\mathbf{v}, q)) = \int_{\Omega} (\nabla^2 \mathbf{u} - \nabla p) \cdot \overline{\mathbf{v}} \, dx_w + \int_{\Omega} \nabla \cdot \mathbf{u} \, \overline{q} \, dx_w, 
+    a((\boldsymbol{u}, p), (\boldsymbol{v}, q)) = \int_{\Omega} (\nabla^2 \boldsymbol{u} - \nabla p) \cdot \overline{\boldsymbol{v}} \, dx_w + \int_{\Omega} \nabla \cdot \boldsymbol{u} \, \overline{q} \, dx_w, 
 \label{_auto13} \tag{15}
 \end{equation}
 \]</div>
@@ -532,7 +532,7 @@ a((\mathbf{u}, p), (\mathbf{v}, q)) = L((\mathbf{v}, q)) \quad \forall (\mathbf{
 <div class="math notranslate nohighlight">
 \[
 \begin{equation}  
-    L((\mathbf{v}, q)) = \int_{\Omega} \mathbf{f} \cdot \overline{\mathbf{v}}\, dx_w + \int_{\Omega} h \overline{q} \, dx_w.
+    L((\boldsymbol{v}, q)) = \int_{\Omega} \boldsymbol{f} \cdot \overline{\boldsymbol{v}}\, dx_w + \int_{\Omega} h \overline{q} \, dx_w.
 \label{_auto14} \tag{16}
 \end{equation}
 \]</div>
@@ -565,8 +565,8 @@ Python (<code class="docutils literal notranslate"><span class="pre">mpi4py</spa
 <div class="section" id="manufactured-solution">
 <h3>Manufactured solution<a class="headerlink" href="#manufactured-solution" title="Permalink to this headline">¶</a></h3>
 <p><a id="sec:mansol"></a></p>
-<p>The exact solutions <span class="math notranslate nohighlight">\(\mathbf{u}_e(\mathbf{x})\)</span> and <span class="math notranslate nohighlight">\(p(\mathbf{x})\)</span> are chosen to satisfy boundary
-conditions, and the right hand sides <span class="math notranslate nohighlight">\(\mathbf{f}(\mathbf{x})\)</span> and <span class="math notranslate nohighlight">\(h(\mathbf{x})\)</span> are then
+<p>The exact solutions <span class="math notranslate nohighlight">\(\boldsymbol{u}_e(\boldsymbol{x})\)</span> and <span class="math notranslate nohighlight">\(p(\boldsymbol{x})\)</span> are chosen to satisfy boundary
+conditions, and the right hand sides <span class="math notranslate nohighlight">\(\boldsymbol{f}(\boldsymbol{x})\)</span> and <span class="math notranslate nohighlight">\(h(\boldsymbol{x})\)</span> are then
 computed exactly using <code class="docutils literal notranslate"><span class="pre">Sympy</span></code>. These exact right hand sides will then be used to
 compute a numerical solution that can be verified against the manufactured
 solution. The chosen solution with computed right hand sides are:</p>
@@ -607,8 +607,8 @@ of the domain is given</p>
 <span class="math notranslate nohighlight">\(N_2-2\)</span> coefficients are used, see discussion around Eq. (<a class="reference external" href="#eq:Zn">5</a>).
 At the same time, we ensure that we are still using <span class="math notranslate nohighlight">\(N_2\)</span>
 quadrature points, the same as for the Dirichlet basis.</p>
-<p>Next the one-dimensional spaces are used to create two tensor product spaces Q = <span class="math notranslate nohighlight">\(W^{\mathbf{N}}\)</span>
-and TD = <span class="math notranslate nohighlight">\(W_0^{\mathbf{N}}\)</span>, one vector V = <span class="math notranslate nohighlight">\([W_0^{\mathbf{N}}]^3\)</span> and one mixed
+<p>Next the one-dimensional spaces are used to create two tensor product spaces Q = <span class="math notranslate nohighlight">\(W^{\boldsymbol{N}}\)</span>
+and TD = <span class="math notranslate nohighlight">\(W_0^{\boldsymbol{N}}\)</span>, one vector V = <span class="math notranslate nohighlight">\([W_0^{\boldsymbol{N}}]^3\)</span> and one mixed
 space  VQ = V <span class="math notranslate nohighlight">\(\times\)</span> Q.</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
@@ -678,16 +678,16 @@ matrices 2 and 3 are for components 1 and the last two are for components
 \[
 \begin{equation}
 \label{eq:partialeq1} \tag{17}
-\int_{\Omega} \mathbf{v}[0] \left(\frac{\partial^2 \mathbf{u}[0]}{\partial x^2} + \frac{\partial^2 \mathbf{u}[0]}{\partial y^2} + \frac{\partial^2 \mathbf{u}[0]}{\partial z^2}\right) w_x dx w_y dy w_z dz.
+\int_{\Omega} \boldsymbol{v}[0] \left(\frac{\partial^2 \boldsymbol{u}[0]}{\partial x^2} + \frac{\partial^2 \boldsymbol{u}[0]}{\partial y^2} + \frac{\partial^2 \boldsymbol{u}[0]}{\partial z^2}\right) w_x dx w_y dy w_z dz.
 \end{equation}
 \]</div>
-<p>If we now use test function <span class="math notranslate nohighlight">\(\mathbf{v}[0]\)</span></p>
+<p>If we now use test function <span class="math notranslate nohighlight">\(\boldsymbol{v}[0]\)</span></p>
 <!-- Equation labels as ordinary links -->
 <p><a id="_auto15"></a></p>
 <div class="math notranslate nohighlight">
 \[
 \begin{equation}
-\mathbf{v}[0]_{lmn} = \mathcal{X}_l \mathcal{Y}_m \mathcal{Z}_n,
+\boldsymbol{v}[0]_{lmn} = \mathcal{X}_l \mathcal{Y}_m \mathcal{Z}_n,
 \label{_auto15} \tag{18}
 \end{equation}
 \]</div>
@@ -697,11 +697,11 @@ matrices 2 and 3 are for components 1 and the last two are for components
 <div class="math notranslate nohighlight">
 \[
 \begin{equation}
-\mathbf{u}[0]_{pqr} = \sum_{p} \sum_{q} \sum_{r} \hat{\mathbf{u}}[0]_{pqr} \mathcal{X}_p \mathcal{Y}_q \mathcal{Z}_r,
+\boldsymbol{u}[0]_{pqr} = \sum_{p} \sum_{q} \sum_{r} \hat{\boldsymbol{u}}[0]_{pqr} \mathcal{X}_p \mathcal{Y}_q \mathcal{Z}_r,
 \label{_auto16} \tag{19}
 \end{equation}
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(\hat{\mathbf{u}}\)</span> are the unknown degrees of freedom, and then insert these functions
+<p>where <span class="math notranslate nohighlight">\(\hat{\boldsymbol{u}}\)</span> are the unknown degrees of freedom, and then insert these functions
 into (<a class="reference external" href="#eq:partialeq1">17</a>), then we obtain after
 performing some exact evaluations over the periodic directions</p>
 <!-- Equation labels as ordinary links -->
@@ -709,7 +709,7 @@ performing some exact evaluations over the periodic directions</p>
 <div class="math notranslate nohighlight">
 \[
 \begin{equation}
- \Big( \underbrace{-\left(l^2 \delta_{lp} + m^2 \delta_{mq} \right) \int_{-1}^{1} \mathcal{Z}_r(z) \mathcal{Z}_n(z) w_z dz}_{A[0]} + \underbrace{\delta_{lp} \delta_{mq} \int_{-1}^{1} \frac{\partial^2 \mathcal{Z}_r(z)}{\partial z^2} \mathcal{Z}_n(z) w_z dz}_{A[1]} \Big) \hat{\mathbf{u}}[0]_{pqr},
+ \Big( \underbrace{-\left(l^2 \delta_{lp} + m^2 \delta_{mq} \right) \int_{-1}^{1} \mathcal{Z}_r(z) \mathcal{Z}_n(z) w_z dz}_{A[0]} + \underbrace{\delta_{lp} \delta_{mq} \int_{-1}^{1} \frac{\partial^2 \mathcal{Z}_r(z)}{\partial z^2} \mathcal{Z}_n(z) w_z dz}_{A[1]} \Big) \hat{\boldsymbol{u}}[0]_{pqr},
 \label{_auto17} \tag{20}
 \end{equation}
 \]</div>
@@ -717,13 +717,11 @@ performing some exact evaluations over the periodic directions</p>
 product matrices in total for <code class="docutils literal notranslate"><span class="pre">A</span></code>. Similarly, we get three components of <code class="docutils literal notranslate"><span class="pre">G</span></code>
 and  three of <code class="docutils literal notranslate"><span class="pre">D</span></code>.</p>
 <p>Eliminating the Fourier diagonal matrices, we are left with block matrices like</p>
-<!-- Equation labels as ordinary links -->
-<p><a id="eq:bmatrix"></a></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 H(l, m) =
   \begin{bmatrix}
-      A[0]+A[1] &amp; 0 &amp; 0 &amp; G[0] \\ \label{eq:bmatrix} \tag{21}
+      A[0]+A[1] &amp; 0 &amp; 0 &amp; G[0] \\ 
       0 &amp; A[2]+A[3] &amp; 0 &amp; G[1] \\ 
       0 &amp; 0 &amp;  A[4]+A[5] &amp; G[2] \\ 
       D[0] &amp; D[1] &amp; D[2] &amp; 0
@@ -732,7 +730,7 @@ H(l, m) =
 <p>Note that there will be one large block matrix <span class="math notranslate nohighlight">\(H(l, m)\)</span> for each Fourier
 wavenumber combination <span class="math notranslate nohighlight">\((l, m)\)</span>. To solve the problem in the end we will need to
 loop over these wavenumbers and solve the assembled linear systems one by one.
-An example of the block matrix, for <span class="math notranslate nohighlight">\(l=m=5\)</span> and <span class="math notranslate nohighlight">\(\mathbf{N}=(20, 20, 20)\)</span> is given
+An example of the block matrix, for <span class="math notranslate nohighlight">\(l=m=5\)</span> and <span class="math notranslate nohighlight">\(\boldsymbol{N}=(20, 20, 20)\)</span> is given
 in Fig. <a class="reference external" href="#fig:BlockMat">fig:BlockMat</a>.</p>
 <p>In the end we create a block matrix through</p>
 <div class="cell tag_thebe-init docutils container">
@@ -743,7 +741,7 @@ in Fig. <a class="reference external" href="#fig:BlockMat">fig:BlockMat</a>.</p>
 </div>
 </div>
 <p>The right hand side can easily be assembled since we have already
-defined the functions <span class="math notranslate nohighlight">\(\mathbf{f}\)</span> and <span class="math notranslate nohighlight">\(h\)</span>, see Sec. <a class="reference external" href="#sec:mansol">Manufactured solution</a></p>
+defined the functions <span class="math notranslate nohighlight">\(\boldsymbol{f}\)</span> and <span class="math notranslate nohighlight">\(h\)</span>, see Sec. <a class="reference external" href="#sec:mansol">Manufactured solution</a></p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get mesh (quadrature points)</span>
