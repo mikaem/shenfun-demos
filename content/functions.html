@@ -359,7 +359,7 @@ u(x) = \sum_{k=0}^{N-1} \hat{u}_k \psi_k(2(x-0.5))
 <h2>Approximating analytical functions<a class="headerlink" href="#approximating-analytical-functions" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">u</span></code> function above was created with only zero
 valued coefficients, which is the default. Alternatively,
-a <code class="docutils literal notranslate"><span class="pre">Function</span></code> may be initialized using a constant
+a <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.Function">Function</a> may be initialized using a constant
 value</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
@@ -370,7 +370,7 @@ value</p>
 </div>
 </div>
 <p>but that is not very useful. A third method to initialize
-a <code class="docutils literal notranslate"><span class="pre">Function</span></code> is to interpolate using an analytical
+a <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.Function">Function</a> is to interpolate using an analytical
 Sympy function.</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
@@ -394,7 +394,7 @@ corresponds to a projection to <code class="docutils literal notranslate"><span 
 <p>where <span class="math notranslate nohighlight">\(v \in \{T_j\}_{j=0}^{N-1}\)</span> is a test function,
 <span class="math notranslate nohighlight">\(u_h=\sum_{k=0}^{N-1} \hat{u}_k T_k\)</span> is a trial function and the
 notation <span class="math notranslate nohighlight">\((\cdot, \cdot)_w\)</span> represents a weighted inner product.
-In this projection <span class="math notranslate nohighlight">\(u_h\)</span> is the <code class="docutils literal notranslate"><span class="pre">Function</span></code>, <span class="math notranslate nohighlight">\(u\)</span> is the sympy function and we use sympy
+In this projection <span class="math notranslate nohighlight">\(u_h\)</span> is the <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.Function">Function</a>, <span class="math notranslate nohighlight">\(u\)</span> is the sympy function and we use sympy
 to exactly evaluate <span class="math notranslate nohighlight">\(u\)</span> on all quadrature points
 <span class="math notranslate nohighlight">\(\{x_j\}_{j=0}^{N-1}\)</span>. With quadrature we then have</p>
 <div class="math notranslate nohighlight">
@@ -450,7 +450,7 @@ of the function space, through</p>
 <p>This is useful if you want to approximate a function and
 are uncertain how many basis functions that are required.
 For example, you may want to approximate the function <span class="math notranslate nohighlight">\(\cos(20 x)\)</span>.
-You can then find the required <code class="docutils literal notranslate"><span class="pre">Function</span></code> using</p>
+You can then find the required <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.Function">Function</a> using</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">buffer</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">20</span><span class="o">*</span><span class="n">x</span><span class="p">))</span>
@@ -461,7 +461,7 @@ You can then find the required <code class="docutils literal notranslate"><span 
 </div>
 <p>We see that <span class="math notranslate nohighlight">\(N=45\)</span> is required to resolve this function. This agrees
 well with what is reported also by <a class="reference external" href="https://www.chebfun.org/docs/guide/guide01.html">Chebfun</a>.
-Note that in this process a new <code class="docutils literal notranslate"><span class="pre">FunctionSpace</span></code> has been
+Note that in this process a new <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.FunctionSpace">FunctionSpace()</a> has been
 created under the hood. The function space of <code class="docutils literal notranslate"><span class="pre">u</span></code> can be
 extracted using</p>
 <div class="cell tag_thebe-init docutils container">
@@ -743,7 +743,7 @@ grid all the way around and re-plot.</p>
 <h2>Adaptive functions in multiple dimensions<a class="headerlink" href="#adaptive-functions-in-multiple-dimensions" title="Permalink to this headline">¶</a></h2>
 <p>If you want to find a good resolution for a function in multiple
 dimensions, the procedure is exactly like in 1D. First create function
-spaces with 0 quadrature points, and then call <code class="docutils literal notranslate"><span class="pre">Function</span></code></p>
+spaces with 0 quadrature points, and then call <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.Function">Function</a></p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">B0</span> <span class="o">=</span> <span class="n">FunctionSpace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
