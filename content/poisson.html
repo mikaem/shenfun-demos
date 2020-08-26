@@ -597,7 +597,7 @@ mesh from the basis itself</p>
 <div class="section" id="variational-formulation">
 <h3>Variational formulation<a class="headerlink" href="#variational-formulation" title="Permalink to this headline">¶</a></h3>
 <p>The variational problem (<a class="reference external" href="#eq:varform">9</a>) can be assembled using <code class="docutils literal notranslate"><span class="pre">shenfun</span></code>’s
-<a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.TrialFunction' title='shenfun.forms.arguments.TrialFunction'><code class='xref py py-func docutils literal notranslate'><span class='pre'>TrialFunction</span></code></a>, <a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.TestFunction' title='shenfun.forms.arguments.TestFunction'><code class='xref py py-func docutils literal notranslate'><span class='pre'>TestFunction</span></code></a> and <a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.inner.inner' title='shenfun.forms.inner.inner'><code class='xref py py-func docutils literal notranslate'><span class='pre'>inner()</span></code></a> functions.</p>
+<a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.TrialFunction">TrialFunction</a>, <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.TestFunction">TestFunction</a> and <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.inner.inner">inner()</a> functions.</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="n">TrialFunction</span><span class="p">(</span><span class="n">SD</span><span class="p">)</span>
@@ -612,10 +612,10 @@ mesh from the basis itself</p>
 </div>
 </div>
 </div>
-<p>Note that the <code class="docutils literal notranslate"><span class="pre">sympy</span></code> function <code class="docutils literal notranslate"><span class="pre">fe</span></code> can be used to initialize the <a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.Array' title='shenfun.forms.arguments.Array'><code class='xref py py-func docutils literal notranslate'><span class='pre'>Array</span></code></a>
-<code class="docutils literal notranslate"><span class="pre">fj</span></code>. We wrap this Numpy array in an <a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.Array' title='shenfun.forms.arguments.Array'><code class='xref py py-func docutils literal notranslate'><span class='pre'>Array</span></code></a> class
+<p>Note that the <code class="docutils literal notranslate"><span class="pre">sympy</span></code> function <code class="docutils literal notranslate"><span class="pre">fe</span></code> can be used to initialize the <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.Array">Array</a>
+<code class="docutils literal notranslate"><span class="pre">fj</span></code>. We wrap this Numpy array in an <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.Array">Array</a> class
 (<code class="docutils literal notranslate"><span class="pre">fj</span> <span class="pre">=</span> <span class="pre">Array(SD,</span> <span class="pre">buffer=fe)</span></code>), because an Array
-is required as input to the <a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.inner.inner' title='shenfun.forms.inner.inner'><code class='xref py py-func docutils literal notranslate'><span class='pre'>inner()</span></code></a> function.</p>
+is required as input to the <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.inner.inner">inner()</a> function.</p>
 </div>
 <div class="section" id="solve-linear-equations">
 <h3>Solve linear equations<a class="headerlink" href="#solve-linear-equations" title="Permalink to this headline">¶</a></h3>
@@ -623,7 +623,7 @@ is required as input to the <a class='reference internal' href='https://shenfun.
 <span class="math notranslate nohighlight">\(\{\hat{u}_k\}_{k=0}^{N-1}\)</span> vector to the real space <span class="math notranslate nohighlight">\(\{u(x_j)\}_{j=0}^{N-1}\)</span>
 and then check how the solution corresponds with the exact solution <span class="math notranslate nohighlight">\(u_e\)</span>.
 To this end we compute the <span class="math notranslate nohighlight">\(L_2\)</span>-errornorm using the <code class="docutils literal notranslate"><span class="pre">shenfun</span></code> function
-<a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.html#shenfun.utilities.dx' title='shenfun.utilities.dx'><code class='xref py py-func docutils literal notranslate'><span class='pre'>dx()</span></code></a></p>
+<a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.html#shenfun.utilities.dx">dx()</a></p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">u_hat</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">f_hat</span><span class="p">)</span>

@@ -665,8 +665,8 @@ With the Python module <a class="reference external" href="https://github.com/sp
 inner products as seen in (<a class="reference external" href="#eq:df_var2">10</a>) and (<a class="reference external" href="#eq:kg:du_var2">11</a>), or the Fourier
 transforms directly. See for example Sec. <a class="reference external" href="#sec:rk">Runge-Kutta integrator</a> for how <span class="math notranslate nohighlight">\((\nabla u, \nabla
 v)\)</span> can be
-implemented.  In short, <a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.html#module-shenfun' title=shenfun><code class='xref py py-mod docutils literal notranslate'><span class='pre'>shenfun</span></code></a> contains all the tools required to work with
-the spectral Galerkin method, and we will now see how <a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.html#module-shenfun' title=shenfun><code class='xref py py-mod docutils literal notranslate'><span class='pre'>shenfun</span></code></a> can be used to solve
+implemented.  In short, <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.html#module-shenfun">shenfun</a> contains all the tools required to work with
+the spectral Galerkin method, and we will now see how <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.html#module-shenfun">shenfun</a> can be used to solve
 the Klein-Gordon equation.</p>
 <p>For completion, we note that the discretized problem to solve can be formulated
 with the Galerkin method as:
@@ -695,10 +695,10 @@ according to Eq. (<a class="reference external" href="#eq:init">2</a>).</p>
 <h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h2>
 <p>To solve the Klein-Gordon equations we need to make use of the Fourier function
 spaces defined in
-<a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.html#module-shenfun' title=shenfun><code class='xref py py-mod docutils literal notranslate'><span class='pre'>shenfun</span></code></a>, and these are found in submodule
-<a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.fourier.html#module-shenfun.fourier.bases' title=shenfun.fourier.bases><code class='xref py py-mod docutils literal notranslate'><span class='pre'>shenfun.fourier.bases</span></code></a>.
+<a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.html#module-shenfun">shenfun</a>, and these are found in submodule
+<a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.fourier.html#module-shenfun.fourier.bases">shenfun.fourier.bases</a>.
 The triply periodic domain allows for Fourier in all three directions, and we
-can as such create one instance of this space using <a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.FunctionSpace' title='shenfun.forms.arguments.FunctionSpace'><code class='xref py py-func docutils literal notranslate'><span class='pre'>FunctionSpace()</span></code></a> with
+can as such create one instance of this space using <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.FunctionSpace">FunctionSpace()</a> with
 family <code class="docutils literal notranslate"><span class="pre">Fourier</span></code>
 for each direction. However, since the initial data are real, we
 can take advantage of Hermitian symmetries and thus make use of a
@@ -748,10 +748,10 @@ flag determines how much effort FFTW puts in looking for an optimal algorithm
 for the current platform. Note that it is also possible to use FFTW <a class="reference external" href="http://www.fftw.org/fftw3_doc/Wisdom.html#Wisdom">wisdom</a> with
 <code class="docutils literal notranslate"><span class="pre">shenfun</span></code>, and as such, for production, one may perform exhaustive planning once
 and then simply import the result of that planning later, as wisdom.</p>
-<p>The <a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.html#shenfun.tensorproductspace.TensorProductSpace' title='shenfun.tensorproductspace.TensorProductSpace'><code class='xref py py-func docutils literal notranslate'><span class='pre'>TensorProductSpace</span></code></a> instance <code class="docutils literal notranslate"><span class="pre">T</span></code> contains pretty much all we need for
+<p>The <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.html#shenfun.tensorproductspace.TensorProductSpace">TensorProductSpace</a> instance <code class="docutils literal notranslate"><span class="pre">T</span></code> contains pretty much all we need for
 computing inner products or fast transforms between real and wavenumber space.
 However, since we are going to solve for a mixed system, it is convenient to also use the
-<a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.html#shenfun.tensorproductspace.MixedTensorProductSpace' title='shenfun.tensorproductspace.MixedTensorProductSpace'><code class='xref py py-func docutils literal notranslate'><span class='pre'>MixedTensorProductSpace</span></code></a> class</p>
+<a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.html#shenfun.tensorproductspace.MixedTensorProductSpace">MixedTensorProductSpace</a> class</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TT</span> <span class="o">=</span> <span class="n">MixedTensorProductSpace</span><span class="p">([</span><span class="n">T</span><span class="p">,</span> <span class="n">T</span><span class="p">])</span>
@@ -789,21 +789,21 @@ whereas <code class="docutils literal notranslate"><span class="pre">u</span> <s
 </div>
 </div>
 </div>
-<p>The <a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.Array' title='shenfun.forms.arguments.Array'><code class='xref py py-func docutils literal notranslate'><span class='pre'>Array</span></code></a> class is a subclass of Numpy’s <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html">ndarray</a>,
+<p>The <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.Array">Array</a> class is a subclass of Numpy’s <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html">ndarray</a>,
 without much more functionality than constructors that return arrays of the
 correct shape according to the basis used in the construction. The
-<a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.Array' title='shenfun.forms.arguments.Array'><code class='xref py py-func docutils literal notranslate'><span class='pre'>Array</span></code></a> represents the left hand side of (<a class="reference external" href="#eq:usg">16</a>),
+<a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.Array">Array</a> represents the left hand side of (<a class="reference external" href="#eq:usg">16</a>),
 evaluated on the quadrature mesh. A different type
-of array is returned by the <a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.Function' title='shenfun.forms.arguments.Function'><code class='xref py py-func docutils literal notranslate'><span class='pre'>Function</span></code></a>
+of array is returned by the <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.Function">Function</a>
 class, that subclasses both Nympy’s ndarray as well as an internal
-<a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.BasisFunction' title='shenfun.forms.arguments.BasisFunction'><code class='xref py py-func docutils literal notranslate'><span class='pre'>BasisFunction</span></code></a>
-class. An instance of the <a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.Function' title='shenfun.forms.arguments.Function'><code class='xref py py-func docutils literal notranslate'><span class='pre'>Function</span></code></a> represents the entire
+<a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.BasisFunction">BasisFunction</a>
+class. An instance of the <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.Function">Function</a> represents the entire
 spectral Galerkin function (<a class="reference external" href="#eq:usg">16</a>).</p>
 <div class="section" id="runge-kutta-integrator">
 <h3>Runge-Kutta integrator<a class="headerlink" href="#runge-kutta-integrator" title="Permalink to this headline">¶</a></h3>
 <p><a id="sec:rk"></a></p>
 <p>We use an explicit fourth order Runge-Kutta integrator,
-imported from <a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.utilities.html#module-shenfun.utilities.integrators' title=shenfun.utilities.integrators><code class='xref py py-mod docutils literal notranslate'><span class='pre'>shenfun.utilities.integrators</span></code></a>. The solver
+imported from <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.utilities.html#module-shenfun.utilities.integrators">shenfun.utilities.integrators</a>. The solver
 requires one function to compute nonlinear terms,
 and one to compute linear. But here we will make
 just one function that computes both, and call it

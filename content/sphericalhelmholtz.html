@@ -440,10 +440,10 @@ the next step, which is the creation of tensorproductspaces
 </div>
 </div>
 <p>Spherical coordinates are ensured by feeding <code class="docutils literal notranslate"><span class="pre">coordinates=(psi,</span> <span class="pre">rv)</span></code>
-to <a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.html#shenfun.tensorproductspace.TensorProductSpace' title='shenfun.tensorproductspace.TensorProductSpace'><code class='xref py py-func docutils literal notranslate'><span class='pre'>TensorProductSpace</span></code></a>. Operators like <a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.operators.div' title='shenfun.forms.operators.div'><code class='xref py py-func docutils literal notranslate'><span class='pre'>div()</span></code></a>
-<a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.operators.grad' title='shenfun.forms.operators.grad'><code class='xref py py-func docutils literal notranslate'><span class='pre'>grad()</span></code></a> and  <a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.operators.curl' title='shenfun.forms.operators.curl'><code class='xref py py-func docutils literal notranslate'><span class='pre'>curl()</span></code></a> will now work on
-items of <a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.Function' title='shenfun.forms.arguments.Function'><code class='xref py py-func docutils literal notranslate'><span class='pre'>Function</span></code></a>, <a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.TestFunction' title='shenfun.forms.arguments.TestFunction'><code class='xref py py-func docutils literal notranslate'><span class='pre'>TestFunction</span></code></a> and
-<a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.TrialFunction' title='shenfun.forms.arguments.TrialFunction'><code class='xref py py-func docutils literal notranslate'><span class='pre'>TrialFunction</span></code></a> using a spherical coordinate system.</p>
+to <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.html#shenfun.tensorproductspace.TensorProductSpace">TensorProductSpace</a>. Operators like <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.operators.div">div()</a>,
+<a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.operators.grad">grad()</a> and  <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.operators.curl">curl()</a> will now work on
+items of <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.Function">Function</a>, <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.TestFunction">TestFunction</a> and
+<a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.TrialFunction">TrialFunction</a> using a spherical coordinate system.</p>
 <p>To define the equation (<a class="reference external" href="#eq:u0">8</a>) we first declare
 these test- and trialfunctions, and then use code that
 is very similar to the mathematics.</p>
@@ -460,9 +460,9 @@ is very similar to the mathematics.</p>
 </div>
 <p>Here <code class="docutils literal notranslate"><span class="pre">mats</span></code> will be a list containing several tensor product
 matrices in the form of
-<a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.html#shenfun.matrixbase.TPMatrix' title='shenfun.matrixbase.TPMatrix'><code class='xref py py-func docutils literal notranslate'><span class='pre'>TPMatrix</span></code></a>. Since there is only one directions with
+<a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.html#shenfun.matrixbase.TPMatrix">TPMatrix</a>. Since there is only one directions with
 non-diagonal matrices (<span class="math notranslate nohighlight">\(\theta\)</span>-direction) we
-can use the generic <a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.html#shenfun.la.SolverGeneric1ND' title='shenfun.la.SolverGeneric1ND'><code class='xref py py-func docutils literal notranslate'><span class='pre'>SolverGeneric1ND</span></code></a> solver.
+can use the generic <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.html#shenfun.la.SolverGeneric1ND">SolverGeneric1ND</a> solver.
 Note that some of the non-diagonal matrices will be dense,
 which is a weakness of the current method. Also note
 that with Legendre one can use integration by parts
