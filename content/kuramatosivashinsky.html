@@ -282,7 +282,7 @@
 <!-- dom:AUTHOR: Mikael Mortensen Email:mikaem@math.uio.no at Department of Mathematics, University of Oslo. -->
 <!-- Author: -->  
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
-<p>Date: <strong>Aug 25, 2020</strong></p>
+<p>Date: <strong>Aug 26, 2020</strong></p>
 <p>Copyright 2020, Mikael Mortensen. Released under CC Attribution 4.0 license</p>
 <p><strong>Summary.</strong> This is a demonstration of how the Python module <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a> can be used to solve the time-dependent,
 nonlinear Kuramato-Sivashinsky equation, in a doubly periodic domain. The demo is implemented in
@@ -560,9 +560,9 @@ addition to <a class="reference external" href="https://github.com/spectralDNS/s
 </div>
 </div>
 <p>The size of the problem (in real space) is then specified, before creating
-the <code class="docutils literal notranslate"><span class="pre">TensorProductSpace</span></code>, which is using a tensor product of two Fourier bases as
+the <a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.html#shenfun.tensorproductspace.TensorProductSpace' title='shenfun.tensorproductspace.TensorProductSpace'><code class='xref py py-func docutils literal notranslate'><span class='pre'>TensorProductSpace</span></code></a>, which is using a tensor product of two Fourier bases as
 basis functions. We also
-create a <code class="docutils literal notranslate"><span class="pre">VectorTensorProductSpace</span></code>, since this is required for computing the
+create a <a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.html#shenfun.tensorproductspace.VectorTensorProductSpace' title='shenfun.tensorproductspace.VectorTensorProductSpace'><code class='xref py py-func docutils literal notranslate'><span class='pre'>VectorTensorProductSpace</span></code></a>, since this is required for computing the
 gradient of the scalar field <code class="docutils literal notranslate"><span class="pre">u</span></code>. The gradient is required for the nonlinear
 term.</p>
 <div class="cell tag_thebe-init docutils container">
@@ -637,7 +637,7 @@ u  = \sideset{}{'}\sum_{k=-N/2}^{N/2} \hat{u} e^{\imath k x}
 divided by two. Note that the two sums are equal as they stand (due to aliasing), but only the
 latter (known as the Fourier interpolant) gives the correct (zero) derivative of
 the basis with the highest wavenumber.</p>
-<p>Shenfun has a few integrators implemented in the <code class="docutils literal notranslate"><span class="pre">integrators</span></code>
+<p>Shenfun has a few integrators implemented in the <a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.utilities.html#module-shenfun.utilities.integrators' title=shenfun.utilities.integrators><code class='xref py py-mod docutils literal notranslate'><span class='pre'>shenfun.utilities.integrators</span></code></a>
 submodule. Two such integrators are the 4th order explicit Runge-Kutta method
 <code class="docutils literal notranslate"><span class="pre">RK4</span></code>, and the exponential 4th order Runge-Kutta method <code class="docutils literal notranslate"><span class="pre">ETDRK4</span></code>. Both these
 integrators need two methods provided by the problem being solved, representing
@@ -664,7 +664,7 @@ below, called <code class="docutils literal notranslate"><span class="pre">Linea
 <p>All that remains now is to setup the
 integrator plus some plotting functionality for visualizing the results. Note
 that visualization is only nice when running the code in serial. For parallel,
-it is recommended to use <code class="docutils literal notranslate"><span class="pre">HDF5File</span></code>, to store intermediate results to the HDF5
+it is recommended to use <a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/mpi4py_fft.io.html#mpi4py_fft.io.h5py_file.HDF5File' title='mpi4py_fft.io.h5py_file.HDF5File'><code class='xref py py-func docutils literal notranslate'><span class='pre'>HDF5File</span></code></a>, to store intermediate results to the HDF5
 format, for later viewing in, e.g., Paraview.</p>
 <p>We create an update function for plotting intermediate results with a
 cool colormap:</p>

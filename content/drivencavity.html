@@ -287,7 +287,7 @@
 <!-- dom:AUTHOR: Mikael Mortensen Email:mikaem@math.uio.no at Department of Mathematics, University of Oslo. -->
 <!-- Author: -->  
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
-<p>Date: <strong>Aug 25, 2020</strong></p>
+<p>Date: <strong>Aug 26, 2020</strong></p>
 <p>Copyright 2020, Mikael Mortensen. Released under CC Attribution 4.0 license</p>
 <p><strong>Summary.</strong> The lid driven cavity is a classical benchmark for Navier Stokes solvers.
 This is a demonstration of how the Python module <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a> can be used to solve the lid
@@ -717,12 +717,12 @@ viscosity, which is given here in terms of the Reynolds number:</p>
 </div>
 <p>But note that this requires addition, not subtraction, of inner products,
 and it is not possible to move the negation to <code class="docutils literal notranslate"><span class="pre">-inner(grad(v),</span> <span class="pre">nu*grad(u))</span></code>.
-This is because the <code class="docutils literal notranslate"><span class="pre">inner</span></code> function returns a list of
-tensor product matrices of type <code class="docutils literal notranslate"><span class="pre">TPMatrix</span></code>, and you cannot
+This is because the <a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.inner.inner' title='shenfun.forms.inner.inner'><code class='xref py py-func docutils literal notranslate'><span class='pre'>inner()</span></code></a> function returns a list of
+tensor product matrices of type <a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.html#shenfun.matrixbase.TPMatrix' title='shenfun.matrixbase.TPMatrix'><code class='xref py py-func docutils literal notranslate'><span class='pre'>TPMatrix</span></code></a>, and you cannot
 negate a list.</p>
 <p>The assembled subsystems <code class="docutils literal notranslate"><span class="pre">A,</span> <span class="pre">G</span></code> and <code class="docutils literal notranslate"><span class="pre">D</span></code> are lists containg the different blocks of
 the complete, coupled, coefficient matrix. <code class="docutils literal notranslate"><span class="pre">A</span></code> actually contains 4
-tensor product matrices of type <code class="docutils literal notranslate"><span class="pre">TPMatrix</span></code>. The first two
+tensor product matrices of type <a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.html#shenfun.matrixbase.TPMatrix' title='shenfun.matrixbase.TPMatrix'><code class='xref py py-func docutils literal notranslate'><span class='pre'>TPMatrix</span></code></a>. The first two
 matrices are for vector component zero of the test function <code class="docutils literal notranslate"><span class="pre">v[0]</span></code> and
 trial function <code class="docutils literal notranslate"><span class="pre">u[0]</span></code>, the
 matrices 2 and 3 are for components 1. The first two matrices are as such for</p>
@@ -898,7 +898,7 @@ own function <code class="docutils literal notranslate"><span class="pre">comput
 </div>
 </div>
 </div>
-<p>Here <code class="docutils literal notranslate"><span class="pre">outer</span></code> is a shenfun function that computes the
+<p>Here <a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.html#shenfun.utilities.outer' title='shenfun.utilities.outer'><code class='xref py py-func docutils literal notranslate'><span class='pre'>outer()</span></code></a> is a shenfun function that computes the
 outer product of two vectors and returns the product in a rank two
 array (here <code class="docutils literal notranslate"><span class="pre">uiuj</span></code>). With <code class="docutils literal notranslate"><span class="pre">uiuj</span></code> forward transformed to <code class="docutils literal notranslate"><span class="pre">uiuj_hat</span></code>
 we can assemble the linear form either as <code class="docutils literal notranslate"><span class="pre">inner(v,</span> <span class="pre">div(uiuj_hat)</span></code> or
@@ -918,7 +918,7 @@ velocity and pressure to zero and solve the Stokes equations:</p>
 </div>
 </div>
 </div>
-<p>Note that the <code class="docutils literal notranslate"><span class="pre">BlockMatrix</span></code> given by <code class="docutils literal notranslate"><span class="pre">M</span></code> has a solve method that sets up
+<p>Note that the <a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.html#shenfun.matrixbase.BlockMatrix' title='shenfun.matrixbase.BlockMatrix'><code class='xref py py-func docutils literal notranslate'><span class='pre'>BlockMatrix</span></code></a> given by <code class="docutils literal notranslate"><span class="pre">M</span></code> has a solve method that sets up
 a sparse coefficient matrix <code class="docutils literal notranslate"><span class="pre">Ai</span></code> of size <span class="math notranslate nohighlight">\(\mathbb{R}^{3(N_0-2)(N_1-2) \times 3(N_0-2)(N_1-2)}\)</span>,
 and then solves using <a class="reference external" href="http://scipy.github.io/devdocs/generated/scipy.sparse.linalg.spsolve.html#scipy.sparse.linalg.spsolve">scipy.sparse.linalg.spsolve</a>.
 The matrix <code class="docutils literal notranslate"><span class="pre">Ai</span></code> is then pre-factored for reuse with <a class="reference external" href="http://scipy.github.io/devdocs/generated/scipy.sparse.linalg.splu.html#scipy.sparse.linalg.splu">splu</a>.

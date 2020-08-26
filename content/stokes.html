@@ -301,7 +301,7 @@
 <!-- dom:AUTHOR: Mikael Mortensen Email:mikaem@math.uio.no at Department of Mathematics, University of Oslo. -->
 <!-- Author: -->  
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
-<p>Date: <strong>Aug 25, 2020</strong></p>
+<p>Date: <strong>Aug 26, 2020</strong></p>
 <p>Copyright 2020, Mikael Mortensen. Released under CC Attribution 4.0 license</p>
 <p><strong>Summary.</strong> The Stokes equations describe the flow of highly viscous fluids.
 This is a demonstration of how the Python module <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a> can be used to solve Stokes
@@ -588,7 +588,7 @@ solution. The chosen solution with computed right hand sides are:</p>
 </div>
 <div class="section" id="tensor-product-spaces">
 <h3>Tensor product spaces<a class="headerlink" href="#tensor-product-spaces" title="Permalink to this headline">¶</a></h3>
-<p>One-dimensional spaces are created using the <code class="docutils literal notranslate"><span class="pre">FunctionSpace</span></code> function. A choice of
+<p>One-dimensional spaces are created using the <a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.FunctionSpace' title='shenfun.forms.arguments.FunctionSpace'><code class='xref py py-func docutils literal notranslate'><span class='pre'>FunctionSpace()</span></code></a> function. A choice of
 polynomials between Legendre or Chebyshev can be made, and the size
 of the domain is given</p>
 <div class="cell tag_thebe-init docutils container">
@@ -663,7 +663,7 @@ the equations may also be integrated by parts to obtain a symmetric system:</p>
 possible to move the negation to -inner(v, grad(u))</p>
 <p>The assembled subsystems <code class="docutils literal notranslate"><span class="pre">A,</span> <span class="pre">G</span></code> and <code class="docutils literal notranslate"><span class="pre">D</span></code> are lists containg the different blocks of
 the complete, coupled matrix. <code class="docutils literal notranslate"><span class="pre">A</span></code> actually contains 6
-tensor product matrices of type <code class="docutils literal notranslate"><span class="pre">TPMatrix</span></code>. The first two
+tensor product matrices of type <a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.html#shenfun.matrixbase.TPMatrix' title='shenfun.matrixbase.TPMatrix'><code class='xref py py-func docutils literal notranslate'><span class='pre'>TPMatrix</span></code></a>. The first two
 matrices are for vector component zero of the test function <code class="docutils literal notranslate"><span class="pre">v[0]</span></code> and
 trial function <code class="docutils literal notranslate"><span class="pre">u[0]</span></code>, the
 matrices 2 and 3 are for components 1 and the last two are for components

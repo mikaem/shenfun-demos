@@ -316,7 +316,7 @@
 <!-- dom:AUTHOR: Mikael Mortensen Email:mikaem@math.uio.no at Department of Mathematics, University of Oslo. -->
 <!-- Author: -->  
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
-<p>Date: <strong>Aug 25, 2020</strong></p>
+<p>Date: <strong>Aug 26, 2020</strong></p>
 <p>Copyright 2020, Mikael Mortensen. Released under CC Attribution 4.0 license</p>
 <p><strong>Summary.</strong> This is a demonstration of how the Python module <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a> can be used to solve a 3D Poisson
 equation in a 3D tensor product domain that has homogeneous Dirichlet boundary
@@ -702,7 +702,7 @@ easier to experiment and quickly change the solution.</p>
 <div class="section" id="discretization-and-mpi">
 <h3>Discretization and MPI<a class="headerlink" href="#discretization-and-mpi" title="Permalink to this headline">¶</a></h3>
 <p>We create three bases with given size, one for each dimension of the problem.
-From these three bases a <code class="docutils literal notranslate"><span class="pre">TensorProductSpace</span></code> is created.</p>
+From these three bases a <a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.html#shenfun.tensorproductspace.TensorProductSpace' title='shenfun.tensorproductspace.TensorProductSpace'><code class='xref py py-func docutils literal notranslate'><span class='pre'>TensorProductSpace</span></code></a> is created.</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Size of discretization</span>
@@ -720,7 +720,7 @@ From these three bases a <code class="docutils literal notranslate"><span class=
 </div>
 <p>Note that we can either choose a Legendre or a Chebyshev basis for the
 nonperiodic direction. The
-<code class="docutils literal notranslate"><span class="pre">TensorProductSpace</span></code> class takes an MPI communicator as first argument and the
+<a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.html#shenfun.tensorproductspace.TensorProductSpace' title='shenfun.tensorproductspace.TensorProductSpace'><code class='xref py py-func docutils literal notranslate'><span class='pre'>TensorProductSpace</span></code></a> class takes an MPI communicator as first argument and the
 computational mesh is distributed internally using the <code class="docutils literal notranslate"><span class="pre">pencil</span></code> method. The
 <code class="docutils literal notranslate"><span class="pre">T.local_mesh</span></code> method returns the mesh local to each processor. The <code class="docutils literal notranslate"><span class="pre">axes</span></code>
 keyword determines the order of transforms going back and forth between real and
@@ -824,11 +824,11 @@ form language, which is perhaps surprisingly similar to FEniCS.</p>
 <p>The Laplacian operator is recognized as <code class="docutils literal notranslate"><span class="pre">div(grad)</span></code>. The <code class="docutils literal notranslate"><span class="pre">matrices</span></code> object is a
 dictionary representing the left hand side of (<a class="reference external" href="#eq:AB">22</a>), and there are two
 keys: (<code class="docutils literal notranslate"><span class="pre">ADDmat</span></code>, <code class="docutils literal notranslate"><span class="pre">BDDmat</span></code>). The value of <code class="docutils literal notranslate"><span class="pre">matrices[&quot;ADDmat&quot;]</span></code> is an object of
-type <code class="docutils literal notranslate"><span class="pre">SpectralMatrix</span></code>,
+type <a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.html#shenfun.matrixbase.SpectralMatrix' title='shenfun.matrixbase.SpectralMatrix'><code class='xref py py-func docutils literal notranslate'><span class='pre'>SpectralMatrix</span></code></a>,
 which is <code class="docutils literal notranslate"><span class="pre">shenfun</span></code>’s type for a matrix. This matrix represents <span class="math notranslate nohighlight">\(A_{lj}\)</span>, see
 (<a class="reference external" href="#eq:AB">22</a>), and it has an attribute <code class="docutils literal notranslate"><span class="pre">scale</span></code> that is
 equal to <span class="math notranslate nohighlight">\((2\pi)^2\)</span> (also see (<a class="reference external" href="#eq:AB">22</a>)).  The other key in matrices
-is <code class="docutils literal notranslate"><span class="pre">BDDmat</span></code>, and the value here is a <code class="docutils literal notranslate"><span class="pre">SpectralMatrix</span></code> representing <span class="math notranslate nohighlight">\(B_{lj}\)</span> from
+is <code class="docutils literal notranslate"><span class="pre">BDDmat</span></code>, and the value here is a <a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.html#shenfun.matrixbase.SpectralMatrix' title='shenfun.matrixbase.SpectralMatrix'><code class='xref py py-func docutils literal notranslate'><span class='pre'>SpectralMatrix</span></code></a> representing <span class="math notranslate nohighlight">\(B_{lj}\)</span> from
 (<a class="reference external" href="#eq:AB">22</a>). This matrix has an attribute <code class="docutils literal notranslate"><span class="pre">scale</span></code> that is equal to <span class="math notranslate nohighlight">\(m^2+n^2\)</span>.
 This <code class="docutils literal notranslate"><span class="pre">scale</span></code> is stored as a numpy array of shape <span class="math notranslate nohighlight">\((1, 15, 9)\)</span>, representing the
 set

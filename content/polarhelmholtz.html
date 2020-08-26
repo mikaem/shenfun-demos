@@ -277,7 +277,7 @@
 <!-- dom:AUTHOR: Mikael Mortensen Email:mikaem@math.uio.no at Department of Mathematics, University of Oslo. -->
 <!-- Author: -->  
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
-<p>Date: <strong>Aug 25, 2020</strong></p>
+<p>Date: <strong>Aug 26, 2020</strong></p>
 <p>Copyright 2020, Mikael Mortensen. Released under CC Attribution 4.0 license</p>
 <p><strong>Summary.</strong> This is a demonstration of how the Python module <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a> can be used to solve the
 Helmholtz equation on a circular disc, using polar coordinates. This demo is implemented in
@@ -649,10 +649,10 @@ Finally, note that
 The purely radial problem (<a class="reference external" href="#eq:u0">26</a>) is only solved on the one
 processor with rank = 0.</p>
 <p>Polar coordinates are ensured by feeding <code class="docutils literal notranslate"><span class="pre">coordinates=(psi,</span> <span class="pre">rv)</span></code>
-to <code class="docutils literal notranslate"><span class="pre">TensorProductSpace</span></code>. Operators like <code class="docutils literal notranslate"><span class="pre">div</span></code>
-<code class="docutils literal notranslate"><span class="pre">grad</span></code> and  <code class="docutils literal notranslate"><span class="pre">curl</span></code> will now work on
-items of <code class="docutils literal notranslate"><span class="pre">Function</span></code>, <code class="docutils literal notranslate"><span class="pre">TestFunction</span></code> and
-<code class="docutils literal notranslate"><span class="pre">TrialFunction</span></code> using a polar coordinate system.</p>
+to <a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.html#shenfun.tensorproductspace.TensorProductSpace' title='shenfun.tensorproductspace.TensorProductSpace'><code class='xref py py-func docutils literal notranslate'><span class='pre'>TensorProductSpace</span></code></a>. Operators like <a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.operators.div' title='shenfun.forms.operators.div'><code class='xref py py-func docutils literal notranslate'><span class='pre'>div()</span></code></a>
+<a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.operators.grad' title='shenfun.forms.operators.grad'><code class='xref py py-func docutils literal notranslate'><span class='pre'>grad()</span></code></a> and  <a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.operators.curl' title='shenfun.forms.operators.curl'><code class='xref py py-func docutils literal notranslate'><span class='pre'>curl()</span></code></a> will now work on
+items of <a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.Function' title='shenfun.forms.arguments.Function'><code class='xref py py-func docutils literal notranslate'><span class='pre'>Function</span></code></a>, <a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.TestFunction' title='shenfun.forms.arguments.TestFunction'><code class='xref py py-func docutils literal notranslate'><span class='pre'>TestFunction</span></code></a> and
+<a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.TrialFunction' title='shenfun.forms.arguments.TrialFunction'><code class='xref py py-func docutils literal notranslate'><span class='pre'>TrialFunction</span></code></a> using a polar coordinate system.</p>
 <p>To define the equations (<a class="reference external" href="#eq:u0">26</a>) and (<a class="reference external" href="#eq:u1">27</a>) we first declare
 these test- and trialfunctions, and then use code that
 is remarkably similar to the mathematics.</p>
@@ -673,8 +673,8 @@ is remarkably similar to the mathematics.</p>
 </div>
 <p>Here <code class="docutils literal notranslate"><span class="pre">mats</span></code> and <code class="docutils literal notranslate"><span class="pre">mats0</span></code> will contain several tensor product
 matrices in the form of
-<code class="docutils literal notranslate"><span class="pre">TPMatrix</span></code>. Since there is only one non-periodic direction
-the matrices can be easily solved using <code class="docutils literal notranslate"><span class="pre">SolverGeneric1ND</span></code>.
+<a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.html#shenfun.matrixbase.TPMatrix' title='shenfun.matrixbase.TPMatrix'><code class='xref py py-func docutils literal notranslate'><span class='pre'>TPMatrix</span></code></a>. Since there is only one non-periodic direction
+the matrices can be easily solved using <a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.html#shenfun.la.SolverGeneric1ND' title='shenfun.la.SolverGeneric1ND'><code class='xref py py-func docutils literal notranslate'><span class='pre'>SolverGeneric1ND</span></code></a>.
 But first we need to define the function <span class="math notranslate nohighlight">\(f(\theta, r)\)</span>.
 To this end we use sympy and the method of
 manufactured solution to define a possible solution <code class="docutils literal notranslate"><span class="pre">ue</span></code>,
@@ -774,7 +774,7 @@ real space <code class="docutils literal notranslate"><span class="pre">uj</span
 </div>
 </div>
 </div>
-<p>With the solution as a <code class="docutils literal notranslate"><span class="pre">Function</span></code> we can simply project
+<p>With the solution as a <a class='reference internal' href='https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.Function' title='shenfun.forms.arguments.Function'><code class='xref py py-func docutils literal notranslate'><span class='pre'>Function</span></code></a> we can simply project
 the gradient to <code class="docutils literal notranslate"><span class="pre">V</span></code></p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
