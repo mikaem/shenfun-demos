@@ -513,25 +513,14 @@ The weighted integrals, weighted by <span class="math notranslate nohighlight">\
 <p>The integral can either be computed exactly, or with quadrature. The advantage
 of the latter is that it is generally faster, and that non-linear terms may be
 computed just as quickly as linear. For a linear problem, it does not make much of a difference, if any at all. Approximating the integral with quadrature, we obtain</p>
-<!-- Equation labels as ordinary links -->
-<p><a id="_auto13"></a></p>
 <div class="math notranslate nohighlight">
-\[
-\begin{equation}
-\int_{\Omega} u \, \overline{v} \, w\, \boldsymbol{dx} \approx \langle u, v
-\rangle_w^{\boldsymbol{N}},  
-\label{_auto13} \tag{16}
-\end{equation}
-\]</div>
-<!-- Equation labels as ordinary links -->
-<p><a id="_auto14"></a></p>
-<div class="math notranslate nohighlight">
-\[
-\begin{equation}  
-\approx \sum_{i=0}^{N_0-1} \sum_{j=0}^{N_1-1}\sum_{k=0}^{N_2-1} u(x_i, y_j, z_k) \overline{v}(x_i, y_j, z_k) w(x_i, y_j, z_k),
-\label{_auto14} \tag{17}
-\end{equation}
-\]</div>
+\[\begin{split}
+\begin{align*}
+\int_{\Omega} u \, \overline{v} \, w\, \boldsymbol{dx} &amp;\approx \langle u, v
+\rangle_w^{\boldsymbol{N}},  \\ 
+&amp;\approx \sum_{i=0}^{N_0-1} \sum_{j=0}^{N_1-1}\sum_{k=0}^{N_2-1} u(x_i, y_j, z_k) \overline{v}(x_i, y_j, z_k) w(x_i, y_j, z_k),
+\end{align*}
+\end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(w(\boldsymbol{x})\)</span> now are the quadrature weights. The quadrature points
 <span class="math notranslate nohighlight">\(\{x_i\}_{i=0}^{N_0-1}\)</span> are specific to the chosen basis, and even within basis there
 are two different choices based on which quadrature rule is selected, either
@@ -554,13 +543,13 @@ left hand side of (<a class="reference external" href="#eq:3d:varform">14</a>), 
 \end{split}\]</div>
 <p>where the notation <span class="math notranslate nohighlight">\((\cdot, \cdot)_w^{N_0}\)</span></p>
 <!-- Equation labels as ordinary links -->
-<p><a id="_auto15"></a></p>
+<p><a id="_auto13"></a></p>
 <div class="math notranslate nohighlight">
 \[
 \begin{equation}
 b_{pl} = \left( \mathcal{X}_l, \mathcal{X}_p \right)_w^{N_0} = \sum_{i=0}^{N_0-1} \mathcal{X}_l(x_i)
 \mathcal{X}_p(x_i) w(x_i),
-\label{_auto15} \tag{18}
+\label{_auto13} \tag{16}
 \end{equation}
 \]</div>
 <p>is used to represent an <span class="math notranslate nohighlight">\(L_2\)</span> inner product along only the first, nonperiodic,
@@ -568,34 +557,32 @@ direction. The delta functions above come from integrating over the two periodic
 directions, where we use constant weight functions <span class="math notranslate nohighlight">\(w=1/(2\pi)\)</span> in the
 inner products</p>
 <!-- Equation labels as ordinary links -->
-<p><a id="_auto16"></a></p>
+<p><a id="eq:delta0"></a></p>
 <div class="math notranslate nohighlight">
 \[
 \begin{equation}
-\int_0^{2\pi} \mathcal{Y}_m(y) \overline{\mathcal{Y}}_q(y) \frac{1}{2\pi} dy = \delta_{mq},
-\label{_auto16} \tag{19}
+\int_0^{2\pi} \mathcal{Y}_m(y) \overline{\mathcal{Y}}_q(y) \frac{1}{2\pi} dy = \delta_{mq}, \label{eq:delta0} \tag{17}
 \end{equation}
 \]</div>
 <!-- Equation labels as ordinary links -->
-<p><a id="_auto17"></a></p>
+<p><a id="eq:delta1"></a></p>
 <div class="math notranslate nohighlight">
 \[
-\begin{equation}  
-\int_0^{2\pi} \mathcal{Z}_n(z) \overline{\mathcal{Z}}_r(z) \frac{1}{2\pi} dz = \delta_{nr},
-\label{_auto17} \tag{20}
+\begin{equation}
+\int_0^{2\pi} \mathcal{Z}_n(z) \overline{\mathcal{Z}}_r(z) \frac{1}{2\pi} dz = \delta_{nr}. \label{eq:delta1} \tag{18}
 \end{equation}
 \]</div>
 <p>The Kronecker delta-function <span class="math notranslate nohighlight">\(\delta_{ij}\)</span> is one for <span class="math notranslate nohighlight">\(i=j\)</span> and
 zero otherwise.</p>
 <p>The right hand side of Eq. (<a class="reference external" href="#eq:3d:varform">14</a>) is computed as</p>
 <!-- Equation labels as ordinary links -->
-<p><a id="_auto18"></a></p>
+<p><a id="_auto14"></a></p>
 <div class="math notranslate nohighlight">
 \[
 \begin{equation}
 \tilde{f}_{pqr} = \left\langle f, \mathcal{X}_{p}
 \mathcal{Y}_q \mathcal{Z}_r  \right \rangle_w^{\boldsymbol{N}},
-\label{_auto18} \tag{21}
+\label{_auto14} \tag{19}
 \end{equation}
 \]</div>
 <p>where a tilde is used because this is not a complete transform of the function
@@ -608,7 +595,7 @@ be found as follows</p>
 \[
 \begin{equation}
 \left(a_{lj} - (m^2+n^2)b_{lj}\right) \hat{u}_{jmn} =
-\tilde{f}_{lmn}\quad \forall \, (l,m,n) \in \boldsymbol{k}. \label{eq:AB} \tag{22}
+\tilde{f}_{lmn}\quad \forall \, (l,m,n) \in \boldsymbol{k}. \label{eq:AB} \tag{20}
 \end{equation}
 \]</div>
 <p>Now, when <span class="math notranslate nohighlight">\(\hat{\boldsymbol{u}} = \{\hat{u}_{\boldsymbol{\textsf{k}}}\}_{\boldsymbol{\textsf{k}} \in \boldsymbol{k}}\)</span> is
@@ -620,7 +607,7 @@ differ for Legendre or Chebyshev bases, but
 for either case they have a
 special structure that allows for a solution to be found very efficiently
 in the order of <span class="math notranslate nohighlight">\(\mathcal{O}(N_0-3)\)</span> operations given <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span>, see
-<a class="reference external" href="#shen1">[shen1]</a> and <a class="reference external" href="#shen95">[shen95]</a>. Fast solvers for (<a class="reference external" href="#eq:AB">22</a>) are implemented in <code class="docutils literal notranslate"><span class="pre">shenfun</span></code> for both bases.</p>
+<a class="reference external" href="#shen1">[shen1]</a> and <a class="reference external" href="#shen95">[shen95]</a>. Fast solvers for (<a class="reference external" href="#eq:AB">20</a>) are implemented in <code class="docutils literal notranslate"><span class="pre">shenfun</span></code> for both bases.</p>
 <div class="section" id="method-of-manufactured-solutions">
 <h3>Method of manufactured solutions<a class="headerlink" href="#method-of-manufactured-solutions" title="Permalink to this headline">¶</a></h3>
 <p>In this demo we will use the method of manufactured
@@ -632,7 +619,7 @@ conditions:</p>
 <div class="math notranslate nohighlight">
 \[
 \begin{equation}
-u_e(x, y, z) = \left(\cos(4x) + \sin(2y) + \sin(4z)\right)(1-x^2). \label{eq:3d:u_e} \tag{23}
+u_e(x, y, z) = \left(\cos(4x) + \sin(2y) + \sin(4z)\right)(1-x^2). \label{eq:3d:u_e} \tag{21}
 \end{equation}
 \]</div>
 <p>Sending <span class="math notranslate nohighlight">\(u_e\)</span> through the Laplace operator, we obtain the right hand side</p>
@@ -642,7 +629,7 @@ u_e(x, y, z) = \left(\cos(4x) + \sin(2y) + \sin(4z)\right)(1-x^2). \label{eq:3d:
 \[
 \begin{equation}
  \nabla^2 u_e(x,y,z) = -16(1 - x^2) \cos(4 x) + 16 x \sin(4 x) - 2 \cos(4 x)
-                  - (1-x^2)(4 \sin(2y) + 16\sin(4z)).  \label{eq:3d:solution} \tag{24}
+                  - (1-x^2)(4 \sin(2y) + 16\sin(4z)).  \label{eq:3d:solution} \tag{22}
 \end{equation}
 \]</div>
 <p>Now, setting <span class="math notranslate nohighlight">\(f_e(\boldsymbol{x}) = \nabla^2 u_e(\boldsymbol{x})\)</span> and solving for <span class="math notranslate nohighlight">\(\nabla^2
@@ -663,7 +650,7 @@ plus some other helper modules, like <a class="reference external" href="https:/
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">shenfun.tensorproductspace</span> <span class="kn">import</span> <span class="n">TensorProductSpace</span>
 <span class="kn">from</span> <span class="nn">shenfun</span> <span class="kn">import</span> <span class="n">inner</span><span class="p">,</span> <span class="n">div</span><span class="p">,</span> <span class="n">grad</span><span class="p">,</span> <span class="n">TestFunction</span><span class="p">,</span> <span class="n">TrialFunction</span><span class="p">,</span> <span class="n">Function</span><span class="p">,</span> \
-    <span class="n">project</span><span class="p">,</span> <span class="n">Dx</span><span class="p">,</span> <span class="n">FunctionSpace</span><span class="p">,</span> <span class="n">comm</span><span class="p">,</span> <span class="n">Array</span><span class="p">,</span> <span class="n">chebyshev</span>
+    <span class="n">project</span><span class="p">,</span> <span class="n">Dx</span><span class="p">,</span> <span class="n">FunctionSpace</span><span class="p">,</span> <span class="n">comm</span><span class="p">,</span> <span class="n">Array</span><span class="p">,</span> <span class="n">chebyshev</span><span class="p">,</span> <span class="n">dx</span>
 </pre></div>
 </div>
 </div>
@@ -679,10 +666,6 @@ Python (<code class="docutils literal notranslate"><span class="pre">mpi4py</spa
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;x,y,z&quot;</span><span class="p">)</span>
 <span class="n">ue</span> <span class="o">=</span> <span class="p">(</span><span class="n">cos</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">y</span><span class="p">)</span> <span class="o">+</span> <span class="n">sin</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">z</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">fe</span> <span class="o">=</span> <span class="n">ue</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">ue</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">ue</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-
-<span class="c1"># Lambdify for faster evaluation</span>
-<span class="n">ul</span> <span class="o">=</span> <span class="n">lambdify</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">),</span> <span class="n">ue</span><span class="p">,</span> <span class="s1">&#39;numpy&#39;</span><span class="p">)</span>
-<span class="n">fl</span> <span class="o">=</span> <span class="n">lambdify</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">),</span> <span class="n">fe</span><span class="p">,</span> <span class="s1">&#39;numpy&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -695,7 +678,7 @@ discretize, using the computational mesh</p>
 \]</div>
 <p>and a finite number of basis functions.</p>
 <p>Note that it is not mandatory to use <code class="docutils literal notranslate"><span class="pre">Sympy</span></code> for the manufactured solution. Since the
-solution is known (<a class="reference external" href="#eq:3d:solution">24</a>), we could just as well simply use <code class="docutils literal notranslate"><span class="pre">Numpy</span></code>
+solution is known (<a class="reference external" href="#eq:3d:solution">22</a>), we could just as well simply use <code class="docutils literal notranslate"><span class="pre">Numpy</span></code>
 to compute <span class="math notranslate nohighlight">\(f_e\)</span>. However, with <code class="docutils literal notranslate"><span class="pre">Sympy</span></code> it is much
 easier to experiment and quickly change the solution.</p>
 </div>
@@ -733,12 +716,8 @@ as well have put the nonperiodic direction along either <span class="math notran
 though, but this would then require that the order of the transformed axes be
 changed as well. For example, putting the Dirichlet direction along <span class="math notranslate nohighlight">\(y\)</span>, we
 would need to create the tensorproductspace as</p>
-<div class="cell tag_thebe-init docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="n">TensorProductSpace</span><span class="p">(</span><span class="n">comm</span><span class="p">,</span> <span class="p">(</span><span class="n">K1</span><span class="p">,</span> <span class="n">SD</span><span class="p">,</span> <span class="n">K2</span><span class="p">),</span> <span class="n">axes</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span>        <span class="n">T</span> <span class="o">=</span> <span class="n">TensorProductSpace</span><span class="p">(</span><span class="n">comm</span><span class="p">,</span> <span class="p">(</span><span class="n">K1</span><span class="p">,</span> <span class="n">SD</span><span class="p">,</span> <span class="n">K2</span><span class="p">),</span> <span class="n">axes</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 </pre></div>
-</div>
-</div>
 </div>
 <p>such that the Dirichlet direction is the last to be transformed. The reason for
 this is that only the Dirichlet direction leads to matrices that need to be
@@ -764,11 +743,11 @@ axes <span class="math notranslate nohighlight">\(y\)</span> and <span class="ma
 real space the mesh is distributed differently. First of all the global mesh
 shape is <span class="math notranslate nohighlight">\(\boldsymbol{N}=(14, 15, 16)\)</span>, and it is distributed along the first two
 dimensions. The local slices can be inspected as</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    print(comm.Get_rank(), T.local_slice(False))
-    0 [slice(0, 7, None), slice(0, 8, None), slice(0, 16, None)]
-    1 [slice(0, 7, None), slice(8, 15, None), slice(0, 16, None)]
-    2 [slice(7, 14, None), slice(0, 8, None), slice(0, 16, None)]
-    3 [slice(7, 14, None), slice(8, 15, None), slice(0, 16, None)]
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span>        <span class="nb">print</span><span class="p">(</span><span class="n">comm</span><span class="o">.</span><span class="n">Get_rank</span><span class="p">(),</span> <span class="n">T</span><span class="o">.</span><span class="n">local_slice</span><span class="p">(</span><span class="kc">False</span><span class="p">))</span>
+        <span class="mi">0</span> <span class="p">[</span><span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="kc">None</span><span class="p">)]</span>
+        <span class="mi">1</span> <span class="p">[</span><span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="kc">None</span><span class="p">)]</span>
+        <span class="mi">2</span> <span class="p">[</span><span class="nb">slice</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="kc">None</span><span class="p">)]</span>
+        <span class="mi">3</span> <span class="p">[</span><span class="nb">slice</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="kc">None</span><span class="p">)]</span>
 </pre></div>
 </div>
 <p>Since two directions are distributed, both in spectral and real space, we say
@@ -777,12 +756,8 @@ processor mesh) and the
 MPI distribution is of type <em>pencil</em>. It is also possible to choose a <em>slab</em>
 decomposition, where only one dimension of the array is distributed. This choice
 needs to be made when creating the tensorproductspace as</p>
-<div class="cell tag_thebe-init docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="n">TensorProductSpace</span><span class="p">(</span><span class="n">comm</span><span class="p">,</span> <span class="p">(</span><span class="n">SD</span><span class="p">,</span> <span class="n">K1</span><span class="p">,</span> <span class="n">K2</span><span class="p">),</span> <span class="n">axes</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">slab</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span>        <span class="n">T</span> <span class="o">=</span> <span class="n">TensorProductSpace</span><span class="p">(</span><span class="n">comm</span><span class="p">,</span> <span class="p">(</span><span class="n">SD</span><span class="p">,</span> <span class="n">K1</span><span class="p">,</span> <span class="n">K2</span><span class="p">),</span> <span class="n">axes</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">slab</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
-</div>
-</div>
 </div>
 <p>which will lead to a mesh that is distributed along <span class="math notranslate nohighlight">\(x\)</span>-direction in real space
 and <span class="math notranslate nohighlight">\(y\)</span>-direction in spectral space. The local slices are</p>
@@ -810,9 +785,8 @@ form language, which is perhaps surprisingly similar to FEniCS.</p>
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="n">TrialFunction</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
 <span class="n">v</span> <span class="o">=</span> <span class="n">TestFunction</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
-<span class="n">K</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">local_wavenumbers</span><span class="p">()</span>
 <span class="c1"># Get f on quad points</span>
-<span class="n">fj</span> <span class="o">=</span> <span class="n">Array</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">buffer</span><span class="o">=</span><span class="n">fl</span><span class="p">(</span><span class="o">*</span><span class="n">X</span><span class="p">))</span>
+<span class="n">fj</span> <span class="o">=</span> <span class="n">Array</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">buffer</span><span class="o">=</span><span class="n">fe</span><span class="p">)</span>
 <span class="c1"># Compute right hand side of Poisson equation</span>
 <span class="n">f_hat</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">fj</span><span class="p">)</span>
 <span class="c1"># Get left hand side of Poisson equation</span>
@@ -822,17 +796,17 @@ form language, which is perhaps surprisingly similar to FEniCS.</p>
 </div>
 </div>
 <p>The Laplacian operator is recognized as <code class="docutils literal notranslate"><span class="pre">div(grad)</span></code>. The <code class="docutils literal notranslate"><span class="pre">matrices</span></code> object is a
-dictionary representing the left hand side of (<a class="reference external" href="#eq:AB">22</a>), and there are two
-keys: (<code class="docutils literal notranslate"><span class="pre">ADDmat</span></code>, <code class="docutils literal notranslate"><span class="pre">BDDmat</span></code>). The value of <code class="docutils literal notranslate"><span class="pre">matrices[&quot;ADDmat&quot;]</span></code> is an object of
-type <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.html#shenfun.matrixbase.SpectralMatrix">SpectralMatrix</a>,
-which is <code class="docutils literal notranslate"><span class="pre">shenfun</span></code>’s type for a matrix. This matrix represents <span class="math notranslate nohighlight">\(A_{lj}\)</span>, see
-(<a class="reference external" href="#eq:AB">22</a>), and it has an attribute <code class="docutils literal notranslate"><span class="pre">scale</span></code> that is
-equal to <span class="math notranslate nohighlight">\((2\pi)^2\)</span> (also see (<a class="reference external" href="#eq:AB">22</a>)).  The other key in matrices
-is <code class="docutils literal notranslate"><span class="pre">BDDmat</span></code>, and the value here is a <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.html#shenfun.matrixbase.SpectralMatrix">SpectralMatrix</a> representing <span class="math notranslate nohighlight">\(B_{lj}\)</span> from
-(<a class="reference external" href="#eq:AB">22</a>). This matrix has an attribute <code class="docutils literal notranslate"><span class="pre">scale</span></code> that is equal to <span class="math notranslate nohighlight">\(m^2+n^2\)</span>.
-This <code class="docutils literal notranslate"><span class="pre">scale</span></code> is stored as a numpy array of shape <span class="math notranslate nohighlight">\((1, 15, 9)\)</span>, representing the
-set
-<span class="math notranslate nohighlight">\(\{m^2+n^2: (m, n) \in \boldsymbol{m}^{N_1} \times \boldsymbol{n}^{N_2}\}\)</span>. Note that <span class="math notranslate nohighlight">\(\boldsymbol{n}^{N_2}\)</span> is stored
+list of two tensor product matrices, stored as instances of the class <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.html#shenfun.matrixbase.TPMatrix">TPMatrix</a>.
+The two tensor product matrices represents</p>
+<div class="math notranslate nohighlight">
+\[
+a_{pl} \delta_{mq} \delta_{nr}\, \text{ and }\, -(m^2 + n^2)b_{pl} \delta_{mq} \delta_{nr}
+\]</div>
+<p>from Eqs. (<a class="reference external" href="#eq:AB">20</a>), (<a class="reference external" href="#eq:delta0">17</a>) and (<a class="reference external" href="#eq:delta1">18</a>).
+The second matrix (<span class="math notranslate nohighlight">\(-(m^2 + n^2)b_{pl} \delta_{mq} \delta_{nr}\)</span>) has an
+attribute <code class="docutils literal notranslate"><span class="pre">scale</span></code> that is equal to <span class="math notranslate nohighlight">\(-(m^2+n^2)\)</span>.
+This <code class="docutils literal notranslate"><span class="pre">scale</span></code> is stored as a numpy array of shape <span class="math notranslate nohighlight">\((1, 15, 9)\)</span>, representing the set
+<span class="math notranslate nohighlight">\(\{-(m^2+n^2): (m, n) \in \boldsymbol{m}^{N_1} \times \boldsymbol{n}^{N_2}\}\)</span>. Note that <span class="math notranslate nohighlight">\(\boldsymbol{n}^{N_2}\)</span> is stored
 simply as an array of length <span class="math notranslate nohighlight">\(N_2/2+1\)</span> (here 9), since the transform in direction <span class="math notranslate nohighlight">\(z\)</span>
 takes a real signal and transforms it taking advantage of Hermitian symmetry,
 see <a class="reference external" href="https://docs.scipy.org/doc/numpy-1.13.0/reference/generated/numpy.fft.rfft.html">rfft</a>.</p>
@@ -853,7 +827,7 @@ see <a class="reference external" href="https://docs.scipy.org/doc/numpy-1.13.0/
 <span class="n">uq</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">backward</span><span class="p">(</span><span class="n">u_hat</span><span class="p">)</span>
 
 <span class="c1"># Compare with analytical solution</span>
-<span class="n">uj</span> <span class="o">=</span> <span class="n">ul</span><span class="p">(</span><span class="o">*</span><span class="n">X</span><span class="p">)</span>
+<span class="n">uj</span> <span class="o">=</span> <span class="n">Array</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">buffer</span><span class="o">=</span><span class="n">ue</span><span class="p">)</span>
 <span class="n">error</span> <span class="o">=</span> <span class="n">comm</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">uj</span><span class="o">-</span><span class="n">uq</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">comm</span><span class="o">.</span><span class="n">Get_rank</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error=</span><span class="si">%2.16e</span><span class="s2">&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">error</span><span class="p">)))</span>
@@ -864,63 +838,107 @@ see <a class="reference external" href="https://docs.scipy.org/doc/numpy-1.13.0/
 </div>
 <div class="section" id="convergence-test">
 <h3>Convergence test<a class="headerlink" href="#convergence-test" title="Permalink to this headline">¶</a></h3>
-<p>A complete solver is given in Sec. <a class="reference external" href="#sec:3d:complete">Complete solver</a>. This solver is created
-such that it takes in two commandline arguments and prints out the
-<span class="math notranslate nohighlight">\(L_2\)</span>-errornorm of the solution in the end. We can use this to write a short
-script that performs a convergence test. The solver is run like</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    &gt;&gt;&gt; python dirichlet_poisson3D.py 32 legendre
-    Error=6.5955040031498912e-10
+<p>To do a convergence test we will now create a function <code class="docutils literal notranslate"><span class="pre">main</span></code>, that takes the
+number of quadrature points as parameter, and prints out
+the error.</p>
+<div class="cell tag_thebe-init docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">importlib</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">family</span><span class="o">=</span><span class="s1">&#39;Chebyshev&#39;</span><span class="p">):</span>
+    <span class="n">base</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="s1">&#39;shenfun&#39;</span><span class="p">,</span> <span class="n">family</span><span class="o">.</span><span class="n">lower</span><span class="p">())))</span>
+    <span class="n">Solver</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">la</span><span class="o">.</span><span class="n">Helmholtz</span>
+    <span class="n">SD</span> <span class="o">=</span> <span class="n">FunctionSpace</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">family</span><span class="o">=</span><span class="n">family</span><span class="p">,</span> <span class="n">bc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+    <span class="n">K1</span> <span class="o">=</span> <span class="n">FunctionSpace</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">family</span><span class="o">=</span><span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;D&#39;</span><span class="p">)</span>
+    <span class="n">K2</span> <span class="o">=</span> <span class="n">FunctionSpace</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">family</span><span class="o">=</span><span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;d&#39;</span><span class="p">)</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="n">TensorProductSpace</span><span class="p">(</span><span class="n">comm</span><span class="p">,</span> <span class="p">(</span><span class="n">SD</span><span class="p">,</span> <span class="n">K1</span><span class="p">,</span> <span class="n">K2</span><span class="p">),</span> <span class="n">axes</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+
+    <span class="n">u</span> <span class="o">=</span> <span class="n">TrialFunction</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">TestFunction</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+
+    <span class="c1"># Get f on quad points</span>
+    <span class="n">fj</span> <span class="o">=</span> <span class="n">Array</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">buffer</span><span class="o">=</span><span class="n">fe</span><span class="p">)</span>
+
+    <span class="c1"># Compute right hand side of Poisson&#39;s equation</span>
+    <span class="n">f_hat</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+    <span class="n">f_hat</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">fj</span><span class="p">,</span> <span class="n">output_array</span><span class="o">=</span><span class="n">f_hat</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">family</span> <span class="o">==</span> <span class="s1">&#39;legendre&#39;</span><span class="p">:</span>
+        <span class="n">f_hat</span> <span class="o">*=</span> <span class="o">-</span><span class="mf">1.</span>
+
+    <span class="c1"># Get left hand side of Poisson equation</span>
+    <span class="k">if</span> <span class="n">family</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;chebyshev&#39;</span><span class="p">:</span>
+        <span class="n">matrices</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">div</span><span class="p">(</span><span class="n">grad</span><span class="p">(</span><span class="n">u</span><span class="p">)))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">matrices</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="n">grad</span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="n">grad</span><span class="p">(</span><span class="n">u</span><span class="p">))</span>
+
+    <span class="c1"># Create Helmholtz linear algebra solver</span>
+    <span class="n">H</span> <span class="o">=</span> <span class="n">Solver</span><span class="p">(</span><span class="o">*</span><span class="n">matrices</span><span class="p">)</span>
+
+    <span class="c1"># Solve and transform to real space</span>
+    <span class="n">u_hat</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>           <span class="c1"># Solution spectral space</span>
+    <span class="n">u_hat</span> <span class="o">=</span> <span class="n">H</span><span class="p">(</span><span class="n">u_hat</span><span class="p">,</span> <span class="n">f_hat</span><span class="p">)</span>       <span class="c1"># Solve</span>
+
+    <span class="n">uj</span> <span class="o">=</span> <span class="n">Array</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+    <span class="n">uj</span> <span class="o">=</span> <span class="n">u_hat</span><span class="o">.</span><span class="n">backward</span><span class="p">(</span><span class="n">uj</span><span class="p">)</span>
+
+    <span class="c1"># Compare with analytical solution</span>
+    <span class="n">ua</span> <span class="o">=</span> <span class="n">Array</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">buffer</span><span class="o">=</span><span class="n">ue</span><span class="p">)</span>
+    <span class="c1">#l2_error = np.linalg.norm(uj-ua)</span>
+    <span class="n">L2_error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dx</span><span class="p">((</span><span class="n">uj</span><span class="o">-</span><span class="n">ua</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">L2_error</span>
 </pre></div>
 </div>
-<p>for a discretization of size <span class="math notranslate nohighlight">\(\boldsymbol{N}= N^3 = 32^3\)</span> and for the Legendre basis.
-Alternatively, change <code class="docutils literal notranslate"><span class="pre">legendre</span></code> to <code class="docutils literal notranslate"><span class="pre">chebyshev</span></code> for the Chebyshev basis.</p>
-<p>We set up the solver to run for a list of <span class="math notranslate nohighlight">\(N=[8, 10, \ldots, 38]\)</span>, and collect
-the errornorms in arrays to be plotted. Such a script can be easily created
-with the <a class="reference external" href="https://docs.python.org/3/library/subprocess.html">subprocess</a> module</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    %matplotlib inline
-    
-    import subprocess
-    from numpy import log, array
-    from matplotlib import pyplot as plt
-    
-    N = range(8, 40, 2)
-    error = {}
-    for basis in (&#39;legendre&#39;, &#39;chebyshev&#39;):
-        error[basis] = []
-        for i in range(len(N)):
-            output = subprocess.check_output(&quot;python dirichlet_poisson3D.py {} {}&quot;.format(N[i], basis), shell=True)
-            exec(output) # Error is printed as &quot;Error=%2.16e&quot;%(np.linalg.norm(uj-ua))
-            error[basis].append(Error)
-            if i == 0:
-                print(&quot;Error          hmin           r       &quot;)
-                print(&quot;%2.8e %2.8e %2.8f&quot;%(error[basis][-1], 1./N[i], 0))
-            if i &gt; 0:
-                print(&quot;%2.8e %2.8e %2.8f&quot;%(error[basis][-1], 1./N[i], log(error[basis][-1]/error[basis][-2])/log(N[i-1]/N[i])))
+</div>
+</div>
+<p>For example, we find the error of a Chebyshev discretization
+using 12 quadrature points as</p>
+<div class="cell tag_thebe-init docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">main</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="s1">&#39;Chebyshev&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The error can be plotted using <a class="reference external" href="https://matplotlib.org">matplotlib</a>, and the
-generated figure is shown in the summary’s Fig. <a class="reference external" href="#fig:3d:ct0">fig:3d:ct0</a>. The spectral
-convergence is evident and we can see that after <span class="math notranslate nohighlight">\(N=25\)</span> roundoff errors dominate
-as the errornorm trails off around <span class="math notranslate nohighlight">\(10^{-13}\)</span>.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    plt.figure(figsize=(6, 4))
-    for basis, col in zip((&#39;legendre&#39;, &#39;chebyshev&#39;), (&#39;r&#39;, &#39;b&#39;)):
-        plt.semilogy(N, error[basis], col, linewidth=2)
-    plt.title(&#39;Convergence of Poisson solvers 3D&#39;)
-    plt.xlabel(&#39;N&#39;)
-    plt.ylabel(&#39;Error norm&#39;)
-    plt.legend((&#39;Legendre&#39;, &#39;Chebyshev&#39;))
-    plt.savefig(&#39;poisson3D_errornorm.png&#39;)
-    plt.show()
+</div>
+</div>
+<p>To get the convergence we call <code class="docutils literal notranslate"><span class="pre">main</span></code> for a list
+of <span class="math notranslate nohighlight">\(N=[12, 16, \ldots, 48]\)</span>, and collect the errornorms in
+arrays to be plotted. The error can be plotted using
+<a class="reference external" href="https://matplotlib.org">matplotlib</a>, and the generated
+figure is also shown in this demos summary.</p>
+<div class="cell tag_thebe-init docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">N</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">error</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">basis</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;legendre&#39;</span><span class="p">,</span> <span class="s1">&#39;chebyshev&#39;</span><span class="p">):</span>
+    <span class="n">error</span><span class="p">[</span><span class="n">basis</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">N</span><span class="p">)):</span>
+        <span class="n">errN</span> <span class="o">=</span> <span class="n">main</span><span class="p">(</span><span class="n">N</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">basis</span><span class="p">)</span>
+        <span class="n">error</span><span class="p">[</span><span class="n">basis</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">errN</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">basis</span><span class="p">,</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">((</span><span class="s1">&#39;legendre&#39;</span><span class="p">,</span> <span class="s1">&#39;chebyshev&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">)):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">error</span><span class="p">[</span><span class="n">basis</span><span class="p">],</span> <span class="n">col</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Convergence of Poisson solvers 1D&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Error norm&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">((</span><span class="s1">&#39;Legendre&#39;</span><span class="p">,</span> <span class="s1">&#39;Chebyshev&#39;</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<!-- FIGURE: [poisson1D_errornorm.png] Convergence test of Legendre and Chebyshev 1D Poisson solvers. <a id="fig:ct"></a> -->
+</div>
+</div>
+<p>The spectral convergence is evident and we can see that
+after <span class="math notranslate nohighlight">\(N=24\)</span> roundoff errors dominate as the errornorm trails off around <span class="math notranslate nohighlight">\(10^{-14}\)</span>.</p>
 </div>
 </div>
 <div class="section" id="complete-solver">
 <h2>Complete solver<a class="headerlink" href="#complete-solver" title="Permalink to this headline">¶</a></h2>
-<p><a id="sec:3d:complete"></a></p>
+<p><a id="sec:complete"></a></p>
 <p>A complete solver, that can use either Legendre or Chebyshev bases, chosen as a
-command-line argument, can be found <a class="reference external" href="https://github.com/spectralDNS/shenfun/blob/master/demo/dirichlet_poisson3D.py">here</a>.</p>
+command-line argument, can also be found <a class="reference external" href="https://github.com/spectralDNS/shenfun/blob/master/demo/dirichlet_poisson3D.py">here</a>.</p>
 <!-- ======= Bibliography ======= -->
 <ol class="simple">
 <li><p><a id="shen1"></a> <strong>J. Shen</strong>.
