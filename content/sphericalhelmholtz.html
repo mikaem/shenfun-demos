@@ -277,7 +277,7 @@
 <!-- dom:AUTHOR: Mikael Mortensen Email:mikaem@math.uio.no at Department of Mathematics, University of Oslo. -->
 <!-- Author: -->  
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
-<p>Date: <strong>Aug 26, 2020</strong></p>
+<p>Date: <strong>Aug 27, 2020</strong></p>
 <p>Copyright 2020, Mikael Mortensen. Released under CC Attribution 4.0 license</p>
 <p><strong>Summary.</strong> This is a demonstration of how the Python module <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a> can be used to solve the
 Helmholtz equation on a unit sphere, using spherical
@@ -434,13 +434,14 @@ the next step, which is the creation of tensorproductspaces
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">N</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">30</span>
 <span class="n">L0</span> <span class="o">=</span> <span class="n">FunctionSpace</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
 <span class="n">F1</span> <span class="o">=</span> <span class="n">FunctionSpace</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;D&#39;</span><span class="p">)</span>
-<span class="n">T</span> <span class="o">=</span> <span class="n">TensorProductSpace</span><span class="p">(</span><span class="n">comm</span><span class="p">,</span> <span class="p">(</span><span class="n">L0</span><span class="p">,</span> <span class="n">F1</span><span class="p">),</span> <span class="n">coordinates</span><span class="o">=</span><span class="p">(</span><span class="n">psi</span><span class="p">,</span> <span class="n">rv</span><span class="p">))</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">TensorProductSpace</span><span class="p">(</span><span class="n">comm</span><span class="p">,</span> <span class="p">(</span><span class="n">L0</span><span class="p">,</span> <span class="n">F1</span><span class="p">),</span> <span class="n">coordinates</span><span class="o">=</span><span class="p">(</span><span class="n">psi</span><span class="p">,</span> <span class="n">rv</span><span class="p">,</span> <span class="n">sp</span><span class="o">.</span><span class="n">Q</span><span class="o">.</span><span class="n">positive</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">))))</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Spherical coordinates are ensured by feeding <code class="docutils literal notranslate"><span class="pre">coordinates=(psi,</span> <span class="pre">rv)</span></code>
-to <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.html#shenfun.tensorproductspace.TensorProductSpace">TensorProductSpace</a>. Operators like <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.operators.div">div()</a>,
+<p>Spherical coordinates are ensured by feeding <code class="docutils literal notranslate"><span class="pre">coordinates=(psi,</span> <span class="pre">rv,</span> <span class="pre">sp.Q.positive(sp.sin(theta)))</span></code>
+to <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.html#shenfun.tensorproductspace.TensorProductSpace">TensorProductSpace</a>, where the restriction <code class="docutils literal notranslate"><span class="pre">sp.Q.positive(sp.sin(theta))</span></code> is there
+to help sympy. Operators like <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.operators.div">div()</a>,
 <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.operators.grad">grad()</a> and  <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.operators.curl">curl()</a> will now work on
 items of <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.Function">Function</a>, <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.TestFunction">TestFunction</a> and
 <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.TrialFunction">TrialFunction</a> using a spherical coordinate system.</p>

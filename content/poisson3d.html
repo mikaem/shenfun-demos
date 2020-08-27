@@ -316,7 +316,7 @@
 <!-- dom:AUTHOR: Mikael Mortensen Email:mikaem@math.uio.no at Department of Mathematics, University of Oslo. -->
 <!-- Author: -->  
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
-<p>Date: <strong>Aug 26, 2020</strong></p>
+<p>Date: <strong>Aug 27, 2020</strong></p>
 <p>Copyright 2020, Mikael Mortensen. Released under CC Attribution 4.0 license</p>
 <p><strong>Summary.</strong> This is a demonstration of how the Python module <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a> can be used to solve a 3D Poisson
 equation in a 3D tensor product domain that has homogeneous Dirichlet boundary
@@ -684,8 +684,8 @@ easier to experiment and quickly change the solution.</p>
 </div>
 <div class="section" id="discretization-and-mpi">
 <h3>Discretization and MPI<a class="headerlink" href="#discretization-and-mpi" title="Permalink to this headline">¶</a></h3>
-<p>We create three bases with given size, one for each dimension of the problem.
-From these three bases a <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.html#shenfun.tensorproductspace.TensorProductSpace">TensorProductSpace</a> is created.</p>
+<p>We create three function spaces with given size, one for each dimension of the problem.
+From these three spaces a <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.html#shenfun.tensorproductspace.TensorProductSpace">TensorProductSpace</a> is created.</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Size of discretization</span>
@@ -711,7 +711,7 @@ spectral space. With <code class="docutils literal notranslate"><span class="pre
 to spectral, i.e., from <span class="math notranslate nohighlight">\(u\)</span> to <span class="math notranslate nohighlight">\(\hat{u}\)</span>) axis 2 is transformed first and then 1
 and 0, respectively.</p>
 <p>The manufactured solution is created with Dirichlet boundary conditions in the
-<span class="math notranslate nohighlight">\(x\)</span>-direction, and for this reason <code class="docutils literal notranslate"><span class="pre">SD</span></code> is the first basis in <code class="docutils literal notranslate"><span class="pre">T</span></code>. We could just
+<span class="math notranslate nohighlight">\(x\)</span>-direction, and for this reason <code class="docutils literal notranslate"><span class="pre">SD</span></code> is the first space in <code class="docutils literal notranslate"><span class="pre">T</span></code>. We could just
 as well have put the nonperiodic direction along either <span class="math notranslate nohighlight">\(y\)</span>- or <span class="math notranslate nohighlight">\(z\)</span>-direction,
 though, but this would then require that the order of the transformed axes be
 changed as well. For example, putting the Dirichlet direction along <span class="math notranslate nohighlight">\(y\)</span>, we
@@ -726,15 +726,18 @@ direction to be local to the processor. If the <code class="docutils literal not
 transformed, then the data will be aligned in this direction, whereas the other
 two directions may both, or just one of them, be distributed.</p>
 <p>Note that <code class="docutils literal notranslate"><span class="pre">X</span></code> is a list containing local values of the arrays <span class="math notranslate nohighlight">\(\{x_i\}_{i=0}^{N_0-1}\)</span>,
-<span class="math notranslate nohighlight">\(\{y_j\}_{j=0}^{N_1-0}\)</span> and <span class="math notranslate nohighlight">\(\{z_k\}_{k=0}^{N_2-1}\)</span>. For example, using 4
-procesors and a processor mesh of shape <span class="math notranslate nohighlight">\(2\times 2\)</span>, then the local slices for
-each processor in spectral space are</p>
-<div class="cell tag_thebe-init docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">comm</span><span class="o">.</span><span class="n">Get_rank</span><span class="p">(),</span> <span class="n">T</span><span class="o">.</span><span class="n">local_slice</span><span class="p">())</span>
+<span class="math notranslate nohighlight">\(\{y_j\}_{j=0}^{N_1-0}\)</span> and <span class="math notranslate nohighlight">\(\{z_k\}_{k=0}^{N_2-1}\)</span>.
+Now, it’s not possible to run a jupyter notebook with more than one process,
+but we can imagine running <a class="reference external" href="https://github.com/spectralDNS/shenfun/blob/master/demo/dirichlet_poisson3D.py">the complete solver</a>
+with 4 procesors and a processor mesh of shape <span class="math notranslate nohighlight">\(2\times 2\)</span>.
+We would then get the following local slices for
+each processor in spectral space</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span>        <span class="nb">print</span><span class="p">(</span><span class="n">comm</span><span class="o">.</span><span class="n">Get_rank</span><span class="p">(),</span> <span class="n">T</span><span class="o">.</span><span class="n">local_slice</span><span class="p">())</span>
+        <span class="mi">3</span> <span class="p">[</span><span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="kc">None</span><span class="p">)]</span>
+        <span class="mi">1</span> <span class="p">[</span><span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="kc">None</span><span class="p">)]</span>
+        <span class="mi">2</span> <span class="p">[</span><span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="kc">None</span><span class="p">)]</span>
+        <span class="mi">0</span> <span class="p">[</span><span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="kc">None</span><span class="p">)]</span>
 </pre></div>
-</div>
-</div>
 </div>
 <p>where the global shape is <span class="math notranslate nohighlight">\(\boldsymbol{N}=(14, 15, 9)\)</span> after taking advantage of
 Hermitian symmetry in the <span class="math notranslate nohighlight">\(z\)</span>-direction. So, all processors have the complete first dimension available locally, as they
@@ -759,8 +762,8 @@ needs to be made when creating the tensorproductspace as</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span>        <span class="n">T</span> <span class="o">=</span> <span class="n">TensorProductSpace</span><span class="p">(</span><span class="n">comm</span><span class="p">,</span> <span class="p">(</span><span class="n">SD</span><span class="p">,</span> <span class="n">K1</span><span class="p">,</span> <span class="n">K2</span><span class="p">),</span> <span class="n">axes</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">slab</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>which will lead to a mesh that is distributed along <span class="math notranslate nohighlight">\(x\)</span>-direction in real space
-and <span class="math notranslate nohighlight">\(y\)</span>-direction in spectral space. The local slices are</p>
+<p>which would lead to a mesh that is distributed along <span class="math notranslate nohighlight">\(x\)</span>-direction in real space
+and <span class="math notranslate nohighlight">\(y\)</span>-direction in spectral space. The local slices would then be</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    print(comm.Get_rank(), T.local_slice()) # spectral space
     1 [slice(0, 14, None), slice(4, 8, None), slice(0, 9, None)]
     2 [slice(0, 14, None), slice(8, 12, None), slice(0, 9, None)]

@@ -287,7 +287,7 @@
 <!-- dom:AUTHOR: Mikael Mortensen Email:mikaem@math.uio.no at Department of Mathematics, University of Oslo. -->
 <!-- Author: -->  
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
-<p>Date: <strong>Aug 26, 2020</strong></p>
+<p>Date: <strong>Aug 27, 2020</strong></p>
 <p>Copyright 2020, Mikael Mortensen. Released under CC Attribution 4.0 license</p>
 <p><strong>Summary.</strong> The lid driven cavity is a classical benchmark for Navier Stokes solvers.
 This is a demonstration of how the Python module <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a> can be used to solve the lid
@@ -302,10 +302,10 @@ are usually not very good at handling problems with discontinuities, and
 for this reason we will also look at a regularized lid driven cavity,
 where the top lid moves according to <span class="math notranslate nohighlight">\((1-x)^2(1+x)^2\)</span>, thus removing
 the corner discontinuities.</p>
-<!-- dom:FIGURE: [https://raw.githack.com/spectralDNS/spectralutilities/master/figures/DrivenCavity.png] Velocity vectors for $Re=100$.   <a id="fig:drivencavity"></a> -->
+<!-- dom:FIGURE: [https://raw.githack.com/spectralDNS/spectralutilities/master/figures/DrivenCavity.png] Velocity vectors for the lid driven cavity at Reynolds number 100.   <a id="fig:drivencavity"></a> -->
 <!-- begin figure -->
 <p><a id="fig:drivencavity"></a></p>
-<p>Velocity vectors for $Re=100$.</p>
+<p>Velocity vectors for the lid driven cavity at Reynolds number 100.</p>
 <img src="https://raw.githack.com/spectralDNS/spectralutilities/master/figures/DrivenCavity.png" >
 <!-- end figure -->
 <div class="section" id="navier-stokes-equations">
@@ -710,16 +710,6 @@ viscosity, which is given here in terms of the Reynolds number:</p>
 </div>
 </div>
 </div>
-<p><strong>Notice.</strong></p>
-<p>The inner products may also be assembled with one single line, as</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span>        <span class="n">AA</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="n">grad</span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="o">-</span><span class="n">nu</span><span class="o">*</span><span class="n">grad</span><span class="p">(</span><span class="n">u</span><span class="p">))</span> <span class="o">+</span> <span class="n">inner</span><span class="p">(</span><span class="n">div</span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="n">p</span><span class="p">)</span> <span class="o">+</span> <span class="n">inner</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">div</span><span class="p">(</span><span class="n">u</span><span class="p">))</span>
-</pre></div>
-</div>
-<p>But note that this requires addition, not subtraction, of inner products,
-and it is not possible to move the negation to <code class="docutils literal notranslate"><span class="pre">-inner(grad(v),</span> <span class="pre">nu*grad(u))</span></code>.
-This is because the <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.inner.inner">inner()</a> function returns a list of
-tensor product matrices of type <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.html#shenfun.matrixbase.TPMatrix">TPMatrix</a>, and you cannot
-negate a list.</p>
 <p>The assembled subsystems <code class="docutils literal notranslate"><span class="pre">A,</span> <span class="pre">G</span></code> and <code class="docutils literal notranslate"><span class="pre">D</span></code> are lists containg the different blocks of
 the complete, coupled, coefficient matrix. <code class="docutils literal notranslate"><span class="pre">A</span></code> actually contains 4
 tensor product matrices of type <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.html#shenfun.matrixbase.TPMatrix">TPMatrix</a>. The first two

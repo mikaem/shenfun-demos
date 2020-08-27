@@ -293,7 +293,7 @@
 <!-- dom:AUTHOR: Mikael Mortensen Email:mikaem@math.uio.no at Department of Mathematics, University of Oslo. -->
 <!-- Author: -->  
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
-<p>Date: <strong>Aug 26, 2020</strong></p>
+<p>Date: <strong>Aug 27, 2020</strong></p>
 <p>Copyright 2020, Mikael Mortensen. Released under CC Attribution 4.0 license</p>
 <p><strong>Summary.</strong> This is a demonstration of how the Python module <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a> can be used to
 integrate over 1D curves and 2D surfaces in 3D space.
@@ -347,7 +347,11 @@ an unweighted integral of <span class="math notranslate nohighlight">\(u\)</span
 </div>
 </div>
 </div>
-<p>Since this function space <code class="docutils literal notranslate"><span class="pre">B</span></code> is Cartesian the computed
+<p>Note that we cannot simply do <code class="docutils literal notranslate"><span class="pre">inner(1,</span> <span class="pre">1)</span></code>, because the
+<code class="docutils literal notranslate"><span class="pre">inner</span></code> function does not know about the domain, which is part
+of the <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.FunctionSpace">FunctionSpace</a>. So to integrate <code class="docutils literal notranslate"><span class="pre">u=1</span></code>, we need to
+create <code class="docutils literal notranslate"><span class="pre">u</span></code> as an <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.Array">Array</a> with the constant value 1.</p>
+<p>Since the function space <code class="docutils literal notranslate"><span class="pre">B</span></code> is Cartesian the computed
 length is simply the domain length.
 Not very impressive, but the same goes for multidimensional
 tensor product domains</p>
@@ -397,7 +401,8 @@ as input</p>
 </div>
 </div>
 </div>
-<p>Then compute the arclength using <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.inner.inner">inner()</a></p>
+<p>Then compute the arclength using <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.inner.inner">inner()</a>, again by using a constant
+testfunction 1, and a constant <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.Array">Array</a> <code class="docutils literal notranslate"><span class="pre">u=1</span></code></p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">length</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">Array</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
@@ -432,7 +437,7 @@ is actually here a constant <span class="math notranslate nohighlight">\(\sqrt{4
 </div>
 </div>
 </div>
-<p>We could also integrate a function over the spiral.
+<p>We could also integrate a non-constant function over the spiral.
 For example, lets integrate the function <span class="math notranslate nohighlight">\(f(x, y, z)= \sin^2 x\)</span></p>
 <div class="math notranslate nohighlight">
 \[

@@ -301,7 +301,7 @@
 <!-- dom:AUTHOR: Mikael Mortensen Email:mikaem@math.uio.no at Department of Mathematics, University of Oslo. -->
 <!-- Author: -->  
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
-<p>Date: <strong>Aug 26, 2020</strong></p>
+<p>Date: <strong>Aug 27, 2020</strong></p>
 <p>Copyright 2020, Mikael Mortensen. Released under CC Attribution 4.0 license</p>
 <p><strong>Summary.</strong> The Stokes equations describe the flow of highly viscous fluids.
 This is a demonstration of how the Python module <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a> can be used to solve Stokes
@@ -552,15 +552,13 @@ plus some other helper modules, like <a class="reference external" href="https:/
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">mpi4py</span> <span class="kn">import</span> <span class="n">MPI</span>
 <span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">symbols</span><span class="p">,</span> <span class="n">sin</span><span class="p">,</span> <span class="n">cos</span>
 <span class="kn">from</span> <span class="nn">shenfun</span> <span class="kn">import</span> <span class="o">*</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>We use <code class="docutils literal notranslate"><span class="pre">Sympy</span></code> for the manufactured solution and <code class="docutils literal notranslate"><span class="pre">Numpy</span></code> for testing. MPI for
-Python (<code class="docutils literal notranslate"><span class="pre">mpi4py</span></code>) is required for running the solver with MPI.</p>
+<p>We use <code class="docutils literal notranslate"><span class="pre">Sympy</span></code> for the manufactured solution and <code class="docutils literal notranslate"><span class="pre">Numpy</span></code> for testing.</p>
 </div>
 <div class="section" id="manufactured-solution">
 <h3>Manufactured solution<a class="headerlink" href="#manufactured-solution" title="Permalink to this headline">¶</a></h3>
@@ -603,10 +601,6 @@ of the domain is given</p>
 </div>
 </div>
 </div>
-<p>Note that the last line of code is there to ensure that only the first
-<span class="math notranslate nohighlight">\(N_2-2\)</span> coefficients are used, see discussion around Eq. (<a class="reference external" href="#eq:Zn">5</a>).
-At the same time, we ensure that we are still using <span class="math notranslate nohighlight">\(N_2\)</span>
-quadrature points, the same as for the Dirichlet basis.</p>
 <p>Next the one-dimensional spaces are used to create two tensor product spaces Q = <span class="math notranslate nohighlight">\(W^{\boldsymbol{N}}\)</span>
 and TD = <span class="math notranslate nohighlight">\(W_0^{\boldsymbol{N}}\)</span>, one vector V = <span class="math notranslate nohighlight">\([W_0^{\boldsymbol{N}}]^3\)</span> and one mixed
 space  VQ = V <span class="math notranslate nohighlight">\(\times\)</span> Q.</p>
@@ -654,13 +648,6 @@ the equations may also be integrated by parts to obtain a symmetric system:</p>
 </div>
 </div>
 </div>
-<p><strong>Notice.</strong></p>
-<p>The inner products may also be assembled with one single line, as</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span>        <span class="n">AA</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">div</span><span class="p">(</span><span class="n">grad</span><span class="p">(</span><span class="n">u</span><span class="p">)))</span> <span class="o">+</span> <span class="n">inner</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="o">-</span><span class="n">grad</span><span class="p">(</span><span class="n">u</span><span class="p">))</span> <span class="o">+</span> <span class="n">inner</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">div</span><span class="p">(</span><span class="n">u</span><span class="p">))</span>
-</pre></div>
-</div>
-<p>However, this requires addition, not subtraction, of inner products and it is not
-possible to move the negation to -inner(v, grad(u))</p>
 <p>The assembled subsystems <code class="docutils literal notranslate"><span class="pre">A,</span> <span class="pre">G</span></code> and <code class="docutils literal notranslate"><span class="pre">D</span></code> are lists containg the different blocks of
 the complete, coupled matrix. <code class="docutils literal notranslate"><span class="pre">A</span></code> actually contains 6
 tensor product matrices of type <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.html#shenfun.matrixbase.TPMatrix">TPMatrix</a>. The first two
@@ -671,7 +658,7 @@ matrices 2 and 3 are for components 1 and the last two are for components
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span>        <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">div</span><span class="p">(</span><span class="n">grad</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">])))</span>
 </pre></div>
 </div>
-<p>Breaking it down the inner product is mathematically</p>
+<p>Breaking it down this inner product is mathematically</p>
 <!-- Equation labels as ordinary links -->
 <p><a id="eq:partialeq1"></a></p>
 <div class="math notranslate nohighlight">

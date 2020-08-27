@@ -282,7 +282,7 @@
 <!-- dom:AUTHOR: Mikael Mortensen Email:mikaem@math.uio.no at Department of Mathematics, University of Oslo. -->
 <!-- Author: -->  
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
-<p>Date: <strong>Aug 26, 2020</strong></p>
+<p>Date: <strong>Aug 27, 2020</strong></p>
 <p>Copyright 2020, Mikael Mortensen. Released under CC Attribution 4.0 license</p>
 <p><strong>Summary.</strong> This is a demonstration of how the Python module <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a> can be used to solve the time-dependent,
 nonlinear Kuramato-Sivashinsky equation, in a doubly periodic domain. The demo is implemented in
@@ -545,7 +545,7 @@ exact derivatives of the nabla operator, we have</p>
 <p>The model equation (<a class="reference external" href="#eq:ks">1</a>) is implemented in shenfun using Fourier basis functions for
 both <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> directions. We start the solver by implementing necessary
 functionality from required modules like <a class="reference external" href="https://numpy.org">Numpy</a>, <a class="reference external" href="https://sympy.org">Sympy</a>
-<a class="reference external" href="https://matplotlib.org">matplotlib</a> and <a class="reference external" href="https://bitbucket.org/mpi4py">mpi4py</a>, in
+and <a class="reference external" href="https://matplotlib.org">matplotlib</a>, in
 addition to <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a>:</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
@@ -560,8 +560,8 @@ addition to <a class="reference external" href="https://github.com/spectralDNS/s
 </div>
 </div>
 <p>The size of the problem (in real space) is then specified, before creating
-the <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.html#shenfun.tensorproductspace.TensorProductSpace">TensorProductSpace</a>, which is using a tensor product of two Fourier bases as
-basis functions. We also
+the <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.html#shenfun.tensorproductspace.TensorProductSpace">TensorProductSpace</a>, which is using a tensor product of two
+one-dimensional Fourier function spaces. We also
 create a <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.html#shenfun.tensorproductspace.VectorTensorProductSpace">VectorTensorProductSpace</a>, since this is required for computing the
 gradient of the scalar field <code class="docutils literal notranslate"><span class="pre">u</span></code>. The gradient is required for the nonlinear
 term.</p>
@@ -591,7 +591,7 @@ term.</p>
 </div>
 <p>and some arrays are required to hold the solution. We also create an array
 <code class="docutils literal notranslate"><span class="pre">gradu</span></code>, that will be used to compute the gradient in the nonlinear term.
-Finally, the wavenumbers are collected in list <code class="docutils literal notranslate"><span class="pre">K</span></code>. Here one feature is worth
+Finally, the wavenumbers are collected in an array <code class="docutils literal notranslate"><span class="pre">K</span></code>. Here one feature is worth
 mentioning. The gradient in spectral space can be computed as <code class="docutils literal notranslate"><span class="pre">1j*K*U_hat</span></code>.
 However, since this is an odd derivative, and we are using an even number <code class="docutils literal notranslate"><span class="pre">N</span></code>
 for the size of the domain, the highest wavenumber must be set to zero. This is

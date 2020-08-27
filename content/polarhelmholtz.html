@@ -277,7 +277,7 @@
 <!-- dom:AUTHOR: Mikael Mortensen Email:mikaem@math.uio.no at Department of Mathematics, University of Oslo. -->
 <!-- Author: -->  
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
-<p>Date: <strong>Aug 26, 2020</strong></p>
+<p>Date: <strong>Aug 27, 2020</strong></p>
 <p>Copyright 2020, Mikael Mortensen. Released under CC Attribution 4.0 license</p>
 <p><strong>Summary.</strong> This is a demonstration of how the Python module <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a> can be used to solve the
 Helmholtz equation on a circular disc, using polar coordinates. This demo is implemented in
@@ -841,7 +841,7 @@ the error norm</p>
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gradue</span> <span class="o">=</span> <span class="n">Array</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">buffer</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">ue</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">r</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">ue</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
 <span class="c1">#or alternatively</span>
-<span class="c1">#gradue = Array(V, buffer=grad(u).tosympy(basis=ue, psi=psi))</span>
+<span class="c1">#gradue = Array(V, buffer=list(grad(u).tosympy(basis=ue, psi=psi)))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Error gradient&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">gradu</span><span class="o">-</span><span class="n">gradue</span><span class="p">))</span>
 </pre></div>
 </div>
