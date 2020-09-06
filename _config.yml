@@ -51,6 +51,6 @@ sphinx:
         extensions: ["cancel.js", "AMSmath.js"]
     latex_elements:
       {"preamble": "\\usepackage{cancel}"}
-    mathjax_path: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML'
+    mathjax_path: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_CHTML'
 
 
