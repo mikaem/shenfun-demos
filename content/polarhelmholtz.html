@@ -277,7 +277,7 @@
 <!-- dom:AUTHOR: Mikael Mortensen Email:mikaem@math.uio.no at Department of Mathematics, University of Oslo. -->
 <!-- Author: -->  
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
-<p>Date: <strong>Aug 27, 2020</strong></p>
+<p>Date: <strong>Sep 6, 2020</strong></p>
 <p>Copyright 2020, Mikael Mortensen. Released under CC Attribution 4.0 license</p>
 <p><strong>Summary.</strong> This is a demonstration of how the Python module <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a> can be used to solve the
 Helmholtz equation on a circular disc, using polar coordinates. This demo is implemented in
@@ -859,12 +859,12 @@ and plot on the unit disc.</p>
 <span class="n">ur</span> <span class="o">=</span> <span class="n">u_hat2</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span> <span class="o">+</span> <span class="n">u0_hat2</span><span class="o">.</span><span class="n">backward</span><span class="p">()[:,</span> <span class="n">sl</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
 
 <span class="c1"># Wrap periodic plot around since it looks nicer</span>
-<span class="n">xx</span><span class="p">,</span> <span class="n">yy</span> <span class="o">=</span> <span class="n">u_hat2</span><span class="o">.</span><span class="n">function_space</span><span class="p">()</span><span class="o">.</span><span class="n">local_curvilinear_mesh</span><span class="p">()</span>
+<span class="n">xx</span><span class="p">,</span> <span class="n">yy</span> <span class="o">=</span> <span class="n">u_hat2</span><span class="o">.</span><span class="n">function_space</span><span class="p">()</span><span class="o">.</span><span class="n">local_cartesian_mesh</span><span class="p">()</span>
 <span class="n">xp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">xx</span><span class="p">,</span> <span class="n">xx</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
 <span class="n">yp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">yy</span><span class="p">,</span> <span class="n">yy</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
 <span class="n">up</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">ur</span><span class="p">,</span> <span class="n">ur</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
 <span class="c1"># For vector no need to wrap around and no need to refine:</span>
-<span class="n">xi</span><span class="p">,</span> <span class="n">yi</span> <span class="o">=</span> <span class="n">TT</span><span class="o">.</span><span class="n">local_curvilinear_mesh</span><span class="p">()</span>
+<span class="n">xi</span><span class="p">,</span> <span class="n">yi</span> <span class="o">=</span> <span class="n">TT</span><span class="o">.</span><span class="n">local_cartesian_mesh</span><span class="p">()</span>
 
 <span class="c1"># plot</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
