@@ -294,7 +294,7 @@
 <!-- dom:AUTHOR: Mikael Mortensen Email:mikaem@math.uio.no at Department of Mathematics, University of Oslo. -->
 <!-- Author: -->  
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
-<p>Date: <strong>Sep 6, 2020</strong></p>
+<p>Date: <strong>Sep 16, 2020</strong></p>
 <p>Copyright 2020, Mikael Mortensen. Released under CC Attribution 4.0 license</p>
 <p><strong>Summary.</strong> Rayleigh-Benard convection arise
 due to temperature gradients in a fluid. The governing equations are
@@ -771,8 +771,8 @@ but the former is known to be faster due to the existence of fast transforms.</p
 <span class="n">W_DF</span> <span class="o">=</span> <span class="n">TensorProductSpace</span><span class="p">(</span><span class="n">comm</span><span class="p">,</span> <span class="p">(</span><span class="n">VD</span><span class="p">,</span> <span class="n">VF</span><span class="p">))</span>    <span class="c1"># Streamwise velocity</span>
 <span class="n">W_WF</span> <span class="o">=</span> <span class="n">TensorProductSpace</span><span class="p">(</span><span class="n">comm</span><span class="p">,</span> <span class="p">(</span><span class="n">VW</span><span class="p">,</span> <span class="n">VF</span><span class="p">))</span>    <span class="c1"># No bc</span>
 <span class="n">W_TF</span> <span class="o">=</span> <span class="n">TensorProductSpace</span><span class="p">(</span><span class="n">comm</span><span class="p">,</span> <span class="p">(</span><span class="n">VT</span><span class="p">,</span> <span class="n">VF</span><span class="p">))</span>    <span class="c1"># Temperature</span>
-<span class="n">BD</span> <span class="o">=</span> <span class="n">MixedTensorProductSpace</span><span class="p">([</span><span class="n">W_BF</span><span class="p">,</span> <span class="n">W_DF</span><span class="p">])</span>   <span class="c1"># Velocity vector</span>
-<span class="n">DD</span> <span class="o">=</span> <span class="n">MixedTensorProductSpace</span><span class="p">([</span><span class="n">W_DF</span><span class="p">,</span> <span class="n">W_DF</span><span class="p">])</span>   <span class="c1"># Convection vector</span>
+<span class="n">BD</span> <span class="o">=</span> <span class="n">VectorSpace</span><span class="p">([</span><span class="n">W_BF</span><span class="p">,</span> <span class="n">W_DF</span><span class="p">])</span>   <span class="c1"># Velocity vector</span>
+<span class="n">DD</span> <span class="o">=</span> <span class="n">VectorSpace</span><span class="p">([</span><span class="n">W_DF</span><span class="p">,</span> <span class="n">W_DF</span><span class="p">])</span>   <span class="c1"># Convection vector</span>
 </pre></div>
 </div>
 </div>
