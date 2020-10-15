@@ -143,6 +143,11 @@
    Demo - Integration of functions
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="moebius.html">
+   Demo - Eigenvalues on the Möbius strip
+  </a>
+ </li>
 </ul>
 
 </nav>
@@ -277,7 +282,7 @@
 <!-- dom:AUTHOR: Mikael Mortensen Email:mikaem@math.uio.no at Department of Mathematics, University of Oslo. -->
 <!-- Author: -->  
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
-<p>Date: <strong>Sep 16, 2020</strong></p>
+<p>Date: <strong>Oct 15, 2020</strong></p>
 <p>Copyright 2020, Mikael Mortensen. Released under CC Attribution 4.0 license</p>
 <p><strong>Summary.</strong> This is a demonstration of how the Python module <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a> can be used to solve the
 Helmholtz equation on a circular disc, using polar coordinates. This demo is implemented in
@@ -361,10 +366,13 @@ v_{kj}(\theta, r) = \exp(\imath k \theta) \psi_j(r),
 <div class="math notranslate nohighlight">
 \[
 \begin{equation}
-u(\theta, r) = \sum_{k} \sum_{j} \hat{u}_{kj} v_{kj}(\theta, r).
+u(\mathbf{x}) = \tilde{u}(\theta, r) = \sum_{k} \sum_{j} \hat{u}_{kj} v_{kj}(\theta, r).
 \label{_auto5} \tag{6}
 \end{equation}
 \]</div>
+<p>Note that <span class="math notranslate nohighlight">\(\tilde{u}\)</span> is the function <span class="math notranslate nohighlight">\(u\)</span> mapped to computational space.
+From now on we will simply use <span class="math notranslate nohighlight">\(u(\theta, r)\)</span> without the tilde, and assume that
+the proper version of the function is understood from its arguments.</p>
 <p>A discrete Fourier approximation space with <span class="math notranslate nohighlight">\(N\)</span> basis functions is then</p>
 <!-- Equation labels as ordinary links -->
 <p><a id="_auto6"></a></p>
@@ -834,15 +842,24 @@ on the computational grid</p>
 </div>
 <p>Because of the way the vectors are stored, <code class="docutils literal notranslate"><span class="pre">gradu[0]</span></code> will now
 contain <span class="math notranslate nohighlight">\(\nabla u \cdot \mathbf{i}\)</span> and
-<code class="docutils literal notranslate"><span class="pre">gradu[1]</span></code> will contain <span class="math notranslate nohighlight">\(\nabla u \cdot \mathbf{j}\)</span>.
-To validate we compute the exact gradient and compute
-the error norm</p>
+<code class="docutils literal notranslate"><span class="pre">gradu[1]</span></code> will contain <span class="math notranslate nohighlight">\(\nabla u \cdot \mathbf{j}\)</span>.</p>
+<p>To validate the gradient we compute the <span class="math notranslate nohighlight">\(L^2\)</span> error norm</p>
+<div class="math notranslate nohighlight">
+\[
+\sqrt{\int_{\Omega} |\nabla u - \nabla u_e|^2 d\sigma}
+  = \sqrt{\int_{\theta=0}^{2\pi}\int_{r=0}^{1} \left(\left(\frac{1}{r^2}\frac{\partial u-u_e}{\partial \theta}\right)^2\mathbf{b}_{\theta}\cdot \mathbf{b}_{\theta} + \left(\frac{\partial u-u_e}{\partial r}\right)^2\mathbf{b}_{r}\cdot \mathbf{b}_{r} \right)rd\theta dr}
+\]</div>
+<p>implemented as</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gradue</span> <span class="o">=</span> <span class="n">Array</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">buffer</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">ue</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">r</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">ue</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
-<span class="c1">#or alternatively</span>
-<span class="c1">#gradue = Array(V, buffer=list(grad(u).tosympy(basis=ue, psi=psi)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Error gradient&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">gradu</span><span class="o">-</span><span class="n">gradue</span><span class="p">))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gradue</span> <span class="o">=</span> <span class="n">Array</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">buffer</span><span class="o">=</span><span class="n">grad</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">.</span><span class="n">tosympy</span><span class="p">(</span><span class="n">basis</span><span class="o">=</span><span class="n">ue</span><span class="p">,</span> <span class="n">psi</span><span class="o">=</span><span class="n">psi</span><span class="p">))</span>
+<span class="n">gij</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">coors</span><span class="o">.</span><span class="n">get_covariant_metric_tensor</span><span class="p">()</span>
+<span class="n">ui</span><span class="p">,</span> <span class="n">vi</span> <span class="o">=</span> <span class="n">TT</span><span class="o">.</span><span class="n">local_mesh</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">uniform</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># Evaluate metric on computational mesh</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">lambdify</span><span class="p">(</span><span class="n">psi</span><span class="p">,</span> <span class="n">gij</span><span class="p">)(</span><span class="n">ui</span><span class="p">,</span> <span class="n">vi</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
+<span class="c1"># Compute L2 error</span>
+<span class="n">errorg</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="n">du</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">gradue</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">g</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">+</span> <span class="p">(</span><span class="n">du</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">gradue</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">g</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Error gradient&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">errorg</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>

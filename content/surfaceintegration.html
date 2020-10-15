@@ -41,6 +41,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Demo - Eigenvalues on the Möbius strip" href="moebius.html" />
     <link rel="prev" title="Demo - Working with Functions" href="functions.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -140,6 +141,11 @@
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Demo - Integration of functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="moebius.html">
+   Demo - Eigenvalues on the Möbius strip
   </a>
  </li>
 </ul>
@@ -293,7 +299,7 @@
 <!-- dom:AUTHOR: Mikael Mortensen Email:mikaem@math.uio.no at Department of Mathematics, University of Oslo. -->
 <!-- Author: -->  
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
-<p>Date: <strong>Sep 16, 2020</strong></p>
+<p>Date: <strong>Oct 15, 2020</strong></p>
 <p>Copyright 2020, Mikael Mortensen. Released under CC Attribution 4.0 license</p>
 <p><strong>Summary.</strong> This is a demonstration of how the Python module <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a> can be used to
 integrate over 1D curves and 2D surfaces in 3D space.
@@ -679,11 +685,10 @@ seashell using mayavi. Unfortunately mayavi is a little tricky
 to use with readthedocs, so instead of generating the plot
 with the code below, we link here instead to a previously
 generated image.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    from mayavi import mlab
-    xx, yy, zz = T.local_cartesian_mesh()
-    mlab.figure(bgcolor=(1, 1, 1), size=(400, 400))
-    mlab.mesh(xx, yy, zz, scalars=fb, colormap=&#39;jet&#39;)
-    mlab.show()
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    from plotly.colors.sequential import Jet
+    fig = surf3D(fb, colorscale=Jet)
+    fig.update_layout(scene_camera_eye=dict(x=1.6, y=-1.4, z=0))
+    fig.show()
 </pre></div>
 </div>
 <!-- dom:FIGURE: [https://cdn.jsdelivr.net/gh/spectralDNS/spectralutilities@master/figures/seashell3.png] -->
@@ -723,6 +728,7 @@ generated image.</p>
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="functions.html" title="previous page">Demo - Working with Functions</a>
+    <a class='right-next' id="next-link" href="moebius.html" title="next page">Demo - Eigenvalues on the Möbius strip</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
