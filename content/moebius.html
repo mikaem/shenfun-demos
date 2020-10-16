@@ -427,8 +427,89 @@ Laplace Beltrami operator by solving</p>
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(u\)</span> is the solution, <span class="math notranslate nohighlight">\(\lambda\)</span> the eigenvalues and <span class="math notranslate nohighlight">\(\Omega\)</span> the Möbius
 strip. We consider only homogeneous Dirichlet boundary conditions on the boundary.</p>
-<p>It is now easily verified that
-the variational Laplace eigenvalue problem becomes</p>
+<p>To solve this problem with the spectral Galerkin method we
+choose an appropriate space <span class="math notranslate nohighlight">\(V\)</span> and find <span class="math notranslate nohighlight">\(u\in V\)</span> such that</p>
+<div class="math notranslate nohighlight">
+\[
+\int_{\Omega} -\nabla^2 u \, v^* \omega d\sigma = \int_{\Omega} \lambda u v^* \omega d\sigma, \quad \forall v \in V
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(v^*\)</span> is the complex conjugate of the test function <span class="math notranslate nohighlight">\(v\)</span>.</p>
+<p>With shenfun it is enough to operate in general coordinates as above
+and let the curvilinear mathematics all happen under the hood.
+However, for this example it is interesting to see what the
+Laplace-Beltrami operator looks like in computational coordinates.
+This is quite a bit of work by hand, and the starting point
+is the position vector</p>
+<!-- Equation labels as ordinary links -->
+<p><a id="_auto11"></a></p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+\mathbf{r} = x(\varphi, t) \mathbf{i} + y(\varphi, t) \mathbf{j} + z(\varphi, t) \mathbf{k}.
+\label{_auto11} \tag{11}
+\end{equation}
+\]</div>
+<p>From the position vector we compute the he covariant
+basis vectors <span class="math notranslate nohighlight">\(\mathbf{b}_i = \partial \mathbf{r} / \partial X^{i}\)</span>,
+where <span class="math notranslate nohighlight">\(\mathbf{X} = \{X^{i}\}_{i\in(1,2)} = (\varphi, t)\)</span>,
+and get the covariant metric tensor <span class="math notranslate nohighlight">\(g_{ij}=\mathbf{b}_i \cdot \mathbf{b}_j\)</span>
+and its determinant <span class="math notranslate nohighlight">\(g = \text{det}\{g_{ij}\}\)</span>. We get</p>
+<!-- Equation labels as ordinary links -->
+<p><a id="_auto12"></a></p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+    {g} = (2R-2t\cos \varphi)^2+t^2.
+\label{_auto12} \tag{12}
+\end{equation}
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+g_{ij} =
+\begin{pmatrix}
+  g &amp; 0 \\ 
+  0 &amp; 1
+\end{pmatrix}
+\end{split}\]</div>
+<p>Likewise, the contravariant metric tensor <span class="math notranslate nohighlight">\(g^{ij}\)</span> is the
+inverse of the covariant</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+g^{ij} =
+\begin{pmatrix}
+  \frac{1}{g} &amp; 0 \\ 
+  0 &amp; 1
+\end{pmatrix}
+\end{split}\]</div>
+<p>Please note that all these metrics and other terms are computed
+under the hood by shenfun, and a user does not normally have to worry
+about these.</p>
+<p>It can be shown that the Laplace-Beltrami operator in curvilinear coordinates
+is given as</p>
+<!-- Equation labels as ordinary links -->
+<p><a id="_auto13"></a></p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+\nabla^2 \tilde{u} = \frac{1}{\sqrt{g}}\frac{\partial}{\partial X^{i}}\left( g^{ij}\sqrt{g} \frac{\partial \tilde{u}}{\partial X^{j}}\right).
+\label{_auto13} \tag{13}
+\end{equation}
+\]</div>
+<p>with summation on repeated indices.
+As such, the
+variational form in computational coordinates becomes</p>
+<!-- Equation labels as ordinary links -->
+<p><a id="_auto14"></a></p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+    -\int_{\mathbb{I}^2}\frac{\partial}{\partial X^{i}}\left( g^{ij}\sqrt{g} \frac{\partial \tilde{u}}{\partial X^{j}}\right) \, \tilde{v}^*\, \tilde{\omega} d\mathbf{X} = \int_{\mathbb{I}^2} \lambda \tilde{u} \tilde{v}^*\, \tilde{\omega}\sqrt{g} d\mathbf{X},
+\label{_auto14} \tag{14}
+\end{equation}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(d\mathbf{X}=d\phi dt\)</span>. Expanding some derivatives,
+we get</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align*}
@@ -438,21 +519,13 @@ the variational Laplace eigenvalue problem becomes</p>
     &amp;= \int_{\mathbb{I}^2} \lambda \tilde{u} \tilde{v}^* \tilde{\omega} \sqrt{g} d\varphi dt,
 \end{align*}
 \end{split}\]</div>
-<p>with</p>
-<!-- Equation labels as ordinary links -->
-<p><a id="_auto11"></a></p>
-<div class="math notranslate nohighlight">
-\[
-\begin{equation}
-    {g} = (2R-2t\cos \varphi)^2+t^2.
-\label{_auto11} \tag{11}
-\end{equation}
-\]</div>
 <p>Note that the variational problem contains unseparable variable coefficients,
 like <span class="math notranslate nohighlight">\(1/\sqrt{g}\)</span> and <span class="math notranslate nohighlight">\(\sqrt{g}\)</span> and as such cannot
 easily be solved using efficient tensor product algebra.
-However, note that both <span class="math notranslate nohighlight">\(g\)</span> and <span class="math notranslate nohighlight">\(g^2\)</span> are separable, and using
-<span class="math notranslate nohighlight">\(\tilde{\omega} = g^{3/2}\)</span> we get</p>
+However, note that both <span class="math notranslate nohighlight">\(g\)</span> and <span class="math notranslate nohighlight">\(g^2\)</span> are separable (i.e., they can
+be written as products of simpler functions separated by the arguments
+<span class="math notranslate nohighlight">\(g(\varphi, t) = \sum_k g_1^k(\varphi)g_2^k(t)\)</span>),
+and using the unconventional weight <span class="math notranslate nohighlight">\(\tilde{\omega} = g^{3/2}\)</span> we get</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align*}
@@ -464,7 +537,9 @@ However, note that both <span class="math notranslate nohighlight">\(g\)</span> 
 \end{split}\]</div>
 <p>where the left hand side can be assembled using tensor product matrices,
 where no single 1D matrix has more than 9 diagonals.</p>
-<p>Now let’s see how this problem can be handled with shenfun.</p>
+<p>Fortunately we do not have to do all this by hand since we have a
+software that automatically assembles such matrices for us.
+Now let’s see how this problem can be handled with shenfun.</p>
 </div>
 <div class="section" id="implementation">
 <h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h2>
@@ -475,7 +550,7 @@ differentiate to create basis functions and metrics, like <span class="math notr
 One important factor, though. Sympy’s <a class="reference external" href="https://docs.sympy.org/latest/modules/simplify/simplify.html">simplify</a>
 will sometimes have problems finding the best possible simplification
 of a term, like <span class="math notranslate nohighlight">\(g\)</span>. And in this particular case we need
-to discourage the use of powers, or else sympy will end at a
+to discourage the use of powers, or else sympy will end up with a
 much more complicated <span class="math notranslate nohighlight">\(g\)</span> than we get below.</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
@@ -484,15 +559,15 @@ much more complicated <span class="math notranslate nohighlight">\(g\)</span> th
 <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Math</span><span class="p">,</span> <span class="n">Latex</span><span class="p">,</span> <span class="n">display</span>
 <span class="kn">from</span> <span class="nn">scipy.sparse.linalg</span> <span class="kn">import</span> <span class="n">eigs</span>
 
-<span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">psi</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;x,y&#39;</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">phi</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="n">psi</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;x,y&#39;</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="n">RR</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Rational</span><span class="p">(</span><span class="mi">132</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span><span class="o">/</span><span class="n">sp</span><span class="o">.</span><span class="n">pi</span>
 <span class="c1">#RR = 2</span>
 <span class="c1"># Use a symbolic R first, then later substitute for the value in RR</span>
 <span class="n">R</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">rv</span> <span class="o">=</span> <span class="p">((</span><span class="n">R</span><span class="o">-</span><span class="n">v</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">u</span><span class="p">))</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">u</span><span class="p">),</span>
-      <span class="p">(</span><span class="n">R</span><span class="o">-</span><span class="n">v</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">u</span><span class="p">))</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">u</span><span class="p">),</span>
-       <span class="o">-</span><span class="n">v</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">u</span><span class="p">))</span>
+<span class="n">rv</span> <span class="o">=</span> <span class="p">((</span><span class="n">R</span><span class="o">-</span><span class="n">t</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">))</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">phi</span><span class="p">),</span>
+      <span class="p">(</span><span class="n">R</span><span class="o">-</span><span class="n">t</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">))</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">phi</span><span class="p">),</span>
+       <span class="o">-</span><span class="n">t</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">))</span>
 
 <span class="k">def</span> <span class="nf">discourage_powers</span><span class="p">(</span><span class="n">expr</span><span class="p">):</span>
     <span class="n">POW</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;POW&#39;</span><span class="p">)</span>
@@ -506,8 +581,8 @@ much more complicated <span class="math notranslate nohighlight">\(g\)</span> th
 <span class="n">B1</span> <span class="o">=</span> <span class="n">FunctionSpace</span><span class="p">(</span><span class="n">N</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;L&#39;</span><span class="p">,</span> <span class="n">bc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">))</span>
 <span class="n">T</span> <span class="o">=</span> <span class="n">TensorProductSpace</span><span class="p">(</span><span class="n">comm</span><span class="p">,</span> <span class="p">(</span><span class="n">B0</span><span class="p">,</span> <span class="n">B1</span><span class="p">),</span> <span class="n">coordinates</span><span class="o">=</span><span class="p">(</span><span class="n">psi</span><span class="p">,</span> <span class="n">rv</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="p">(),</span> <span class="n">discourage_powers</span><span class="p">),</span> <span class="n">axes</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
 
-<span class="n">p</span> <span class="o">=</span> <span class="n">TrialFunction</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
-<span class="n">q</span> <span class="o">=</span> <span class="n">TestFunction</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+<span class="n">u</span> <span class="o">=</span> <span class="n">TrialFunction</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">TestFunction</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -519,9 +594,9 @@ to, e.g., <code class="docutils literal notranslate"><span class="pre">T.coors.s
 looks like when computed with shenfun:</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Function</span><span class="p">(</span><span class="s1">&#39;g&#39;</span><span class="p">)(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Function</span><span class="p">(</span><span class="s1">&#39;g&#39;</span><span class="p">)(</span><span class="n">phi</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
 <span class="n">replace</span> <span class="o">=</span> <span class="p">[(</span><span class="n">T</span><span class="o">.</span><span class="n">coors</span><span class="o">.</span><span class="n">sg</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">g</span><span class="p">)]</span>
-<span class="n">Math</span><span class="p">((</span><span class="n">div</span><span class="p">(</span><span class="n">grad</span><span class="p">(</span><span class="n">p</span><span class="p">)))</span><span class="o">.</span><span class="n">tolatex</span><span class="p">(</span><span class="n">funcname</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="n">symbol_names</span><span class="o">=</span><span class="p">{</span><span class="n">u</span><span class="p">:</span><span class="s1">&#39;u&#39;</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span><span class="s1">&#39;v&#39;</span><span class="p">},</span> <span class="n">replace</span><span class="o">=</span><span class="n">replace</span><span class="p">))</span>
+<span class="n">Math</span><span class="p">((</span><span class="n">div</span><span class="p">(</span><span class="n">grad</span><span class="p">(</span><span class="n">u</span><span class="p">)))</span><span class="o">.</span><span class="n">tolatex</span><span class="p">(</span><span class="n">funcname</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="n">symbol_names</span><span class="o">=</span><span class="p">{</span><span class="n">phi</span><span class="p">:</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">varphi&#39;</span><span class="p">,</span> <span class="n">t</span><span class="p">:</span><span class="s1">&#39;t&#39;</span><span class="p">},</span> <span class="n">replace</span><span class="o">=</span><span class="n">replace</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -535,8 +610,8 @@ leading to sparse tensor product matrices.</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">T</span><span class="o">.</span><span class="n">coors</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">RR</span><span class="p">)</span>
-<span class="n">M</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="n">q</span><span class="o">*</span><span class="n">T</span><span class="o">.</span><span class="n">coors</span><span class="o">.</span><span class="n">sg</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="n">div</span><span class="p">(</span><span class="n">grad</span><span class="p">(</span><span class="n">p</span><span class="p">)),</span> <span class="n">level</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">B</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="o">*</span><span class="n">T</span><span class="o">.</span><span class="n">coors</span><span class="o">.</span><span class="n">sg</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">M</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="n">v</span><span class="o">*</span><span class="n">T</span><span class="o">.</span><span class="n">coors</span><span class="o">.</span><span class="n">sg</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="n">div</span><span class="p">(</span><span class="n">grad</span><span class="p">(</span><span class="n">u</span><span class="p">)),</span> <span class="n">level</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="n">v</span><span class="o">*</span><span class="n">T</span><span class="o">.</span><span class="n">coors</span><span class="o">.</span><span class="n">sg</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
