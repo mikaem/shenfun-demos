@@ -605,8 +605,8 @@ looks like when computed with shenfun:</p>
 is seen in the variational form above.</p>
 <p>At this point we replace the symbol R with a number  in order to
 assemble floating point matrices. The number R can be changed
-above as the variable ‘RR’. For now it is set to use a value used also
-by Kalvoda et al., such that we can double check our eigenvalues for accuracy.
+above as the variable <code class="docutils literal notranslate"><span class="pre">RR</span></code>. For now it is set to use a value used also
+by Kalvoda et al., such that we can doublecheck our eigenvalues.
 We multiply forms with
 <span class="math notranslate nohighlight">\(g^{3/2}\)</span> before assembling to get separable variational forms,
 leading to sparse tensor product matrices.</p>
@@ -672,7 +672,8 @@ bit, checking the boundary:</p>
 </div>
 </div>
 </div>
-<p>These are the lowest true eigenvalues of the Möbius strip. We can now
+<p>These are the lowest true eigenvalues of the Möbius strip.
+We note that they are very similar to Table 2 in <a class="reference external" href="#Kalvoda2020">[Kalvoda2020]</a>. We can now
 plot the eigenvectors using, e.g., mayavi or plotly.
 Choose the eigenvalue number first and then the rest follows</p>
 <div class="cell tag_thebe-init docutils container">
