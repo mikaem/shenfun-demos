@@ -492,7 +492,7 @@ is given as</p>
 <div class="math notranslate nohighlight">
 \[
 \begin{equation}
-\nabla^2 \tilde{u} = \frac{1}{\sqrt{g}}\frac{\partial}{\partial X^{i}}\left( g^{ij}\sqrt{g} \frac{\partial \tilde{u}}{\partial X^{j}}\right).
+\nabla^2 \tilde{u} = \frac{1}{\sqrt{g}}\frac{\partial}{\partial X^{i}}\left( g^{ij}\sqrt{g} \frac{\partial \tilde{u}}{\partial X^{j}}\right),
 \label{_auto13} \tag{13}
 \end{equation}
 \]</div>
@@ -508,7 +508,7 @@ variational form in computational coordinates becomes</p>
 \label{_auto14} \tag{14}
 \end{equation}
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(d\mathbf{X}=d\phi dt\)</span>. Expanding some derivatives,
+<p>where <span class="math notranslate nohighlight">\(d\mathbf{X}=d\phi dt\)</span>. Summing and expanding some derivatives,
 we get</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -561,7 +561,7 @@ much more complicated <span class="math notranslate nohighlight">\(g\)</span> th
 
 <span class="n">phi</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="n">psi</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;x,y&#39;</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="n">RR</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Rational</span><span class="p">(</span><span class="mi">132</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span><span class="o">/</span><span class="n">sp</span><span class="o">.</span><span class="n">pi</span>
+<span class="n">RR</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Rational</span><span class="p">(</span><span class="mi">132</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span><span class="o">/</span><span class="n">sp</span><span class="o">.</span><span class="n">pi</span> <span class="c1"># Same as Kalvoda et al</span>
 <span class="c1">#RR = 2</span>
 <span class="c1"># Use a symbolic R first, then later substitute for the value in RR</span>
 <span class="n">R</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -578,7 +578,7 @@ much more complicated <span class="math notranslate nohighlight">\(g\)</span> th
 
 <span class="n">N</span> <span class="o">=</span> <span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
 <span class="n">B0</span> <span class="o">=</span> <span class="n">FunctionSpace</span><span class="p">(</span><span class="n">N</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;D&#39;</span><span class="p">)</span>
-<span class="n">B1</span> <span class="o">=</span> <span class="n">FunctionSpace</span><span class="p">(</span><span class="n">N</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;L&#39;</span><span class="p">,</span> <span class="n">bc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">))</span>
+<span class="n">B1</span> <span class="o">=</span> <span class="n">FunctionSpace</span><span class="p">(</span><span class="n">N</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;L&#39;</span><span class="p">,</span> <span class="n">bc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">))</span> <span class="c1"># Use same domain as Kalvoda et al</span>
 <span class="n">T</span> <span class="o">=</span> <span class="n">TensorProductSpace</span><span class="p">(</span><span class="n">comm</span><span class="p">,</span> <span class="p">(</span><span class="n">B0</span><span class="p">,</span> <span class="n">B1</span><span class="p">),</span> <span class="n">coordinates</span><span class="o">=</span><span class="p">(</span><span class="n">psi</span><span class="p">,</span> <span class="n">rv</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="p">(),</span> <span class="n">discourage_powers</span><span class="p">),</span> <span class="n">axes</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
 
 <span class="n">u</span> <span class="o">=</span> <span class="n">TrialFunction</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
@@ -603,8 +603,11 @@ looks like when computed with shenfun:</p>
 </div>
 <p>Not surprisingly, this is the same (except not multiplied by <span class="math notranslate nohighlight">\(\sqrt{g}\)</span>) as what
 is seen in the variational form above.</p>
-<p>At this point we replace the symbol R with a number in order to
-assemble floating point matrices. We multiply forms with
+<p>At this point we replace the symbol R with a number  in order to
+assemble floating point matrices. The number R can be changed
+above as the variable ‘RR’. For now it is set to use a value used also
+by Kalvoda et al., such that we can double check our eigenvalues for accuracy.
+We multiply forms with
 <span class="math notranslate nohighlight">\(g^{3/2}\)</span> before assembling to get separable variational forms,
 leading to sparse tensor product matrices.</p>
 <div class="cell tag_thebe-init docutils container">
