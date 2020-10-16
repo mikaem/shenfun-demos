@@ -5,3 +5,4 @@ dependencies:
   - shenfun>=3.0.7
   - matplotlib
   - plotly
+  - pandas
