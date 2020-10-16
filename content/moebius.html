@@ -281,7 +281,7 @@
 <!-- dom:AUTHOR: Mikael Mortensen Email:mikaem@math.uio.no at Department of Mathematics, University of Oslo. -->
 <!-- Author: -->  
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
-<p>Date: <strong>Oct 15, 2020</strong></p>
+<p>Date: <strong>Oct 16, 2020</strong></p>
 <p>Copyright 2020, Mikael Mortensen. Released under CC Attribution 4.0 license</p>
 <p><strong>Summary.</strong> This is a demonstration of how the Python module <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a> can be used to
 compute the eigenvalues and vectors of the Laplace Beltrami
@@ -400,7 +400,7 @@ wider strip, but this added complexity is not discussed here. One can simply
 choose the width of the strip below when choosing function space for the
 <span class="math notranslate nohighlight">\(t\)</span>-direction.</p>
 <p>For the <span class="math notranslate nohighlight">\(t\)</span>-direction, a mixed Legendre,
-<span class="math notranslate nohighlight">\(\psi_{i_1} = L_{i_1} - L_{i_1+2}\)</span>, or Chebyshev, <span class="math notranslate nohighlight">\(\psi_{i_1} = T_{i_1} - T_{i_1+2}\)</span>,
+<span class="math notranslate nohighlight">\(\psi_{i} = L_{i} - L_{i+2}\)</span>, or Chebyshev, <span class="math notranslate nohighlight">\(\psi_{i} = T_{i} - T_{i+2}\)</span>,
 basis can be used and we obtain a regular tensor product basis.
 Here we will make use of the Legendre basis, since it
 leads to more sparse matrices. Note that the same problem is
@@ -595,8 +595,8 @@ bit, checking the boundary:</p>
 </div>
 </div>
 <p>These are the lowest true eigenvalues of the Möbius strip. We can now
-plot the eigenvectors using, e.g., mayavi or plotly.</p>
-<p>Choose the eigenvalue number first and then the rest follows</p>
+plot the eigenvectors using, e.g., mayavi or plotly.
+Choose the eigenvalue number first and then the rest follows</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="mi">7</span>
@@ -638,14 +638,18 @@ plot the eigenvectors using, e.g., mayavi or plotly.</p>
 </div>
 </div>
 </div>
-<p>Finally, plot the sparsity pattern of the coefficient matrix.</p>
+<p>Finally, plot the sparsity pattern of the coefficient matrix. You
+need to zoom in order to see the pattern properly and for
+this reason we use plotly instead of the more convenient
+matplotlib <a class="reference external" href="https://matplotlib.org/3.3.1/api/_as_gen/matplotlib.pyplot.spy.html">spy</a>
+function (<code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">notebook</span></code> does not work in an
+interactive jupyterlab and as such a jupyter book session).</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">notebook</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">spy</span><span class="p">(</span><span class="n">mm</span><span class="o">.</span><span class="n">M</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">mm</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">toarray</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mf">1e-6</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">bool</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">binary_string</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
