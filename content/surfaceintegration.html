@@ -299,7 +299,7 @@
 <!-- dom:AUTHOR: Mikael Mortensen Email:mikaem@math.uio.no at Department of Mathematics, University of Oslo. -->
 <!-- Author: -->  
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
-<p>Date: <strong>Oct 16, 2020</strong></p>
+<p>Date: <strong>Oct 23, 2020</strong></p>
 <p>Copyright 2020, Mikael Mortensen. Released under CC Attribution 4.0 license</p>
 <p><strong>Summary.</strong> This is a demonstration of how the Python module <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a> can be used to
 integrate over 1D curves and 2D surfaces in 3D space.
@@ -686,8 +686,8 @@ plotly since it integrates well with the executable
 jupyter book.</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">plotly.colors.sequential</span> <span class="kn">import</span> <span class="n">Jet</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">surf3D</span><span class="p">(</span><span class="n">fb</span><span class="p">,</span> <span class="n">colorscale</span><span class="o">=</span><span class="n">Jet</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">plotly</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">surf3D</span><span class="p">(</span><span class="n">fb</span><span class="p">,</span> <span class="n">colorscale</span><span class="o">=</span><span class="n">plotly</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">sequential</span><span class="o">.</span><span class="n">Jet</span><span class="p">)</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">scene_camera_eye</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">1.6</span><span class="p">,</span> <span class="n">y</span><span class="o">=-</span><span class="mf">1.4</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>

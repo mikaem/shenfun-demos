@@ -281,7 +281,7 @@
 <!-- dom:AUTHOR: Mikael Mortensen Email:mikaem@math.uio.no at Department of Mathematics, University of Oslo. -->
 <!-- Author: -->  
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
-<p>Date: <strong>Oct 16, 2020</strong></p>
+<p>Date: <strong>Oct 23, 2020</strong></p>
 <p>Copyright 2020, Mikael Mortensen. Released under CC Attribution 4.0 license</p>
 <p><strong>Summary.</strong> This is a demonstration of how the Python module <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a> can be used to
 compute eigenvalues and vectors of the Laplace-Beltrami
@@ -296,7 +296,7 @@ is shown in the figure below, read on to see how it was computed.</p>
 <div class="section" id="the-mobius-strip">
 <h2>The Möbius strip<a class="headerlink" href="#the-mobius-strip" title="Permalink to this headline">¶</a></h2>
 <p>A Möbius strip is the simplest non-orientable surface embedded in
-<span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>. There are seveal realizations possible, and we
+<span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>. There are several realizations possible, and we
 will here consider the one parametrized by <a class="reference external" href="#Kalvoda2020">[Kalvoda2020]</a></p>
 <!-- Equation labels as ordinary links -->
 <p><a id="_auto1"></a></p>
@@ -498,19 +498,18 @@ is given as</p>
 \end{equation}
 \]</div>
 <p>with summation on repeated indices.
-As such, the
+Using this and the surface element <span class="math notranslate nohighlight">\(d\sigma=\sqrt{g} d\varphi dt\)</span>, the
 variational form in computational coordinates becomes</p>
 <!-- Equation labels as ordinary links -->
 <p><a id="_auto14"></a></p>
 <div class="math notranslate nohighlight">
 \[
 \begin{equation}
-    -\int_{\mathbb{I}^2}\frac{\partial}{\partial X^{i}}\left( g^{ij}\sqrt{g} \frac{\partial \tilde{u}}{\partial X^{j}}\right) \, \tilde{v}^*\, \tilde{\omega} d\mathbf{X} = \int_{\mathbb{I}^2} \lambda \tilde{u} \tilde{v}^*\, \tilde{\omega}\sqrt{g} d\mathbf{X},
+    -\int_{\mathbb{I}^2}\frac{\partial}{\partial X^{i}}\left( g^{ij}\sqrt{g} \frac{\partial \tilde{u}}{\partial X^{j}}\right) \, \tilde{v}^*\, \tilde{\omega} d\varphi dt = \int_{\mathbb{I}^2} \lambda \tilde{u} \tilde{v}^*\, \tilde{\omega}\sqrt{g} d\varphi dt,
 \label{_auto14} \tag{14}
 \end{equation}
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(d\mathbf{X}=d\phi dt\)</span>. Summing and expanding some derivatives,
-we get</p>
+<p>Summing and expanding some derivatives, we get</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align*}
@@ -545,7 +544,7 @@ Now let’s see how this problem can be handled with shenfun.</p>
 <div class="section" id="implementation">
 <h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h2>
 <p>First we need to create function spaces for each direction <span class="math notranslate nohighlight">\(\varphi\)</span>
-and <span class="math notranslate nohighlight">\(t\)</span>, and then a tensor product space of the two. We use the
+and <span class="math notranslate nohighlight">\(t\)</span>, and then a tensor product space from the two. We use the
 parametrization given above and shenfun will then automatically
 differentiate to create basis functions and metrics, like <span class="math notranslate nohighlight">\(g\)</span>.
 One important factor, though. Sympy’s <a class="reference external" href="https://docs.sympy.org/latest/modules/simplify/simplify.html">simplify</a>
