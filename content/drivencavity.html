@@ -9,8 +9,8 @@
     <title>Demo - Lid driven cavity &#8212; Shenfun executable demos</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../_static/css/index.css" rel="stylesheet">
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -32,7 +32,7 @@
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_CHTML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}, "extensions": ["cancel.js", "AMSmath.js"]}})</script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script async="async" src="https://unpkg.com/thebe-mikaem/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
         const thebe_selector_input = "pre,.cell_input div.highlight"
@@ -292,7 +292,7 @@
 <!-- dom:AUTHOR: Mikael Mortensen Email:mikaem@math.uio.no at Department of Mathematics, University of Oslo. -->
 <!-- Author: -->  
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
-<p>Date: <strong>Oct 23, 2020</strong></p>
+<p>Date: <strong>Nov 4, 2020</strong></p>
 <p>Copyright 2020, Mikael Mortensen. Released under CC Attribution 4.0 license</p>
 <p><strong>Summary.</strong> The lid driven cavity is a classical benchmark for Navier Stokes solvers.
 This is a demonstration of how the Python module <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a> can be used to solve the lid
@@ -544,7 +544,7 @@ P^{\boldsymbol{N}}(\boldsymbol{x}) = P^{N_0}(x) \otimes P^{N_1}(y).
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">V1</span> <span class="o">=</span> <span class="n">TensorProductSpace</span><span class="p">(</span><span class="n">comm</span><span class="p">,</span> <span class="p">(</span><span class="n">D0X</span><span class="p">,</span> <span class="n">D1Y</span><span class="p">))</span>
 <span class="n">V0</span> <span class="o">=</span> <span class="n">TensorProductSpace</span><span class="p">(</span><span class="n">comm</span><span class="p">,</span> <span class="p">(</span><span class="n">D0X</span><span class="p">,</span> <span class="n">D0Y</span><span class="p">))</span>
-<span class="n">P</span> <span class="o">=</span> <span class="n">TensorProductSpace</span><span class="p">(</span><span class="n">comm</span><span class="p">,</span> <span class="p">(</span><span class="n">PX</span><span class="p">,</span> <span class="n">PY</span><span class="p">))</span>
+<span class="n">P</span> <span class="o">=</span> <span class="n">TensorProductSpace</span><span class="p">(</span><span class="n">comm</span><span class="p">,</span> <span class="p">(</span><span class="n">PX</span><span class="p">,</span> <span class="n">PY</span><span class="p">),</span> <span class="n">modify_spaces_inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -708,8 +708,12 @@ viscosity, which is given here in terms of the Reynolds number:</p>
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Re</span> <span class="o">=</span> <span class="mf">100.</span>
 <span class="n">nu</span> <span class="o">=</span> <span class="mf">2.</span><span class="o">/</span><span class="n">Re</span>
-<span class="n">A</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="n">grad</span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="o">-</span><span class="n">nu</span><span class="o">*</span><span class="n">grad</span><span class="p">(</span><span class="n">u</span><span class="p">))</span>
-<span class="n">G</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="n">div</span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="n">p</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">family</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;legendre&#39;</span><span class="p">:</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="n">grad</span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="o">-</span><span class="n">nu</span><span class="o">*</span><span class="n">grad</span><span class="p">(</span><span class="n">u</span><span class="p">))</span>
+    <span class="n">G</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="n">div</span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="n">p</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">nu</span><span class="o">*</span><span class="n">div</span><span class="p">(</span><span class="n">grad</span><span class="p">(</span><span class="n">u</span><span class="p">)))</span>
+    <span class="n">G</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="o">-</span><span class="n">grad</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
 <span class="n">D</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">div</span><span class="p">(</span><span class="n">u</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -885,8 +889,8 @@ own function <code class="docutils literal notranslate"><span class="pre">comput
     <span class="n">uiuj</span> <span class="o">=</span> <span class="n">outer</span><span class="p">(</span><span class="n">ui</span><span class="p">,</span> <span class="n">ui</span><span class="p">,</span> <span class="n">uiuj</span><span class="p">)</span>
     <span class="n">uiuj_hat</span> <span class="o">=</span> <span class="n">uiuj</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">uiuj_hat</span><span class="p">)</span>
     <span class="n">bi_hat</span> <span class="o">=</span> <span class="n">bh_hat</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="c1">#bi_hat = inner(v, div(uiuj_hat), output_array=bi_hat)</span>
-    <span class="n">bi_hat</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="n">grad</span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="o">-</span><span class="n">uiuj_hat</span><span class="p">,</span> <span class="n">output_array</span><span class="o">=</span><span class="n">bi_hat</span><span class="p">)</span>
+    <span class="n">bi_hat</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">div</span><span class="p">(</span><span class="n">uiuj_hat</span><span class="p">),</span> <span class="n">output_array</span><span class="o">=</span><span class="n">bi_hat</span><span class="p">)</span>
+    <span class="c1">#bi_hat = inner(grad(v), -uiuj_hat, output_array=bi_hat)</span>
     <span class="n">bh_hat</span> <span class="o">+=</span> <span class="n">bh_hat0</span>
     <span class="k">return</span> <span class="n">bh_hat</span>
 </pre></div>
