@@ -299,7 +299,7 @@
 <!-- dom:AUTHOR: Mikael Mortensen Email:mikaem@math.uio.no at Department of Mathematics, University of Oslo. -->
 <!-- Author: -->  
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
-<p>Date: <strong>Oct 23, 2020</strong></p>
+<p>Date: <strong>Dec 22, 2020</strong></p>
 <p>Copyright 2020, Mikael Mortensen. Released under CC Attribution 4.0 license</p>
 <p><strong>Summary.</strong> Rayleigh-Benard convection arise
 due to temperature gradients in a fluid. The governing equations are
@@ -1060,7 +1060,7 @@ T_N(-1, y, t) = \sum_{k=N-2}^{N-1} \sum_{l \in \boldsymbol{l}} \hat{T}_{kl} \phi
 \]</div>
 <p>Using this approach it is easy to see that any inhomogeneous function <span class="math notranslate nohighlight">\(T_N(\pm 1, y, t)\)</span>
 of <span class="math notranslate nohighlight">\(y\)</span> and <span class="math notranslate nohighlight">\(t\)</span> can be used for the boundary condition, and not just a constant.
-To implement a non-constant Dirichlet boundary condition, the <code class="docutils literal notranslate"><span class="pre">Basis</span></code> function
+To implement a non-constant Dirichlet boundary condition, the <code class="docutils literal notranslate"><span class="pre">FunctionSpace</span></code> function
 can take any <code class="docutils literal notranslate"><span class="pre">sympy</span></code> function of <code class="docutils literal notranslate"><span class="pre">(y,</span> <span class="pre">t)</span></code>, for exampel by replacing the
 creation of <code class="docutils literal notranslate"><span class="pre">VT</span></code> by</p>
 <div class="cell tag_thebe-init docutils container">

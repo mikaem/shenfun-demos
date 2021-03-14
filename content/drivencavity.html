@@ -292,7 +292,7 @@
 <!-- dom:AUTHOR: Mikael Mortensen Email:mikaem@math.uio.no at Department of Mathematics, University of Oslo. -->
 <!-- Author: -->  
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
-<p>Date: <strong>Nov 4, 2020</strong></p>
+<p>Date: <strong>Dec 22, 2020</strong></p>
 <p>Copyright 2020, Mikael Mortensen. Released under CC Attribution 4.0 license</p>
 <p><strong>Summary.</strong> The lid driven cavity is a classical benchmark for Navier Stokes solvers.
 This is a demonstration of how the Python module <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a> can be used to solve the lid
@@ -770,7 +770,7 @@ manipulations</p>
 <div class="math notranslate nohighlight">
 \[
 \begin{equation}
- -\sum_{m=0}^{N_0-3} \sum_{n=0}^{N_1-1} \nu \Big( \underbrace{\int_{-1}^{1} \frac{\partial \mathcal{X}_k(x)}{\partial x} \frac{\partial \mathcal{X}_m}{\partial x} dx \int_{-1}^{1} \mathcal{Y}_l \mathcal{Y}_n dy}_{A[0]} +  \underbrace{\int_{-1}^{1} \mathcal{X}_k(x) X_m(x) dx \int_{-1}^{1} \frac{\partial \mathcal{Y}_l}{\partial y} \frac{\partial \mathcal{Y}_n}{\partial y} dy}_{A[1]}  \Big) \hat{\boldsymbol{u}}[0]_{mn}.
+ -\sum_{m=0}^{N_0-3} \sum_{n=0}^{N_1-1} \nu \Big( \underbrace{\int_{-1}^{1} \frac{\partial \mathcal{X}_k}{\partial x} \frac{\partial \mathcal{X}_m}{\partial x} dx \int_{-1}^{1} \mathcal{Y}_l \mathcal{Y}_n dy}_{A[0]} +  \underbrace{\int_{-1}^{1} \mathcal{X}_k X_m dx \int_{-1}^{1} \frac{\partial \mathcal{Y}_l}{\partial y} \frac{\partial \mathcal{Y}_n}{\partial y} dy}_{A[1]}  \Big) \hat{\boldsymbol{u}}[0]_{mn}.
 \label{_auto14} \tag{21}
 \end{equation}
 \]</div>
@@ -782,7 +782,7 @@ The first tensor product matrix, A[0], is</p>
 <div class="math notranslate nohighlight">
 \[
 \begin{equation}
-    \underbrace{\int_{-1}^{1} \frac{\partial \mathcal{X}_k(x)}{\partial x} \frac{\partial \mathcal{X}_m}{\partial x} dx}_{c_{km}} \underbrace{\int_{-1}^{1} \mathcal{Y}_l \mathcal{Y}_n dy}_{f_{ln}}
+    \underbrace{\int_{-1}^{1} \frac{\partial \mathcal{X}_k}{\partial x} \frac{\partial \mathcal{X}_m}{\partial x} dx}_{c_{km}} \underbrace{\int_{-1}^{1} \mathcal{Y}_l \mathcal{Y}_n dy}_{f_{ln}}
 \label{_auto15} \tag{22}
 \end{equation}
 \]</div>
@@ -799,19 +799,17 @@ tensor product matrix into two contributions and obtain</p>
 \]</div>
 <p>where the first term on the right hand side is square and the second term is known and
 can be moved to the right hand side of the linear algebra equation system.</p>
-<p>All the parts of the matrices that are to be moved to the right hand side
-can be extracted from A, G and D as follows</p>
+<p>At this point all matrices, both regular and boundary matrices, are
+contained within the three lists A, G and D. We assemble two block matrices
+in one call, where M is regular and BM is a boundary block matrix.</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Extract the boundary matrices</span>
-<span class="n">bc_mats</span> <span class="o">=</span> <span class="n">extract_bc_matrices</span><span class="p">([</span><span class="n">A</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">D</span><span class="p">])</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">M</span><span class="p">,</span> <span class="n">BM</span> <span class="o">=</span> <span class="n">BlockMatrices</span><span class="p">(</span><span class="n">A</span><span class="o">+</span><span class="n">G</span><span class="o">+</span><span class="n">D</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>These matrices are applied to the solution below (see <code class="docutils literal notranslate"><span class="pre">BlockMatrix</span> <span class="pre">BM</span></code>).
-Furthermore, this leaves us with square submatrices (A, G, D), which make up a
-symmetric block matrix</p>
+<p>The regular block matrix M is now given as the symmetric</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 M =
@@ -821,16 +819,7 @@ M =
       D[0] &amp; D[1] &amp; 0
   \end{bmatrix}
 \end{split}\]</div>
-<p>This matrix, and the matrix responsible for the boundary degrees of freedom,
-can be assembled from the pieces we already have as</p>
-<div class="cell tag_thebe-init docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">BlockMatrix</span><span class="p">(</span><span class="n">A</span><span class="o">+</span><span class="n">G</span><span class="o">+</span><span class="n">D</span><span class="p">)</span>
-<span class="n">BM</span> <span class="o">=</span> <span class="n">BlockMatrix</span><span class="p">(</span><span class="n">bc_mats</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
+<p>The BM matrix must be used to modify the known right hand side.</p>
 <p>We now have all the matrices we need in order to solve the Navier Stokes equations.
 However, we also need some work arrays for iterations and we need to
 assemble the constant boundary contribution to the right hand side</p>
@@ -848,7 +837,6 @@ assemble the constant boundary contribution to the right hand side</p>
 <span class="c1"># Compute the constant contribution to rhs due to nonhomogeneous boundary conditions</span>
 <span class="n">bh_hat0</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">VQ</span><span class="p">)</span>
 <span class="n">bh_hat0</span> <span class="o">=</span> <span class="n">BM</span><span class="o">.</span><span class="n">matvec</span><span class="p">(</span><span class="o">-</span><span class="n">uh_hat</span><span class="p">,</span> <span class="n">bh_hat0</span><span class="p">)</span> <span class="c1"># Negative because moved to right hand side</span>
-<span class="n">bi_hat0</span> <span class="o">=</span> <span class="n">bh_hat0</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
