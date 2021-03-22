@@ -260,6 +260,11 @@
    The fast transforms
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#implementation">
+   Implementation
+  </a>
+ </li>
 </ul>
 
         </nav>
@@ -282,6 +287,8 @@
 different Dirichlet bases.</p>
 <div class="section" id="the-fast-transforms">
 <h2>The fast transforms<a class="headerlink" href="#the-fast-transforms" title="Permalink to this headline">¶</a></h2>
+<p>We will consider the fast forward transforms for the three
+Chebyshev Dirichlet basis functions</p>
 <!-- Equation labels as ordinary links -->
 <p><a id="eq:shen"></a></p>
 <div class="math notranslate nohighlight">
@@ -314,12 +321,12 @@ find <span class="math notranslate nohighlight">\(u_N \in V_{\alpha}\)</span> su
 <div class="math notranslate nohighlight">
 \[
 \label{eq:projection} \tag{4}
-(u_n-u, v)_{\omega} = 0, \quad \forall \, v \in V_{\alpha}
+(u_N-u, v)_{\omega} = 0, \quad \forall \, v \in V_{\alpha}
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(\alpha \in (\phi, \varphi, \psi)\)</span>. The solutions we are after are</p>
 <div class="math notranslate nohighlight">
 \[
-u(x) = \sum_{k=0}^{N-3} \hat{u}_k^{\phi} \phi_k = \sum_{k=0}^{N-3} \hat{u}_k^{\varphi} \varphi_k = \sum_{k=0}^{N-3} \hat{u}_k^{\psi} \psi_k
+u_N(x) = \sum_{k=0}^{N-3} \hat{u}_k^{\phi} \phi_k = \sum_{k=0}^{N-3} \hat{u}_k^{\varphi} \varphi_k = \sum_{k=0}^{N-3} \hat{u}_k^{\psi} \psi_k
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(\hat{u}_k^{\alpha}, \, \alpha \in (\phi, \varphi, \psi)\)</span> are the unknown degrees of freedom. Generically, we write</p>
 <div class="math notranslate nohighlight">
@@ -360,7 +367,12 @@ B \hat{\mathbf{u}} &amp;= \tilde{\mathbf{u}}, \\
 \[
 \hat{u}_k^{\psi} = \frac{k+3}{2(k+1)}\hat{u}_k^{\phi} - \frac{1}{2}\hat{u}_{k+2}^{\phi}, \quad k=0, 1, \ldots, N-3.
 \]</div>
-<p>To validate these methods we compute the projection first regularly using the Shenfun function <a class="reference external" href="https://github.com/spectralDNS/shenfun/blob/master/shenfun/forms/project.py">project</a>, which is using <span class="math notranslate nohighlight">\(\sigma=-1/2\)</span>, and then using the fast methods above.</p>
+</div>
+<div class="section" id="implementation">
+<h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h2>
+<p>To validate these methods we compute the projection first regularly
+using the Shenfun function <a class="reference external" href="https://github.com/spectralDNS/shenfun/blob/master/shenfun/forms/project.py">project</a>,
+which is using <span class="math notranslate nohighlight">\(\sigma=-1/2\)</span>, and then using the fast methods above.</p>
 <p>Start by importing necessary modules from Shenfun and mpi4py-fft</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
