@@ -346,7 +346,7 @@ basis functions</p>
 <div class="math notranslate nohighlight">
 \[
 \label{eq:dirichletU} \tag{6}
-\psi_k = U_k-\frac{k+1}{k+3}U_{k+2}, \quad k=0,1, \ldots, N-3,
+\psi_k = U_k-\frac{k+1}{k+3}U_{k+2}, \quad k=0,1, \ldots, N-3.
 \]</div>
 <p>These three bases are all linearly dependent and they are all bases
 for <span class="math notranslate nohighlight">\(V_N\)</span>.</p>
@@ -367,8 +367,7 @@ for <span class="math notranslate nohighlight">\(V_N\)</span>.</p>
 </div>
 <p>where <span class="math notranslate nohighlight">\(V0 = \text{span}\{\phi_k\}_{k=0}^{N-3}\)</span>,
 <span class="math notranslate nohighlight">\(V1 = \text{span}\{\varphi_k\}_{k=0}^{N-3}\)</span> and
-<span class="math notranslate nohighlight">\(V2 = \text{span}\{\psi_k\}_{k=0}^{N-3}\)</span>.</p>
-<p>Now, to solve the Helmholtz problem we simply need to choose
+<span class="math notranslate nohighlight">\(V2 = \text{span}\{\psi_k\}_{k=0}^{N-3}\)</span>. Now, to solve the Helmholtz problem we simply need to choose
 test and trial bases. Shen’s original method is using
 <code class="docutils literal notranslate"><span class="pre">V0</span></code> for both. To assemble the stiffness and mass matrices
 for this choice do</p>
@@ -382,7 +381,7 @@ for this choice do</p>
 </div>
 </div>
 </div>
-<p>A manufactured solution can be chosen using “Sympy”: “www.sympy.org”
+<p>A manufactured solution can be chosen using <a class="reference external" href="https://www.sympy.org">Sympy</a>
 We choose</p>
 <!-- Equation labels as ordinary links -->
 <p><a id="_auto3"></a></p>
@@ -403,7 +402,7 @@ u(x) = \sin \left( 2 \pi \cos \left( 2 \pi x \right) \right)
 </div>
 </div>
 </div>
-<p>The right hand side <span class="math notranslate nohighlight">\(f\)</span> is</p>
+<p>The right hand side <span class="math notranslate nohighlight">\(f\)</span> of Helmholtz equation is</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">alpha</span> <span class="o">=</span> <span class="mi">1</span>
@@ -415,12 +414,12 @@ u(x) = \sin \left( 2 \pi \cos \left( 2 \pi x \right) \right)
 <p>To solve the problem we can do</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fj</span> <span class="o">=</span> <span class="n">Array</span><span class="p">(</span><span class="n">V0</span><span class="p">,</span> <span class="n">buffer</span><span class="o">=</span><span class="n">f</span><span class="p">)</span> <span class="c1"># Get f on quadrature mesh</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fj</span> <span class="o">=</span> <span class="n">Array</span><span class="p">(</span><span class="n">V0</span><span class="p">,</span> <span class="n">buffer</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>  <span class="c1"># Get f on quadrature mesh</span>
 <span class="n">f_hat</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">fj</span><span class="p">)</span>      <span class="c1"># Compute right hand side</span>
-<span class="n">M</span> <span class="o">=</span> <span class="n">alpha</span><span class="o">*</span><span class="n">B</span> <span class="o">-</span> <span class="n">A</span>
-<span class="n">u_hat</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">V0</span><span class="p">)</span>
-<span class="n">sol</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">Solve</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">V0</span><span class="p">)</span>
-<span class="n">u_hat</span> <span class="o">=</span> <span class="n">sol</span><span class="p">(</span><span class="n">f_hat</span><span class="p">,</span> <span class="n">u_hat</span><span class="p">)</span>
+<span class="n">M</span> <span class="o">=</span> <span class="n">alpha</span><span class="o">*</span><span class="n">B</span> <span class="o">-</span> <span class="n">A</span>           <span class="c1"># Get coefficient matrix</span>
+<span class="n">u_hat</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">V0</span><span class="p">)</span>      <span class="c1"># Container for the solution</span>
+<span class="n">sol</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">Solve</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">V0</span><span class="p">)</span>     <span class="c1"># Solver</span>
+<span class="n">u_hat</span> <span class="o">=</span> <span class="n">sol</span><span class="p">(</span><span class="n">f_hat</span><span class="p">,</span> <span class="n">u_hat</span><span class="p">)</span> <span class="c1"># Solve</span>
 </pre></div>
 </div>
 </div>
