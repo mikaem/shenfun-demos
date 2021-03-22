@@ -1,0 +1,505 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo - Some fast transforms &#8212; Shenfun executable demos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_CHTML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}, "extensions": ["cancel.js", "AMSmath.js"]}})</script>
+    <script async="async" src="https://unpkg.com/thebe-mikaem/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/seashell3.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Shenfun executable demos</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Shenfun executable demos
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Shenfun executable demos
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="poisson.html">
+   Demo - 1D Poisson’s equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kleingordon.html">
+   Demo - Cubic nonlinear Klein-Gordon equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="poisson3d.html">
+   Demo - 3D Poisson’s equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="polarhelmholtz.html">
+   Demo - Helmholtz equation in polar coordinates
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sphericalhelmholtz.html">
+   Demo - Helmholtz equation on the unit sphere
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kuramatosivashinsky.html">
+   Demo - Kuramato-Sivashinsky equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="stokes.html">
+   Demo - Stokes equations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="drivencavity.html">
+   Demo - Lid driven cavity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="rayleighbenard.html">
+   Demo - Rayleigh Benard
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="functions.html">
+   Demo - Working with Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="surfaceintegration.html">
+   Demo - Integration of functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="moebius.html">
+   Demo - Eigenvalues on the Möbius strip
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/content/fasttransforms.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/mikaem/shenfun-demos"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/mikaem/shenfun-demos/master?urlpath=tree/content/fasttransforms.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-fast-transforms">
+   The fast transforms
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <!-- dom:TITLE: Demo - Some fast transforms -->
+<div class="section" id="demo-some-fast-transforms">
+<h1>Demo - Some fast transforms<a class="headerlink" href="#demo-some-fast-transforms" title="Permalink to this headline">¶</a></h1>
+<!-- dom:AUTHOR: Mikael Mortensen Email:mikaem@math.uio.no at Department of Mathematics, University of Oslo. -->
+<!-- Author: -->  
+<p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
+<p>Date: <strong>Mar 22, 2021</strong></p>
+<p>Copyright 2021, Mikael Mortensen. Released under CC Attribution 4.0 license</p>
+<p><strong>Summary.</strong> This demo shows how to compute fast forward transforms for three
+different Dirichlet bases.</p>
+<div class="section" id="the-fast-transforms">
+<h2>The fast transforms<a class="headerlink" href="#the-fast-transforms" title="Permalink to this headline">¶</a></h2>
+<!-- Equation labels as ordinary links -->
+<p><a id="eq:shen"></a></p>
+<div class="math notranslate nohighlight">
+\[
+\label{eq:shen} \tag{1}
+\phi_k = T_k-T_{k+2}, \quad k=0,1, \ldots, N-3
+\]</div>
+<!-- Equation labels as ordinary links -->
+<p><a id="eq:heinrichs"></a></p>
+<div class="math notranslate nohighlight">
+\[
+\label{eq:heinrichs} \tag{2}
+\varphi_k = (1-x^2)T_k, \quad k=0,1, \ldots, N-3
+\]</div>
+<!-- Equation labels as ordinary links -->
+<p><a id="eq:dirichletU"></a></p>
+<div class="math notranslate nohighlight">
+\[
+\label{eq:dirichletU} \tag{3}
+\psi_k = U_k-\frac{k+1}{k+3}U_{k+2}, \quad k=0,1, \ldots, N-3
+\]</div>
+<p>That is, we test fast methods for projection of a function
+<span class="math notranslate nohighlight">\(u(x)\)</span> into spaces <span class="math notranslate nohighlight">\(V_{\phi} = \text{span}\{\phi_k\}_{k=0}^{N-3}\)</span>,
+<span class="math notranslate nohighlight">\(V_{\varphi} = \text{span}\{\varphi_k\}_{k=0}^{N-3}\)</span> and
+<span class="math notranslate nohighlight">\(V_{\psi} = \text{span}\{\psi_k\}_{k=0}^{N-3}\)</span>.
+For each space the projection is:
+find <span class="math notranslate nohighlight">\(u_N \in V_{\alpha}\)</span> such that</p>
+<!-- Equation labels as ordinary links -->
+<p><a id="eq:projection"></a></p>
+<div class="math notranslate nohighlight">
+\[
+\label{eq:projection} \tag{4}
+(u_n-u, v)_{\omega} = 0, \quad \forall \, v \in V_{\alpha}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\alpha \in (\phi, \varphi, \psi)\)</span>. The solutions we are after are</p>
+<div class="math notranslate nohighlight">
+\[
+u(x) = \sum_{k=0}^{N-3} \hat{u}_k^{\phi} \phi_k = \sum_{k=0}^{N-3} \hat{u}_k^{\varphi} \varphi_k = \sum_{k=0}^{N-3} \hat{u}_k^{\psi} \psi_k
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\hat{u}_k^{\alpha}, \, \alpha \in (\phi, \varphi, \psi)\)</span> are the unknown degrees of freedom. Generically, we write</p>
+<div class="math notranslate nohighlight">
+\[
+u(x) = \sum_{k=0}^{N-3} \hat{u}_k \xi_k(x),
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\xi_k\)</span> can be any of the three basis functions <span class="math notranslate nohighlight">\((\phi_k, \varphi_k, \psi_k)\)</span>.</p>
+<p>A direct method to solve Eq. (<a class="reference external" href="#eq:projection">4</a>) is to insert for <span class="math notranslate nohighlight">\(u_N = \sum_{k=0}^{N-3}\hat{u}_k \xi_k\)</span> and <span class="math notranslate nohighlight">\(v = \xi_j\)</span> to obtain</p>
+<div class="math notranslate nohighlight">
+\[
+(\xi_j, \xi_k)_{\omega} \hat{u}_j = (u, \xi_k)_{\omega}
+\]</div>
+<p>which on algebraic form is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+B \hat{\mathbf{u}} &amp;= \tilde{\mathbf{u}}, \\ 
+\hat{\mathbf{u}} &amp;= B^{-1} \tilde{\mathbf{u}}
+\end{align*}
+\end{split}\]</div>
+<p>where the mass matrix <span class="math notranslate nohighlight">\(B \in \mathbb{R}^{N-2 \times N-2} = \{(\xi_j, \xi_k)_{\omega}\}_{k,j=0}^{N-3}\)</span>, <span class="math notranslate nohighlight">\(\tilde{\mathbf{u}} = \{(u, \xi_k)_{\omega}\}_{k=0}^{N-3}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{u} = \{\hat{u}_k\}_{k=0}^{N-3}\)</span>. A fast method is found if <span class="math notranslate nohighlight">\(B\)</span> is diagonal, so that the inversion <span class="math notranslate nohighlight">\(B^{-1}\)</span> is trivial. In this case the projection becomes orthogonal. It can be shown that the three bases are orthogonal using weights <span class="math notranslate nohighlight">\(\omega = (1-x^2)^{\sigma}\)</span>, where <span class="math notranslate nohighlight">\(\sigma = -3/2, -5/2\)</span> and <span class="math notranslate nohighlight">\(-1/2\)</span>, for (<a class="reference external" href="#eq:shen">1</a>), (<a class="reference external" href="#eq:heinrichs">2</a>) and (<a class="reference external" href="#eq:dirichletU">3</a>), respectively.</p>
+<p>In the following all methods will make use of Gauss-Chebyshev quadrature with Gauss-Chebyshev collocation points <span class="math notranslate nohighlight">\(\boldsymbol{x}=\{x_i\}_{i=0}^{N-1}\)</span>, where <span class="math notranslate nohighlight">\(x_i = \cos(\theta_i)\)</span>, <span class="math notranslate nohighlight">\(\theta_i=\pi (2i+1)/(2N)\)</span> and <span class="math notranslate nohighlight">\(\mathbf{\theta}=\{\theta_i\}_{i=0}^{N-1}\)</span>. The quadrature weights are then constant <span class="math notranslate nohighlight">\(w_i = \pi/N\)</span> for <span class="math notranslate nohighlight">\(i=0,1, \ldots, N-1\)</span>.</p>
+<p>The fast orthogonal projection for the Dirichlet basis (<a class="reference external" href="#eq:shen">1</a>) simplifies to</p>
+<!-- Equation labels as ordinary links -->
+<p><a id="eq:sol0"></a></p>
+<div class="math notranslate nohighlight">
+\[
+\label{eq:sol0} \tag{5}
+\hat{u}_k^{\phi} = \frac{1}{2N} \text{dst}^{II}(\mathbf{u}/\sin \mathbf{\theta})_k, \quad k=0,1, \ldots, N-3.
+\]</div>
+<p>For basis (<a class="reference external" href="#eq:heinrichs">2</a>) it is</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{u}_k^{\varphi} = \frac{1}{c_k N} \text{dct}^{II} (\mathbf{u}/\sin^2 \mathbf{\theta})_k, \quad k=0, 1, \ldots, N-3.
+\]</div>
+<p>and for the basis (<a class="reference external" href="#eq:dirichletU">3</a>) it is</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{u}_k^{\psi} = \frac{k+3}{2(k+1)}\hat{u}_k^{\phi} - \frac{1}{2}\hat{u}_{k+2}^{\phi}, \quad k=0, 1, \ldots, N-3.
+\]</div>
+<p>To validate these methods we compute the projection first regularly using the Shenfun function <a class="reference external" href="https://github.com/spectralDNS/shenfun/blob/master/shenfun/forms/project.py">project</a>, which is using <span class="math notranslate nohighlight">\(\sigma=-1/2\)</span>, and then using the fast methods above.</p>
+<p>Start by importing necessary modules from Shenfun and mpi4py-fft</p>
+<div class="cell tag_thebe-init docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">shenfun</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">mpi4py_fft</span> <span class="kn">import</span> <span class="n">fftw</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Create function spaces for all three Dirichlet bases. Decide on a number of quadrature points (not important), and just use default quadrature scheme, which is the Gauss-Chebyshev points.</p>
+<div class="cell tag_thebe-init docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">D0</span> <span class="o">=</span> <span class="n">FunctionSpace</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="n">basis</span><span class="o">=</span><span class="s1">&#39;ShenDirichlet&#39;</span><span class="p">)</span>
+<span class="n">D1</span> <span class="o">=</span> <span class="n">FunctionSpace</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="n">basis</span><span class="o">=</span><span class="s1">&#39;Heinrichs&#39;</span><span class="p">)</span>
+<span class="n">D2</span> <span class="o">=</span> <span class="n">FunctionSpace</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="n">basis</span><span class="o">=</span><span class="s1">&#39;DirichletU&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Create a random vector that we will use for testing.</p>
+<div class="cell tag_thebe-init docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">D0</span><span class="p">,</span> <span class="n">buffer</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">N</span><span class="p">))</span>
+<span class="n">f</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">f</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span><span class="o">.</span><span class="n">forward</span><span class="p">()</span>
+<span class="n">fb</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Do the regular projection. Now <code class="docutils literal notranslate"><span class="pre">f0</span></code>, <code class="docutils literal notranslate"><span class="pre">f1</span></code> and <code class="docutils literal notranslate"><span class="pre">f2</span></code> will be the three solution vectors <span class="math notranslate nohighlight">\(\mathbf{\hat{u}}^{\phi}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{\hat{u}}^{\varphi}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{\hat{u}}^{\psi}\)</span>.</p>
+<div class="cell tag_thebe-init docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f0</span> <span class="o">=</span> <span class="n">project</span><span class="p">(</span><span class="n">fb</span><span class="p">,</span> <span class="n">D0</span><span class="p">)</span>
+<span class="n">f1</span> <span class="o">=</span> <span class="n">project</span><span class="p">(</span><span class="n">fb</span><span class="p">,</span> <span class="n">D1</span><span class="p">)</span>
+<span class="n">f2</span> <span class="o">=</span> <span class="n">project</span><span class="p">(</span><span class="n">fb</span><span class="p">,</span> <span class="n">D2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now compute the fast transforms and assert that they are equal to <code class="docutils literal notranslate"><span class="pre">f0</span></code>, <code class="docutils literal notranslate"><span class="pre">f1</span></code> and <code class="docutils literal notranslate"><span class="pre">f2</span></code></p>
+<div class="cell tag_thebe-init docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="p">)</span>
+<span class="n">dst</span> <span class="o">=</span> <span class="n">fftw</span><span class="o">.</span><span class="n">dstn</span><span class="p">(</span><span class="n">fb</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">d0</span> <span class="o">=</span> <span class="n">dst</span><span class="p">(</span><span class="n">fb</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">d0</span><span class="o">-</span><span class="n">f0</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-8</span>
+<span class="n">dct</span> <span class="o">=</span> <span class="n">fftw</span><span class="o">.</span><span class="n">dctn</span><span class="p">(</span><span class="n">fb</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ck</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="p">);</span> <span class="n">ck</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">d1</span> <span class="o">=</span> <span class="n">dct</span><span class="p">(</span><span class="n">fb</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">ck</span><span class="o">*</span><span class="n">N</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">d1</span><span class="o">-</span><span class="n">f1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">d1</span><span class="o">-</span><span class="n">f1</span><span class="p">)</span>
+<span class="n">ut</span> <span class="o">=</span> <span class="n">d0</span>
+<span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="n">d2</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">D2</span><span class="p">)</span>
+<span class="n">d2</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">k</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="n">k</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">ut</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">d2</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">d2</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">ut</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">d2</span><span class="o">-</span><span class="n">f2</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-8</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>That’s it! If you make it to here with no errors, then the three tests pass, and the fast transforms are equal to the slow ones, at least within given precision.</p>
+<p>Let’s try some timings</p>
+<div class="cell tag_thebe-init docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">timeit</span> <span class="n">project</span><span class="p">(</span><span class="n">fb</span><span class="p">,</span> <span class="n">D0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_thebe-init docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">timeit</span> <span class="n">dst</span><span class="p">(</span><span class="n">fb</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can precompute the sine term, because it does not change</p>
+<div class="cell tag_thebe-init docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">N</span>
+<span class="o">%</span><span class="n">timeit</span> <span class="n">dst</span><span class="p">(</span><span class="n">fb</span><span class="o">/</span><span class="n">dd</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The other two transforms are about equally fast</p>
+<div class="cell tag_thebe-init docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">timeit</span> <span class="n">dct</span><span class="p">(</span><span class="n">fb</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">ck</span><span class="o">*</span><span class="n">N</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<!-- ======= Bibliography ======= --></div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "mikaem/shenfun-demos",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Mikael Mortensen<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>
