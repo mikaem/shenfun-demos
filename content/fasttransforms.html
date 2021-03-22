@@ -294,21 +294,21 @@ Chebyshev Dirichlet basis functions</p>
 <div class="math notranslate nohighlight">
 \[
 \label{eq:shen} \tag{1}
-\phi_k = T_k-T_{k+2}, \quad k=0,1, \ldots, N-3
+\phi_k = T_k-T_{k+2}, \quad k=0,1, \ldots, N-3,
 \]</div>
 <!-- Equation labels as ordinary links -->
 <p><a id="eq:heinrichs"></a></p>
 <div class="math notranslate nohighlight">
 \[
 \label{eq:heinrichs} \tag{2}
-\varphi_k = (1-x^2)T_k, \quad k=0,1, \ldots, N-3
+\varphi_k = (1-x^2)T_k, \quad k=0,1, \ldots, N-3,
 \]</div>
 <!-- Equation labels as ordinary links -->
 <p><a id="eq:dirichletU"></a></p>
 <div class="math notranslate nohighlight">
 \[
 \label{eq:dirichletU} \tag{3}
-\psi_k = U_k-\frac{k+1}{k+3}U_{k+2}, \quad k=0,1, \ldots, N-3
+\psi_k = U_k-\frac{k+1}{k+3}U_{k+2}, \quad k=0,1, \ldots, N-3,
 \]</div>
 <p>That is, we test fast methods for projection of a function
 <span class="math notranslate nohighlight">\(u(x)\)</span> into spaces <span class="math notranslate nohighlight">\(V_{\phi} = \text{span}\{\phi_k\}_{k=0}^{N-3}\)</span>,
@@ -321,12 +321,12 @@ find <span class="math notranslate nohighlight">\(u_N \in V_{\alpha}\)</span> su
 <div class="math notranslate nohighlight">
 \[
 \label{eq:projection} \tag{4}
-(u_N-u, v)_{\omega} = 0, \quad \forall \, v \in V_{\alpha}
+(u_N-u, v)_{\omega} = 0, \quad \forall \, v \in V_{\alpha},
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(\alpha \in (\phi, \varphi, \psi)\)</span>. The solutions we are after are</p>
 <div class="math notranslate nohighlight">
 \[
-u_N(x) = \sum_{k=0}^{N-3} \hat{u}_k^{\phi} \phi_k = \sum_{k=0}^{N-3} \hat{u}_k^{\varphi} \varphi_k = \sum_{k=0}^{N-3} \hat{u}_k^{\psi} \psi_k
+u_N(x) = \sum_{k=0}^{N-3} \hat{u}_k^{\phi} \phi_k = \sum_{k=0}^{N-3} \hat{u}_k^{\varphi} \varphi_k = \sum_{k=0}^{N-3} \hat{u}_k^{\psi} \psi_k,
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(\hat{u}_k^{\alpha}, \, \alpha \in (\phi, \varphi, \psi)\)</span> are the unknown degrees of freedom. Generically, we write</p>
 <div class="math notranslate nohighlight">
@@ -337,14 +337,14 @@ u(x) = \sum_{k=0}^{N-3} \hat{u}_k \xi_k(x),
 <p>A direct method to solve Eq. (<a class="reference external" href="#eq:projection">4</a>) is to insert for <span class="math notranslate nohighlight">\(u_N = \sum_{k=0}^{N-3}\hat{u}_k \xi_k\)</span> and <span class="math notranslate nohighlight">\(v = \xi_j\)</span> to obtain</p>
 <div class="math notranslate nohighlight">
 \[
-(\xi_j, \xi_k)_{\omega} \hat{u}_j = (u, \xi_k)_{\omega}
+(\xi_j, \xi_k)_{\omega} \hat{u}_j = (u, \xi_k)_{\omega},
 \]</div>
 <p>which on algebraic form is</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align*}
 B \hat{\mathbf{u}} &amp;= \tilde{\mathbf{u}}, \\ 
-\hat{\mathbf{u}} &amp;= B^{-1} \tilde{\mathbf{u}}
+\hat{\mathbf{u}} &amp;= B^{-1} \tilde{\mathbf{u}},
 \end{align*}
 \end{split}\]</div>
 <p>where the mass matrix <span class="math notranslate nohighlight">\(B \in \mathbb{R}^{N-2 \times N-2} = \{(\xi_j, \xi_k)_{\omega}\}_{k,j=0}^{N-3}\)</span>, <span class="math notranslate nohighlight">\(\tilde{\mathbf{u}} = \{(u, \xi_k)_{\omega}\}_{k=0}^{N-3}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{u} = \{\hat{u}_k\}_{k=0}^{N-3}\)</span>. A fast method is found if <span class="math notranslate nohighlight">\(B\)</span> is diagonal, so that the inversion <span class="math notranslate nohighlight">\(B^{-1}\)</span> is trivial. In this case the projection becomes orthogonal. It can be shown that the three bases are orthogonal using weights <span class="math notranslate nohighlight">\(\omega = (1-x^2)^{\sigma}\)</span>, where <span class="math notranslate nohighlight">\(\sigma = -3/2, -5/2\)</span> and <span class="math notranslate nohighlight">\(-1/2\)</span>, for (<a class="reference external" href="#eq:shen">1</a>), (<a class="reference external" href="#eq:heinrichs">2</a>) and (<a class="reference external" href="#eq:dirichletU">3</a>), respectively.</p>
@@ -360,7 +360,7 @@ B \hat{\mathbf{u}} &amp;= \tilde{\mathbf{u}}, \\
 <p>For basis (<a class="reference external" href="#eq:heinrichs">2</a>) it is</p>
 <div class="math notranslate nohighlight">
 \[
-\hat{u}_k^{\varphi} = \frac{1}{c_k N} \text{dct}^{II} (\mathbf{u}/\sin^2 \mathbf{\theta})_k, \quad k=0, 1, \ldots, N-3.
+\hat{u}_k^{\varphi} = \frac{1}{c_k N} \text{dct}^{II} (\mathbf{u}/\sin^2 \mathbf{\theta})_k, \quad k=0, 1, \ldots, N-3,
 \]</div>
 <p>and for the basis (<a class="reference external" href="#eq:dirichletU">3</a>) it is</p>
 <div class="math notranslate nohighlight">
