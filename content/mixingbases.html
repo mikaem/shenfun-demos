@@ -286,7 +286,7 @@
 <!-- dom:AUTHOR: Mikael Mortensen Email:mikaem@math.uio.no at Department of Mathematics, University of Oslo. -->
 <!-- Author: -->  
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
-<p>Date: <strong>Mar 22, 2021</strong></p>
+<p>Date: <strong>Mar 23, 2021</strong></p>
 <p>Copyright 2021, Mikael Mortensen. Released under CC Attribution 4.0 license</p>
 <p><strong>Summary.</strong> This demo shows how to solve the Helmholtz equation using different
 bases for test and trial spaces. The use of different bases leads for
@@ -357,7 +357,7 @@ for <span class="math notranslate nohighlight">\(V_N\)</span>.</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">shenfun</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="n">N</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">40</span>
 <span class="n">V0</span> <span class="o">=</span> <span class="n">FunctionSpace</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="n">basis</span><span class="o">=</span><span class="s1">&#39;ShenDirichlet&#39;</span><span class="p">)</span>
 <span class="n">V1</span> <span class="o">=</span> <span class="n">FunctionSpace</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="n">basis</span><span class="o">=</span><span class="s1">&#39;Heinrichs&#39;</span><span class="p">)</span>
 <span class="n">V2</span> <span class="o">=</span> <span class="n">FunctionSpace</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="n">basis</span><span class="o">=</span><span class="s1">&#39;DirichletU&#39;</span><span class="p">)</span>
@@ -442,7 +442,7 @@ the L2-error norm, the condition number of the Helmholtz
 coefficient matrix, or the matrix itself.</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">test</span><span class="p">,</span> <span class="n">trial</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ue</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">x</span><span class="p">)),):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">test</span><span class="p">,</span> <span class="n">trial</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ue</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">x</span><span class="p">))):</span>
     <span class="sd">&quot;&quot;&quot;Solve Helmholtz problem and return L2-error, condition number or matrix</span>
 
 <span class="sd">    Parameters</span>
@@ -460,12 +460,19 @@ coefficient matrix, or the matrix itself.</p>
 <span class="sd">        1 = Return condition number of matrix</span>
 <span class="sd">        2 = Return Helmholtz matrix</span>
 <span class="sd">    ue : Sympy function, optional</span>
-<span class="sd">        The manufactured solution</span>
+<span class="sd">        The manufactured solution with homogeneous boundary conditions.</span>
+
+<span class="sd">    Note</span>
+<span class="sd">    ----</span>
+<span class="sd">    Inhomogeneous boundary conditions require a small rewrite, but is</span>
+<span class="sd">    not difficult.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">bases</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;ShenDirichlet&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;Heinrichs&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;DirichletU&#39;</span><span class="p">}</span>
     <span class="n">test</span> <span class="o">=</span> <span class="n">FunctionSpace</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="n">basis</span><span class="o">=</span><span class="n">bases</span><span class="p">[</span><span class="n">test</span><span class="p">])</span>
-    <span class="n">trial</span><span class="o">=</span> <span class="n">FunctionSpace</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="n">basis</span><span class="o">=</span><span class="n">bases</span><span class="p">[</span><span class="n">trial</span><span class="p">],</span> <span class="n">bc</span><span class="o">=</span><span class="p">(</span><span class="n">ue</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">ue</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
+    <span class="n">trial</span><span class="o">=</span> <span class="n">FunctionSpace</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="n">basis</span><span class="o">=</span><span class="n">bases</span><span class="p">[</span><span class="n">trial</span><span class="p">],</span> <span class="n">bc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+    <span class="c1"># Check that boundary conditions are homogeneous</span>
+    <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">ue</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="o">&lt;</span> <span class="mf">1e-8</span> <span class="ow">and</span> <span class="nb">abs</span><span class="p">(</span><span class="n">ue</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="o">&lt;</span> <span class="mf">1e-8</span>
     <span class="n">u</span> <span class="o">=</span> <span class="n">TrialFunction</span><span class="p">(</span><span class="n">trial</span><span class="p">)</span>
     <span class="n">v</span> <span class="o">=</span> <span class="n">TestFunction</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
     <span class="n">f</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">alpha</span><span class="o">*</span><span class="n">ue</span><span class="o">-</span><span class="n">ue</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
@@ -473,10 +480,8 @@ coefficient matrix, or the matrix itself.</p>
     <span class="n">f_hat</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">fj</span><span class="p">)</span>      <span class="c1"># Compute right hand side</span>
     <span class="n">M</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">alpha</span><span class="o">*</span><span class="n">u</span> <span class="o">-</span> <span class="n">div</span><span class="p">(</span><span class="n">grad</span><span class="p">(</span><span class="n">u</span><span class="p">)))</span>
     <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="n">bc_mats</span> <span class="o">=</span> <span class="n">extract_bc_matrices</span><span class="p">([</span><span class="n">M</span><span class="p">])</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">cond</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">))</span><span class="o">.</span><span class="n">diags</span><span class="p">(</span><span class="s1">&#39;csr&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">toarray</span><span class="p">())</span>
     <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-        <span class="n">bc_mats</span> <span class="o">=</span> <span class="n">extract_bc_matrices</span><span class="p">([</span><span class="n">M</span><span class="p">])</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">))</span>
 
     <span class="n">u_hat</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">trial</span><span class="p">)</span>
@@ -500,13 +505,13 @@ default parameters.</p>
 </div>
 </div>
 </div>
-<p>So the error is small in deed. Perhaps more interesting, lets
+<p>So the error is small in deed. Perhaps more interesting, let’s
 look at the sparsity pattern of the coefficient matrix</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">main</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
-<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">diags</span><span class="p">()</span><span class="o">.</span><span class="n">toarray</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mf">1e-6</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">bool</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">diags</span><span class="p">()</span><span class="o">.</span><span class="n">toarray</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mf">1e-6</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">binary_string</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 <span class="c1">#plt.spy(M.diags(), markersize=0.2) # or use matplotlib</span>
@@ -529,15 +534,6 @@ different mesh sizes</p>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">N</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">error</span><span class="p">,</span> <span class="n">log_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">yaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">showexponent</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">exponentformat</span><span class="o">=</span><span class="s1">&#39;e&#39;</span><span class="p">))</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>You can also try a different manufactured solution. For example
-one with non-homogeneous boundary conditions</p>
-<div class="cell tag_thebe-init docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">main</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ue</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">x</span><span class="p">),</span> <span class="n">method</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
