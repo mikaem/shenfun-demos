@@ -267,6 +267,30 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fast-transform-for-t-k-t-k-2">
+   Fast transform for
+   <span class="math notranslate nohighlight">
+    \(T_k-T_{k+2}\)
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fast-transform-for-1-x-2-t-k">
+   Fast transform for
+   <span class="math notranslate nohighlight">
+    \((1-x^2)T_k\)
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fast-transform-for-u-k-frac-k-1-k-3-u-k-2">
+   Fast transform for
+   <span class="math notranslate nohighlight">
+    \(U_k-\frac{k+1}{k+3}U_{k+2}\)
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#implementation">
    Implementation
   </a>
@@ -287,7 +311,7 @@
 <!-- dom:AUTHOR: Mikael Mortensen Email:mikaem@math.uio.no at Department of Mathematics, University of Oslo. -->
 <!-- Author: -->  
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
-<p>Date: <strong>Mar 23, 2021</strong></p>
+<p>Date: <strong>Mar 24, 2021</strong></p>
 <p>Copyright 2021, Mikael Mortensen. Released under CC Attribution 4.0 license</p>
 <p><strong>Summary.</strong> This demo shows how to compute fast forward transforms for three
 different Dirichlet bases.</p>
@@ -329,56 +353,187 @@ find <span class="math notranslate nohighlight">\(u_N \in V_{\alpha}\)</span> su
 \label{eq:projection} \tag{4}
 (u_N-u, v)_{\omega} = 0, \quad \forall \, v \in V_{\alpha},
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(\alpha \in (\phi, \varphi, \psi)\)</span>. The solutions we are after are</p>
+<p>where <span class="math notranslate nohighlight">\(\alpha \in (\phi, \varphi, \psi)\)</span>. The solutions we are after are thus</p>
+<!-- Equation labels as ordinary links -->
+<p><a id="_auto1"></a></p>
 <div class="math notranslate nohighlight">
 \[
-u_N(x) = \sum_{k=0}^{N-3} \hat{u}_k^{\phi} \phi_k = \sum_{k=0}^{N-3} \hat{u}_k^{\varphi} \varphi_k = \sum_{k=0}^{N-3} \hat{u}_k^{\psi} \psi_k,
+\begin{equation}
+u(x) = \sum_{k=0}^{N-3} \hat{u}_k^{\alpha} \alpha_k(x),
+\label{_auto1} \tag{5}
+\end{equation}
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(\hat{u}_k^{\alpha}, \, \alpha \in (\phi, \varphi, \psi)\)</span> are the unknown degrees of freedom. Generically, we write</p>
+<p>where <span class="math notranslate nohighlight">\(\alpha_k\)</span> can be any of the three basis functions <span class="math notranslate nohighlight">\((\phi_k, \varphi_k, \psi_k)\)</span>.</p>
+<p>A direct method to solve Eq. (<a class="reference external" href="#eq:projection">4</a>) is to insert for
+<span class="math notranslate nohighlight">\(u_N = \sum_{j=0}^{N-3}\hat{u}_j^{\alpha} \alpha_j\)</span> and <span class="math notranslate nohighlight">\(v = \alpha_k\)</span> to obtain</p>
+<!-- Equation labels as ordinary links -->
+<p><a id="eq:genericproj"></a></p>
 <div class="math notranslate nohighlight">
 \[
-u(x) = \sum_{k=0}^{N-3} \hat{u}_k \xi_k(x),
-\]</div>
-<p>where <span class="math notranslate nohighlight">\(\xi_k\)</span> can be any of the three basis functions <span class="math notranslate nohighlight">\((\phi_k, \varphi_k, \psi_k)\)</span>.</p>
-<p>A direct method to solve Eq. (<a class="reference external" href="#eq:projection">4</a>) is to insert for <span class="math notranslate nohighlight">\(u_N = \sum_{k=0}^{N-3}\hat{u}_k \xi_k\)</span> and <span class="math notranslate nohighlight">\(v = \xi_j\)</span> to obtain</p>
-<div class="math notranslate nohighlight">
-\[
-(\xi_j, \xi_k)_{\omega} \hat{u}_j = (u, \xi_k)_{\omega},
+\begin{equation}
+\label{eq:genericproj} \tag{6}
+(\alpha_j, \alpha_k)_{\omega} \hat{u}_j^{\alpha} = (u, \alpha_k)_{\omega},
+\end{equation}
 \]</div>
 <p>which on algebraic form is</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align*}
-B \hat{\mathbf{u}} &amp;= \tilde{\mathbf{u}}, \\ 
-\hat{\mathbf{u}} &amp;= B^{-1} \tilde{\mathbf{u}},
+B \hat{\boldsymbol{u}} &amp;= \tilde{\boldsymbol{u}}, \\ 
+\hat{\boldsymbol{u}} &amp;= B^{-1} \tilde{\boldsymbol{u}},
 \end{align*}
 \end{split}\]</div>
-<p>where the mass matrix <span class="math notranslate nohighlight">\(B \in \mathbb{R}^{N-2 \times N-2} = \{(\xi_j, \xi_k)_{\omega}\}_{k,j=0}^{N-3}\)</span>, <span class="math notranslate nohighlight">\(\tilde{\mathbf{u}} = \{(u, \xi_k)_{\omega}\}_{k=0}^{N-3}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{u} = \{\hat{u}_k\}_{k=0}^{N-3}\)</span>. A fast method is found if <span class="math notranslate nohighlight">\(B\)</span> is diagonal, so that the inversion <span class="math notranslate nohighlight">\(B^{-1}\)</span> is trivial. In this case the projection becomes orthogonal. It can be shown that the three bases are orthogonal using weights <span class="math notranslate nohighlight">\(\omega = (1-x^2)^{\sigma}\)</span>, where <span class="math notranslate nohighlight">\(\sigma = -3/2, -5/2\)</span> and <span class="math notranslate nohighlight">\(-1/2\)</span>, for (<a class="reference external" href="#eq:shen">1</a>), (<a class="reference external" href="#eq:heinrichs">2</a>) and (<a class="reference external" href="#eq:dirichletU">3</a>), respectively.</p>
-<p>In the following all methods will make use of Gauss-Chebyshev quadrature with Gauss-Chebyshev collocation points <span class="math notranslate nohighlight">\(\boldsymbol{x}=\{x_i\}_{i=0}^{N-1}\)</span>, where <span class="math notranslate nohighlight">\(x_i = \cos(\theta_i)\)</span>, <span class="math notranslate nohighlight">\(\theta_i=\pi (2i+1)/(2N)\)</span> and <span class="math notranslate nohighlight">\(\mathbf{\theta}=\{\theta_i\}_{i=0}^{N-1}\)</span>. The quadrature weights are then constant <span class="math notranslate nohighlight">\(w_i = \pi/N\)</span> for <span class="math notranslate nohighlight">\(i=0,1, \ldots, N-1\)</span>.</p>
-<p>The fast orthogonal projection for the Dirichlet basis (<a class="reference external" href="#eq:shen">1</a>) simplifies to</p>
+<p>where the mass matrix <span class="math notranslate nohighlight">\(B \in \mathbb{R}^{N-2 \times N-2} = \{(\alpha_j, \alpha_k)_{\omega}\}_{k,j=0}^{N-3}\)</span>, <span class="math notranslate nohighlight">\(\tilde{\boldsymbol{u}} = \{(u, \alpha_k)_{\omega}\}_{k=0}^{N-3}\)</span> and <span class="math notranslate nohighlight">\(\boldsymbol{u} = \{\hat{u}_k^{\alpha}\}_{k=0}^{N-3}\)</span>.
+A fast method is found if <span class="math notranslate nohighlight">\(B\)</span> is diagonal, so that the inversion <span class="math notranslate nohighlight">\(B^{-1}\)</span> is trivial. In this case the projection becomes orthogonal.
+It can be shown that the three bases are orthogonal using weights <span class="math notranslate nohighlight">\(\omega = (1-x^2)^{\sigma}\)</span>,
+where <span class="math notranslate nohighlight">\(\sigma = -3/2, -5/2\)</span> and <span class="math notranslate nohighlight">\(-1/2\)</span>, for (<a class="reference external" href="#eq:shen">1</a>), (<a class="reference external" href="#eq:heinrichs">2</a>) and (<a class="reference external" href="#eq:dirichletU">3</a>), respectively.</p>
+<p>In the following all methods will make use of Gauss-Chebyshev
+quadrature with Gauss-Chebyshev collocation points
+<span class="math notranslate nohighlight">\(\boldsymbol{x}=\{x_i\}_{i=0}^{N-1}\)</span>, where
+<span class="math notranslate nohighlight">\(x_i = \cos(\theta_i)\)</span>, <span class="math notranslate nohighlight">\(\theta_i=\pi (2i+1)/(2N)\)</span> and
+<span class="math notranslate nohighlight">\(\boldsymbol{\theta}=\{\theta_i\}_{i=0}^{N-1}\)</span>. The quadrature weights
+are then constant <span class="math notranslate nohighlight">\(w_i = \pi/N\)</span> for <span class="math notranslate nohighlight">\(i=0,1, \ldots, N-1\)</span>.</p>
+</div>
+<div class="section" id="fast-transform-for-t-k-t-k-2">
+<h2>Fast transform for <span class="math notranslate nohighlight">\(T_k-T_{k+2}\)</span><a class="headerlink" href="#fast-transform-for-t-k-t-k-2" title="Permalink to this headline">¶</a></h2>
+<p>The basis function <span class="math notranslate nohighlight">\(\phi_k=T_k-T_{k+2}\)</span> can be written as <span class="math notranslate nohighlight">\(\phi_k=2(1-x^2)U_k\)</span> because of the
+recurrence formulas <span class="math notranslate nohighlight">\(T_{k+2}=xT_{k+1}-(1-x^2)U_{k}\)</span> and <span class="math notranslate nohighlight">\(T_{k+2}=2xT_{k+1}-T_k\)</span>.
+Using <span class="math notranslate nohighlight">\(\phi_k=2(1-x^2)U_k\)</span> for both test and trial functions in (<a class="reference external" href="#eq:genericproj">6</a>),
+we get</p>
 <!-- Equation labels as ordinary links -->
-<p><a id="eq:sol0"></a></p>
+<p><a id="eq:projectionSD3"></a></p>
 <div class="math notranslate nohighlight">
 \[
-\label{eq:sol0} \tag{5}
-\hat{u}_k^{\phi} = \frac{1}{2N} \text{dst}^{II}(\mathbf{u}/\sin \mathbf{\theta})_k, \quad k=0,1, \ldots, N-3.
+\begin{equation}
+\label{eq:projectionSD3} \tag{7}
+    \int_I 2U_jU_k \omega^{1/2}dx \hat{u}_j^{\phi} = \int_I U_k u \omega^{-1/2}dx,
+\end{equation}
 \]</div>
-<p>For basis (<a class="reference external" href="#eq:heinrichs">2</a>) it is</p>
+<p>where <span class="math notranslate nohighlight">\(I=[-1, 1]\)</span> and the integral on the left equals <span class="math notranslate nohighlight">\(\pi\delta_{kj}\)</span>.
+The integral on the right is solved through Gauss-Chebyshev quadrature
+using the identity <span class="math notranslate nohighlight">\(U_k(\cos \theta_i) = \sin((k+1)\theta_i)/\sin \theta_i\)</span>,
+which reduces the problem to one single discrete sine transform of type 2.
+We get for the integral on the right</p>
+<!-- Equation labels as ordinary links -->
+<p><a id="_auto2"></a></p>
 <div class="math notranslate nohighlight">
 \[
-\hat{u}_k^{\varphi} = \frac{1}{c_k N} \text{dct}^{II} (\mathbf{u}/\sin^2 \mathbf{\theta})_k, \quad k=0, 1, \ldots, N-3,
+\begin{equation}
+\int_I U_k u \omega^{-1/2}dx \approx \sum_{i=0}^{N-1} u(x_i) \sin((k+1)\theta_i)/\sin \theta_i,
+\label{_auto2} \tag{8}
+\end{equation}
 \]</div>
-<p>and for the basis (<a class="reference external" href="#eq:dirichletU">3</a>) it is</p>
+<p>which can be computed using the discrete sine transform (DST) of type 2,
+see <a class="reference external" href="http://www.fftw.org/fftw3_doc/1d-Real_002dodd-DFTs-_0028DSTs_0029.html">FFTW</a>.
+Inserting this DST in (<a class="reference external" href="#eq:projectionSD3">7</a>) we get the final expression
+for the fast forward transform</p>
+<!-- Equation labels as ordinary links -->
+<p><a id="eq:proju0"></a></p>
 <div class="math notranslate nohighlight">
 \[
-\hat{u}_k^{\psi} = \frac{k+3}{2(k+1)}\hat{u}_k^{\phi} - \frac{1}{2}\hat{u}_{k+2}^{\phi}, \quad k=0, 1, \ldots, N-3.
+\begin{equation}
+\label{eq:proju0} \tag{9}
+    \hat{u}_k^{\phi} = \frac{1}{2N} \text{dst}^{II}(u(\boldsymbol{x})/\sin \boldsymbol{\theta})_k, \quad k=0, 1, \ldots, N-3.
+\end{equation}
+\]</div>
+<p>Note that we only use the first <span class="math notranslate nohighlight">\(N-2\)</span> components of the sine transform, but the two
+highest frequencies are identically 0, so we would not make an error or do anything differently by
+using the entire array. Also note that the division of the two arrays <span class="math notranslate nohighlight">\(u(\boldsymbol{x})/\sin \boldsymbol{\theta}\)</span> is elementwise.</p>
+</div>
+<div class="section" id="fast-transform-for-1-x-2-t-k">
+<h2>Fast transform for <span class="math notranslate nohighlight">\((1-x^2)T_k\)</span><a class="headerlink" href="#fast-transform-for-1-x-2-t-k" title="Permalink to this headline">¶</a></h2>
+<p>The orthogonal projection of <span class="math notranslate nohighlight">\(u(x)\)</span> for basis (<a class="reference external" href="#eq:heinrichs">2</a>)
+in <span class="math notranslate nohighlight">\(L^2_{\omega^{-5/2}}(I)\)</span> reads</p>
+<!-- Equation labels as ordinary links -->
+<p><a id="_auto3"></a></p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+    \int_I T_j T_k \omega^{-1/2} dx \hat{u}_j^{\varphi} = \int_I T_k u \omega^{-3/2} dx.
+\label{_auto3} \tag{10}
+\end{equation}
+\]</div>
+<p>The left hand side is simply the diagonal <span class="math notranslate nohighlight">\((T_j, T_k)_{\omega^{-1/2}} = c_k\pi/2 \delta_{kj}\)</span>.
+For the integral on the right we use the Gauss-Chebyshev quadrature rule for
+integration with weight <span class="math notranslate nohighlight">\((1-x^2)^{-1/2}\)</span>, and rewrite using
+<span class="math notranslate nohighlight">\(1-x_i^2=\sin^2\theta_i\)</span> and <span class="math notranslate nohighlight">\(T_k(x_i) = \cos(k\theta_i)\)</span></p>
+<!-- Equation labels as ordinary links -->
+<p><a id="_auto4"></a></p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+    \frac{c_k \pi}{2} \hat{u}_k^{\varphi} = \frac{\pi}{N} \sum_{i=0}^{N-1} \cos (k \theta_i) u(x_i)/\sin^2\theta_i.
+\label{_auto4} \tag{11}
+\end{equation}
+\]</div>
+<p>The sum can be seen to be a discrete cosine transform of type 2. We get the
+final expression for the fast transform</p>
+<!-- Equation labels as ordinary links -->
+<p><a id="_auto5"></a></p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+    \hat{u}_k^{\varphi} = \frac{1}{c_k N} \text{dct}^{II} (u(\boldsymbol{x})/\sin^2 \boldsymbol{\theta})_k, \quad k=0, 1, \ldots, N-3.
+\label{_auto5} \tag{12}
+\end{equation}
+\]</div>
+</div>
+<div class="section" id="fast-transform-for-u-k-frac-k-1-k-3-u-k-2">
+<h2>Fast transform for <span class="math notranslate nohighlight">\(U_k-\frac{k+1}{k+3}U_{k+2}\)</span><a class="headerlink" href="#fast-transform-for-u-k-frac-k-1-k-3-u-k-2" title="Permalink to this headline">¶</a></h2>
+<p>The orthogonal projection for basis <span class="math notranslate nohighlight">\(\{\psi_k\}_{k=0}^{N-3}\)</span> in
+<span class="math notranslate nohighlight">\(L^2_{\omega^{-1/2}}(I)\)</span> can be computed using the alternative form</p>
+<!-- Equation labels as ordinary links -->
+<p><a id="eq:elbarbary"></a></p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+   \psi_k = \frac{2(1-x^2)}{(k+2)(k+3)}T^{ ''}_{k+2}, \quad k = 0, 1, \ldots, N-3.
+\label{eq:elbarbary} \tag{13}
+\end{equation}
+\]</div>
+<p>Using (<a class="reference external" href="#eq:elbarbary">13</a>) for the two basis functions in <span class="math notranslate nohighlight">\((\psi_j, \psi_j)_{\omega^{-1/2}}\)</span>,
+and (<a class="reference external" href="#eq:dirichletU">3</a>) in the linear form we get</p>
+<!-- Equation labels as ordinary links -->
+<p><a id="eq:proj3"></a></p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+\label{eq:proj3} \tag{14}
+    \frac{4}{(k+2)^2(k+3)^2}\int_I T^{''}_j T^{''}_k \omega^{3/2}dx \hat{u}_j^{\psi} = \int_I (U_k - \frac{k+1}{k+3}U_{k+2})u \omega^{-1/2} dx.
+\end{equation}
+\]</div>
+<p>Using the orthogonal <span class="math notranslate nohighlight">\(\int_I T^{''}_j T^{''}_k \omega^{3/2}dx = \pi (j+1)(j+2)^2(j+3)/2 \delta_{kj}\)</span> from Lemma 3
+in <a class="reference external" href="#elbarbary08">[elbarbary08]</a>, Eq. (<a class="reference external" href="#eq:proj3">14</a>) simplifies to</p>
+<!-- Equation labels as ordinary links -->
+<p><a id="_auto6"></a></p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+     \frac{2 \pi (k+1)}{(k+3)} \hat{u}_k^{\psi}  = \int_I (U_k - \frac{k+1}{k+3}U_{k+2})u \omega^{-1/2} dx.
+\label{_auto6} \tag{15}
+\end{equation}
+\]</div>
+<p>The right hand side can now be rewritten using the same sine transform as in (<a class="reference external" href="#eq:proju0">9</a>).
+We get after some rearrangements</p>
+<!-- Equation labels as ordinary links -->
+<p><a id="_auto7"></a></p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+    \hat{u}_k^{\psi} = \frac{k+3}{2(k+1)}\hat{u}_k^{\phi} - \frac{1}{2}\hat{u}_{k+2}^{\phi}, \quad k=0, 1, \ldots, N-3.
+\label{_auto7} \tag{16}
+\end{equation}
 \]</div>
 </div>
 <div class="section" id="implementation">
 <h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h2>
 <p>To validate these methods we compute the projection first regularly
 using the Shenfun function <a class="reference external" href="https://github.com/spectralDNS/shenfun/blob/master/shenfun/forms/project.py">project</a>,
-which is using <span class="math notranslate nohighlight">\(\sigma=-1/2\)</span>, and then using the fast methods above.</p>
+which is using <span class="math notranslate nohighlight">\(\sigma=-1/2\)</span>, and then the fast methods above. The two
+projections should be the same, but they will not give identical results.
+In general, the fast transforms above should be both faster and more
+accurate, because they only take a discrete transform and no
+mass matrix inversion.</p>
 <p>Start by importing necessary modules from Shenfun and mpi4py-fft</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
@@ -410,7 +565,7 @@ which is using <span class="math notranslate nohighlight">\(\sigma=-1/2\)</span>
 </div>
 </div>
 </div>
-<p>Do the regular projection. Now <code class="docutils literal notranslate"><span class="pre">f0</span></code>, <code class="docutils literal notranslate"><span class="pre">f1</span></code> and <code class="docutils literal notranslate"><span class="pre">f2</span></code> will be the three solution vectors <span class="math notranslate nohighlight">\(\mathbf{\hat{u}}^{\phi}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{\hat{u}}^{\varphi}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{\hat{u}}^{\psi}\)</span>.</p>
+<p>Do the regular projection. Now <code class="docutils literal notranslate"><span class="pre">f0</span></code>, <code class="docutils literal notranslate"><span class="pre">f1</span></code> and <code class="docutils literal notranslate"><span class="pre">f2</span></code> will be the three solution vectors <span class="math notranslate nohighlight">\(\boldsymbol{\hat{u}}^{\phi}\)</span>, <span class="math notranslate nohighlight">\(\boldsymbol{\hat{u}}^{\varphi}\)</span> and <span class="math notranslate nohighlight">\(\boldsymbol{\hat{u}}^{\psi}\)</span>.</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f0</span> <span class="o">=</span> <span class="n">project</span><span class="p">(</span><span class="n">fb</span><span class="p">,</span> <span class="n">D0</span><span class="p">)</span>
@@ -474,7 +629,17 @@ which is using <span class="math notranslate nohighlight">\(\sigma=-1/2\)</span>
 </div>
 </div>
 </div>
-<!-- ======= Bibliography ======= --></div>
+<!-- ======= Bibliography ======= -->
+<ol class="simple">
+<li><p><a id="elbarbary08"></a> <strong>E. M. E. Elbarbary</strong>.
+Efficient Chebyshev-Petrov-Galerkin Method for Solving Second-Order Equations,
+<em>Journal of Scientific Computing</em>,
+34(2),
+pp. 113-126,
+<a class="reference external" href="http://dx.doi.org/10.1007/s10915-007-9161-9">doi: 10.1007/s10915-007-9161-9</a>,
+2008.</p></li>
+</ol>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
