@@ -281,11 +281,6 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#manufactured-solution">
-     Manufactured solution
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#discretization">
      Discretization
     </a>
@@ -475,12 +470,9 @@ plus some other helper modules, like <a class="reference external" href="https:/
 </div>
 </div>
 </div>
-<p>We use <code class="docutils literal notranslate"><span class="pre">Sympy</span></code> for a manufactured solution and <code class="docutils literal notranslate"><span class="pre">Numpy</span></code> for testing.</p>
-</div>
-<div class="section" id="manufactured-solution">
-<h3>Manufactured solution<a class="headerlink" href="#manufactured-solution" title="Permalink to this headline">¶</a></h3>
-<p>The exact solution <span class="math notranslate nohighlight">\(u_e(x)\)</span> and the right hand side <span class="math notranslate nohighlight">\(f_e(x)\)</span> are created using
-<code class="docutils literal notranslate"><span class="pre">Sympy</span></code> as follows</p>
+<p>We use <code class="docutils literal notranslate"><span class="pre">Sympy</span></code> for a manufactured solution and <code class="docutils literal notranslate"><span class="pre">Numpy</span></code> for testing.
+The exact manufactured solution <span class="math notranslate nohighlight">\(u_e(x)\)</span> and the right hand side
+<span class="math notranslate nohighlight">\(f_e(x)\)</span> are created using <code class="docutils literal notranslate"><span class="pre">Sympy</span></code> as follows</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
@@ -490,9 +482,8 @@ plus some other helper modules, like <a class="reference external" href="https:/
 </div>
 </div>
 </div>
-<p>These solutions are now valid for a continuous domain. The next step is thus to
-discretize, using a discrete mesh <span class="math notranslate nohighlight">\(\{x_j\}_{j=0}^{N-1}\)</span> and a finite number of
-basis functions.</p>
+<p>Note that we compute the right hand side function <code class="docutils literal notranslate"><span class="pre">fe</span></code> that corresponds to
+the manufactured solution <code class="docutils literal notranslate"><span class="pre">ue</span></code>.</p>
 </div>
 <div class="section" id="discretization">
 <h3>Discretization<a class="headerlink" href="#discretization" title="Permalink to this headline">¶</a></h3>
@@ -530,12 +521,16 @@ mesh from the basis itself</p>
 <p>Note that the <code class="docutils literal notranslate"><span class="pre">sympy</span></code> function <code class="docutils literal notranslate"><span class="pre">fe</span></code> can be used to initialize the <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.Array">Array</a>
 <code class="docutils literal notranslate"><span class="pre">fj</span></code>. We wrap this Numpy array in an <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.Array">Array</a> class
 (<code class="docutils literal notranslate"><span class="pre">fj</span> <span class="pre">=</span> <span class="pre">Array(SD,</span> <span class="pre">buffer=fe)</span></code>), because an Array
-is required as input to the <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.inner.inner">inner()</a> function.</p>
+is required as input to the <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.inner.inner">inner()</a> function. An
+<a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.Array">Array</a> contains the solution evaluated on the
+quadrature mesh. A <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.Function">Function</a> represents a global
+expansion, like Eq. (<a class="reference external" href="#eq:u">3</a>), and its values are the
+expansion coefficients <span class="math notranslate nohighlight">\(\{\hat{u}_{k}\}_{k=0}^{N-1}\)</span>.</p>
 </div>
 <div class="section" id="fix-boundary-conditions">
 <h3>Fix boundary conditions<a class="headerlink" href="#fix-boundary-conditions" title="Permalink to this headline">¶</a></h3>
-<p>Fiw two rows of the differentiation matrix in order to satisfy
-Eqs. (<a class="reference external" href="#eq:dirichleta">4</a>) and (ref(eq:dirichletb)).</p>
+<p>We fix two rows of the differentiation matrix in order to satisfy
+Eqs. (<a class="reference external" href="#eq:dirichleta">4</a>) and (<a class="reference external" href="#eq:dirichletb">5</a>).</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">diags</span><span class="p">(</span><span class="s1">&#39;lil&#39;</span><span class="p">)</span>
@@ -624,8 +619,7 @@ using 12 quadrature points as</p>
 <p>To get the convergence we call <code class="docutils literal notranslate"><span class="pre">main</span></code> for a list
 of <span class="math notranslate nohighlight">\(N=[12, 16, \ldots, 48]\)</span>, and collect the errornorms in
 arrays to be plotted. The error can be plotted using
-<a class="reference external" href="https://matplotlib.org">matplotlib</a>, and the generated
-figure is also shown in this demos summary.</p>
+<a class="reference external" href="https://matplotlib.org">matplotlib</a>.</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
