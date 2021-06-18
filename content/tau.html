@@ -328,7 +328,7 @@
 <!-- dom:AUTHOR: Mikael Mortensen Email:mikaem@math.uio.no at Department of Mathematics, University of Oslo. -->
 <!-- Author: -->  
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
-<p>Date: <strong>Jun 15, 2021</strong></p>
+<p>Date: <strong>Jun 18, 2021</strong></p>
 <p>Copyright 2021, Mikael Mortensen. Released under CC Attribution 4.0 license</p>
 <p><strong>Summary.</strong> Shenfun has primarily been developed for the spectral Galerkin method.
 However, there are other methods out there that make use of global basis
@@ -341,7 +341,7 @@ of the problem are already built in. The tau-method, on the other hand,
 does not come with such restrictions. The tau-method usually considers
 only the orthogonal basis, like pure Chebyshev or Legendre polynomials,
 and derives differentiation matrices for these bases. The boundary conditions
-are usually fixed by enforcing a couple of rows of the differentiation
+are usually fixed by fixing a couple of rows of the differentiation
 matrix. In this demo we will show how the original tau-method can
 be easily implemented using <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a>.</p>
 <div class="section" id="the-tau-method-for-poisson-s-equation-in-1d">
@@ -400,10 +400,10 @@ u(+1) = \sum_{k=0}^{N-1} \hat{u}_k \phi_k(+1) = \sum_{k=0}^{N-1} \hat{u}_{k} = b
 \end{equation}
 \]</div>
 <p>where we have use that <span class="math notranslate nohighlight">\(\phi_k(1) = 1\)</span> and <span class="math notranslate nohighlight">\(\phi_k(-1)=(-1)^k\)</span> for <span class="math notranslate nohighlight">\(k=0,1, \ldots, N-1\)</span>,
-for either Chebyshev or Legendre polynomials <span class="math notranslate nohighlight">\(\phi_k\)</span>.</p>
-<p>This gives two equations for the <span class="math notranslate nohighlight">\(N-1\)</span> unknowns in  <span class="math notranslate nohighlight">\(\{\hat{u}_k\}_{k=0}^{N-1}\)</span>.
+for either Chebyshev or Legendre polynomials <span class="math notranslate nohighlight">\(\phi_k\)</span>. This gives two equations
+for the <span class="math notranslate nohighlight">\(N\)</span> unknowns in  <span class="math notranslate nohighlight">\(\{\hat{u}_k\}_{k=0}^{N-1}\)</span>.
 We will now use variational principles, like in the Galerkin method, in order to
-derive equations that can be used to close the remaining <span class="math notranslate nohighlight">\(N-3\)</span> unknowns.
+derive equations that can be used to close the remaining <span class="math notranslate nohighlight">\(N-2\)</span> unknowns.
 To this end we multiply Poisson’s equation by a
 test function <span class="math notranslate nohighlight">\(v\)</span>, a weight <span class="math notranslate nohighlight">\(w\)</span>, and integrate  over the domain</p>
 <!-- Equation labels as ordinary links -->
@@ -423,7 +423,7 @@ the test function <span class="math notranslate nohighlight">\(v=\phi_k\)</span>
 <div class="math notranslate nohighlight">
 \[
 \begin{equation}
-\int_{-1}^1 \sum_{j=0}^{N-1} \nabla^2 \phi_j  \, \phi_k \, w\, dx \hat{u}_j = \int_{-1}^1 f \, \phi_k\, w\, dx. \label{eq:varform2} \tag{7}
+\int_{-1}^1 \nabla^2 \sum_{j=0}^{N-1} \phi_j \,  \, \phi_k \, w\, dx \hat{u}_j = \int_{-1}^1 f \, \phi_k\, w\, dx. \label{eq:varform2} \tag{7}
 \end{equation}
 \]</div>
 <p>This problem can be reformulated as a linear algebra problem,</p>
@@ -446,9 +446,9 @@ A \hat{\mathbf{{u}}} = \tilde{\mathbf{{f}}}.
 \end{equation}
 \]</div>
 <p>However, the matrix <span class="math notranslate nohighlight">\(A\in \mathbb{R}^{N \times N}\)</span> is singular because it
-contains two zero rows. These two rows is where we implement the two boundary
-conditions. By setting the rows as <span class="math notranslate nohighlight">\(a_{N-2, j}=1\)</span> and
-<span class="math notranslate nohighlight">\(a_{N-1, j}= (-1)^j\)</span> for <span class="math notranslate nohighlight">\(j=0, 1, \ldots, N-1\)</span>, and fixing
+contains two zero rows. These two rows can be used to implement the two boundary
+conditions. By fixing the rows as <span class="math notranslate nohighlight">\(a_{N-2, j}=1\)</span> and
+<span class="math notranslate nohighlight">\(a_{N-1, j}= (-1)^j\)</span> for <span class="math notranslate nohighlight">\(j=0, 1, \ldots, N-1\)</span>, and
 the right hand side <span class="math notranslate nohighlight">\(\tilde{f}_{N-2}=a\)</span> and <span class="math notranslate nohighlight">\(\tilde{f}_{N-1}=b\)</span>, the
 two boundary conditions will be satisfied.</p>
 </div>
@@ -545,11 +545,23 @@ Eqs. (<a class="reference external" href="#eq:dirichleta">4</a>) and (<a class="
 </div>
 <p>Note that the last two lines uses evaluation of the sympy function
 <code class="docutils literal notranslate"><span class="pre">ue</span></code> at the borders of the domain. Implemented like this it is
-easy to change to a nonstandard domain size.</p>
+easy to change to a nonstandard domain size.
+The sparsity pattern of the matrix A is now modified
+with the typical tau-lines</p>
+<div class="cell tag_thebe-init docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">toarray</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mf">1e-6</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">binary_string</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="solve-linear-equations">
 <h3>Solve linear equations<a class="headerlink" href="#solve-linear-equations" title="Permalink to this headline">¶</a></h3>
-<p>Finally, solve linear equation system and transform solution from spectral
+<p>Finally, solve the linear equation system and transform the solution from the spectral
 <span class="math notranslate nohighlight">\(\{\hat{u}_k\}_{k=0}^{N-1}\)</span> vector to the real space <span class="math notranslate nohighlight">\(\{u(x_j)\}_{j=0}^{N-1}\)</span>
 and then check how the solution corresponds with the exact solution <span class="math notranslate nohighlight">\(u_e\)</span>.
 To this end we compute the <span class="math notranslate nohighlight">\(L_2\)</span>-errornorm using the <code class="docutils literal notranslate"><span class="pre">shenfun</span></code> function
