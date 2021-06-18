@@ -365,8 +365,7 @@ u(-1)=a, u(1)=b, \notag
 \end{equation}
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(u(x)\)</span> is the solution, <span class="math notranslate nohighlight">\(f(x)\)</span> is a function and <span class="math notranslate nohighlight">\(a, b\)</span> are two possibly
-non-zero constants.</p>
-<p>To solve Eq. (<a class="reference external" href="#eq:poisson">1</a>) with the tau method we choose either
+non-zero constants. To solve Eq. (<a class="reference external" href="#eq:poisson">1</a>) with the tau method we choose either
 Legendre of Chebyshev basis functions <span class="math notranslate nohighlight">\(\phi_k\)</span>, and then look for
 solutions</p>
 <!-- Equation labels as ordinary links -->
@@ -458,7 +457,8 @@ two boundary conditions will be satisfied.</p>
 <h3>Preamble<a class="headerlink" href="#preamble" title="Permalink to this headline">¶</a></h3>
 <p>We will solve Poisson’s equation using the <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a> Python module. The first thing needed
 is then to import some of this module’s functionality
-plus some other helper modules, like <a class="reference external" href="https://numpy.org">Numpy</a> and <a class="reference external" href="https://sympy.org">Sympy</a>:</p>
+plus some other helper modules, like <a class="reference external" href="https://numpy.org">Numpy</a> and <a class="reference external" href="https://sympy.org">Sympy</a>, and the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/sparse.html">sparse</a>
+for handeling sparse matrices:</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">shenfun</span> <span class="kn">import</span> <span class="n">inner</span><span class="p">,</span> <span class="n">div</span><span class="p">,</span> <span class="n">grad</span><span class="p">,</span> <span class="n">TestFunction</span><span class="p">,</span> <span class="n">TrialFunction</span><span class="p">,</span> <span class="n">Function</span><span class="p">,</span> \
@@ -487,8 +487,7 @@ the manufactured solution <code class="docutils literal notranslate"><span class
 </div>
 <div class="section" id="discretization">
 <h3>Discretization<a class="headerlink" href="#discretization" title="Permalink to this headline">¶</a></h3>
-<p>We create a basis with a given number of basis functions, and extract the computational
-mesh from the basis itself</p>
+<p>We create a basis with a given number of basis functions,</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">32</span>
@@ -498,7 +497,8 @@ mesh from the basis itself</p>
 </div>
 </div>
 </div>
-<p>Note that we can either choose a Legendre or a Chebyshev basis.</p>
+<p>Note that we can either choose a Legendre or a Chebyshev basis. The
+remaining code will work either way.</p>
 </div>
 <div class="section" id="variational-formulation">
 <h3>Variational formulation<a class="headerlink" href="#variational-formulation" title="Permalink to this headline">¶</a></h3>
@@ -518,9 +518,8 @@ mesh from the basis itself</p>
 </div>
 </div>
 </div>
-<p>Note that the <code class="docutils literal notranslate"><span class="pre">sympy</span></code> function <code class="docutils literal notranslate"><span class="pre">fe</span></code> can be used to initialize the <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.Array">Array</a>
-<code class="docutils literal notranslate"><span class="pre">fj</span></code>. We wrap this Numpy array in an <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.Array">Array</a> class
-(<code class="docutils literal notranslate"><span class="pre">fj</span> <span class="pre">=</span> <span class="pre">Array(SD,</span> <span class="pre">buffer=fe)</span></code>), because an Array
+<p>Note that the <code class="docutils literal notranslate"><span class="pre">sympy</span></code> function <code class="docutils literal notranslate"><span class="pre">fe</span></code> is be used to initialize the <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.Array">Array</a>
+<code class="docutils literal notranslate"><span class="pre">fj</span></code>, because an Array
 is required as input to the <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.inner.inner">inner()</a> function. An
 <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.Array">Array</a> contains the solution evaluated on the
 quadrature mesh. A <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.Function">Function</a> represents a global
@@ -547,7 +546,7 @@ Eqs. (<a class="reference external" href="#eq:dirichleta">4</a>) and (<a class="
 <code class="docutils literal notranslate"><span class="pre">ue</span></code> at the borders of the domain. Implemented like this it is
 easy to change to a nonstandard domain size.
 The sparsity pattern of the matrix A is now modified
-with the typical tau-lines</p>
+with the typical tau-lines that we can visualize using <a class="reference external" href="https://plotly.com/">plotly</a></p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
