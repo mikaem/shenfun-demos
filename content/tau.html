@@ -328,8 +328,7 @@
 <!-- dom:AUTHOR: Mikael Mortensen Email:mikaem@math.uio.no at Department of Mathematics, University of Oslo. -->
 <!-- Author: -->  
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
-<p>Date: <strong>Jun 18, 2021</strong></p>
-<p>Copyright 2021, Mikael Mortensen. Released under CC Attribution 4.0 license</p>
+<p>Date: <strong>June 15, 2021</strong></p>
 <p><strong>Summary.</strong> Shenfun has primarily been developed for the spectral Galerkin method.
 However, there are other methods out there that make use of global basis
 functions and variational principles. One such method, which has a lot in
@@ -338,12 +337,12 @@ principle difference between a Tau method and a spectral Galerkin method
 is in the choice of basis functions. The spectral Galerkin method is
 usually defined through function spaces where the boundary conditions
 of the problem are already built in. The tau-method, on the other hand,
-does not come with such restrictions. The tau-method usually considers
+usually considers
 only the orthogonal basis, like pure Chebyshev or Legendre polynomials,
 and derives differentiation matrices for these bases. The boundary conditions
-are usually fixed by fixing a couple of rows of the differentiation
-matrix. In this demo we will show how the original tau-method can
-be easily implemented using <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a>.</p>
+are then usually fixed through manipulation of a couple of rows of the
+differentiation matrix. In this demo we will show how the original
+tau-method can be easily implemented using <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a>.</p>
 <div class="section" id="the-tau-method-for-poisson-s-equation-in-1d">
 <h2>The tau method for Poisson’s equation in 1D<a class="headerlink" href="#the-tau-method-for-poisson-s-equation-in-1d" title="Permalink to this headline">¶</a></h2>
 <p>Poisson’s equation is given on a domain <span class="math notranslate nohighlight">\([-1, 1]\)</span> as</p>
@@ -445,10 +444,10 @@ A \hat{\mathbf{{u}}} = \tilde{\mathbf{{f}}}.
 \end{equation}
 \]</div>
 <p>However, the matrix <span class="math notranslate nohighlight">\(A\in \mathbb{R}^{N \times N}\)</span> is singular because it
-contains two zero rows. These two rows can be used to implement the two boundary
-conditions. By fixing the rows as <span class="math notranslate nohighlight">\(a_{N-2, j}=1\)</span> and
-<span class="math notranslate nohighlight">\(a_{N-1, j}= (-1)^j\)</span> for <span class="math notranslate nohighlight">\(j=0, 1, \ldots, N-1\)</span>, and
-the right hand side <span class="math notranslate nohighlight">\(\tilde{f}_{N-2}=a\)</span> and <span class="math notranslate nohighlight">\(\tilde{f}_{N-1}=b\)</span>, the
+contains two zero rows. These two rows are used to implement the two boundary
+conditions. Setting <span class="math notranslate nohighlight">\(a_{N-2, j}=1\)</span> and
+<span class="math notranslate nohighlight">\(a_{N-1, j}= (-1)^j\)</span> for <span class="math notranslate nohighlight">\(j=0, 1, \ldots, N-1\)</span>, and also fixing
+the right hand sides <span class="math notranslate nohighlight">\(\tilde{f}_{N-2}=a\)</span> and <span class="math notranslate nohighlight">\(\tilde{f}_{N-1}=b\)</span>, the
 two boundary conditions will be satisfied.</p>
 </div>
 <div class="section" id="implementation">
@@ -457,7 +456,7 @@ two boundary conditions will be satisfied.</p>
 <h3>Preamble<a class="headerlink" href="#preamble" title="Permalink to this headline">¶</a></h3>
 <p>We will solve Poisson’s equation using the <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a> Python module. The first thing needed
 is then to import some of this module’s functionality
-plus some other helper modules, like <a class="reference external" href="https://numpy.org">Numpy</a> and <a class="reference external" href="https://sympy.org">Sympy</a>, and the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/sparse.html">sparse</a>
+plus some other helper modules, like <a class="reference external" href="https://numpy.org">Numpy</a> and <a class="reference external" href="https://sympy.org">Sympy</a>, and the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/sparse.html">scipy.sparse</a>
 for handeling sparse matrices:</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
