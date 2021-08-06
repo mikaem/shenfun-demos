@@ -814,29 +814,31 @@ tensor product matrix into two contributions and obtain</p>
 <p>where the first term on the right hand side is square and the second term is known and
 can be moved to the right hand side of the linear algebra equation system.</p>
 <p>At this point all matrices, both regular and boundary matrices, are
-contained within the three lists A, G and D. We assemble two block matrices
-in one call, where M is regular and BM is a boundary block matrix.</p>
+contained within the three lists A, G and D. We can now create a solver
+for block matrices that incorporates these boundary conditions
+automatically</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">M</span><span class="p">,</span> <span class="n">BM</span> <span class="o">=</span> <span class="n">BlockMatrices</span><span class="p">(</span><span class="n">A</span><span class="o">+</span><span class="n">G</span><span class="o">+</span><span class="n">D</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sol</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">BlockMatrixSolver</span><span class="p">(</span><span class="n">A</span><span class="o">+</span><span class="n">G</span><span class="o">+</span><span class="n">D</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>The regular block matrix M is now given as the symmetric</p>
+<p>In the solver <code class="docutils literal notranslate"><span class="pre">sol</span></code> there is now a regular block matrix found in
+<code class="docutils literal notranslate"><span class="pre">sol.mat</span></code>, which is the symmetric</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-M =
-  \begin{bmatrix}
+\begin{bmatrix}
       A[0]+A[1] &amp; 0 &amp; G[0] \\ 
       0 &amp; A[2]+A[3] &amp; G[1] \\ 
       D[0] &amp; D[1] &amp; 0
   \end{bmatrix}
 \end{split}\]</div>
-<p>The BM matrix must be used to modify the known right hand side.</p>
+<p>The boundary matrices are similarly collected in a boundary block matrix
+in <code class="docutils literal notranslate"><span class="pre">sol.bc_mat</span></code>. This matrix is used under the hood to modify the
+right hand side.</p>
 <p>We now have all the matrices we need in order to solve the Navier Stokes equations.
-However, we also need some work arrays for iterations and we need to
-assemble the constant boundary contribution to the right hand side</p>
+However, we also need some work arrays for iterations</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create Function to hold solution. Use set_boundary_dofs to fix the degrees</span>
@@ -847,18 +849,10 @@ assemble the constant boundary contribution to the right hand side</p>
 <span class="c1"># New solution (iterative)</span>
 <span class="n">uh_new</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">VQ</span><span class="p">)</span><span class="o">.</span><span class="n">set_boundary_dofs</span><span class="p">()</span>
 <span class="n">ui_new</span> <span class="o">=</span> <span class="n">uh_new</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-
-<span class="c1"># Compute the constant contribution to rhs due to nonhomogeneous boundary conditions</span>
-<span class="n">bh_hat0</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">VQ</span><span class="p">)</span>
-<span class="n">bh_hat0</span> <span class="o">=</span> <span class="n">BM</span><span class="o">.</span><span class="n">matvec</span><span class="p">(</span><span class="o">-</span><span class="n">uh_hat</span><span class="p">,</span> <span class="n">bh_hat0</span><span class="p">)</span> <span class="c1"># Negative because moved to right hand side</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Note that <code class="docutils literal notranslate"><span class="pre">bh_hat0</span></code> now contains the part of the right hand side that is
-due to the non-symmetric part of assembled matrices. The appended
-<code class="docutils literal notranslate"><span class="pre">set_boundary_dofs()</span></code> ensures the known boundary values of
-the solution are fixed for <code class="docutils literal notranslate"><span class="pre">ui_hat</span></code> and <code class="docutils literal notranslate"><span class="pre">ui_new</span></code>.</p>
 <p>The nonlinear right hand side also requires some additional attention.
 Nonlinear terms are usually computed in physical space before transforming
 to spectral. For this we need to evaluate the velocity vector on the
@@ -893,7 +887,6 @@ own function <code class="docutils literal notranslate"><span class="pre">comput
     <span class="n">bi_hat</span> <span class="o">=</span> <span class="n">bh_hat</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">bi_hat</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">div</span><span class="p">(</span><span class="n">uiuj_hat</span><span class="p">),</span> <span class="n">output_array</span><span class="o">=</span><span class="n">bi_hat</span><span class="p">)</span>
     <span class="c1">#bi_hat = inner(grad(v), -uiuj_hat, output_array=bi_hat)</span>
-    <span class="n">bh_hat</span> <span class="o">+=</span> <span class="n">bh_hat0</span>
     <span class="k">return</span> <span class="n">bh_hat</span>
 </pre></div>
 </div>
@@ -903,32 +896,11 @@ own function <code class="docutils literal notranslate"><span class="pre">comput
 outer product of two vectors and returns the product in a rank two
 array (here <code class="docutils literal notranslate"><span class="pre">uiuj</span></code>). With <code class="docutils literal notranslate"><span class="pre">uiuj</span></code> forward transformed to <code class="docutils literal notranslate"><span class="pre">uiuj_hat</span></code>
 we can assemble the linear form either as <code class="docutils literal notranslate"><span class="pre">inner(v,</span> <span class="pre">div(uiuj_hat)</span></code> or
-<code class="docutils literal notranslate"><span class="pre">inner(grad(v),</span> <span class="pre">-uiuj_hat)</span></code>. Also notice that the constant contribution
-from the inhomogeneous boundary condition, <code class="docutils literal notranslate"><span class="pre">bh_hat0</span></code>,
-is added to the right hand side vector.</p>
+<code class="docutils literal notranslate"><span class="pre">inner(grad(v),</span> <span class="pre">-uiuj_hat)</span></code>.</p>
 <p>Now all that remains is to guess an initial solution and solve
 iteratively until convergence. For initial solution we simply set the
-velocity and pressure to zero and solve the Stokes equations:</p>
-<div class="cell tag_thebe-init docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.sparse.linalg</span> <span class="kn">import</span> <span class="n">splu</span>
-<span class="n">uh_hat</span><span class="p">,</span> <span class="n">Ai</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">bh_hat0</span><span class="p">,</span> <span class="n">u</span><span class="o">=</span><span class="n">uh_hat</span><span class="p">,</span> <span class="n">constraints</span><span class="o">=</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),),</span> <span class="n">return_system</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># Constraint for component 2 of mixed space</span>
-<span class="n">Alu</span> <span class="o">=</span> <span class="n">splu</span><span class="p">(</span><span class="n">Ai</span><span class="p">)</span>
-<span class="n">uh_new</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">uh_hat</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Note that the <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.html#shenfun.matrixbase.BlockMatrix">BlockMatrix</a> given by <code class="docutils literal notranslate"><span class="pre">M</span></code> has a solve method that sets up
-a sparse coefficient matrix <code class="docutils literal notranslate"><span class="pre">Ai</span></code> of size <span class="math notranslate nohighlight">\(\mathbb{R}^{3(N_0-2)(N_1-2) \times 3(N_0-2)(N_1-2)}\)</span>,
-and then solves using <a class="reference external" href="http://scipy.github.io/devdocs/generated/scipy.sparse.linalg.spsolve.html#scipy.sparse.linalg.spsolve">scipy.sparse.linalg.spsolve</a>.
-The matrix <code class="docutils literal notranslate"><span class="pre">Ai</span></code> is then pre-factored for reuse with <a class="reference external" href="http://scipy.github.io/devdocs/generated/scipy.sparse.linalg.splu.html#scipy.sparse.linalg.splu">splu</a>.
-Also note that the <code class="docutils literal notranslate"><span class="pre">constraints=((2,</span> <span class="pre">0,</span> <span class="pre">0),)</span></code> keyword argument
-ensures that the pressure integrates to zero, i.e., <span class="math notranslate nohighlight">\(\int_{\Omega} pdxdy=0\)</span>.
-Here the number 2 tells us that block component 2 in the mixed space
-(the pressure) should be integrated, dof 0 should be fixed, and it
-should be fixed to 0.</p>
-<p>With an initial solution from the Stokes equations we are ready to start iterating.
+velocity and pressure to zero. With an initial solution we are ready
+to start iterating.
 However, for convergence it is necessary to add some underrelaxation <span class="math notranslate nohighlight">\(\alpha\)</span>,
 and update the solution each time step as</p>
 <div class="math notranslate nohighlight">
@@ -949,7 +921,7 @@ will quickly blow up. The iteration loop goes as follows</p>
 <span class="k">while</span> <span class="ow">not</span> <span class="n">converged</span><span class="p">:</span>
     <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="n">bh_hat</span> <span class="o">=</span> <span class="n">compute_rhs</span><span class="p">(</span><span class="n">ui_hat</span><span class="p">,</span> <span class="n">bh_hat</span><span class="p">)</span>
-    <span class="n">uh_new</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">bh_hat</span><span class="p">,</span> <span class="n">u</span><span class="o">=</span><span class="n">uh_new</span><span class="p">,</span> <span class="n">constraints</span><span class="o">=</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),),</span> <span class="n">Alu</span><span class="o">=</span><span class="n">Alu</span><span class="p">)</span> <span class="c1"># Constraint for component 2 of mixed space</span>
+    <span class="n">uh_new</span> <span class="o">=</span> <span class="n">sol</span><span class="p">(</span><span class="n">bh_hat</span><span class="p">,</span> <span class="n">u</span><span class="o">=</span><span class="n">uh_new</span><span class="p">,</span> <span class="n">constraints</span><span class="o">=</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),))</span>
     <span class="n">error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">ui_hat</span><span class="o">-</span><span class="n">ui_new</span><span class="p">)</span>
     <span class="n">uh_hat</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">alfa</span><span class="o">*</span><span class="n">uh_new</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alfa</span><span class="p">)</span><span class="o">*</span><span class="n">uh_hat</span>
     <span class="n">converged</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-8</span> <span class="ow">or</span> <span class="n">count</span> <span class="o">&gt;=</span> <span class="mi">100</span>
@@ -965,6 +937,11 @@ will quickly blow up. The iteration loop goes as follows</p>
 </div>
 </div>
 </div>
+<p>Note that the <code class="docutils literal notranslate"><span class="pre">constraints=((2,</span> <span class="pre">0,</span> <span class="pre">0),)</span></code> keyword argument
+ensures that the pressure integrates to zero, i.e., <span class="math notranslate nohighlight">\(\int_{\Omega} p \omega dxdy=0\)</span>.
+Here the number 2 tells us that block component 2 in the mixed space
+(the pressure) should be integrated, dof 0 should be fixed, and it
+should be fixed to 0.</p>
 <p>The last three lines plots velocity vectors, like also seen in the <a class="reference external" href="#fig:drivencavity">figure</a>
 in the top of this demo. The solution is apparently nice
 and smooth, but hidden underneath are Gibbs oscillations from the

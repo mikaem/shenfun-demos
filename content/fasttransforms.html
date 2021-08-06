@@ -399,7 +399,7 @@ takes <span class="math notranslate nohighlight">\(\mathcal{O}(N^2)\)</span> ope
 for Chebyshev polynomials we can compute the double loop with
 fast <span class="math notranslate nohighlight">\(\mathcal{O}(N \log N)\)</span> discrete sine or cosine transforms,
 that are versions of the FFT. To see this, assume that the basis functions are <span class="math notranslate nohighlight">\(\phi_k(x) =T_k(x)\)</span>, where
-<span class="math notranslate nohighlight">\(T_k(x)\)</span> is the <span class="math notranslate nohighlight">\(k\)</span>’th Chebyshev polynomial of the second kind,
+<span class="math notranslate nohighlight">\(T_k(x)\)</span> is the <span class="math notranslate nohighlight">\(k\)</span>’th Chebyshev polynomial of the first kind,
 and the weight function is <span class="math notranslate nohighlight">\(\omega^{-1/2}\)</span>.
 We then choose Gauss-Chebyshev points <span class="math notranslate nohighlight">\(x_j = \cos(\theta_j)\)</span>,
 where <span class="math notranslate nohighlight">\(\theta_j=\pi (2j+1)/(2N)\)</span>, and the associated quadrature weights
@@ -409,7 +409,7 @@ alternatively be written as <span class="math notranslate nohighlight">\(T_k(x_j
 and the inner product becomes</p>
 <div class="math notranslate nohighlight">
 \[
-(u, \phi_k)_{\omega^{-1/2}} = \sum_{j=0}^{N-1} u(x_j) \cos(k \theta_j) \pi/N, \quad \forall \, k = 0, 1, \ldots, N-1.
+(u, T_k)_{\omega^{-1/2}} = \sum_{j=0}^{N-1} u(x_j) \cos(k \theta_j) \pi/N, \quad \forall \, k = 0, 1, \ldots, N-1.
 \]</div>
 <p>From the <a class="reference external" href="http://www.fftw.org/fftw3_doc/1d-Real_002deven-DFTs-_0028DCTs_0029.html#g_t1d-Real_002deven-DFTs-_0028DCTs_0029">FFTW documentation</a>
 we recognise this sum as half a DCT-II (the FFTW DCT-II has a factor
@@ -442,7 +442,7 @@ define them as</p>
 \end{equation}
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(T^{(n)}_{k+n}\)</span> is the <span class="math notranslate nohighlight">\(n\)</span>’th derivative of <span class="math notranslate nohighlight">\(T_{k+n}\)</span>. We have
-for any integer <span class="math notranslate nohighlight">\(n\)</span> that <span class="math notranslate nohighlight">\(V_N=\text{span}\{\phi^n_k\}\)</span>, and an
+for any integer <span class="math notranslate nohighlight">\(n\)</span> that <span class="math notranslate nohighlight">\(V_N=\text{span}\{\phi^n_k\}_{k=0}^{N-3}\)</span>, and an
 expansion in any of these basis functions is</p>
 <!-- Equation labels as ordinary links -->
 <p><a id="eq:uNgeneric"></a></p>
@@ -453,8 +453,9 @@ expansion in any of these basis functions is</p>
     u_N = \sum_{k=0}^{N-3} \hat{u}^n_k \phi^n_k.
 \end{equation}
 \]</div>
-<p>A projection into the space <span class="math notranslate nohighlight">\(V_N\)</span> is found by
-using Eq. (<a class="reference external" href="#eq:uNgeneric">8</a>) and <span class="math notranslate nohighlight">\(v=\phi^n_k\)</span> in
+<p>We can find the sequence <span class="math notranslate nohighlight">\(\{\hat{u}^n_{k}\}_{k=0}^{N-3}\)</span> for any <span class="math notranslate nohighlight">\(n\)</span>
+using a projection into the space <span class="math notranslate nohighlight">\(V_N\)</span>. The projection is computed
+by using Eq. (<a class="reference external" href="#eq:uNgeneric">8</a>) and <span class="math notranslate nohighlight">\(v=\phi^n_k\)</span> in
 Eq. (<a class="reference external" href="#eq:projection">3</a>)</p>
 <!-- Equation labels as ordinary links -->
 <p><a id="eq:projortho"></a></p>
@@ -544,7 +545,7 @@ using the Shenfun function <a class="reference external" href="https://github.co
 which is using <span class="math notranslate nohighlight">\(\sigma=-1/2\)</span>, and then the fast methods above. The two
 projections should be the same, but they will not give identical results.
 In general, the fast transforms above should be both faster and more
-accurate, because they only take a discrete transform and no
+accurate, because they only take a discrete transform and merely a diagonal
 mass matrix inversion.</p>
 <p>We start the implementation by importing necessary modules from Shenfun
 and mpi4py-fft</p>
@@ -624,39 +625,39 @@ it backwards to physical space</p>
 </div>
 <p>Next, we perform the regular projections into the three spaces
 <code class="docutils literal notranslate"><span class="pre">D0</span></code>, <code class="docutils literal notranslate"><span class="pre">D1</span></code> and <code class="docutils literal notranslate"><span class="pre">D2</span></code>, using the inner product
-in <span class="math notranslate nohighlight">\(L^2_{\omega^{-1/2}}\)</span>. Now <code class="docutils literal notranslate"><span class="pre">f0</span></code>, <code class="docutils literal notranslate"><span class="pre">f1</span></code> and <code class="docutils literal notranslate"><span class="pre">f2</span></code> will be the
+in <span class="math notranslate nohighlight">\(L^2_{\omega^{-1/2}}\)</span>. Now <code class="docutils literal notranslate"><span class="pre">u0</span></code>, <code class="docutils literal notranslate"><span class="pre">u1</span></code> and <code class="docutils literal notranslate"><span class="pre">u2</span></code> will be the
 three solution vectors
 <span class="math notranslate nohighlight">\(\boldsymbol{\hat{u}}^{\varphi}\)</span>, <span class="math notranslate nohighlight">\(\boldsymbol{\hat{u}}^{\phi}\)</span>
 and <span class="math notranslate nohighlight">\(\boldsymbol{\hat{u}}^{\psi}\)</span>, respectively.</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f0</span> <span class="o">=</span> <span class="n">project</span><span class="p">(</span><span class="n">fb</span><span class="p">,</span> <span class="n">D0</span><span class="p">)</span>
-<span class="n">f1</span> <span class="o">=</span> <span class="n">project</span><span class="p">(</span><span class="n">fb</span><span class="p">,</span> <span class="n">D1</span><span class="p">)</span>
-<span class="n">f2</span> <span class="o">=</span> <span class="n">project</span><span class="p">(</span><span class="n">fb</span><span class="p">,</span> <span class="n">D2</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">u0</span> <span class="o">=</span> <span class="n">project</span><span class="p">(</span><span class="n">fb</span><span class="p">,</span> <span class="n">D0</span><span class="p">)</span>
+<span class="n">u1</span> <span class="o">=</span> <span class="n">project</span><span class="p">(</span><span class="n">fb</span><span class="p">,</span> <span class="n">D1</span><span class="p">)</span>
+<span class="n">u2</span> <span class="o">=</span> <span class="n">project</span><span class="p">(</span><span class="n">fb</span><span class="p">,</span> <span class="n">D2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Now compute the fast transforms and assert that they are equal to <code class="docutils literal notranslate"><span class="pre">f0</span></code>, <code class="docutils literal notranslate"><span class="pre">f1</span></code> and <code class="docutils literal notranslate"><span class="pre">f2</span></code></p>
+<p>Now compute the fast transforms and assert that they are equal to <code class="docutils literal notranslate"><span class="pre">u0</span></code>, <code class="docutils literal notranslate"><span class="pre">u1</span></code> and <code class="docutils literal notranslate"><span class="pre">u2</span></code></p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="p">)</span>
 <span class="c1"># Test for n=0</span>
-<span class="n">dct</span> <span class="o">=</span> <span class="n">fftw</span><span class="o">.</span><span class="n">dctn</span><span class="p">(</span><span class="n">fb</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">dct</span> <span class="o">=</span> <span class="n">fftw</span><span class="o">.</span><span class="n">dctn</span><span class="p">(</span><span class="n">fb</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span> <span class="nb">type</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">ck</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="p">);</span> <span class="n">ck</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="n">d0</span> <span class="o">=</span> <span class="n">dct</span><span class="p">(</span><span class="n">fb</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">ck</span><span class="o">*</span><span class="n">N</span><span class="p">)</span>
-<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">d0</span><span class="o">-</span><span class="n">f0</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">d0</span><span class="o">-</span><span class="n">f0</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">d0</span><span class="o">-</span><span class="n">u0</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">d0</span><span class="o">-</span><span class="n">f0</span><span class="p">)</span>
 <span class="c1"># Test for n=1</span>
-<span class="n">dst</span> <span class="o">=</span> <span class="n">fftw</span><span class="o">.</span><span class="n">dstn</span><span class="p">(</span><span class="n">fb</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">dst</span> <span class="o">=</span> <span class="n">fftw</span><span class="o">.</span><span class="n">dstn</span><span class="p">(</span><span class="n">fb</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span> <span class="nb">type</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">d1</span> <span class="o">=</span> <span class="n">dst</span><span class="p">(</span><span class="n">fb</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="p">)</span>
-<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">d1</span><span class="o">-</span><span class="n">f1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-8</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">d1</span><span class="o">-</span><span class="n">u1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-8</span>
 <span class="c1"># Test for n=2</span>
 <span class="n">ut</span> <span class="o">=</span> <span class="n">d1</span>
 <span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
 <span class="n">d2</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">D2</span><span class="p">)</span>
 <span class="n">d2</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">k</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="n">k</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">ut</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
 <span class="n">d2</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">d2</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">ut</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
-<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">d2</span><span class="o">-</span><span class="n">f2</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-8</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">d2</span><span class="o">-</span><span class="n">u2</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-8</span>
 </pre></div>
 </div>
 </div>

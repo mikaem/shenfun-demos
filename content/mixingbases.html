@@ -423,7 +423,7 @@ u(x) = \sin \left( 2 \pi \cos \left( 2 \pi x \right) \right)
 <span class="n">f_hat</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">fj</span><span class="p">)</span>      <span class="c1"># Compute right hand side</span>
 <span class="n">M</span> <span class="o">=</span> <span class="n">alpha</span><span class="o">*</span><span class="n">B</span> <span class="o">-</span> <span class="n">A</span>           <span class="c1"># Get coefficient matrix</span>
 <span class="n">u_hat</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">V0</span><span class="p">)</span>      <span class="c1"># Container for the solution</span>
-<span class="n">sol</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">Solve</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">V0</span><span class="p">)</span>     <span class="c1"># Solver</span>
+<span class="n">sol</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">Solver</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>        <span class="c1"># Solver</span>
 <span class="n">u_hat</span> <span class="o">=</span> <span class="n">sol</span><span class="p">(</span><span class="n">f_hat</span><span class="p">,</span> <span class="n">u_hat</span><span class="p">)</span> <span class="c1"># Solve</span>
 </pre></div>
 </div>
@@ -492,7 +492,7 @@ coefficient matrix, or the matrix itself.</p>
         <span class="k">return</span> <span class="n">M</span>
 
     <span class="n">u_hat</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">trial</span><span class="p">)</span>
-    <span class="n">sol</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">Solve</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">test</span><span class="p">)</span>
+    <span class="n">sol</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">Solver</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
     <span class="n">u_hat</span> <span class="o">=</span> <span class="n">sol</span><span class="p">(</span><span class="n">f_hat</span><span class="p">,</span> <span class="n">u_hat</span><span class="p">)</span>
     <span class="n">uj</span> <span class="o">=</span> <span class="n">Array</span><span class="p">(</span><span class="n">trial</span><span class="p">,</span> <span class="n">buffer</span><span class="o">=</span><span class="n">ue</span><span class="p">)</span>
     <span class="n">error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">inner</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="n">u_hat</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span><span class="o">-</span><span class="n">uj</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
