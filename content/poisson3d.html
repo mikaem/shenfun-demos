@@ -898,7 +898,7 @@ the error.</p>
 
     <span class="c1"># Solve and transform to real space</span>
     <span class="n">u_hat</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>           <span class="c1"># Solution spectral space</span>
-    <span class="n">u_hat</span> <span class="o">=</span> <span class="n">H</span><span class="p">(</span><span class="n">u_hat</span><span class="p">,</span> <span class="n">f_hat</span><span class="p">)</span>       <span class="c1"># Solve</span>
+    <span class="n">u_hat</span> <span class="o">=</span> <span class="n">H</span><span class="p">(</span><span class="n">f_hat</span><span class="p">,</span> <span class="n">u_hat</span><span class="p">)</span>       <span class="c1"># Solve</span>
 
     <span class="n">uj</span> <span class="o">=</span> <span class="n">Array</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
     <span class="n">uj</span> <span class="o">=</span> <span class="n">u_hat</span><span class="o">.</span><span class="n">backward</span><span class="p">(</span><span class="n">uj</span><span class="p">)</span>
