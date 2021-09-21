@@ -823,11 +823,14 @@ of the covariant basis vector <code class="docutils literal notranslate"><span c
 (it’s length is not unity), because we have set
 <code class="docutils literal notranslate"><span class="pre">config['basisvectors']='covariant'</span></code>. The basisvectors can
 be seen as</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-from IPython.display import Math
-Math(T.coors.latex_basis_vectors(symbol_names={theta: '\\theta', phi: '\\phi'}))
-\end{split}\]</div>
+<div class="cell tag_thebe-init docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Math</span>
+<span class="n">Math</span><span class="p">(</span><span class="n">T</span><span class="o">.</span><span class="n">coors</span><span class="o">.</span><span class="n">latex_basis_vectors</span><span class="p">(</span><span class="n">symbol_names</span><span class="o">=</span><span class="p">{</span><span class="n">theta</span><span class="p">:</span> <span class="s1">&#39;</span><span class="se">\\</span><span class="s1">theta&#39;</span><span class="p">,</span> <span class="n">r</span><span class="p">:</span> <span class="s1">&#39;r&#39;</span><span class="p">}))</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>and we see that they are given in terms of the Cartesian unit vectors.
 The gradient we have computed is (and yes, it should be <span class="math notranslate nohighlight">\(r^2\)</span> because we
 do not have unit vectors)</p>
@@ -855,6 +858,7 @@ on the computational grid</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ui</span><span class="p">,</span> <span class="n">vi</span> <span class="o">=</span> <span class="n">TT</span><span class="o">.</span><span class="n">local_mesh</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">coors</span><span class="o">.</span><span class="n">get_covariant_basis</span><span class="p">()</span>
 <span class="n">bij</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">lambdify</span><span class="p">(</span><span class="n">psi</span><span class="p">,</span> <span class="n">b</span><span class="p">)(</span><span class="n">ui</span><span class="p">,</span> <span class="n">vi</span><span class="p">))</span>
 <span class="n">gradu</span> <span class="o">=</span> <span class="n">du</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">bij</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">du</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">bij</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
