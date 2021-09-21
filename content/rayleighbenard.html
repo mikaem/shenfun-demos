@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 
 <html>
@@ -7,32 +6,45 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Demo - Rayleigh Benard &#8212; Shenfun executable demos</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
-    <link href="../_static/css/index.css" rel="stylesheet">
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/mystnb.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_CHTML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}, "extensions": ["cancel.js", "AMSmath.js"]}})</script>
-    <script async="async" src="https://unpkg.com/thebe-mikaem/lib/index.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}, "extensions": ["cancel.js", "AMSmath.js"]}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
         const thebe_selector_input = "pre,.cell_input div.highlight"
@@ -43,14 +55,14 @@
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Demo - Working with Functions" href="functions.html" />
     <link rel="prev" title="Demo - Lid driven cavity" href="drivencavity.html" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="docsearch:language" content="en">
-
-
-
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -59,23 +71,20 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../index.html">
-  
-  <img src="../_static/seashell3.png" class="logo" alt="logo">
-  
-  
-  <h1 class="site-logo" id="site-title">Shenfun executable demos</h1>
-  
-</a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/seashell3.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Shenfun executable demos</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <ul class="nav sidenav_l1">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="intro.html">
    Shenfun executable demos
@@ -87,7 +96,7 @@
   Shenfun executable demos
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="poisson.html">
    Demo - 1D Poisson’s equation
@@ -165,9 +174,8 @@
  </li>
 </ul>
 
-</nav>
-
- <!-- To handle the deprecated key -->
+    </div>
+</nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
   Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
@@ -182,25 +190,25 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        <div class="dropdown-buttons-trigger">
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
 
-    
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         
@@ -212,9 +220,9 @@
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
-    
 </div>
-        <!-- Source interaction buttons -->
+
+            <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -229,13 +237,14 @@
     </div>
 </div>
 
+            <!-- Full screen (wrap in <a> to have style consistency -->
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
+            <!-- Launch buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -257,15 +266,16 @@
     </div>
 </div>
 
-    </div>
-
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> On this page
         </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-rayleigh-benard-equations">
    The Rayleigh Bénard equations
@@ -300,7 +310,8 @@
  </li>
 </ul>
 
-        </nav>
+            </nav>
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -389,21 +400,21 @@ direction, using the pressure from the divergence of the momentum equation
 <span class="math notranslate nohighlight">\(\nabla^2 p = -\nabla \cdot \boldsymbol{H}+\partial T/\partial x\)</span>, where
 <span class="math notranslate nohighlight">\(\boldsymbol{H} = (H_x, H_y) = (\boldsymbol{u} \cdot \nabla) \boldsymbol{u}\)</span></p>
 <!-- Equation labels as ordinary links -->
-<p><a id="eq:u"></a></p>
+<p><a id="eq:rb:u"></a></p>
 <div class="math notranslate nohighlight">
 \[
 \begin{equation}
-    \frac{\partial \nabla^2 {u}}{\partial t} = \frac{\partial^2 H_y}{\partial x \partial y} - \frac{\partial^2 H_x}{\partial y\partial y}  + \sqrt{\frac{Pr}{Ra}} \nabla^4 {u}  + \frac{\partial^2 T}{\partial y^2} . \label{eq:u} \tag{4}
+    \frac{\partial \nabla^2 {u}}{\partial t} = \frac{\partial^2 H_y}{\partial x \partial y} - \frac{\partial^2 H_x}{\partial y\partial y}  + \sqrt{\frac{Pr}{Ra}} \nabla^4 {u}  + \frac{\partial^2 T}{\partial y^2} . \label{eq:rb:u} \tag{4}
 \end{equation}
 \]</div>
 <p>This equation is solved with <span class="math notranslate nohighlight">\(u(\pm 1) = \partial u/\partial x(\pm 1) = 0\)</span>, where the latter follows from the
 divergence constraint. In summary, we now seem to have the following equations to solve:</p>
 <!-- Equation labels as ordinary links -->
-<p><a id="eq:u2"></a></p>
+<p><a id="eq:rb:u2"></a></p>
 <div class="math notranslate nohighlight">
 \[
 \begin{equation}
-    \frac{\partial \nabla^2 {u}}{\partial t} = \frac{\partial^2 H_y}{\partial x \partial y} - \frac{\partial^2 H_x}{\partial y\partial y}  + \sqrt{\frac{Pr}{Ra}} \nabla^4 {u}  + \frac{\partial^2 T}{\partial y^2}, \label{eq:u2} \tag{5}
+    \frac{\partial \nabla^2 {u}}{\partial t} = \frac{\partial^2 H_y}{\partial x \partial y} - \frac{\partial^2 H_x}{\partial y\partial y}  + \sqrt{\frac{Pr}{Ra}} \nabla^4 {u}  + \frac{\partial^2 T}{\partial y^2}, \label{eq:rb:u2} \tag{5}
 \end{equation}
 \]</div>
 <!-- Equation labels as ordinary links -->
@@ -430,11 +441,11 @@ divergence constraint. In summary, we now seem to have the following equations t
     \nabla \cdot \boldsymbol{u} = 0 \label{eq:div2} \tag{8}.
 \end{equation}
 \]</div>
-<p>However, we note that Eqs. (<a class="reference external" href="#eq:u2">5</a>) and (<a class="reference external" href="#eq:T2">7</a>) and (<a class="reference external" href="#eq:div2">8</a>) do not depend on pressure, and,
-apparently, on each time step we can solve (<a class="reference external" href="#eq:u2">5</a>) for <span class="math notranslate nohighlight">\(u\)</span>, then (<a class="reference external" href="#eq:div2">8</a>) for <span class="math notranslate nohighlight">\(v\)</span> and finally (<a class="reference external" href="#eq:T2">7</a>) for <span class="math notranslate nohighlight">\(T\)</span>.
+<p>However, we note that Eqs. (<a class="reference external" href="#eq:rb:u2">5</a>) and (<a class="reference external" href="#eq:T2">7</a>) and (<a class="reference external" href="#eq:div2">8</a>) do not depend on pressure, and,
+apparently, on each time step we can solve (<a class="reference external" href="#eq:rb:u2">5</a>) for <span class="math notranslate nohighlight">\(u\)</span>, then (<a class="reference external" href="#eq:div2">8</a>) for <span class="math notranslate nohighlight">\(v\)</span> and finally (<a class="reference external" href="#eq:T2">7</a>) for <span class="math notranslate nohighlight">\(T\)</span>.
 So what do we need (<a class="reference external" href="#eq:v">6</a>) for? It appears to have become redundant from the elimination of the
-pressure from Eq. (<a class="reference external" href="#eq:u2">5</a>). It turns out that this is actually almost completely true, but
-(<a class="reference external" href="#eq:u2">5</a>), (<a class="reference external" href="#eq:T2">7</a>) and (<a class="reference external" href="#eq:div2">8</a>) can only provide closure for all but one of the
+pressure from Eq. (<a class="reference external" href="#eq:rb:u2">5</a>). It turns out that this is actually almost completely true, but
+(<a class="reference external" href="#eq:rb:u2">5</a>), (<a class="reference external" href="#eq:T2">7</a>) and (<a class="reference external" href="#eq:div2">8</a>) can only provide closure for all but one of the
 Fourier coefficients. To see this it is necessary to introduce some discretization and basis functions
 that will be used to solve the problem. To this end we use <span class="math notranslate nohighlight">\(P_N\)</span>, which is the set of all real polynomials
 of degree less than or equal to N and introduce the following finite-dimensional approximation spaces</p>
@@ -568,7 +579,7 @@ and similar for <span class="math notranslate nohighlight">\(\hat{v}_{kl}, \hat{
 solving for only the positive <span class="math notranslate nohighlight">\(l\)</span>’s, as long as we remember that the sum in the end goes over both positive
 and negative <span class="math notranslate nohighlight">\(l's\)</span>. This is actually automatically taken care of by the FFT provider and is
 not much of an additional complexity in the implementation. So from now on <span class="math notranslate nohighlight">\(\boldsymbol{l} = \{0, 1, \ldots, M/2\}\)</span>.</p>
-<p>We can now take a look at why Eq. (<a class="reference external" href="#eq:v">6</a>) is needed. If we first solve (<a class="reference external" href="#eq:u2">5</a>) for
+<p>We can now take a look at why Eq. (<a class="reference external" href="#eq:v">6</a>) is needed. If we first solve (<a class="reference external" href="#eq:rb:u2">5</a>) for
 <span class="math notranslate nohighlight">\(\hat{u}_{kl}(t), (k, l) \in \boldsymbol{k}_B \times \boldsymbol{l}\)</span>, then we can use (<a class="reference external" href="#eq:div2">8</a>) to
 solve for <span class="math notranslate nohighlight">\(\hat{v}_{kl}(t)\)</span>. But here there is a problem. We can see this by creating the variational
 form required to solve (<a class="reference external" href="#eq:div2">8</a>) by the spectral Galerkin method. To this end make <span class="math notranslate nohighlight">\(v=v_N\)</span> in (<a class="reference external" href="#eq:div2">8</a>)
@@ -669,7 +680,7 @@ Fourier coefficient 0, Eq. (<a class="reference external" href="#eq:v">6</a>) be
 \end{equation}
 \]</div>
 <p>which is trivially satisfied if <span class="math notranslate nohighlight">\(\hat{u}_{k,0}=0\)</span> for <span class="math notranslate nohighlight">\(k\in\boldsymbol{k}_B\)</span>. Bottom line is
-that we only need to solve Eq. (<a class="reference external" href="#eq:u2">5</a>) for <span class="math notranslate nohighlight">\(l \in \boldsymbol{l}/\{0\}\)</span>, whereas we can use
+that we only need to solve Eq. (<a class="reference external" href="#eq:rb:u2">5</a>) for <span class="math notranslate nohighlight">\(l \in \boldsymbol{l}/\{0\}\)</span>, whereas we can use
 directly <span class="math notranslate nohighlight">\(\hat{u}_{k,0}=0 \text{ for } k \in \boldsymbol{k}_B\)</span>.</p>
 <p>To sum up, with the solution known at <span class="math notranslate nohighlight">\(t = t - \Delta t\)</span>, we solve</p>
 <table class="table table-striped table-hover table-condensed">
@@ -682,7 +693,7 @@ directly <span class="math notranslate nohighlight">\(\hat{u}_{k,0}=0 \text{ for
 <tr><th style="text-align:center">       Equation      </th> <th style="text-align:center">     For unknown     </th> <th style="text-align:center">  With indices </th> </tr>
 </thead>
 <tbody>
-<tr><td style="text-align:center"> (<a class="reference external" href="#eq:u2">5</a>)        </td> <td style="text-align:center">       $\hat{u}_{kl}(t)$    </td> <td style="text-align:center">       $(k, l) \in \boldsymbol{k}_B \times \boldsymbol{l}/\{0\}$    </td> </tr>
+<tr><td style="text-align:center"> (<a class="reference external" href="#eq:rb:u2">5</a>)        </td> <td style="text-align:center">       $\hat{u}_{kl}(t)$    </td> <td style="text-align:center">       $(k, l) \in \boldsymbol{k}_B \times \boldsymbol{l}/\{0\}$    </td> </tr>
 <tr><td style="text-align:center">   (<a class="reference external" href="#eq:div2">8</a>)    </td> <td style="text-align:center">       $\hat{v}_{kl}(t)$    </td> <td style="text-align:center">       $(k, l) \in \boldsymbol{k}_D \times \boldsymbol{l}/\{0\}$    </td> </tr>
 <tr><td style="text-align:center">   (<a class="reference external" href="#eq:vx">27</a>)        </td> <td style="text-align:center">       $\hat{v}_{kl}(t)$    </td> <td style="text-align:center">       $(k, l) \in \boldsymbol{k}_D \times \{0\}$                   </td> </tr>
 <tr><td style="text-align:center">   (<a class="reference external" href="#eq:T2">7</a>)        </td> <td style="text-align:center">       $\hat{T}_{kl}(t)$    </td> <td style="text-align:center">       $(k, l) \in \boldsymbol{k}_T \times \boldsymbol{l}$          </td> </tr>
@@ -770,7 +781,7 @@ choose Chebyshev and Fourier with 100 and 256 quadrature points in <span class="
 but the former is known to be faster due to the existence of fast transforms.</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">shenfun</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">shenfun</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="n">N</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">256</span>
 <span class="n">family</span> <span class="o">=</span> <span class="s1">&#39;Chebyshev&#39;</span>
@@ -786,7 +797,7 @@ but the former is known to be faster due to the existence of fast transforms.</p
 <p>And then we create tensor product spaces by combining these bases (like in Eqs. (<a class="reference external" href="#eq:WBF">14</a>)-(<a class="reference external" href="#eq:WWF">17</a>)).</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">W_BF</span> <span class="o">=</span> <span class="n">TensorProductSpace</span><span class="p">(</span><span class="n">comm</span><span class="p">,</span> <span class="p">(</span><span class="n">VB</span><span class="p">,</span> <span class="n">VF</span><span class="p">))</span>    <span class="c1"># Wall-normal velocity</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">W_BF</span> <span class="o">=</span> <span class="n">TensorProductSpace</span><span class="p">(</span><span class="n">comm</span><span class="p">,</span> <span class="p">(</span><span class="n">VB</span><span class="p">,</span> <span class="n">VF</span><span class="p">))</span>    <span class="c1"># Wall-normal velocity</span>
 <span class="n">W_DF</span> <span class="o">=</span> <span class="n">TensorProductSpace</span><span class="p">(</span><span class="n">comm</span><span class="p">,</span> <span class="p">(</span><span class="n">VD</span><span class="p">,</span> <span class="n">VF</span><span class="p">))</span>    <span class="c1"># Streamwise velocity</span>
 <span class="n">W_WF</span> <span class="o">=</span> <span class="n">TensorProductSpace</span><span class="p">(</span><span class="n">comm</span><span class="p">,</span> <span class="p">(</span><span class="n">VW</span><span class="p">,</span> <span class="n">VF</span><span class="p">))</span>    <span class="c1"># No bc</span>
 <span class="n">W_TF</span> <span class="o">=</span> <span class="n">TensorProductSpace</span><span class="p">(</span><span class="n">comm</span><span class="p">,</span> <span class="p">(</span><span class="n">VT</span><span class="p">,</span> <span class="n">VF</span><span class="p">))</span>    <span class="c1"># Temperature</span>
@@ -804,7 +815,7 @@ segregated approach outlined above.</p>
 <p>We also need containers for the computed solutions. These are created as</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">u_</span>  <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">BD</span><span class="p">)</span>     <span class="c1"># Velocity vector, two components</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u_</span>  <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">BD</span><span class="p">)</span>     <span class="c1"># Velocity vector, two components</span>
 <span class="n">u_1</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">BD</span><span class="p">)</span>     <span class="c1"># Velocity vector, previous step</span>
 <span class="n">T_</span>  <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">W_TF</span><span class="p">)</span>   <span class="c1"># Temperature</span>
 <span class="n">T_1</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">W_TF</span><span class="p">)</span>   <span class="c1"># Temperature, previous step</span>
@@ -822,12 +833,12 @@ segregated approach outlined above.</p>
 but we do not add that level of complexity here.</p>
 <div class="section" id="wall-normal-velocity-equation">
 <h3>Wall-normal velocity equation<a class="headerlink" href="#wall-normal-velocity-equation" title="Permalink to this headline">¶</a></h3>
-<p>We implement Eq. (<a class="reference external" href="#eq:u2">5</a>) using the three-stage Runge Kutta equation (<a class="reference external" href="#eq:rk3stagesvar">32</a>).
+<p>We implement Eq. (<a class="reference external" href="#eq:rb:u2">5</a>) using the three-stage Runge Kutta equation (<a class="reference external" href="#eq:rk3stagesvar">32</a>).
 To this end we first need to declare some test- and trial functions, as well as
 some model constants</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="n">TrialFunction</span><span class="p">(</span><span class="n">W_BF</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="n">TrialFunction</span><span class="p">(</span><span class="n">W_BF</span><span class="p">)</span>
 <span class="n">v</span> <span class="o">=</span> <span class="n">TestFunction</span><span class="p">(</span><span class="n">W_BF</span><span class="p">)</span>
 <span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="mf">8.</span><span class="o">/</span><span class="mf">15.</span><span class="p">,</span> <span class="mf">5.</span><span class="o">/</span><span class="mf">12.</span><span class="p">,</span> <span class="mf">3.</span><span class="o">/</span><span class="mf">4.</span><span class="p">)</span>
 <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">17.</span><span class="o">/</span><span class="mf">60.</span><span class="p">,</span> <span class="o">-</span><span class="mf">5.</span><span class="o">/</span><span class="mf">12.</span><span class="p">)</span>
@@ -850,7 +861,7 @@ some model constants</p>
 </div>
 </div>
 <p>Notice the one-to-one resemblance with the left hand side of (<a class="reference external" href="#eq:rk3stagesvar">32</a>), where <span class="math notranslate nohighlight">\(\psi^{k+1}\)</span>
-now has been replaced by <span class="math notranslate nohighlight">\(\nabla^2 u\)</span> (or <code class="docutils literal notranslate"><span class="pre">div(grad(u))</span></code>) from Eq. (<a class="reference external" href="#eq:u2">5</a>).
+now has been replaced by <span class="math notranslate nohighlight">\(\nabla^2 u\)</span> (or <code class="docutils literal notranslate"><span class="pre">div(grad(u))</span></code>) from Eq. (<a class="reference external" href="#eq:rb:u2">5</a>).
 For each stage we assemble a list of tensor product matrices <code class="docutils literal notranslate"><span class="pre">mats</span></code>, and in <code class="docutils literal notranslate"><span class="pre">chebyshev.la</span></code>
 there is available a very fast direct solver for exactly this type of (biharmonic)
 matrices. The solver is created with <code class="docutils literal notranslate"><span class="pre">chebyshev.la.Biharmonic(*mats)</span></code>, and here
@@ -876,7 +887,7 @@ before computing the nonlinear term in real space. The nonlinear product should 
 truncation. To get a space for dealiasing, simply use, e.g., <code class="docutils literal notranslate"><span class="pre">W_BF.get_dealiased()</span></code>.</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get a mask for setting Nyquist frequency to zero</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get a mask for setting Nyquist frequency to zero</span>
 <span class="n">mask</span> <span class="o">=</span> <span class="n">W_DF</span><span class="o">.</span><span class="n">get_mask_nyquist</span><span class="p">()</span>
 
 <span class="k">def</span> <span class="nf">compute_convection</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">H</span><span class="p">):</span>
@@ -895,8 +906,7 @@ non-periodic direction. With convection computed we can assemble <span class="ma
 and all of the right hand side, using the function <code class="docutils literal notranslate"><span class="pre">compute_rhs_u</span></code></p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="k">def</span> <span class="nf">compute_rhs_u</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">rhs</span><span class="p">,</span> <span class="n">rk</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">compute_rhs_u</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">rhs</span><span class="p">,</span> <span class="n">rk</span><span class="p">):</span>
     <span class="n">v</span> <span class="o">=</span> <span class="n">TestFunction</span><span class="p">(</span><span class="n">W_BF</span><span class="p">)</span>
     <span class="n">H</span> <span class="o">=</span> <span class="n">compute_convection</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">H</span><span class="p">)</span>
     <span class="n">rhs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
@@ -927,7 +937,7 @@ For (<a class="reference external" href="#eq:vx">27</a>) we preassemble the requ
 each RK stage.</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Assemble matrices and solvers for all stages</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Assemble matrices and solvers for all stages</span>
 <span class="n">B_DD</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="n">TestFunction</span><span class="p">(</span><span class="n">W_DF</span><span class="p">),</span> <span class="n">TrialFunction</span><span class="p">(</span><span class="n">W_DF</span><span class="p">))</span>
 <span class="n">C_DB</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="n">TestFunction</span><span class="p">(</span><span class="n">W_DF</span><span class="p">),</span> <span class="n">Dx</span><span class="p">(</span><span class="n">TrialFunction</span><span class="p">(</span><span class="n">W_BF</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 <span class="n">VD0</span> <span class="o">=</span> <span class="n">FunctionSpace</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">family</span><span class="p">,</span> <span class="n">bc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
@@ -1075,7 +1085,7 @@ can take any <code class="docutils literal notranslate"><span class="pre">sympy<
 creation of <code class="docutils literal notranslate"><span class="pre">VT</span></code> by</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sp</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sp</span>
 <span class="n">y</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;y,t&#39;</span><span class="p">)</span>
 <span class="n">f</span> <span class="o">=</span> <span class="mf">0.9</span><span class="o">+</span><span class="mf">0.1</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">y</span><span class="p">))</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">t</span><span class="p">)</span>
 <span class="n">VT</span> <span class="o">=</span> <span class="n">FunctionSpace</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">family</span><span class="p">,</span> <span class="n">bc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">f</span><span class="p">))</span>
@@ -1092,7 +1102,7 @@ final implementation will contain the time-dependent option.</p>
 <p>Due to the non-zero boundary conditions there are also a few additional
 things to be aware of. Assembling the coefficient matrices will also
 assemble the matrices for the two boundary test functions. That is,
-for the 1D mass matrix with $u=\sum_{k=0}^{N-1}\hat{T}_k \phi^D_k $ and <span class="math notranslate nohighlight">\(v=\phi^D_m\)</span>,
+for the 1D mass matrix with <span class="math notranslate nohighlight">\(u=\sum_{k=0}^{N-1}\hat{T}_k \phi^D_k \)</span> and <span class="math notranslate nohighlight">\(v=\phi^D_m\)</span>,
 we will have</p>
 <!-- Equation labels as ordinary links -->
 <p><a id="_auto19"></a></p>
@@ -1122,7 +1132,7 @@ the temperature equation these boundary matrices are extracted using
 <code class="docutils literal notranslate"><span class="pre">solverT</span></code> list, one for each stage of the RK3 solver.</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="n">TestFunction</span><span class="p">(</span><span class="n">W_TF</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="n">TestFunction</span><span class="p">(</span><span class="n">W_TF</span><span class="p">)</span>
 <span class="n">p</span> <span class="o">=</span> <span class="n">TrialFunction</span><span class="p">(</span><span class="n">W_TF</span><span class="p">)</span>
 <span class="n">solverT</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">lhs_mat</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1138,7 +1148,7 @@ the temperature equation these boundary matrices are extracted using
 stage as</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">w0</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">W_WF</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w0</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">W_WF</span><span class="p">)</span>
 <span class="n">w0</span> <span class="o">=</span> <span class="n">lhs_mat</span><span class="p">[</span><span class="n">rk</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">matvec</span><span class="p">(</span><span class="n">T_</span><span class="p">,</span> <span class="n">w0</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1147,7 +1157,7 @@ stage as</p>
 <p>The complete right hand side of the temperature equations can be computed as</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">compute_rhs_T</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">rhs</span><span class="p">,</span> <span class="n">rk</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">compute_rhs_T</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">rhs</span><span class="p">,</span> <span class="n">rk</span><span class="p">):</span>
     <span class="n">q</span> <span class="o">=</span> <span class="n">TestFunction</span><span class="p">(</span><span class="n">W_TF</span><span class="p">)</span>
     <span class="n">rhs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="mf">2.</span><span class="o">/</span><span class="p">(</span><span class="n">kappa</span><span class="o">*</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">rk</span><span class="p">]</span><span class="o">+</span><span class="n">b</span><span class="p">[</span><span class="n">rk</span><span class="p">])</span><span class="o">*</span><span class="n">dt</span><span class="p">)</span><span class="o">*</span><span class="n">Expr</span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="o">+</span><span class="n">div</span><span class="p">(</span><span class="n">grad</span><span class="p">(</span><span class="n">T</span><span class="p">)))</span>
     <span class="n">rhs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-=</span> <span class="n">lhs_mat</span><span class="p">[</span><span class="n">rk</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">matvec</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">w0</span><span class="p">)</span>
@@ -1170,8 +1180,7 @@ It only remains to perform an initialization and then create a solver
 loop that integrates the solution forward in time.</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="c1"># initialization</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># initialization</span>
 <span class="n">T_b</span> <span class="o">=</span> <span class="n">Array</span><span class="p">(</span><span class="n">W_TF</span><span class="p">)</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">W_TF</span><span class="o">.</span><span class="n">local_mesh</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">T_b</span><span class="p">[:]</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="mf">0.001</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="o">*</span><span class="n">T_b</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -1240,15 +1249,35 @@ pp. 2118,
 
               </div>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="drivencavity.html" title="previous page">Demo - Lid driven cavity</a>
-    <a class='right-next' id="next-link" href="functions.html" title="next page">Demo - Working with Functions</a>
+            
 
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="drivencavity.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Demo - Lid driven cavity</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="functions.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Demo - Working with Functions</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
@@ -1265,8 +1294,9 @@ pp. 2118,
 
       </div>
     </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    <script src="../_static/js/index.js"></script>
-    
+  
   </body>
 </html>
