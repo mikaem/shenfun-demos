@@ -1,19 +1,20 @@
-- file: content/intro
-
-- part: Shenfun executable demos
-  chapters:
-    - file: content/poisson
-    - file: content/kleingordon
-    - file: content/poisson3d
-    - file: content/polarhelmholtz
-    - file: content/sphericalhelmholtz
-    - file: content/kuramatosivashinsky
-    - file: content/stokes
-    - file: content/drivencavity
-    - file: content/rayleighbenard
-    - file: content/functions
-    - file: content/surfaceintegration
-    - file: content/moebius
-    - file: content/fasttransforms
-    - file: content/mixingbases
-    - file: content/tau
+format: jb-book
+root: content/intro
+options:
+  caption: Shenfun executable demos
+chapters:
+- file: content/poisson
+- file: content/kleingordon
+- file: content/poisson3d
+- file: content/polarhelmholtz
+- file: content/sphericalhelmholtz
+- file: content/kuramatosivashinsky
+- file: content/stokes
+- file: content/drivencavity
+- file: content/rayleighbenard
+- file: content/functions
+- file: content/surfaceintegration
+- file: content/moebius
+- file: content/fasttransforms
+- file: content/mixingbases
+- file: content/tau
