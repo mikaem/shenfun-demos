@@ -13,7 +13,7 @@ book:
 	python add_tag.py thebe-init
 	jupyter-book build ./
 	python thebe_mikaem.py
-	#ghp-import -n -p -f _build/html
+	ghp-import -n -p -f _build/html
 
 commit:
 	jupyter-book build ./

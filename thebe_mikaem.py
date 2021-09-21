@@ -6,7 +6,7 @@ for html in htmls:
         b = open(html)
         bs = b.read()
         b.close()
-        bs = re.sub('thebelab@latest', 'thebe-mikaem', bs)
+        bs = re.sub('thebe@0.5.1', 'thebe@latest', bs)
         b = open(html, 'w')
         b.write(bs)
         b.close()
