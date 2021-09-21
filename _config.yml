@@ -59,4 +59,5 @@ sphinx:
     latex_elements:
       {"preamble": "\\usepackage{cancel}"}
     mathjax_path: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_CHTML'
-
+    html_js_files:
+      - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
