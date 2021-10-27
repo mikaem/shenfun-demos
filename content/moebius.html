@@ -207,6 +207,11 @@ commentsRunWhenDOMLoaded(addUtterances);
    Demo - The Tau method
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sparsity.html">
+   Demo - Sparse Chebyshev-Petrov-Galerkin methods for differentiation
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -697,8 +702,8 @@ tensor product matrices and solution vector C-style.</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mm</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">Solver2D</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
 <span class="n">bb</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">Solver2D</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
-<span class="n">Mc</span> <span class="o">=</span> <span class="n">mm</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">Bc</span> <span class="o">=</span> <span class="n">bb</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">Mc</span> <span class="o">=</span> <span class="n">mm</span><span class="o">.</span><span class="n">mat</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">Bc</span> <span class="o">=</span> <span class="n">bb</span><span class="o">.</span><span class="n">mat</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -791,7 +796,7 @@ much alike.</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
-<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">mm</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">toarray</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mf">1e-6</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">bool</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">mm</span><span class="o">.</span><span class="n">mat</span><span class="o">.</span><span class="n">toarray</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mf">1e-6</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">bool</span><span class="p">)</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">binary_string</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>

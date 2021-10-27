@@ -1,0 +1,826 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo - Sparse Chebyshev-Petrov-Galerkin methods for differentiation &#8212; Shenfun executable demos</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "mikaem/shenfun-demos");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_CHTML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}, "extensions": ["cancel.js", "AMSmath.js"]}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Demo - The Tau method" href="tau.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/seashell3.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Shenfun executable demos</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Shenfun executable demos
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Shenfun executable demos
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="poisson.html">
+   Demo - 1D Poisson’s equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kleingordon.html">
+   Demo - Cubic nonlinear Klein-Gordon equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="poisson3d.html">
+   Demo - 3D Poisson’s equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="polarhelmholtz.html">
+   Demo - Helmholtz equation in polar coordinates
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sphericalhelmholtz.html">
+   Demo - Helmholtz equation on the unit sphere
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kuramatosivashinsky.html">
+   Demo - Kuramato-Sivashinsky equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="stokes.html">
+   Demo - Stokes equations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="drivencavity.html">
+   Demo - Lid driven cavity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="rayleighbenard.html">
+   Demo - Rayleigh Benard
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="functions.html">
+   Demo - Working with Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="surfaceintegration.html">
+   Demo - Integration of functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="moebius.html">
+   Demo - Eigenvalues on the Möbius strip
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="fasttransforms.html">
+   Demo - Some fast transforms
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mixingbases.html">
+   Demo - Mixed bases for the Helmholtz problem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="tau.html">
+   Demo - The Tau method
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Demo - Sparse Chebyshev-Petrov-Galerkin methods for differentiation
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/content/sparsity.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/mikaem/shenfun-demos"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/mikaem/shenfun-demos/master?urlpath=tree/content/sparsity.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#differentiation">
+   Differentiation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recursion">
+   Recursion
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <!-- dom:TITLE: Demo - Sparse Chebyshev-Petrov-Galerkin methods for differentiation -->
+<div class="section" id="demo-sparse-chebyshev-petrov-galerkin-methods-for-differentiation">
+<h1>Demo - Sparse Chebyshev-Petrov-Galerkin methods for differentiation<a class="headerlink" href="#demo-sparse-chebyshev-petrov-galerkin-methods-for-differentiation" title="Permalink to this headline">¶</a></h1>
+<!-- dom:AUTHOR: Mikael Mortensen Email:mikaem@math.uio.no at Department of Mathematics, University of Oslo. -->
+<!-- Author: -->  
+<p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
+<p>Date: <strong>October 26, 2021</strong></p>
+<p><strong>Summary.</strong> This demo explores how to use sparse Chebyshev-Petrov-Galerkin methods for finding Chebyshev coefficients of
+the derivatives of smooth functions. We will compare the methods to the more commonly adopted
+recursion methods that are found in most spectral textbooks.</p>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>The Chebyshev polynomials of the first kind can be defined as</p>
+<!-- Equation labels as ordinary links -->
+<p><a id="eq:chebTU"></a></p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+\label{eq:chebTU} \tag{1}
+    T_k(x) = \cos(k\theta),
+\end{equation}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\theta = \cos^{-1} x\)</span>, <span class="math notranslate nohighlight">\(k\)</span> is a positive integer and <span class="math notranslate nohighlight">\(x \in [-1, 1]\)</span>.
+The Chebyshev polynomials span the discrete space <span class="math notranslate nohighlight">\(S_N = \text{span}\{T_k\}_{k=0}^{N-1}\)</span>,
+and a function <span class="math notranslate nohighlight">\(u(x)\)</span> can be approximated in this space as</p>
+<!-- Equation labels as ordinary links -->
+<p><a id="eq:uT"></a></p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+u_N(x) = \sum_{k=0}^{N-1} \hat{u}_k T_k(x).
+\label{eq:uT} \tag{2}
+\end{equation}
+\]</div>
+<p>Consider the expansion of the function <span class="math notranslate nohighlight">\(u(x)=\sin(\pi x)\)</span>, created in <code class="docutils literal notranslate"><span class="pre">shenfun</span></code> as</p>
+<div class="cell tag_thebe-init docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">shenfun</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sp</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">ue</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="n">SN</span> <span class="o">=</span> <span class="n">FunctionSpace</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">)</span>
+<span class="n">uN</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">SN</span><span class="p">,</span> <span class="n">buffer</span><span class="o">=</span><span class="n">ue</span><span class="p">)</span>
+<span class="n">uN</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The Python Function <code class="docutils literal notranslate"><span class="pre">uN</span></code> represents the expansion (<a class="reference external" href="#eq:uT">2</a>), and the printed
+values represent <span class="math notranslate nohighlight">\(\boldsymbol{\hat{u}} = \{\hat{u}_k\}_{k=0}^{N-1}\)</span>. The expansion is fairly well resolved since
+the highest values of <span class="math notranslate nohighlight">\(\{\hat{u}_k\}_{k=0}^{N-1}\)</span> approach 0.
+Note that the coefficients obtained are the discrete coefficients based on interpolation at
+quadrature points and they do not agree completely with the coefficients truncated from a
+series <span class="math notranslate nohighlight">\(u(x) = \sum_{k=0}^{\infty} \hat{u}_k T_k\)</span>.
+Under the hood the coefficients are found by projection using quadrature for the integrals:
+find <span class="math notranslate nohighlight">\(u_N \in S_N\)</span> such that</p>
+<div class="math notranslate nohighlight">
+\[
+(u_N-u, v)_{\omega^{-1/2}} = 0, \quad \forall v \in S_N,
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\omega = (1-x^2)\)</span> and the scalar product notation
+<span class="math notranslate nohighlight">\((a, b)_{\omega^{-1/2}} = \sum_{j=0}^{N-1} a(x_j)b(x_j)\omega_j \approx \int_{-1}^{1} a(x)b(x) \omega(x)^{-1/2} dx\)</span>,
+where <span class="math notranslate nohighlight">\(\{\omega_j\}_{j=0}^{N-1}\)</span> are the quadrature weights. The quadrature approach ensures
+that <span class="math notranslate nohighlight">\(u(x_j) = u_N(x_j)\)</span> for all quadrature points <span class="math notranslate nohighlight">\(\{x_j\}_{j=0}^{N-1}\)</span>.
+In <code class="docutils literal notranslate"><span class="pre">shenfun</span></code> we compute the following under the hood: insert for <span class="math notranslate nohighlight">\(u_N = \sum_{j=0}^{N-1} \hat{u}_j T_j\)</span>,
+<span class="math notranslate nohighlight">\(u=\sin(\pi x)\)</span> and <span class="math notranslate nohighlight">\(v = T_k\)</span> to get</p>
+<div class="math notranslate nohighlight">
+\[
+\sum_{j=0}^{N-1}(T_j, T_k)_{\omega^{-1/2}} \hat{u}_j = (\sin(\pi x), T_k)_{\omega^{-1/2}},
+\]</div>
+<p>This has now become a linear algebra problem, and we recognise the matrix <span class="math notranslate nohighlight">\(d^{(0)}_{kj} = (T_j, T_k)_{\omega^{-1/2}}=c_k \pi /2 \delta_{kj}\)</span>,
+where <span class="math notranslate nohighlight">\(\delta_{kj}\)</span> is the Kronecker delta function, and <span class="math notranslate nohighlight">\(c_0=2\)</span> and <span class="math notranslate nohighlight">\(c_k=1\)</span> for <span class="math notranslate nohighlight">\(k&gt;0\)</span>.
+The problem is solved trivially since <span class="math notranslate nohighlight">\(d^{(0)}_{kj}\)</span> is diagonal,
+and thus</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{u}_k = \frac{2}{c_k \pi} (\sin(\pi x), T_k)_{\omega^{-1/2}}, \quad \forall \, k\in I^N,
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(I^N = \{0, 1, \ldots, N-1\}\)</span>.
+We can compare this to the exact coefficients, where the integral <span class="math notranslate nohighlight">\((\sin(\pi x), T_k)_{\omega^{-1/2}}\)</span>
+is computed with high precision. To this end we could use adaptive quadrature, or symbolic integration
+with sympy, but it is sufficient to use a large enough number of polynomials to fully resolve the
+function. Below we find this number to be 22 and we see that the absolute error in <span class="math notranslate nohighlight">\(\hat{u}_{N-1} \approx 10^{-11}\)</span>.</p>
+<div class="cell tag_thebe-init docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">SM</span> <span class="o">=</span> <span class="n">FunctionSpace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">)</span>
+<span class="n">uM</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">SM</span><span class="p">,</span> <span class="n">buffer</span><span class="o">=</span><span class="n">ue</span><span class="p">,</span> <span class="n">abstol</span><span class="o">=</span><span class="mf">1e-16</span><span class="p">,</span> <span class="n">reltol</span><span class="o">=</span><span class="mf">1e-16</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">uM</span><span class="p">[:</span><span class="n">N</span><span class="p">]</span> <span class="o">-</span> <span class="n">uN</span><span class="p">[:</span><span class="n">N</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">uM</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="differentiation">
+<h2>Differentiation<a class="headerlink" href="#differentiation" title="Permalink to this headline">¶</a></h2>
+<p>Let us now consider the <span class="math notranslate nohighlight">\(n\)</span>’th derivative of <span class="math notranslate nohighlight">\(u(x)\)</span> instead, denoted here as <span class="math notranslate nohighlight">\(u^{(n)}\)</span>,
+and attempt to find <span class="math notranslate nohighlight">\(u^{(n)}\)</span> in the space <span class="math notranslate nohighlight">\(S_N\)</span>, i.e.,</p>
+<div class="math notranslate nohighlight">
+\[
+u_N^{(n)} = \sum_{k=0}^{N-1} \hat{u}^{(n)}_k T_k.
+\]</div>
+<p>We note that this is not the same as <span class="math notranslate nohighlight">\((u_N)^{(n)}\)</span>, which is</p>
+<div class="math notranslate nohighlight">
+\[
+(u_N)^{(n)} = \sum_{k=0}^{N-1} \hat{u}_k T^{(n)}_k,
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(T^{(n)}_k\)</span> is the <span class="math notranslate nohighlight">\(n\)</span>’th derivative of <span class="math notranslate nohighlight">\(T_k\)</span>, a polynomial of order <span class="math notranslate nohighlight">\(k-n\)</span>.
+Again use projection to find <span class="math notranslate nohighlight">\(u_N^{(n)} \in S_N\)</span> such that</p>
+<div class="math notranslate nohighlight">
+\[
+(u_N^{(n)}-u^{(n)}, v)_{\omega^{-1/2}} = 0, \quad \forall v \in S_N.
+\]</div>
+<p>Inserting for <span class="math notranslate nohighlight">\(u_N^{(n)}\)</span> and <span class="math notranslate nohighlight">\(u^{(n)} = (u_N)^{(n)}\)</span> we get</p>
+<!-- Equation labels as ordinary links -->
+<p><a id="_auto1"></a></p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+    \sum_{j=0}^{N-1}(T_j, T_k)_{\omega^{-1/2}} \hat{u}_j^{(n)} = (T_j^{(n)}, T_k)_{\omega^{-1/2}} \hat{u}_j, 
+\label{_auto1} \tag{3}
+\end{equation}
+\]</div>
+<!-- Equation labels as ordinary links -->
+<p><a id="_auto2"></a></p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}  
+    \sum_{j=0}^{N-1} d^{(0)}_{kj} \hat{u}_j^{(n)}  = \sum_{j=0}^{N-1} d^{(n)}_{kj} \hat{u}_j,
+\label{_auto2} \tag{4}
+\end{equation}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(d^{(n)}_{kj} = (T_j^{(n)}, T_k)_{\omega^{-1/2}}\)</span>.
+We compute <span class="math notranslate nohighlight">\(\hat{u}_k^{(n)}\)</span> by inverting the diagonal <span class="math notranslate nohighlight">\(d^{(0)_{kj}}\)</span></p>
+<!-- Equation labels as ordinary links -->
+<p><a id="eq:fhat"></a></p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+\hat{u}_k^{(n)} = \frac{2}{c_k \pi} \sum_{j=0}^{N-1} d^{(n)}_{kj} \hat{u}_j, \quad \forall \, k \in I^{N}.
+\label{eq:fhat} \tag{5}
+\end{equation}
+\]</div>
+<p>The matrix <span class="math notranslate nohighlight">\(d^{(n)}_{kj}\)</span> is upper triangular, and the last <span class="math notranslate nohighlight">\(n\)</span> rows are zero. Since <span class="math notranslate nohighlight">\(d^{(n)}_{kj}\)</span> is
+dense the matrix vector product <span class="math notranslate nohighlight">\(\sum_{j=0}^{N-1} d^{(n)}_{kj} \hat{u}_j\)</span> is costly
+and also susceptible to roundoff errors if the structure of the matrix is
+not taken advantage of. But computing it in shenfun
+is straightforward, for <span class="math notranslate nohighlight">\(n=1\)</span> and <span class="math notranslate nohighlight">\(2\)</span>:</p>
+<div class="cell tag_thebe-init docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">uN1</span> <span class="o">=</span> <span class="n">project</span><span class="p">(</span><span class="n">Dx</span><span class="p">(</span><span class="n">uN</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">SN</span><span class="p">)</span>
+<span class="n">uN2</span> <span class="o">=</span> <span class="n">project</span><span class="p">(</span><span class="n">Dx</span><span class="p">(</span><span class="n">uN</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">SN</span><span class="p">)</span>
+<span class="n">uN1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">uN1</span></code> <span class="math notranslate nohighlight">\(=u_N^{(1)} \)</span> and <code class="docutils literal notranslate"><span class="pre">uN2</span></code> <span class="math notranslate nohighlight">\(=u_N^{(2)}\)</span>.
+Alternatively, doing all the work that goes on under the hood</p>
+<div class="cell tag_thebe-init docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="n">TrialFunction</span><span class="p">(</span><span class="n">SN</span><span class="p">)</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">TestFunction</span><span class="p">(</span><span class="n">SN</span><span class="p">)</span>
+<span class="n">D0</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+<span class="n">D1</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="n">Dx</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">v</span><span class="p">)</span>
+<span class="n">D2</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="n">Dx</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">v</span><span class="p">)</span>
+<span class="n">w0</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">SN</span><span class="p">)</span> <span class="c1"># work array</span>
+<span class="n">uN1</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">SN</span><span class="p">)</span>
+<span class="n">uN2</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">SN</span><span class="p">)</span>
+<span class="n">uN1</span> <span class="o">=</span> <span class="n">D0</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">D1</span><span class="o">.</span><span class="n">matvec</span><span class="p">(</span><span class="n">uN</span><span class="p">,</span> <span class="n">w0</span><span class="p">),</span> <span class="n">uN1</span><span class="p">)</span>
+<span class="n">uN2</span> <span class="o">=</span> <span class="n">D0</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">D2</span><span class="o">.</span><span class="n">matvec</span><span class="p">(</span><span class="n">uN</span><span class="p">,</span> <span class="n">w0</span><span class="p">),</span> <span class="n">uN2</span><span class="p">)</span>
+<span class="n">uN1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can look at the sparsity patterns of <span class="math notranslate nohighlight">\((d^{(1)}_{kj})\)</span> and <span class="math notranslate nohighlight">\((d^{(2)}_{kj})\)</span></p>
+<div class="cell tag_thebe-init docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">spy</span><span class="p">(</span><span class="n">D1</span><span class="o">.</span><span class="n">diags</span><span class="p">(),</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">spy</span><span class="p">(</span><span class="n">D2</span><span class="o">.</span><span class="n">diags</span><span class="p">(),</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>just to see that they are upper triangular. We now ask is there a better and faster
+way to get <code class="docutils literal notranslate"><span class="pre">uN1</span></code> and <code class="docutils literal notranslate"><span class="pre">uN2</span></code>? A better approach would involve only sparse
+matrices, like the diagonal <span class="math notranslate nohighlight">\((d^{(0)}_{kj})\)</span>. But how do we get there?
+Most textbooks on spectral methods use recursive methods to
+find <span class="math notranslate nohighlight">\(\{\hat{u}_N^{(n)}\}\)</span>. Here we will show a Galerkin approach.</p>
+<p>It turns out that a simple change of test space/function will be sufficient.
+Let us first replace the test space <span class="math notranslate nohighlight">\(S_N\)</span> with
+the Dirichlet space <span class="math notranslate nohighlight">\(D_N=\{v \in S_N | v(\pm 1) = 0\}\)</span> using basis
+functions <span class="math notranslate nohighlight">\(v=T_k-T_{k+2}\)</span> and see
+what happens. Because of the two boundary conditions,
+the number of degrees of freedom is reduced by two, and we need to use a
+space with <span class="math notranslate nohighlight">\(N+2\)</span> quadrature points in order to get a square matrix system.
+The method now becomes classified as Chebyshev-Petrov-Galerkin, as we
+wish to find <span class="math notranslate nohighlight">\(u_N^{(1)} \in S_N\)</span> such that</p>
+<div class="math notranslate nohighlight">
+\[
+(u_N^{(n)}-u^{(n)}, v)_{\omega^{-1/2}} = 0, \quad \forall v \in D_{N+2}.
+\]</div>
+<p>The implementation is straightforward</p>
+<div class="cell tag_thebe-init docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">SD</span> <span class="o">=</span> <span class="n">FunctionSpace</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="n">bc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">TestFunction</span><span class="p">(</span><span class="n">SD</span><span class="p">)</span>
+<span class="n">D0</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+<span class="n">D1</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="n">Dx</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">v</span><span class="p">)</span>
+<span class="n">uN11</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">SN</span><span class="p">)</span>
+<span class="n">uN11</span> <span class="o">=</span> <span class="n">D0</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">D1</span><span class="o">.</span><span class="n">matvec</span><span class="p">(</span><span class="n">uN</span><span class="p">,</span> <span class="n">w0</span><span class="p">),</span> <span class="n">uN11</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">uN11</span><span class="o">-</span><span class="n">uN1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>and since <code class="docutils literal notranslate"><span class="pre">uN11</span> <span class="pre">=</span> <span class="pre">uN1</span></code> we see that we have achived the same result as in
+the regular projection. However, the matrices in use now look like</p>
+<div class="cell tag_thebe-init docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">spy</span><span class="p">(</span><span class="n">D0</span><span class="o">.</span><span class="n">diags</span><span class="p">(),</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">spy</span><span class="p">(</span><span class="n">D1</span><span class="o">.</span><span class="n">diags</span><span class="p">(),</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>So <span class="math notranslate nohighlight">\((d^{(0)}_{kj})\)</span> now contains two nonzero diagonals, whereas <span class="math notranslate nohighlight">\((d^{(1)}_{kj})\)</span> is
+a matrix with one single diagonal. There is no longer a <code class="docutils literal notranslate"><span class="pre">full</span></code> differentiation
+matrix, and we can easily perform this projection for millions of degrees of freedom.
+What about <span class="math notranslate nohighlight">\((d^{(2)}_{kj})\)</span>? We can now use biharmonic test functions that
+satisfy four boundary conditions in the space <span class="math notranslate nohighlight">\(B_N = \{v \in S_N | v(\pm 1) = v'(\pm 1) =0\}\)</span>,
+and continue in a similar fashion:</p>
+<div class="cell tag_thebe-init docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">SB</span> <span class="o">=</span> <span class="n">FunctionSpace</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="n">bc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">TestFunction</span><span class="p">(</span><span class="n">SB</span><span class="p">)</span>
+<span class="n">D0</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+<span class="n">D2</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="n">Dx</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">v</span><span class="p">)</span>
+<span class="n">uN22</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">SN</span><span class="p">)</span>
+<span class="n">uN22</span> <span class="o">=</span> <span class="n">D0</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">D2</span><span class="o">.</span><span class="n">matvec</span><span class="p">(</span><span class="n">uN</span><span class="p">,</span> <span class="n">w0</span><span class="p">),</span> <span class="n">uN22</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">uN22</span><span class="o">-</span><span class="n">uN2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We get that <code class="docutils literal notranslate"><span class="pre">uN22</span> <span class="pre">=</span> <span class="pre">uN2</span></code>, so the Chebyshev-Petrov-Galerkin projection works. The matrices involved are now</p>
+<div class="cell tag_thebe-init docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">spy</span><span class="p">(</span><span class="n">D0</span><span class="o">.</span><span class="n">diags</span><span class="p">(),</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">spy</span><span class="p">(</span><span class="n">D2</span><span class="o">.</span><span class="n">diags</span><span class="p">(),</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>So there are now three nonzero diagonals in <span class="math notranslate nohighlight">\((d^{(0)}_{kj})\)</span>, whereas the differentiation matrix
+<span class="math notranslate nohighlight">\((d^{(2)}_{kj})\)</span> contains only one nonzero diagonal.</p>
+<p>Why does this work? The Chebyshev polynomials and their derivatives satisfy the following orthogonality relation</p>
+<!-- Equation labels as ordinary links -->
+<p><a id="eq:orthon"></a></p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+\label{eq:orthon} \tag{6}
+  \int_{-1}^{1} T^{(n)}_j T^{(n)}_k \omega^{n-1/2} dx = \alpha^{n}_k \delta_{kj}, \quad \text{for}\, n \ge 0,
+\end{equation}
+\]</div>
+<p>where</p>
+<!-- Equation labels as ordinary links -->
+<p><a id="_auto3"></a></p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+    \alpha^n_k = \frac{c_{k+n}\pi k (k+n-1)!}{2(k-n)!}.
+\label{_auto3} \tag{7}
+\end{equation}
+\]</div>
+<p>So when we choose a test function that is <span class="math notranslate nohighlight">\(\omega^n T^{(n)}_k\)</span>, we get the diagonal differentiation matrix</p>
+<!-- Equation labels as ordinary links -->
+<p><a id="_auto4"></a></p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+  d^{(n)}_{kj} = \int_{-1}^{1} T^{(n)}_j (\omega^n T^{(n)}_k) \omega^{-1/2} dx = \alpha^{n}_k \delta_{kj}, \quad \text{for}\, n \ge 0.
+\label{_auto4} \tag{8}
+\end{equation}
+\]</div>
+<p>The two chosen test functions above are both proportional to <span class="math notranslate nohighlight">\(\omega^n T^{(n)}_k\)</span>. More precisely,
+<span class="math notranslate nohighlight">\(T_k-T_{k+2} = \frac{2}{k+1} \omega T^{(1)}_{k+1}\)</span> and the biharmonic test function is
+<span class="math notranslate nohighlight">\(T_k-\frac{2(k+2)}{k+3}T_{k+2} + \frac{k+1}{k+3}T_{k+4} = \frac{4 \omega^2T^{(2)}_{k+2}}{(k+2)(k+3)}\)</span>.
+Using these very specific test functions correponds closely to using the Chebyshev
+recursion formulas that are found in most textbooks. Here they are adapted to
+a Chebyshev-Petrov-Galerkin method, where we simply choose test and trial functions and everything
+else falls into place in a few lines of code.</p>
+</div>
+<div class="section" id="recursion">
+<h2>Recursion<a class="headerlink" href="#recursion" title="Permalink to this headline">¶</a></h2>
+<p>Let us for completion show how to
+find <span class="math notranslate nohighlight">\(\hat{u}_N^{(1)}\)</span> with a recursive approach. The Chebyshev polynomials
+satisfy</p>
+<!-- Equation labels as ordinary links -->
+<p><a id="eq:Trec1"></a></p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+2T_k = \frac{1}{k+1}T'_{k+1}- \frac{1}{k-1} T'_{k-1}, \quad k \ge 1.
+\label{eq:Trec1} \tag{9}
+\end{equation}
+\]</div>
+<p>By using this and setting <span class="math notranslate nohighlight">\(u' = \sum_{k=0}^{\infty} \hat{u}^{(1)}_k T_k = \sum_{k=0}^{\infty} \hat{u}_k T'_k\)</span>
+we get</p>
+<!-- Equation labels as ordinary links -->
+<p><a id="eq:Trec2"></a></p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+2k\hat{u}_k = c_{k-1}\hat{u}^{(1)}_{k-1} - \hat{u}^{(1)}_{k+1}, \quad k \ge 1.
+\label{eq:Trec2} \tag{10}
+\end{equation}
+\]</div>
+<p>Using this recursion together with <span class="math notranslate nohighlight">\(\hat{u}^{(1)}_{N-1} = 0\)</span> we get (<a class="reference external" href="#canuto">[canuto]</a>)</p>
+<!-- Equation labels as ordinary links -->
+<p><a id="eq:Trec3"></a></p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+c_k \hat{u}^{(1)}_k = \hat{u}^{(1)}_{k+2} + 2(k+1)\hat{u}_{k+1}, \quad 0 \le k \le N-2,
+\label{eq:Trec3} \tag{11}
+\end{equation}
+\]</div>
+<p>which is easily implemented in a (slow) for-loop</p>
+<div class="cell tag_thebe-init docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ck</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="p">);</span> <span class="n">ck</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">f1</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">f1</span><span class="p">[</span><span class="n">k</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">uN</span><span class="p">[</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="n">ck</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f1</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">uN1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>which evidently is exactly the same result. It turns out that this is not strange. If we multiply
+(<a class="reference external" href="#eq:Trec3">11</a>) by <span class="math notranslate nohighlight">\(\pi/2\)</span> and rearrange a little bit we get</p>
+<!-- Equation labels as ordinary links -->
+<p><a id="_auto5"></a></p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+c_k \pi/2 \hat{u}^{(1)}_k -  \pi/2 \hat{u}^{(1)}_{k+2} = (k+1)\pi \hat{u}_{k+1} 
+\label{_auto5} \tag{12}
+\end{equation}
+\]</div>
+<!-- Equation labels as ordinary links -->
+<p><a id="_auto6"></a></p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}  
+\underbrace{(c_k \pi/2 \delta_{kj} - \pi/2 \delta_{k, j-2})}_{(D^0)_{kj}} \hat{u}^{(1)}_j = \underbrace{(k+1)\pi \delta_{k,j-1}}_{(D^1)_{kj}} \hat{u}_{j} 
+\label{_auto6} \tag{13}
+\end{equation}
+\]</div>
+<!-- Equation labels as ordinary links -->
+<p><a id="_auto7"></a></p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}  
+D^0 \boldsymbol{\hat{u}} = D^1 \boldsymbol{\hat{u}} 
+\label{_auto7} \tag{14}
+\end{equation}
+\]</div>
+<!-- Equation labels as ordinary links -->
+<p><a id="_auto8"></a></p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}  
+\boldsymbol{\hat{u}^{(1)}} = (D^0)^{-1} D^1 \boldsymbol{\hat{u}}
+\label{_auto8} \tag{15}
+\end{equation}
+\]</div>
+<p>which is exactly how <span class="math notranslate nohighlight">\(\boldsymbol{\hat{u}^{(1)}}\)</span> was computed above with the Chebyshev-Petrov-Galerkin approach
+(<code class="docutils literal notranslate"><span class="pre">uN11</span> <span class="pre">=</span> <span class="pre">D0.solve(D1.matvec(uN,</span> <span class="pre">w0),</span> <span class="pre">uN11)</span></code>). Not convinced? Check that the matrices
+<code class="docutils literal notranslate"><span class="pre">D0</span></code> and <code class="docutils literal notranslate"><span class="pre">D1</span></code> are truly as stated above. The matrices below are printed as dictionaries with diagonal
+number as key (main is 0, first upper is 1 etc) and diagonal values as values:</p>
+<div class="cell tag_thebe-init docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pprint</span>
+<span class="n">SD</span> <span class="o">=</span> <span class="n">FunctionSpace</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="n">bc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">TestFunction</span><span class="p">(</span><span class="n">SD</span><span class="p">)</span>
+<span class="n">D0</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+<span class="n">D1</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="n">Dx</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">v</span><span class="p">)</span>
+<span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">D0</span><span class="p">))</span>
+<span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">D1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In conclusion, we have shown that we can use an efficient Chebyshev-Petrov-Galerkin approach to obtain
+the discrete Chebyshev coefficients for the derivatives
+of a function. By inspection, it turns out that this approach is identical to the common methods based on
+well-known Chebyshev recursion formulas.</p>
+<!-- ======= Bibliography ======= -->
+<ol class="simple">
+<li><p><a id="canuto"></a> <strong>C. Canuto, M. Hussaini, A. Quarteroni and J. T. A.</strong>.
+<em>Spectral Methods in Fluid Dynamics</em>,
+<em>Scientific Computation</em>,
+Springer,
+2012.</p></li>
+</ol>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "mikaem/shenfun-demos",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="tau.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Demo - The Tau method</p>
+            </div>
+        </a>
+    </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Mikael Mortensen<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
