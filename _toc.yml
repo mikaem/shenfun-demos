@@ -18,3 +18,4 @@ chapters:
 - file: content/fasttransforms
 - file: content/mixingbases
 - file: content/tau
+- file: content/sparsity
