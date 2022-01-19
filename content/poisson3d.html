@@ -381,27 +381,32 @@ commentsRunWhenDOMLoaded(addUtterances);
         
               <div>
                 
-  <!-- dom:TITLE: Demo - 3D Poisson's equation -->
+  <!-- File automatically generated using DocOnce (https://github.com/doconce/doconce/):
+doconce format ipynb poisson3d.do.txt  -->
 <div class="section" id="demo-3d-poisson-s-equation">
 <h1>Demo - 3D Poisson’s equation<a class="headerlink" href="#demo-3d-poisson-s-equation" title="Permalink to this headline">¶</a></h1>
-<!-- dom:AUTHOR: Mikael Mortensen Email:mikaem@math.uio.no at Department of Mathematics, University of Oslo. -->
-<!-- Author: -->  
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
 <p>Date: <strong>April 13, 2018</strong></p>
 <p><strong>Summary.</strong> This is a demonstration of how the Python module <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a> can be used to solve a 3D Poisson
 equation in a 3D tensor product domain that has homogeneous Dirichlet boundary
 conditions in one direction and periodicity in the
 remaining two. The solver described runs with MPI without any further
-considerations required from the user. Spectral convergence, as shown in <a class="reference external" href="#fig:3d:ct0">Figure</a>, is demonstrated.
+considerations required from the user. Spectral convergence, as shown in <a class="reference external" href="#fig:3d:ct0">Figure 1</a>, is demonstrated.
 The demo is implemented in
 a single Python file <a class="reference external" href="https://github.com/spectralDNS/shenfun/blob/master/demo/dirichlet_poisson3D.py">dirichlet_poisson3D.py</a>, and the numerical method is is described in more detail by J. Shen <a class="reference external" href="#shen1">[shen1]</a> and <a class="reference external" href="#shen95">[shen95]</a>.</p>
 <!-- dom:FIGURE: [https://rawgit.com/spectralDNS/spectralutilities/master/figures/poisson3D_errornorm.png] Convergence of 3D Poisson solvers for both Legendre and Chebyshev modified basis function. <a id="fig:3d:ct0"></a> -->
 <!-- begin figure -->
 <p><a id="fig:3d:ct0"></a></p>
-<p>Convergence of 3D Poisson solvers for both Legendre and Chebyshev modified basis function.</p>
-<img src="https://rawgit.com/spectralDNS/spectralutilities/master/figures/poisson3D_errornorm.png" >
+<p><img src="https://rawgit.com/spectralDNS/spectralutilities/master/figures/poisson3D_errornorm.png" ><p style="font-size: 0.9em"><i>Figure 1: Convergence of 3D Poisson solvers for both Legendre and Chebyshev modified basis function.</i></p></p>
 <!-- end figure -->
-<div class="section" id="poisson-s-equation">
+<h1 id="table_of_contents">
+<p>Table of contents</h1></p>
+<a class='toc'>
+<p><a href="#demo:poisson3d"> Poisson's equation </a></p>
+<p><a href="#Implementation"> Implementation </a></p>
+<p><a href="#sec:complete"> Complete solver </a></p>
+</a>
+<br><div class="section" id="poisson-s-equation">
 <h2>Poisson’s equation<a class="headerlink" href="#poisson-s-equation" title="Permalink to this headline">¶</a></h2>
 <p><a id="demo:poisson3d"></a></p>
 <p>Poisson’s equation is given as</p>
@@ -1012,20 +1017,8 @@ after <span class="math notranslate nohighlight">\(N=24\)</span> roundoff errors
 command-line argument, can also be found <a class="reference external" href="https://github.com/spectralDNS/shenfun/blob/master/demo/dirichlet_poisson3D.py">here</a>.</p>
 <!-- ======= Bibliography ======= -->
 <ol class="simple">
-<li><p><a id="shen1"></a> <strong>J. Shen</strong>.
-Efficient Spectral-Galerkin Method I. Direct Solvers of Second- and Fourth-Order Equations Using Legendre Polynomials,
-<em>SIAM Journal on Scientific Computing</em>,
-15(6),
-pp. 1489-1505,
-<a class="reference external" href="http://dx.doi.org/10.1137/0915089">doi: 10.1137/0915089</a>,
-1994.</p></li>
-<li><p><a id="shen95"></a> <strong>J. Shen</strong>.
-Efficient Spectral-Galerkin Method II. Direct Solvers of Second- and Fourth-Order Equations Using Chebyshev Polynomials,
-<em>SIAM Journal on Scientific Computing</em>,
-16(1),
-pp. 74-87,
-<a class="reference external" href="http://dx.doi.org/10.1137/0916006">doi: 10.1137/0916006</a>,
-1995.</p></li>
+<li><p><a id="shen1"></a> <strong>J. Shen</strong>.  Efficient Spectral-Galerkin Method I. Direct Solvers of Second- and Fourth-Order Equations Using Legendre Polynomials, <em>SIAM Journal on Scientific Computing</em>, 15(6), pp. 1489-1505, <a class="reference external" href="https://dx.doi.org/10.1137/0915089">doi: 10.1137/0915089</a>, 1994.</p></li>
+<li><p><a id="shen95"></a> <strong>J. Shen</strong>.  Efficient Spectral-Galerkin Method II. Direct Solvers of Second- and Fourth-Order Equations Using Chebyshev Polynomials, <em>SIAM Journal on Scientific Computing</em>, 16(1), pp. 74-87, <a class="reference external" href="https://dx.doi.org/10.1137/0916006">doi: 10.1137/0916006</a>, 1995.</p></li>
 </ol>
 </div>
 </div>

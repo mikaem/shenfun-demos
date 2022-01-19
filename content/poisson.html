@@ -379,11 +379,10 @@ commentsRunWhenDOMLoaded(addUtterances);
         
               <div>
                 
-  <!-- dom:TITLE: Demo - 1D Poisson's equation -->
+  <!-- File automatically generated using DocOnce (https://github.com/doconce/doconce/):
+doconce format ipynb poisson.do.txt  -->
 <div class="section" id="demo-1d-poisson-s-equation">
 <h1>Demo - 1D Poisson’s equation<a class="headerlink" href="#demo-1d-poisson-s-equation" title="Permalink to this headline">¶</a></h1>
-<!-- dom:AUTHOR: Mikael Mortensen Email:mikaem@math.uio.no at Department of Mathematics, University of Oslo. -->
-<!-- Author: -->  
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
 <p>Date: <strong>April 13, 2018</strong></p>
 <p><strong>Summary.</strong> This is a demonstration of how the Python module <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a> can be used to solve Poisson’s
@@ -395,10 +394,17 @@ the numerical method is is described in more detail by J. Shen <a class="referen
 <!-- dom:FIGURE: [https://rawgit.com/spectralDNS/spectralutilities/master/figures/poisson1D_errornorm.png] Convergence of 1D Poisson solvers for both Legendre and Chebyshev modified basis function. <a id="fig:ct0"></a> -->
 <!-- begin figure -->
 <p><a id="fig:ct0"></a></p>
-<p>Convergence of 1D Poisson solvers for both Legendre and Chebyshev modified basis function.</p>
-<img src="https://rawgit.com/spectralDNS/spectralutilities/master/figures/poisson1D_errornorm.png" >
+<p><img src="https://rawgit.com/spectralDNS/spectralutilities/master/figures/poisson1D_errornorm.png" ><p style="font-size: 0.9em"><i>Figure 1: Convergence of 1D Poisson solvers for both Legendre and Chebyshev modified basis function.</i></p></p>
 <!-- end figure -->
-<div class="section" id="poisson-s-equation">
+<h1 id="table_of_contents">
+<p>Table of contents</h1></p>
+<a class='toc'>
+<p><a href="#Poisson-s-equation"> Poisson's equation </a></p>
+<p><a href="#Method-of-manufactured-solutions"> Method of manufactured solutions </a></p>
+<p><a href="#Implementation"> Implementation </a></p>
+<p><a href="#sec:complete"> Complete solver </a></p>
+</a>
+<br><div class="section" id="poisson-s-equation">
 <h2>Poisson’s equation<a class="headerlink" href="#poisson-s-equation" title="Permalink to this headline">¶</a></h2>
 <p>Poisson’s equation is given as</p>
 <!-- Equation labels as ordinary links -->
@@ -790,20 +796,8 @@ after <span class="math notranslate nohighlight">\(N=40\)</span> roundoff errors
 command-line argument, can also be found <a class="reference external" href="https://github.com/spectralDNS/shenfun/blob/master/demo/dirichlet_poisson1D.py">here</a>.</p>
 <!-- ======= Bibliography ======= -->
 <ol class="simple">
-<li><p><a id="shen1"></a> <strong>J. Shen</strong>.
-Efficient Spectral-Galerkin Method I. Direct Solvers of Second- and Fourth-Order Equations Using Legendre Polynomials,
-<em>SIAM Journal on Scientific Computing</em>,
-15(6),
-pp. 1489-1505,
-<a class="reference external" href="http://dx.doi.org/10.1137/0915089">doi: 10.1137/0915089</a>,
-1994.</p></li>
-<li><p><a id="shen95"></a> <strong>J. Shen</strong>.
-Efficient Spectral-Galerkin Method II. Direct Solvers of Second- and Fourth-Order Equations Using Chebyshev Polynomials,
-<em>SIAM Journal on Scientific Computing</em>,
-16(1),
-pp. 74-87,
-<a class="reference external" href="http://dx.doi.org/10.1137/0916006">doi: 10.1137/0916006</a>,
-1995.</p></li>
+<li><p><a id="shen1"></a> <strong>J. Shen</strong>.  Efficient Spectral-Galerkin Method I. Direct Solvers of Second- and Fourth-Order Equations Using Legendre Polynomials, <em>SIAM Journal on Scientific Computing</em>, 15(6), pp. 1489-1505, <a class="reference external" href="https://dx.doi.org/10.1137/0915089">doi: 10.1137/0915089</a>, 1994.</p></li>
+<li><p><a id="shen95"></a> <strong>J. Shen</strong>.  Efficient Spectral-Galerkin Method II. Direct Solvers of Second- and Fourth-Order Equations Using Chebyshev Polynomials, <em>SIAM Journal on Scientific Computing</em>, 16(1), pp. 74-87, <a class="reference external" href="https://dx.doi.org/10.1137/0916006">doi: 10.1137/0916006</a>, 1995.</p></li>
 </ol>
 </div>
 </div>

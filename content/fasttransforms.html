@@ -342,17 +342,23 @@ commentsRunWhenDOMLoaded(addUtterances);
         
               <div>
                 
-  <!-- dom:TITLE: Demo - Some fast transforms -->
+  <!-- File automatically generated using DocOnce (https://github.com/doconce/doconce/):
+doconce format ipynb fasttransforms.do.txt  -->
 <div class="section" id="demo-some-fast-transforms">
 <h1>Demo - Some fast transforms<a class="headerlink" href="#demo-some-fast-transforms" title="Permalink to this headline">¶</a></h1>
-<!-- dom:AUTHOR: Mikael Mortensen Email:mikaem@math.uio.no at Department of Mathematics, University of Oslo. -->
-<!-- Author: -->  
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
 <p>Date: <strong>May 27, 2021</strong></p>
 <p><strong>Summary.</strong> This demo will show how to compute fast forward transforms for the three
 different Dirichlet bases that are implemented for Chebyshev
 polynomials in Shenfun.</p>
-<div class="section" id="forward-and-backward-transforms">
+<h1 id="table_of_contents">
+<p>Table of contents</h1></p>
+<a class='toc'>
+<p><a href="#Forward-and-backward-transforms"> Forward and backward transforms </a></p>
+<p><a href="#Dirichlet-bases"> Dirichlet bases </a></p>
+<p><a href="#Verification"> Verification </a></p>
+</a>
+<br><div class="section" id="forward-and-backward-transforms">
 <h2>Forward and backward transforms<a class="headerlink" href="#forward-and-backward-transforms" title="Permalink to this headline">¶</a></h2>
 <p>A function <span class="math notranslate nohighlight">\(u(x)\)</span> can be approximated in a finite global spectral
 expansion <span class="math notranslate nohighlight">\(u_N(x)\)</span> as</p>
@@ -655,7 +661,7 @@ kind <span class="math notranslate nohighlight">\(U_k\)</span></p>
 <p>We get the basis using</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D2</span> <span class="o">=</span> <span class="n">FunctionSpace</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="n">bc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">basis</span><span class="o">=</span><span class="s1">&#39;DirichletU&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D2</span> <span class="o">=</span> <span class="n">FunctionSpace</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="s1">&#39;U&#39;</span><span class="p">,</span> <span class="n">bc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">quad</span><span class="o">=</span><span class="s1">&#39;GC&#39;</span><span class="p">)</span> <span class="c1"># quad=&#39;GU&#39; is default for U</span>
 </pre></div>
 </div>
 </div>
@@ -675,8 +681,9 @@ it backwards to physical space</p>
 </div>
 </div>
 <p>Next, we perform the regular projections into the three spaces
-<code class="docutils literal notranslate"><span class="pre">D0</span></code>, <code class="docutils literal notranslate"><span class="pre">D1</span></code> and <code class="docutils literal notranslate"><span class="pre">D2</span></code>, using the inner product
-in <span class="math notranslate nohighlight">\(L^2_{\omega^{-1/2}}\)</span>. Now <code class="docutils literal notranslate"><span class="pre">u0</span></code>, <code class="docutils literal notranslate"><span class="pre">u1</span></code> and <code class="docutils literal notranslate"><span class="pre">u2</span></code> will be the
+<code class="docutils literal notranslate"><span class="pre">D0</span></code>, <code class="docutils literal notranslate"><span class="pre">D1</span></code> and <code class="docutils literal notranslate"><span class="pre">D2</span></code>, using the default inner product
+in <span class="math notranslate nohighlight">\(L^2_{\omega^{-1/2}}\)</span> for <code class="docutils literal notranslate"><span class="pre">D0</span></code> and <code class="docutils literal notranslate"><span class="pre">D1</span></code>, whereas <span class="math notranslate nohighlight">\(L^2_{\omega^{1/2}}\)</span>
+is used for <code class="docutils literal notranslate"><span class="pre">D2</span></code>. Now <code class="docutils literal notranslate"><span class="pre">u0</span></code>, <code class="docutils literal notranslate"><span class="pre">u1</span></code> and <code class="docutils literal notranslate"><span class="pre">u2</span></code> will be the
 three solution vectors
 <span class="math notranslate nohighlight">\(\boldsymbol{\hat{u}}^{\varphi}\)</span>, <span class="math notranslate nohighlight">\(\boldsymbol{\hat{u}}^{\phi}\)</span>
 and <span class="math notranslate nohighlight">\(\boldsymbol{\hat{u}}^{\psi}\)</span>, respectively.</p>

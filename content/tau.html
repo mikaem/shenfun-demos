@@ -374,11 +374,10 @@ commentsRunWhenDOMLoaded(addUtterances);
         
               <div>
                 
-  <!-- dom:TITLE: Demo - The Tau method -->
+  <!-- File automatically generated using DocOnce (https://github.com/doconce/doconce/):
+doconce format ipynb tau.do.txt  -->
 <div class="section" id="demo-the-tau-method">
 <h1>Demo - The Tau method<a class="headerlink" href="#demo-the-tau-method" title="Permalink to this headline">¶</a></h1>
-<!-- dom:AUTHOR: Mikael Mortensen Email:mikaem@math.uio.no at Department of Mathematics, University of Oslo. -->
-<!-- Author: -->  
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
 <p>Date: <strong>June 15, 2021</strong></p>
 <p><strong>Summary.</strong> Shenfun has primarily been developed for the spectral Galerkin method.
@@ -395,7 +394,14 @@ and derives differentiation matrices for these bases. The boundary conditions
 are then usually fixed through manipulation of a couple of rows of the
 differentiation matrix. In this demo we will show how the original
 tau-method can be easily implemented using <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a>.</p>
-<div class="section" id="the-tau-method-for-poisson-s-equation-in-1d">
+<h1 id="table_of_contents">
+<p>Table of contents</h1></p>
+<a class='toc'>
+<p><a href="#The-tau-method-for-Poisson-s-equation-in-1D"> The tau method for Poisson's equation in 1D </a></p>
+<p><a href="#Implementation"> Implementation </a></p>
+<p><a href="#sec:complete"> Complete solver </a></p>
+</a>
+<br><div class="section" id="the-tau-method-for-poisson-s-equation-in-1d">
 <h2>The tau method for Poisson’s equation in 1D<a class="headerlink" href="#the-tau-method-for-poisson-s-equation-in-1d" title="Permalink to this headline">¶</a></h2>
 <p>Poisson’s equation is given on a domain <span class="math notranslate nohighlight">\([-1, 1]\)</span> as</p>
 <!-- Equation labels as ordinary links -->

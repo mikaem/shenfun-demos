@@ -359,11 +359,10 @@ commentsRunWhenDOMLoaded(addUtterances);
         
               <div>
                 
-  <!-- dom:TITLE: Demo - Rayleigh Benard -->
+  <!-- File automatically generated using DocOnce (https://github.com/doconce/doconce/):
+doconce format ipynb rayleighbenard.do.txt  -->
 <div class="section" id="demo-rayleigh-benard">
 <h1>Demo - Rayleigh Benard<a class="headerlink" href="#demo-rayleigh-benard" title="Permalink to this headline">¶</a></h1>
-<!-- dom:AUTHOR: Mikael Mortensen Email:mikaem@math.uio.no at Department of Mathematics, University of Oslo. -->
-<!-- Author: -->  
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
 <p>Date: <strong>November 21, 2019</strong></p>
 <p><strong>Summary.</strong> Rayleigh-Benard convection arise
@@ -385,16 +384,21 @@ has been run at a very high Rayleigh number (<em>Ra</em>), and the lower image w
 <!-- dom:FIGURE: [https://raw.githack.com/spectralDNS/spectralutilities/master/movies/RB_100x256_100k_fire.png, width=800] Temperature fluctuations in the Rayleigh Benard flow. The top and bottom walls are kept at different temperatures and this sets up the Rayleigh-Benard convection. The simulation is run at *Ra* =100,000, *Pr* =0.7 with 100 and 256 quadrature points in *x* and *y*-directions, respectively. <a id="fig:RB"></a> -->
 <!-- begin figure -->
 <p><a id="fig:RB"></a></p>
-<p>Temperature fluctuations in the Rayleigh Benard flow. The top and bottom walls are kept at different temperatures and this sets up the Rayleigh-Benard convection. The simulation is run at <em>Ra</em> =100,000, <em>Pr</em> =0.7 with 100 and 256 quadrature points in <em>x</em> and <em>y</em>-directions, respectively.</p>
-<img src="https://raw.githack.com/spectralDNS/spectralutilities/master/movies/RB_100x256_100k_fire.png" width=800>
+<p><img src="https://raw.githack.com/spectralDNS/spectralutilities/master/movies/RB_100x256_100k_fire.png" width="800"><p style="font-size: 0.9em"><i>Figure 1: Temperature fluctuations in the Rayleigh Benard flow. The top and bottom walls are kept at different temperatures and this sets up the Rayleigh-Benard convection. The simulation is run at <em>Ra</em> =100,000, <em>Pr</em> =0.7 with 100 and 256 quadrature points in <em>x</em> and <em>y</em>-directions, respectively.</i></p></p>
 <!-- end figure -->
 <!-- dom:FIGURE: [https://raw.githack.com/spectralDNS/spectralutilities/master/figures/RB_40x128_100_fire.png, width=800] Convection cells for a laminar flow. The simulation is run at *Ra* =100, *Pr* =0.7 with 40 and 128 quadrature points in *x* and *y*-directions, respectively. <a id="fig:RB_lam"></a> -->
 <!-- begin figure -->
 <p><a id="fig:RB_lam"></a></p>
-<p>Convection cells for a laminar flow. The simulation is run at <em>Ra</em> =100, <em>Pr</em> =0.7 with 40 and 128 quadrature points in <em>x</em> and <em>y</em>-directions, respectively.</p>
-<img src="https://raw.githack.com/spectralDNS/spectralutilities/master/figures/RB_40x128_100_fire.png" width=800>
+<p><img src="https://raw.githack.com/spectralDNS/spectralutilities/master/figures/RB_40x128_100_fire.png" width="800"><p style="font-size: 0.9em"><i>Figure 2: Convection cells for a laminar flow. The simulation is run at <em>Ra</em> =100, <em>Pr</em> =0.7 with 40 and 128 quadrature points in <em>x</em> and <em>y</em>-directions, respectively.</i></p></p>
 <!-- end figure -->
-<div class="section" id="the-rayleigh-benard-equations">
+<h1 id="table_of_contents">
+<p>Table of contents</h1></p>
+<a class='toc'>
+<p><a href="#demo:rayleighbenard"> The Rayleigh Bénard equations </a></p>
+<p><a href="#Temporal-discretization"> Temporal discretization </a></p>
+<p><a href="#Implementation"> Implementation </a></p>
+</a>
+<br><div class="section" id="the-rayleigh-benard-equations">
 <h2>The Rayleigh Bénard equations<a class="headerlink" href="#the-rayleigh-benard-equations" title="Permalink to this headline">¶</a></h2>
 <p><a id="demo:rayleighbenard"></a></p>
 <p>The governing equations solved in domain <span class="math notranslate nohighlight">\(\Omega=[-1, 1]\times [0, 2\pi]\)</span> are</p>
@@ -738,8 +742,7 @@ directly <span class="math notranslate nohighlight">\(\hat{u}_{k,0}=0 \text{ for
 <tr><td style="text-align:center">   (<a class="reference external" href="#eq:vx">27</a>)        </td> <td style="text-align:center">       $\hat{v}_{kl}(t)$    </td> <td style="text-align:center">       $(k, l) \in \boldsymbol{k}_D \times \{0\}$                   </td> </tr>
 <tr><td style="text-align:center">   (<a class="reference external" href="#eq:T2">7</a>)        </td> <td style="text-align:center">       $\hat{T}_{kl}(t)$    </td> <td style="text-align:center">       $(k, l) \in \boldsymbol{k}_T \times \boldsymbol{l}$          </td> </tr>
 </tbody>
-</table>
-</div>
+</table></div>
 <div class="section" id="temporal-discretization">
 <h2>Temporal discretization<a class="headerlink" href="#temporal-discretization" title="Permalink to this headline">¶</a></h2>
 <p>The governing equations are integrated in time using a semi-implicit third order Runge Kutta method.
@@ -895,7 +898,7 @@ some model constants</p>
 <span class="n">solver</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">rk</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
     <span class="n">mats</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="n">div</span><span class="p">(</span><span class="n">grad</span><span class="p">(</span><span class="n">u</span><span class="p">))</span> <span class="o">-</span> <span class="p">((</span><span class="n">a</span><span class="p">[</span><span class="n">rk</span><span class="p">]</span><span class="o">+</span><span class="n">b</span><span class="p">[</span><span class="n">rk</span><span class="p">])</span><span class="o">*</span><span class="n">nu</span><span class="o">*</span><span class="n">dt</span><span class="o">/</span><span class="mf">2.</span><span class="p">)</span><span class="o">*</span><span class="n">div</span><span class="p">(</span><span class="n">grad</span><span class="p">(</span><span class="n">div</span><span class="p">(</span><span class="n">grad</span><span class="p">(</span><span class="n">u</span><span class="p">)))),</span> <span class="n">v</span><span class="p">)</span>
-    <span class="n">solver</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">chebyshev</span><span class="o">.</span><span class="n">la</span><span class="o">.</span><span class="n">Biharmonic</span><span class="p">(</span><span class="o">*</span><span class="n">mats</span><span class="p">))</span>
+    <span class="n">solver</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">chebyshev</span><span class="o">.</span><span class="n">la</span><span class="o">.</span><span class="n">Biharmonic</span><span class="p">(</span><span class="n">mats</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -904,7 +907,7 @@ some model constants</p>
 now has been replaced by <span class="math notranslate nohighlight">\(\nabla^2 u\)</span> (or <code class="docutils literal notranslate"><span class="pre">div(grad(u))</span></code>) from Eq. (<a class="reference external" href="#eq:rb:u2">5</a>).
 For each stage we assemble a list of tensor product matrices <code class="docutils literal notranslate"><span class="pre">mats</span></code>, and in <code class="docutils literal notranslate"><span class="pre">chebyshev.la</span></code>
 there is available a very fast direct solver for exactly this type of (biharmonic)
-matrices. The solver is created with <code class="docutils literal notranslate"><span class="pre">chebyshev.la.Biharmonic(*mats)</span></code>, and here
+matrices. The solver is created with <code class="docutils literal notranslate"><span class="pre">chebyshev.la.Biharmonic(mats)</span></code>, and here
 the necessary LU-decomposition is carried out for later use and reuse on each time step.</p>
 <p>The right hand side depends on the solution on the previous stage, and the
 convection on two previous stages. The linear part (first term on right hand side of (<a class="reference external" href="#eq:rk3stages">31</a>))
@@ -986,7 +989,7 @@ each RK stage.</p>
 <span class="n">solver0</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">rk</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
     <span class="n">mats0</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="n">v0</span><span class="p">,</span> <span class="mf">2.</span><span class="o">/</span><span class="p">(</span><span class="n">nu</span><span class="o">*</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">rk</span><span class="p">]</span><span class="o">+</span><span class="n">b</span><span class="p">[</span><span class="n">rk</span><span class="p">])</span><span class="o">*</span><span class="n">dt</span><span class="p">)</span><span class="o">*</span><span class="n">u0</span> <span class="o">-</span> <span class="n">div</span><span class="p">(</span><span class="n">grad</span><span class="p">(</span><span class="n">u0</span><span class="p">)))</span>
-    <span class="n">solver0</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">chebyshev</span><span class="o">.</span><span class="n">la</span><span class="o">.</span><span class="n">Helmholtz</span><span class="p">(</span><span class="o">*</span><span class="n">mats0</span><span class="p">))</span>
+    <span class="n">solver0</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">chebyshev</span><span class="o">.</span><span class="n">la</span><span class="o">.</span><span class="n">Helmholtz</span><span class="p">(</span><span class="n">mats0</span><span class="p">))</span>
 
 <span class="c1"># Allocate work arrays and variables</span>
 <span class="n">u00</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">VD0</span><span class="p">)</span>
@@ -1179,7 +1182,7 @@ the temperature equation these boundary matrices are extracted using
 <span class="k">for</span> <span class="n">rk</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
     <span class="n">matsT</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="mf">2.</span><span class="o">/</span><span class="p">(</span><span class="n">kappa</span><span class="o">*</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">rk</span><span class="p">]</span><span class="o">+</span><span class="n">b</span><span class="p">[</span><span class="n">rk</span><span class="p">])</span><span class="o">*</span><span class="n">dt</span><span class="p">)</span><span class="o">*</span><span class="n">p</span> <span class="o">-</span> <span class="n">div</span><span class="p">(</span><span class="n">grad</span><span class="p">(</span><span class="n">p</span><span class="p">)))</span>
     <span class="n">lhs_mat</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">extract_bc_matrices</span><span class="p">([</span><span class="n">matsT</span><span class="p">]))</span>
-    <span class="n">solverT</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">chebyshev</span><span class="o">.</span><span class="n">la</span><span class="o">.</span><span class="n">Helmholtz</span><span class="p">(</span><span class="o">*</span><span class="n">matsT</span><span class="p">))</span>
+    <span class="n">solverT</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">chebyshev</span><span class="o">.</span><span class="n">la</span><span class="o">.</span><span class="n">Helmholtz</span><span class="p">(</span><span class="n">matsT</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1255,13 +1258,7 @@ an <code class="docutils literal notranslate"><span class="pre">HDF5</span></cod
 beginning of this demo has been created in Paraview.</p>
 <!-- ======= Bibliography ======= -->
 <ol class="simple">
-<li><p><a id="pandey18"></a> <strong>A. Pandey, J. D. Scheel and J. Schumacher</strong>.
-Turbulent Superstructures in Rayleigh-B’enard Convection,
-<em>Nature Communications</em>,
-9(1),
-pp. 2118,
-<a class="reference external" href="http://dx.doi.org/10.1038/s41467-018-04478-0">doi: 10.1038/s41467-018-04478-0</a>,
-2018.</p></li>
+<li><p><a id="pandey18"></a> <strong>A. Pandey, J. D. Scheel and J. Schumacher</strong>.  Turbulent Superstructures in Rayleigh-B’enard Convection, <em>Nature Communications</em>, 9(1), pp. 2118, <a class="reference external" href="https://dx.doi.org/10.1038/s41467-018-04478-0">doi: 10.1038/s41467-018-04478-0</a>, 2018.</p></li>
 </ol>
 </div>
 </div>

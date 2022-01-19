@@ -352,11 +352,10 @@ commentsRunWhenDOMLoaded(addUtterances);
         
               <div>
                 
-  <!-- dom:TITLE: Demo - Lid driven cavity -->
+  <!-- File automatically generated using DocOnce (https://github.com/doconce/doconce/):
+doconce format ipynb drivencavity.do.txt  -->
 <div class="section" id="demo-lid-driven-cavity">
 <h1>Demo - Lid driven cavity<a class="headerlink" href="#demo-lid-driven-cavity" title="Permalink to this headline">¶</a></h1>
-<!-- dom:AUTHOR: Mikael Mortensen Email:mikaem@math.uio.no at Department of Mathematics, University of Oslo. -->
-<!-- Author: -->  
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
 <p>Date: <strong>May 6, 2019</strong></p>
 <p><strong>Summary.</strong> The lid driven cavity is a classical benchmark for Navier Stokes solvers.
@@ -372,13 +371,21 @@ are usually not very good at handling problems with discontinuities, and
 for this reason we will also look at a regularized lid driven cavity,
 where the top lid moves according to <span class="math notranslate nohighlight">\((1-x)^2(1+x)^2\)</span>, thus removing
 the corner discontinuities.</p>
+<h1 id="table_of_contents">
+<p>Table of contents</h1></p>
+<a class='toc'>
+<p><a href="#demo:navierstokes"> Navier Stokes equations </a></p>
+<p><a href="#sec:bases"> Tensor product spaces </a></p>
+<p><a href="#sec:mixedform"> Mixed variational form </a></p>
+<p><a href="#Implementation-of-solver"> Implementation of solver </a></p>
+<p><a href="#sec:nscomplete"> Complete solver </a></p>
+</a>
+<br>
 <!-- dom:FIGURE: [https://raw.githack.com/spectralDNS/spectralutilities/master/figures/DrivenCavity.png] Velocity vectors for the lid driven cavity at Reynolds number 100.   <a id="fig:drivencavity"></a> -->
 <!-- begin figure -->
 <p><a id="fig:drivencavity"></a></p>
-<p>Velocity vectors for the lid driven cavity at Reynolds number 100.</p>
-<img src="https://raw.githack.com/spectralDNS/spectralutilities/master/figures/DrivenCavity.png" >
-<!-- end figure -->
-<div class="section" id="navier-stokes-equations">
+<p><img src="https://raw.githack.com/spectralDNS/spectralutilities/master/figures/DrivenCavity.png" ><p style="font-size: 0.9em"><i>Figure 1: Velocity vectors for the lid driven cavity at Reynolds number 100.</i></p></p>
+<!-- end figure --><div class="section" id="navier-stokes-equations">
 <h2>Navier Stokes equations<a class="headerlink" href="#navier-stokes-equations" title="Permalink to this headline">¶</a></h2>
 <p><a id="demo:navierstokes"></a></p>
 <p>The nonlinear steady Navier Stokes equations are given in strong form as</p>
@@ -993,21 +1000,19 @@ ensures that the pressure integrates to zero, i.e., <span class="math notranslat
 Here the number 2 tells us that block component 2 in the mixed space
 (the pressure) should be integrated, dof 0 should be fixed, and it
 should be fixed to 0.</p>
-<p>The last three lines plots velocity vectors, like also seen in the <a class="reference external" href="#fig:drivencavity">figure</a>
+<p>The last three lines plots velocity vectors, like also seen in the <a class="reference external" href="#fig:drivencavity">figure 1</a>
 in the top of this demo. The solution is apparently nice
 and smooth, but hidden underneath are Gibbs oscillations from the
 corner discontinuities. This is painfully obvious when switching from
 Legendre to Chebyshev polynomials. With Chebyshev the same plot looks
-like the <a class="reference external" href="#fig:drivencavitycheb">Figure</a> below. However, choosing instead the
+like the <a class="reference external" href="#fig:drivencavitycheb">Figure 2</a> below. However, choosing instead the
 regularized lid, with no discontinuities, the solutions will be nice and
 smooth, both for Legendre and Chebyshev polynomials.</p>
 <!-- dom:FIGURE: [https://raw.githack.com/spectralDNS/spectralutilities/master/figures/DrivenCavityCheb.png] Velocity vectors for Re=100 using Chebyshev.   <a id="fig:drivencavitycheb"></a> -->
 <!-- begin figure -->
 <p><a id="fig:drivencavitycheb"></a></p>
-<p>Velocity vectors for Re=100 using Chebyshev.</p>
-<img src="https://raw.githack.com/spectralDNS/spectralutilities/master/figures/DrivenCavityCheb.png" >
-<!-- end figure -->
-</div>
+<p><img src="https://raw.githack.com/spectralDNS/spectralutilities/master/figures/DrivenCavityCheb.png" ><p style="font-size: 0.9em"><i>Figure 2: Velocity vectors for Re=100 using Chebyshev.</i></p></p>
+<!-- end figure --></div>
 <div class="section" id="complete-solver">
 <h2>Complete solver<a class="headerlink" href="#complete-solver" title="Permalink to this headline">¶</a></h2>
 <p><a id="sec:nscomplete"></a></p>

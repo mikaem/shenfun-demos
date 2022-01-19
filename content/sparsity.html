@@ -341,17 +341,23 @@ commentsRunWhenDOMLoaded(addUtterances);
         
               <div>
                 
-  <!-- dom:TITLE: Demo - Sparse Chebyshev-Petrov-Galerkin methods for differentiation -->
+  <!-- File automatically generated using DocOnce (https://github.com/doconce/doconce/):
+doconce format ipynb sparsity.do.txt  -->
 <div class="section" id="demo-sparse-chebyshev-petrov-galerkin-methods-for-differentiation">
 <h1>Demo - Sparse Chebyshev-Petrov-Galerkin methods for differentiation<a class="headerlink" href="#demo-sparse-chebyshev-petrov-galerkin-methods-for-differentiation" title="Permalink to this headline">¶</a></h1>
-<!-- dom:AUTHOR: Mikael Mortensen Email:mikaem@math.uio.no at Department of Mathematics, University of Oslo. -->
-<!-- Author: -->  
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
 <p>Date: <strong>October 26, 2021</strong></p>
 <p><strong>Summary.</strong> This demo explores how to use sparse Chebyshev-Petrov-Galerkin methods for finding Chebyshev coefficients of
 the derivatives of smooth functions. We will compare the methods to the more commonly adopted
 recursion methods that are found in most spectral textbooks.</p>
-<div class="section" id="introduction">
+<h1 id="table_of_contents">
+<p>Table of contents</h1></p>
+<a class='toc'>
+<p><a href="#Introduction"> Introduction </a></p>
+<p><a href="#Differentiation"> Differentiation </a></p>
+<p><a href="#Recursion"> Recursion </a></p>
+</a>
+<br><div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>The Chebyshev polynomials of the first kind can be defined as</p>
 <!-- Equation labels as ordinary links -->
@@ -503,7 +509,7 @@ is straightforward, for <span class="math notranslate nohighlight">\(n=1\)</span
 </div>
 </div>
 </div>
-<p>where <code class="docutils literal notranslate"><span class="pre">uN1</span></code> <span class="math notranslate nohighlight">\(=u_N^{(1)}\)</span> and <code class="docutils literal notranslate"><span class="pre">uN2</span></code> <span class="math notranslate nohighlight">\(u_N^{(2)}\)</span>.
+<p>where <code class="docutils literal notranslate"><span class="pre">uN1</span></code> <span class="math notranslate nohighlight">\(=u_N^{(1)}\)</span> and <code class="docutils literal notranslate"><span class="pre">uN2</span></code> <span class="math notranslate nohighlight">\(=u_N^{(2)}\)</span>.
 Alternatively, doing all the work that goes on under the hood</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
@@ -539,7 +545,7 @@ Alternatively, doing all the work that goes on under the hood</p>
 way to get <code class="docutils literal notranslate"><span class="pre">uN1</span></code> and <code class="docutils literal notranslate"><span class="pre">uN2</span></code>? A better approach would involve only sparse
 matrices, like the diagonal <span class="math notranslate nohighlight">\((d^{(0)}_{kj})\)</span>. But how do we get there?
 Most textbooks on spectral methods use fast recursive methods to
-find <span class="math notranslate nohighlight">\(\{\hat{u}_N^{(n)}\}\)</span>. Here we will show a fast Galerkin approach.</p>
+find the coefficients <span class="math notranslate nohighlight">\(\{\hat{u}_k^{(n)}\}\)</span>. Here we will show a fast Galerkin approach.</p>
 <p>It turns out that a simple change of test space/function will be sufficient.
 Let us first replace the test space <span class="math notranslate nohighlight">\(S_N\)</span> with
 the Dirichlet space <span class="math notranslate nohighlight">\(D_N=\{v \in S_N | v(\pm 1) = 0\}\)</span> using basis
@@ -551,7 +557,7 @@ The method now becomes classified as Chebyshev-Petrov-Galerkin, as we
 wish to find <span class="math notranslate nohighlight">\(u_N^{(1)} \in S_N\)</span> such that</p>
 <div class="math notranslate nohighlight">
 \[
-(u_N^{(n)}-u^{(n)}, v)_{\omega^{-1/2}} = 0, \quad \forall v \in D_{N+2}.
+(u_N^{(1)}-u^{(1)}, v)_{\omega^{-1/2}} = 0, \quad \forall v \in D_{N+2}.
 \]</div>
 <p>The implementation is straightforward</p>
 <div class="cell tag_thebe-init docutils container">
@@ -757,11 +763,7 @@ of a function. By inspection, it turns out that this approach is identical to th
 well-known Chebyshev recursion formulas.</p>
 <!-- ======= Bibliography ======= -->
 <ol class="simple">
-<li><p><a id="canuto"></a> <strong>C. Canuto, M. Hussaini, A. Quarteroni and J. T. A.</strong>.
-<em>Spectral Methods in Fluid Dynamics</em>,
-<em>Scientific Computation</em>,
-Springer,
-2012.</p></li>
+<li><p><a id="canuto"></a> <strong>C. Canuto, M. Hussaini, A. Quarteroni and J. T. A.</strong>.  <em>Spectral Methods in Fluid Dynamics</em>, <em>Scientific Computation</em>, Springer, 2012.</p></li>
 </ol>
 </div>
 </div>

@@ -347,23 +347,29 @@ commentsRunWhenDOMLoaded(addUtterances);
         
               <div>
                 
-  <!-- dom:TITLE: Demo - Kuramato-Sivashinsky equation -->
+  <!-- File automatically generated using DocOnce (https://github.com/doconce/doconce/):
+doconce format ipynb kuramatosivashinsky.do.txt  -->
 <div class="section" id="demo-kuramato-sivashinsky-equation">
 <h1>Demo - Kuramato-Sivashinsky equation<a class="headerlink" href="#demo-kuramato-sivashinsky-equation" title="Permalink to this headline">¶</a></h1>
-<!-- dom:AUTHOR: Mikael Mortensen Email:mikaem@math.uio.no at Department of Mathematics, University of Oslo. -->
-<!-- Author: -->  
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
 <p>Date: <strong>April 13, 2018</strong></p>
 <p><strong>Summary.</strong> This is a demonstration of how the Python module <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a> can be used to solve the time-dependent,
 nonlinear Kuramato-Sivashinsky equation, in a doubly periodic domain. The demo is implemented in
 a single Python file <a class="reference external" href="https://github.com/spectralDNS/shenfun/blob/master/demo/Kuramato_Sivashinsky.py">KuramatoSivashinsky.py</a>, and it may be run
 in parallel using MPI.</p>
+<h1 id="table_of_contents">
+<p>Table of contents</h1></p>
+<a class='toc'>
+<p><a href="#The-Kuramato-Sivashinsky-equation"> The Kuramato-Sivashinsky equation </a></p>
+<p><a href="#sec:spectralgalerkin"> Spectral Galerkin method </a></p>
+<p><a href="#Discretization"> Discretization </a></p>
+<p><a href="#Implementation"> Implementation </a></p>
+</a>
+<br>
 <!-- dom:FIGURE: [https://rawgit.com/spectralDNS/spectralutilities/master/movies/Kuramato_movie_128.gif] Movie showing the evolution of the solution of the Kuramato-Sivashinsky equation. -->
 <!-- begin figure -->
-<p>Movie showing the evolution of the solution of the Kuramato-Sivashinsky equation.</p>
-<img src="https://rawgit.com/spectralDNS/spectralutilities/master/movies/Kuramato_movie_128.gif" >
-<!-- end figure -->
-<div class="section" id="the-kuramato-sivashinsky-equation">
+<p><img src="https://rawgit.com/spectralDNS/spectralutilities/master/movies/Kuramato_movie_128.gif" ><p style="font-size: 0.9em"><i>Figure 1: Movie showing the evolution of the solution of the Kuramato-Sivashinsky equation.</i></p></p>
+<!-- end figure --><div class="section" id="the-kuramato-sivashinsky-equation">
 <h2>The Kuramato-Sivashinsky equation<a class="headerlink" href="#the-kuramato-sivashinsky-equation" title="Permalink to this headline">¶</a></h2>
 <p>The Kuramato-Sivashinsky (KS) equation is known for its chaotic bahaviour, and it is
 often used in study of turbulence or turbulent combustion. We will here solve
