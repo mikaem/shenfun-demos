@@ -392,8 +392,8 @@ equation in a 3D tensor product domain that has homogeneous Dirichlet boundary
 conditions in one direction and periodicity in the
 remaining two. The solver described runs with MPI without any further
 considerations required from the user. Spectral convergence, as shown in <a class="reference external" href="#fig:3d:ct0">Figure 1</a>, is demonstrated.
-The demo is implemented in
-a single Python file <a class="reference external" href="https://github.com/spectralDNS/shenfun/blob/master/demo/dirichlet_poisson3D.py">dirichlet_poisson3D.py</a>, and the numerical method is is described in more detail by J. Shen <a class="reference external" href="#shen1">[shen1]</a> and <a class="reference external" href="#shen95">[shen95]</a>.</p>
+The demo is implemented in slightly more generic terms (more boundary conditions) in
+<a class="reference external" href="https://github.com/spectralDNS/shenfun/blob/master/demo/poisson3D.py">poisson3D.py</a>, and the numerical method is is described in more detail by J. Shen <a class="reference external" href="#shen1">[shen1]</a> and <a class="reference external" href="#shen95">[shen95]</a>.</p>
 <!-- dom:FIGURE: [https://rawgit.com/spectralDNS/spectralutilities/master/figures/poisson3D_errornorm.png] Convergence of 3D Poisson solvers for both Legendre and Chebyshev modified basis function. <a id="fig:3d:ct0"></a> -->
 <!-- begin figure -->
 <p><a id="fig:3d:ct0"></a></p>
@@ -677,7 +677,7 @@ be found as follows</p>
 found by solving this linear system over the
 entire computational mesh, it may be
 transformed to real space <span class="math notranslate nohighlight">\(u(\boldsymbol{x})\)</span> using (<a class="reference external" href="#eq:3d:u">12</a>). Note that the matrices
-<span class="math notranslate nohighlight">\(A \in \mathbb{R}^{N_0-3 \times N_0-3}\)</span> and <span class="math notranslate nohighlight">\(B \in \mathbb{R}^{N_0-3 \times N_0-3}\)</span>
+<span class="math notranslate nohighlight">\(A \in \mathbb{R}^{N_0-2 \times N_0-2}\)</span> and <span class="math notranslate nohighlight">\(B \in \mathbb{R}^{N_0-2 \times N_0-2}\)</span>
 differ for Legendre or Chebyshev bases, but
 for either case they have a
 special structure that allows for a solution to be found very efficiently
@@ -801,9 +801,9 @@ direction to be local to the processor. If the <code class="docutils literal not
 transformed, then the data will be aligned in this direction, whereas the other
 two directions may both, or just one of them, be distributed.</p>
 <p>Note that <code class="docutils literal notranslate"><span class="pre">X</span></code> is a list containing local values of the arrays <span class="math notranslate nohighlight">\(\{x_i\}_{i=0}^{N_0-1}\)</span>,
-<span class="math notranslate nohighlight">\(\{y_j\}_{j=0}^{N_1-0}\)</span> and <span class="math notranslate nohighlight">\(\{z_k\}_{k=0}^{N_2-1}\)</span>.
+<span class="math notranslate nohighlight">\(\{y_j\}_{j=0}^{N_1-1}\)</span> and <span class="math notranslate nohighlight">\(\{z_k\}_{k=0}^{N_2-1}\)</span>.
 Now, it’s not possible to run a jupyter notebook with more than one process,
-but we can imagine running <a class="reference external" href="https://github.com/spectralDNS/shenfun/blob/master/demo/dirichlet_poisson3D.py">the complete solver</a>
+but we can imagine running <a class="reference external" href="https://github.com/spectralDNS/shenfun/blob/master/demo/poisson3D.py">the complete solver</a>
 with 4 procesors and a processor mesh of shape <span class="math notranslate nohighlight">\(2\times 2\)</span>.
 We would then get the following local slices for
 each processor in spectral space</p>
@@ -1013,8 +1013,8 @@ after <span class="math notranslate nohighlight">\(N=24\)</span> roundoff errors
 <div class="section" id="complete-solver">
 <h2>Complete solver<a class="headerlink" href="#complete-solver" title="Permalink to this headline">¶</a></h2>
 <p><a id="sec:complete"></a></p>
-<p>A complete solver, that can use either Legendre or Chebyshev bases, chosen as a
-command-line argument, can also be found <a class="reference external" href="https://github.com/spectralDNS/shenfun/blob/master/demo/dirichlet_poisson3D.py">here</a>.</p>
+<p>A complete solver, that can use any family of bases (Chebyshev, Legendre, Jacobi, Chebyshev second kind),
+and any kind of boundary condition, can be found <a class="reference external" href="https://github.com/spectralDNS/shenfun/blob/master/demo/poisson3D.py">here</a>.</p>
 <!-- ======= Bibliography ======= -->
 <ol class="simple">
 <li><p><a id="shen1"></a> <strong>J. Shen</strong>.  Efficient Spectral-Galerkin Method I. Direct Solvers of Second- and Fourth-Order Equations Using Legendre Polynomials, <em>SIAM Journal on Scientific Computing</em>, 15(6), pp. 1489-1505, <a class="reference external" href="https://dx.doi.org/10.1137/0915089">doi: 10.1137/0915089</a>, 1994.</p></li>

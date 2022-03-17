@@ -388,8 +388,8 @@ doconce format ipynb poisson.do.txt  -->
 <p><strong>Summary.</strong> This is a demonstration of how the Python module <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a> can be used to solve Poisson’s
 equation with Dirichlet boundary conditions in one dimension. Spectral convergence, as
 shown in the figure below, is demonstrated.
-The demo is implemented in
-a single Python file <a class="reference external" href="https://github.com/spectralDNS/shenfun/blob/master/demo/dirichlet_poisson1D.py">dirichlet_poisson1D.py</a>, and
+The demo is implemented in slightly more generic terms (more boundary conditions)
+in <a class="reference external" href="https://github.com/spectralDNS/shenfun/blob/master/demo/poisson1D.py">poisson1D.py</a>, and
 the numerical method is is described in more detail by J. Shen <a class="reference external" href="#shen1">[shen1]</a> and <a class="reference external" href="#shen95">[shen95]</a>.</p>
 <!-- dom:FIGURE: [https://rawgit.com/spectralDNS/spectralutilities/master/figures/poisson1D_errornorm.png] Convergence of 1D Poisson solvers for both Legendre and Chebyshev modified basis function. <a id="fig:ct0"></a> -->
 <!-- begin figure -->
@@ -792,8 +792,8 @@ after <span class="math notranslate nohighlight">\(N=40\)</span> roundoff errors
 <div class="section" id="complete-solver">
 <h2>Complete solver<a class="headerlink" href="#complete-solver" title="Permalink to this headline">¶</a></h2>
 <p><a id="sec:complete"></a></p>
-<p>A complete solver, that can use either Legendre or Chebyshev bases, chosen as a
-command-line argument, can also be found <a class="reference external" href="https://github.com/spectralDNS/shenfun/blob/master/demo/dirichlet_poisson1D.py">here</a>.</p>
+<p>A complete solver, that can use any family of bases (Chebyshev, Legendre, Jacobi, Chebyshev second kind),
+and any kind of boundary condition, can be found <a class="reference external" href="https://github.com/spectralDNS/shenfun/blob/master/demo/poisson1D.py">here</a>.</p>
 <!-- ======= Bibliography ======= -->
 <ol class="simple">
 <li><p><a id="shen1"></a> <strong>J. Shen</strong>.  Efficient Spectral-Galerkin Method I. Direct Solvers of Second- and Fourth-Order Equations Using Legendre Polynomials, <em>SIAM Journal on Scientific Computing</em>, 15(6), pp. 1489-1505, <a class="reference external" href="https://dx.doi.org/10.1137/0915089">doi: 10.1137/0915089</a>, 1994.</p></li>
