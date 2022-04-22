@@ -2,7 +2,7 @@ name: shenfun
 channels:
   - conda-forge
 dependencies:
-  - shenfun>=3.3.0
+  - shenfun>=4.0.1
   - sympy==1.9
   - matplotlib
   - plotly
