@@ -367,15 +367,6 @@ in parallel using MPI. The Klein-Gordon equation is solved using a mixed
 formulation. The discretization, and some background on the spectral Galerkin
 method is given first, before we turn to the actual details of the <code class="docutils literal notranslate"><span class="pre">shenfun</span></code>
 implementation.</p>
-<h1 id="table_of_contents">
-<p>Table of contents</h1></p>
-<a class='toc'>
-<p><a href="#The-nonlinear-Klein-Gordon-equation"> The nonlinear Klein-Gordon equation </a></p>
-<p><a href="#sec:specgal"> Spectral Galerkin formulation </a></p>
-<p><a href="#Discretization"> Discretization </a></p>
-<p><a href="#Implementation"> Implementation </a></p>
-</a>
-<br>
 <p><a id="mov:kleingordon"></a></p>
 <!-- dom:FIGURE: [https://rawgit.com/spectralDNS/spectralutilities/master/movies/KleinGordon.gif] -->
 <!-- begin figure -->
@@ -942,8 +933,8 @@ the plotted arrays in the <code class="docutils literal notranslate"><span class
     <span class="k">if</span> <span class="n">rank</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">tstep</span> <span class="o">%</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;plot_tstep&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;plot_tstep&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">fu</span> <span class="o">=</span> <span class="n">fu_hat</span><span class="o">.</span><span class="n">backward</span><span class="p">(</span><span class="n">fu</span><span class="p">)</span>
         <span class="n">f</span><span class="p">,</span> <span class="n">u</span> <span class="o">=</span> <span class="n">fu</span><span class="p">[:]</span>
-        <span class="n">image</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
-        <span class="n">image</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">u</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">N</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">//</span><span class="mi">2</span><span class="p">],</span> <span class="mi">100</span><span class="p">)</span>
+        <span class="n">image</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="n">image</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">u</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">N</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">//</span><span class="mi">2</span><span class="p">],</span> <span class="mi">100</span><span class="p">)</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">pause</span><span class="p">(</span><span class="mf">1e-6</span><span class="p">)</span>
         <span class="n">transformed</span> <span class="o">=</span> <span class="kc">True</span>
 

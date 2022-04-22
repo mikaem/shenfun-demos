@@ -357,15 +357,6 @@ doconce format ipynb kuramatosivashinsky.do.txt  -->
 nonlinear Kuramato-Sivashinsky equation, in a doubly periodic domain. The demo is implemented in
 a single Python file <a class="reference external" href="https://github.com/spectralDNS/shenfun/blob/master/demo/Kuramato_Sivashinsky.py">KuramatoSivashinsky.py</a>, and it may be run
 in parallel using MPI.</p>
-<h1 id="table_of_contents">
-<p>Table of contents</h1></p>
-<a class='toc'>
-<p><a href="#The-Kuramato-Sivashinsky-equation"> The Kuramato-Sivashinsky equation </a></p>
-<p><a href="#sec:spectralgalerkin"> Spectral Galerkin method </a></p>
-<p><a href="#Discretization"> Discretization </a></p>
-<p><a href="#Implementation"> Implementation </a></p>
-</a>
-<br>
 <!-- dom:FIGURE: [https://rawgit.com/spectralDNS/spectralutilities/master/movies/Kuramato_movie_128.gif] Movie showing the evolution of the solution of the Kuramato-Sivashinsky equation. -->
 <!-- begin figure -->
 <p><img src="https://rawgit.com/spectralDNS/spectralutilities/master/movies/Kuramato_movie_128.gif" ><p style="font-size: 0.9em"><i>Figure 1: Movie showing the evolution of the solution of the Kuramato-Sivashinsky equation.</i></p></p>
@@ -754,8 +745,8 @@ cool colormap:</p>
         <span class="bp">self</span><span class="o">.</span><span class="n">image</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">U</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cm</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">tstep</span> <span class="o">%</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;plot_step&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;plot_step&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">u</span> <span class="o">=</span> <span class="n">u_hat</span><span class="o">.</span><span class="n">backward</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">u</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cm</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">u</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cm</span><span class="p">)</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">pause</span><span class="p">(</span><span class="mf">1e-6</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Energy =&#39;</span><span class="p">,</span> <span class="n">dx</span><span class="p">(</span><span class="n">u</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
 </pre></div>
