@@ -2,6 +2,7 @@ name: shenfun
 channels:
   - conda-forge
 dependencies:
+  - python>=3.8
   - shenfun>=4.0.2
   - sympy==1.9
   - matplotlib
