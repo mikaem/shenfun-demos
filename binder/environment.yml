@@ -3,7 +3,7 @@ channels:
   - conda-forge
 dependencies:
   - python>=3.8
-  - shenfun>=4.0.2
+  - shenfun>=4.1.0
   - sympy==1.9
   - matplotlib
   - plotly
