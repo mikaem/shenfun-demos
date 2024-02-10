@@ -1,43 +1,59 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Demo - Lid driven cavity &#8212; Shenfun executable demos</title>
-    
-  <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    <title>Demo - Lid driven cavity &#8212; Shenfun executable demos</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script kind="utterances">
 
     var commentsRunWhenDOMLoaded = cb => {
@@ -73,7 +89,7 @@ var addUtterances = () => {
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -83,61 +99,102 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"TeX": {"Macros": {"bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}, "extensions": ["cancel.js", "AMSmath.js"]}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/drivencavity';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Demo - Rayleigh Benard" href="rayleighbenard.html" />
     <link rel="prev" title="Demo - Stokes equations" href="stokes.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
 
-    
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/seashell3.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Shenfun executable demos</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../_static/seashell3.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/seashell3.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -146,362 +203,253 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Shenfun executable demos
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Shenfun executable demos</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="poisson.html">
-   Demo - 1D Poisson’s equation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kleingordon.html">
-   Demo - Cubic nonlinear Klein-Gordon equation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="poisson3d.html">
-   Demo - 3D Poisson’s equation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="polarhelmholtz.html">
-   Demo - Helmholtz equation in polar coordinates
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="sphericalhelmholtz.html">
-   Demo - Helmholtz equation on the unit sphere
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kuramatosivashinsky.html">
-   Demo - Kuramato-Sivashinsky equation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="stokes.html">
-   Demo - Stokes equations
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Demo - Lid driven cavity
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="rayleighbenard.html">
-   Demo - Rayleigh Benard
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="functions.html">
-   Demo - Working with Functions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="surfaceintegration.html">
-   Demo - Integration of functions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="moebius.html">
-   Demo - Eigenvalues on the Möbius strip
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="mixingbases.html">
-   Demo - Mixed bases for the Helmholtz problem
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="tau.html">
-   Demo - The Tau method
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="sparsity.html">
-   Demo - Sparse Chebyshev-Petrov-Galerkin methods for differentiation
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="poisson.html">Demo - 1D Poisson’s equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kleingordon.html">Demo - Cubic nonlinear Klein-Gordon equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="poisson3d.html">Demo - 3D Poisson’s equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="polarhelmholtz.html">Demo - Helmholtz equation in polar coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sphericalhelmholtz.html">Demo - Helmholtz equation on the unit sphere</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kuramatosivashinsky.html">Demo - Kuramato-Sivashinsky equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stokes.html">Demo - Stokes equations</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Demo - Lid driven cavity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rayleighbenard.html">Demo - Rayleigh Benard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Demo - Working with Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="surfaceintegration.html">Demo - Integration of functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="moebius.html">Demo - Eigenvalues on the Möbius strip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mixingbases.html">Demo - Mixed bases for the Helmholtz problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tau.html">Demo - The Tau method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sparsity.html">Demo - Sparse Chebyshev-Petrov-Galerkin methods for differentiation</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
-          
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
 
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
 <div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
 
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/mikaem/shenfun-demos/master?urlpath=tree/content/drivencavity.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/mikaem/shenfun-demos/master?urlpath=tree/content/drivencavity.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../_static/images/logo_binder.svg">
   </span>
-<span class="headerbtn__text-container">Binder</span>
+<span class="btn__text-container">Binder</span>
 </a>
-
-      </li>
+</li>
+      
+      
+      
       
       <li>
-        
 <button onclick="initThebeSBT()"
-  class="headerbtn headerbtn-launch-thebe"
-  data-toggle="tooltip"
-data-placement="left"
-title="Launch Thebe"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-play"></i>
   </span>
-<span class="headerbtn__text-container">Live Code</span>
+<span class="btn__text-container">Live Code</span>
 </button>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+
+<a href="https://github.com/mikaem/shenfun-demos" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-<a href="https://github.com/mikaem/shenfun-demos"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="bottom"
-title="Source repository"
->
-  
-
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fab fa-github"></i>
   </span>
 
 </a>
 
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/content/drivencavity.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/content/drivencavity.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.ipynb</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
-
-      </li>
+</li>
+      
+      
+      
       
       <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file-pdf"></i>
   </span>
-<span class="headerbtn__text-container">.pdf</span>
+<span class="btn__text-container">.pdf</span>
 </button>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
   </span>
 
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#navier-stokes-equations">
-   Navier Stokes equations
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tensor-product-spaces">
-   Tensor product spaces
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mixed-variational-form">
-   Mixed variational form
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#implementation-of-solver">
-   Implementation of solver
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#complete-solver">
-   Complete solver
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Demo - Lid driven cavity</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#navier-stokes-equations">
-   Navier Stokes equations
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tensor-product-spaces">
-   Tensor product spaces
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mixed-variational-form">
-   Mixed variational form
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#implementation-of-solver">
-   Implementation of solver
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#complete-solver">
-   Complete solver
-  </a>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Demo - Lid driven cavity</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navier-stokes-equations">Navier Stokes equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tensor-product-spaces">Tensor product spaces</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mixed-variational-form">Mixed variational form</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-of-solver">Implementation of solver</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complete-solver">Complete solver</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <!-- File automatically generated using DocOnce (https://github.com/doconce/doconce/):
 doconce format ipynb drivencavity.do.txt  -->
-<div class="tex2jax_ignore mathjax_ignore section" id="demo-lid-driven-cavity">
-<h1>Demo - Lid driven cavity<a class="headerlink" href="#demo-lid-driven-cavity" title="Permalink to this headline">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="demo-lid-driven-cavity">
+<h1>Demo - Lid driven cavity<a class="headerlink" href="#demo-lid-driven-cavity" title="Permalink to this heading">#</a></h1>
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
 <p>Date: <strong>May 6, 2019</strong></p>
 <p><strong>Summary.</strong> The lid driven cavity is a classical benchmark for Navier Stokes solvers.
@@ -521,19 +469,19 @@ the corner discontinuities.</p>
 <!-- begin figure -->
 <p><a id="fig:drivencavity"></a></p>
 <p><img src="https://raw.githack.com/spectralDNS/spectralutilities/master/figures/DrivenCavity.png" ><p style="font-size: 0.9em"><i>Figure 1: Velocity vectors for the lid driven cavity at Reynolds number 100.</i></p></p>
-<!-- end figure --><div class="section" id="navier-stokes-equations">
-<h2>Navier Stokes equations<a class="headerlink" href="#navier-stokes-equations" title="Permalink to this headline">#</a></h2>
+<!-- end figure --><section id="navier-stokes-equations">
+<h2>Navier Stokes equations<a class="headerlink" href="#navier-stokes-equations" title="Permalink to this heading">#</a></h2>
 <p><a id="demo:navierstokes"></a></p>
 <p>The nonlinear steady Navier Stokes equations are given in strong form as</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align*}
 \nu \nabla^2 \boldsymbol{u} - \nabla p &amp;= \nabla \cdot \boldsymbol{u} \boldsymbol{u} \quad \text{in }  \Omega , \\ 
-\nabla \cdot \boldsymbol{u} &amp;= 0 \quad \text{in } \Omega  \\ 
-\int_{\Omega} p dx &amp;= 0 \\ 
-\boldsymbol{u}(x, y=1) = (1, 0) \, &amp;\text{ or }\, \boldsymbol{u}(x, y=1) = ((1-x)^2(1+x)^2, 0) \\ 
-\boldsymbol{u}(x, y=-1) &amp;= (0, 0) \\ 
-\boldsymbol{u}(x=\pm 1, y) &amp;= (0, 0)
+\nabla \cdot \boldsymbol{u} &amp;= 0 \quad \text{in } \Omega,  \\ 
+\int_{\Omega} p dx &amp;= 0, \\ 
+\boldsymbol{u}(x, y=1) = (1, 0) \, &amp;\text{ or }\, \boldsymbol{u}(x, y=1) = ((1-x)^2(1+x)^2, 0), \\ 
+\boldsymbol{u}(x, y=-1) &amp;= (0, 0), \\ 
+\boldsymbol{u}(x=\pm 1, y) &amp;= (0, 0),
 \end{align*}
 \end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\boldsymbol{u}, p\)</span> and <span class="math notranslate nohighlight">\(\nu\)</span> are, respectively, the
@@ -560,9 +508,9 @@ functionality</p>
 <p>Note that MPI for Python (<a class="reference external" href="https://bitbucket.org/mpi4py/mpi4py">mpi4py</a>)
 is a requirement for shenfun, but the current solver cannot be used with more
 than one processor.</p>
-</div>
-<div class="section" id="tensor-product-spaces">
-<h2>Tensor product spaces<a class="headerlink" href="#tensor-product-spaces" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="tensor-product-spaces">
+<h2>Tensor product spaces<a class="headerlink" href="#tensor-product-spaces" title="Permalink to this heading">#</a></h2>
 <p><a id="sec:bases"></a></p>
 <p>With the Galerkin method we need function spaces for both velocity and
 pressure, as well as for the
@@ -610,8 +558,8 @@ Legendre polynomials (we could also use Chebyshev):</p>
 <p>where <span class="math notranslate nohighlight">\(\boldsymbol{k}^{N_0-2} = (0, 1, \ldots, N_0-3)\)</span>, <span class="math notranslate nohighlight">\(\boldsymbol{l}^{N_1-2} = (0, 1, \ldots, N_1-3)\)</span>
 and <span class="math notranslate nohighlight">\(N = (N_0, N_1)\)</span> is the number
 of quadrature points in each direction. Note that <span class="math notranslate nohighlight">\(N_0\)</span> and <span class="math notranslate nohighlight">\(N_1\)</span> do not need
-to be the same. The basis funciton (<a class="reference external" href="#eq:D0">3</a>) satisfies
-the homogeneous Dirichlet boundary conditions at <span class="math notranslate nohighlight">\(x=\pm 1\)</span> and (<a class="reference external" href="#eq:D1">4</a>) the same
+to be the same. The basis funciton (<span class="xref myst">3</span>) satisfies
+the homogeneous Dirichlet boundary conditions at <span class="math notranslate nohighlight">\(x=\pm 1\)</span> and (<span class="xref myst">4</span>) the same
 at <span class="math notranslate nohighlight">\(y=\pm 1\)</span>. As such, the basis function <span class="math notranslate nohighlight">\(v_{kl}(x, y)\)</span> satisfies the homogeneous Dirichlet boundary
 condition for the entire domain.</p>
 <p>With shenfun we create these homogeneous spaces, <span class="math notranslate nohighlight">\(D_0^{N_0}(x)=\text{span}\{L_k-L_{k+2}\}_{k=0}^{N_0-2}\)</span> and
@@ -673,7 +621,7 @@ using both additional basis functions. We create the space
 </div>
 </div>
 </div>
-<p>where <code class="docutils literal notranslate"><span class="pre">bc=(1,</span> <span class="pre">0)</span></code> fixes the values for <span class="math notranslate nohighlight">\(y=1\)</span> and <span class="math notranslate nohighlight">\(y=-1\)</span>, respectively.
+<p>where <code class="docutils literal notranslate"><span class="pre">bc=(0,</span> <span class="pre">1)</span></code> fixes the values for <span class="math notranslate nohighlight">\(y=-1\)</span> and <span class="math notranslate nohighlight">\(y=1\)</span>, respectively.
 For a regularized lid driven cavity the velocity of the top lid is
 <span class="math notranslate nohighlight">\((1-x)^2(1+x)^2\)</span> and not unity. To implement this boundary condition
 instead, we can make use of <a class="reference external" href="https://www.sympy.org">sympy</a> and
@@ -757,7 +705,14 @@ P^{\boldsymbol{N}}(\boldsymbol{x}) = P^{N_0}(x) \otimes P^{N_1}(y).
 </div>
 </div>
 </div>
-<p>These tensor product spaces are all scalar valued.
+<p>where <code class="docutils literal notranslate"><span class="pre">modify_spaces_inplace=True</span></code> makes use of <code class="docutils literal notranslate"><span class="pre">PX</span></code> and
+<code class="docutils literal notranslate"><span class="pre">PY</span></code> directly. These spaces have now been modified to fit in
+the TensorProductSpace <code class="docutils literal notranslate"><span class="pre">P</span></code>, along two different directions and as such
+the original spaces have been modified. The default behavior in shenfun
+is to make copies of the 1D spaces under the hood, and thus leave <code class="docutils literal notranslate"><span class="pre">PX</span></code>
+and <code class="docutils literal notranslate"><span class="pre">PY</span></code> untouched. In that case the two new and modified spaces would be accessible
+from <code class="docutils literal notranslate"><span class="pre">P.bases</span></code>.</p>
+<p>Note that all these tensor product spaces are scalar valued.
 The velocity is a vector, and a vector requires a mixed vector basis like
 <span class="math notranslate nohighlight">\(W_1^{\boldsymbol{N}} = V_1^{\boldsymbol{N}} \times V_0^{\boldsymbol{N}}\)</span>. The vector basis is created
 in shenfun as</p>
@@ -771,9 +726,9 @@ in shenfun as</p>
 </div>
 <p>Note that the second vector basis, <span class="math notranslate nohighlight">\(W_0^{\boldsymbol{N}} = V_0^{\boldsymbol{N}} \times V_0^{\boldsymbol{N}}\)</span>, uses
 homogeneous boundary conditions throughout.</p>
-</div>
-<div class="section" id="mixed-variational-form">
-<h2>Mixed variational form<a class="headerlink" href="#mixed-variational-form" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="mixed-variational-form">
+<h2>Mixed variational form<a class="headerlink" href="#mixed-variational-form" title="Permalink to this heading">#</a></h2>
 <p><a id="sec:mixedform"></a></p>
 <p>We now formulate a variational problem using the
 Galerkin method: Find
@@ -797,7 +752,7 @@ Galerkin method: Find
 \]</div>
 <p>Note that we are using test functions <span class="math notranslate nohighlight">\(\boldsymbol{v}\)</span> with homogeneous
 boundary conditions.</p>
-<p>The first obvious issue with Eq (<a class="reference external" href="#eq:nsvarform">11</a>) is the nonlinearity.
+<p>The first obvious issue with Eq (<span class="xref myst">11</span>) is the nonlinearity.
 In other words we will
 need to linearize and iterate to be able to solve these equations with
 the Galerkin method. To this end we will introduce the solution on
@@ -877,9 +832,9 @@ an iteration loop.</p>
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="implementation-of-solver">
-<h2>Implementation of solver<a class="headerlink" href="#implementation-of-solver" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="implementation-of-solver">
+<h2>Implementation of solver<a class="headerlink" href="#implementation-of-solver" title="Permalink to this heading">#</a></h2>
 <p>We will now implement the coupled variational problem described in previous
 sections. First of all, since we want to solve for the velocity and pressure
 in a coupled solver, we have to
@@ -971,7 +926,7 @@ Notice that the sum over the second
 index runs all the way to <span class="math notranslate nohighlight">\(N_1-1\)</span>, whereas the other indices runs to either
 <span class="math notranslate nohighlight">\(N_0-3\)</span> or <span class="math notranslate nohighlight">\(N_1-3\)</span>. This is because of the additional basis functions required
 for the inhomogeneous boundary condition.</p>
-<p>Inserting for these basis functions into (<a class="reference external" href="#eq:partialeq1">18</a>), we obtain after a few trivial
+<p>Inserting for these basis functions into (<span class="xref myst">18</span>), we obtain after a few trivial
 manipulations</p>
 <!-- Equation labels as ordinary links -->
 <p><a id="_auto14"></a></p>
@@ -1136,25 +1091,25 @@ ensures that the pressure integrates to zero, i.e., <span class="math notranslat
 Here the number 2 tells us that block component 2 in the mixed space
 (the pressure) should be integrated, dof 0 should be fixed, and it
 should be fixed to 0.</p>
-<p>The last three lines plots velocity vectors, like also seen in the <a class="reference external" href="#fig:drivencavity">figure 1</a>
+<p>The last three lines plots velocity vectors, like also seen in the <span class="xref myst">figure 1</span>
 in the top of this demo. The solution is apparently nice
 and smooth, but hidden underneath are Gibbs oscillations from the
 corner discontinuities. This is painfully obvious when switching from
 Legendre to Chebyshev polynomials. With Chebyshev the same plot looks
-like the <a class="reference external" href="#fig:drivencavitycheb">Figure 2</a> below. However, choosing instead the
+like the <span class="xref myst">Figure 2</span> below. However, choosing instead the
 regularized lid, with no discontinuities, the solutions will be nice and
 smooth, both for Legendre and Chebyshev polynomials.</p>
 <!-- dom:FIGURE: [https://raw.githack.com/spectralDNS/spectralutilities/master/figures/DrivenCavityCheb.png] Velocity vectors for Re=100 using Chebyshev.   <a id="fig:drivencavitycheb"></a> -->
 <!-- begin figure -->
 <p><a id="fig:drivencavitycheb"></a></p>
 <p><img src="https://raw.githack.com/spectralDNS/spectralutilities/master/figures/DrivenCavityCheb.png" ><p style="font-size: 0.9em"><i>Figure 2: Velocity vectors for Re=100 using Chebyshev.</i></p></p>
-<!-- end figure --></div>
-<div class="section" id="complete-solver">
-<h2>Complete solver<a class="headerlink" href="#complete-solver" title="Permalink to this headline">#</a></h2>
+<!-- end figure --></section>
+<section id="complete-solver">
+<h2>Complete solver<a class="headerlink" href="#complete-solver" title="Permalink to this heading">#</a></h2>
 <p><a id="sec:nscomplete"></a></p>
 <p>A complete solver can be found in demo <a class="reference external" href="https://github.com/spectralDNS/shenfun/blob/master/demo/NavierStokesDrivenCavity.py">NavierStokesDrivenCavity.py</a>.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1176,50 +1131,105 @@ smooth, both for Legendre and Chebyshev polynomials.</p>
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="stokes.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Demo - Stokes equations</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="stokes.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Demo - Stokes equations</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="rayleighbenard.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="rayleighbenard.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Demo - Rayleigh Benard</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navier-stokes-equations">Navier Stokes equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tensor-product-spaces">Tensor product spaces</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mixed-variational-form">Mixed variational form</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-of-solver">Implementation of solver</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complete-solver">Complete solver</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By Mikael Mortensen<br/>
-  
-      &copy; Copyright 2023.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+<p class="component-author">
+By Mikael Mortensen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
 </div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

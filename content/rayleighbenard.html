@@ -1,43 +1,59 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Demo - Rayleigh Benard &#8212; Shenfun executable demos</title>
-    
-  <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    <title>Demo - Rayleigh Benard &#8212; Shenfun executable demos</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script kind="utterances">
 
     var commentsRunWhenDOMLoaded = cb => {
@@ -73,7 +89,7 @@ var addUtterances = () => {
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -83,61 +99,102 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"TeX": {"Macros": {"bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}, "extensions": ["cancel.js", "AMSmath.js"]}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/rayleighbenard';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Demo - Working with Functions" href="functions.html" />
     <link rel="prev" title="Demo - Lid driven cavity" href="drivencavity.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
 
-    
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/seashell3.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Shenfun executable demos</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../_static/seashell3.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/seashell3.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -146,376 +203,256 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Shenfun executable demos
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Shenfun executable demos</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="poisson.html">
-   Demo - 1D Poisson’s equation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kleingordon.html">
-   Demo - Cubic nonlinear Klein-Gordon equation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="poisson3d.html">
-   Demo - 3D Poisson’s equation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="polarhelmholtz.html">
-   Demo - Helmholtz equation in polar coordinates
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="sphericalhelmholtz.html">
-   Demo - Helmholtz equation on the unit sphere
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kuramatosivashinsky.html">
-   Demo - Kuramato-Sivashinsky equation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="stokes.html">
-   Demo - Stokes equations
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="drivencavity.html">
-   Demo - Lid driven cavity
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Demo - Rayleigh Benard
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="functions.html">
-   Demo - Working with Functions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="surfaceintegration.html">
-   Demo - Integration of functions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="moebius.html">
-   Demo - Eigenvalues on the Möbius strip
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="mixingbases.html">
-   Demo - Mixed bases for the Helmholtz problem
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="tau.html">
-   Demo - The Tau method
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="sparsity.html">
-   Demo - Sparse Chebyshev-Petrov-Galerkin methods for differentiation
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="poisson.html">Demo - 1D Poisson’s equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kleingordon.html">Demo - Cubic nonlinear Klein-Gordon equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="poisson3d.html">Demo - 3D Poisson’s equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="polarhelmholtz.html">Demo - Helmholtz equation in polar coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sphericalhelmholtz.html">Demo - Helmholtz equation on the unit sphere</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kuramatosivashinsky.html">Demo - Kuramato-Sivashinsky equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stokes.html">Demo - Stokes equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drivencavity.html">Demo - Lid driven cavity</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Demo - Rayleigh Benard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Demo - Working with Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="surfaceintegration.html">Demo - Integration of functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="moebius.html">Demo - Eigenvalues on the Möbius strip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mixingbases.html">Demo - Mixed bases for the Helmholtz problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tau.html">Demo - The Tau method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sparsity.html">Demo - Sparse Chebyshev-Petrov-Galerkin methods for differentiation</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
-          
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
 
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
 <div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
 
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/mikaem/shenfun-demos/master?urlpath=tree/content/rayleighbenard.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/mikaem/shenfun-demos/master?urlpath=tree/content/rayleighbenard.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../_static/images/logo_binder.svg">
   </span>
-<span class="headerbtn__text-container">Binder</span>
+<span class="btn__text-container">Binder</span>
 </a>
-
-      </li>
+</li>
+      
+      
+      
       
       <li>
-        
 <button onclick="initThebeSBT()"
-  class="headerbtn headerbtn-launch-thebe"
-  data-toggle="tooltip"
-data-placement="left"
-title="Launch Thebe"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-play"></i>
   </span>
-<span class="headerbtn__text-container">Live Code</span>
+<span class="btn__text-container">Live Code</span>
 </button>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+
+<a href="https://github.com/mikaem/shenfun-demos" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-<a href="https://github.com/mikaem/shenfun-demos"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="bottom"
-title="Source repository"
->
-  
-
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fab fa-github"></i>
   </span>
 
 </a>
 
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/content/rayleighbenard.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/content/rayleighbenard.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.ipynb</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
-
-      </li>
+</li>
+      
+      
+      
       
       <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file-pdf"></i>
   </span>
-<span class="headerbtn__text-container">.pdf</span>
+<span class="btn__text-container">.pdf</span>
 </button>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
   </span>
 
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-rayleigh-benard-equations">
-   The Rayleigh Bénard equations
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#temporal-discretization">
-   Temporal discretization
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#implementation">
-   Implementation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#wall-normal-velocity-equation">
-     Wall-normal velocity equation
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#streamwise-velocity">
-     Streamwise velocity
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#temperature">
-     Temperature
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Demo - Rayleigh Benard</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-rayleigh-benard-equations">
-   The Rayleigh Bénard equations
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#temporal-discretization">
-   Temporal discretization
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#implementation">
-   Implementation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#wall-normal-velocity-equation">
-     Wall-normal velocity equation
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#streamwise-velocity">
-     Streamwise velocity
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#temperature">
-     Temperature
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Demo - Rayleigh Benard</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-rayleigh-benard-equations">The Rayleigh Bénard equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#temporal-discretization">Temporal discretization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">Implementation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wall-normal-velocity-equation">Wall-normal velocity equation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#streamwise-velocity">Streamwise velocity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#temperature">Temperature</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <!-- File automatically generated using DocOnce (https://github.com/doconce/doconce/):
 doconce format ipynb rayleighbenard.do.txt  -->
-<div class="tex2jax_ignore mathjax_ignore section" id="demo-rayleigh-benard">
-<h1>Demo - Rayleigh Benard<a class="headerlink" href="#demo-rayleigh-benard" title="Permalink to this headline">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="demo-rayleigh-benard">
+<h1>Demo - Rayleigh Benard<a class="headerlink" href="#demo-rayleigh-benard" title="Permalink to this heading">#</a></h1>
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
 <p>Date: <strong>November 21, 2019</strong></p>
 <p><strong>Summary.</strong> Rayleigh-Benard convection arise
@@ -537,8 +474,8 @@ Rayleigh number (<em>Ra</em>).</p>
 <!-- begin figure -->
 <p><a id="fig:RB"></a></p>
 <p><img src="https://raw.githack.com/spectralDNS/spectralutilities/master/movies/RB_256_512_movie_jet.png" width="800"><p style="font-size: 0.9em"><i>Figure 1: Temperature fluctuations in the Rayleigh Benard flow. The top and bottom walls are kept at different temperatures and this sets up the Rayleigh-Benard convection. The simulation is run at <em>Ra</em> =1,000,000, <em>Pr</em> =0.7 with 256 and 512 quadrature points in <em>x</em> and <em>y</em>-directions, respectively.</i></p></p>
-<!-- end figure --><div class="section" id="the-rayleigh-benard-equations">
-<h2>The Rayleigh Bénard equations<a class="headerlink" href="#the-rayleigh-benard-equations" title="Permalink to this headline">#</a></h2>
+<!-- end figure --><section id="the-rayleigh-benard-equations">
+<h2>The Rayleigh Bénard equations<a class="headerlink" href="#the-rayleigh-benard-equations" title="Permalink to this heading">#</a></h2>
 <p><a id="demo:rayleighbenard"></a></p>
 <p>The governing equations solved in domain <span class="math notranslate nohighlight">\(\Omega=[-1, 1]\times [0, 2\pi]\)</span> are</p>
 <!-- Equation labels as ordinary links -->
@@ -568,14 +505,14 @@ Rayleigh number (<em>Ra</em>).</p>
 <p>where <span class="math notranslate nohighlight">\(\boldsymbol{u}(x, y, t) (= u\boldsymbol{i} + v\boldsymbol{j})\)</span> is the velocity vector, <span class="math notranslate nohighlight">\(p(x, y, t)\)</span> is pressure, <span class="math notranslate nohighlight">\(T(x, y, t)\)</span> is the temperature, and <span class="math notranslate nohighlight">\(\boldsymbol{i}\)</span> and
 <span class="math notranslate nohighlight">\(\boldsymbol{j}\)</span> are the unity vectors for the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>-directions, respectively.</p>
 <p>The equations are complemented with boundary conditions <span class="math notranslate nohighlight">\(\boldsymbol{u}(\pm 1, y, t) = (0, 0), \boldsymbol{u}(x, 2 \pi, t) = \boldsymbol{u}(x, 0, t), T(-1, y, t) = 1, T(1, y, t) =  0, T(x, 2 \pi, t) = T(x, 0, t)\)</span>.
-Note that these equations have been non-dimensionalized according to <a class="reference external" href="#pandey18">[pandey18]</a>, using dimensionless
+Note that these equations have been non-dimensionalized according to <span class="xref myst">[pandey18]</span>, using dimensionless
 Rayleigh number <span class="math notranslate nohighlight">\(Ra=g \alpha \Delta T h^3/(\nu \kappa)\)</span> and Prandtl number <span class="math notranslate nohighlight">\(Pr=\nu/\kappa\)</span>. Here
 <span class="math notranslate nohighlight">\(g \boldsymbol{i}\)</span> is the vector accelleration of gravity, <span class="math notranslate nohighlight">\(\Delta T\)</span> is the temperature difference between
 the top and bottom walls, <span class="math notranslate nohighlight">\(h\)</span> is the hight of the channel in <span class="math notranslate nohighlight">\(x\)</span>-direction, <span class="math notranslate nohighlight">\(\nu\)</span> is the
 dynamic viscosity coefficient, <span class="math notranslate nohighlight">\(\kappa\)</span> is the heat transfer coefficient and <span class="math notranslate nohighlight">\(\alpha\)</span> is the
 thermal expansion coefficient. Note that the
 governing equations have been non-dimensionalized using the free-fall velocityscale
-<span class="math notranslate nohighlight">\(U=\sqrt{g \alpha \Delta T h}\)</span>. See <a class="reference external" href="#pandey18">[pandey18]</a> for more details.</p>
+<span class="math notranslate nohighlight">\(U=\sqrt{g \alpha \Delta T h}\)</span>. See <span class="xref myst">[pandey18]</span> for more details.</p>
 <p>The governing equations contain a non-trivial coupling between velocity, pressure and temperature.
 This coupling can be simplified by eliminating the pressure from the equation for the wall-normal velocity
 component <span class="math notranslate nohighlight">\(u\)</span>. We accomplish this by taking the Laplace of the momentum equation in wall normal
@@ -590,7 +527,7 @@ direction, using the pressure from the divergence of the momentum equation
     \frac{\partial \nabla^2 {u}}{\partial t} = \frac{\partial^2 H_y}{\partial x \partial y} - \frac{\partial^2 H_x}{\partial y\partial y}  + \sqrt{\frac{Pr}{Ra}} \nabla^4 {u}  + \frac{\partial^2 T}{\partial y^2} . \label{eq:rb:u} \tag{4}
 \end{equation}
 \]</div>
-<p>This equation is solved with <span class="math notranslate nohighlight">\(u(\pm 1) = \partial u/\partial x(\pm 1) = 0\)</span>, where the latter follows from the
+<p>This equation is solved with <span class="math notranslate nohighlight">\(u(\pm 1,y,t) = \partial u/\partial x(\pm 1,y,t) = 0\)</span>, where the latter follows from the
 divergence constraint. In summary, we now seem to have the following equations to solve:</p>
 <!-- Equation labels as ordinary links -->
 <p><a id="eq:rb:u2"></a></p>
@@ -624,11 +561,11 @@ divergence constraint. In summary, we now seem to have the following equations t
     \nabla \cdot \boldsymbol{u} = 0 \label{eq:div2} \tag{8}.
 \end{equation}
 \]</div>
-<p>However, we note that Eqs. (<a class="reference external" href="#eq:rb:u2">5</a>) and (<a class="reference external" href="#eq:T2">7</a>) and (<a class="reference external" href="#eq:div2">8</a>) do not depend on pressure, and,
-apparently, on each time step we can solve (<a class="reference external" href="#eq:rb:u2">5</a>) for <span class="math notranslate nohighlight">\(u\)</span>, then (<a class="reference external" href="#eq:div2">8</a>) for <span class="math notranslate nohighlight">\(v\)</span> and finally (<a class="reference external" href="#eq:T2">7</a>) for <span class="math notranslate nohighlight">\(T\)</span>.
-So what do we need (<a class="reference external" href="#eq:v">6</a>) for? It appears to have become redundant from the elimination of the
-pressure from Eq. (<a class="reference external" href="#eq:rb:u2">5</a>). It turns out that this is actually almost completely true, but
-(<a class="reference external" href="#eq:rb:u2">5</a>), (<a class="reference external" href="#eq:T2">7</a>) and (<a class="reference external" href="#eq:div2">8</a>) can only provide closure for all but one of the
+<p>However, we note that Eqs. (<span class="xref myst">5</span>) and (<span class="xref myst">7</span>) and (<span class="xref myst">8</span>) do not depend on pressure, and,
+apparently, on each time step we can solve (<span class="xref myst">5</span>) for <span class="math notranslate nohighlight">\(u\)</span>, then (<span class="xref myst">8</span>) for <span class="math notranslate nohighlight">\(v\)</span> and finally (<span class="xref myst">7</span>) for <span class="math notranslate nohighlight">\(T\)</span>.
+So what do we need (<span class="xref myst">6</span>) for? It appears to have become redundant from the elimination of the
+pressure from Eq. (<span class="xref myst">5</span>). It turns out that this is actually almost completely true, but
+(<span class="xref myst">5</span>), (<span class="xref myst">7</span>) and (<span class="xref myst">8</span>) can only provide closure for all but one of the
 Fourier coefficients. To see this it is necessary to introduce some discretization and basis functions
 that will be used to solve the problem. To this end we use <span class="math notranslate nohighlight">\(P_N\)</span>, which is the set of all real polynomials
 of degree less than or equal to N and introduce the following finite-dimensional approximation spaces</p>
@@ -681,7 +618,7 @@ Chebyshev polynomials. For the Fourier space the basis functions are already giv
 of basis as an implementation option for later. For now we use <span class="math notranslate nohighlight">\(\phi^B(x), \phi^D(x), \phi^W\)</span> and <span class="math notranslate nohighlight">\(\phi^T(x)\)</span>
 as common notation for basis functions in spaces <span class="math notranslate nohighlight">\(V_N^B, V_N^D, V_N^W\)</span> and <span class="math notranslate nohighlight">\(V_N^T\)</span>, respectively.</p>
 <p>To get the required approximation spaces for the entire domain we use tensor products of the
-one-dimensional spaces in (<a class="reference external" href="#eq:VB">9</a>)-(<a class="reference external" href="#eq:VF">13</a>)</p>
+one-dimensional spaces in (<span class="xref myst">9</span>)-(<span class="xref myst">13</span>)</p>
 <!-- Equation labels as ordinary links -->
 <p><a id="eq:WBF"></a></p>
 <div class="math notranslate nohighlight">
@@ -762,10 +699,10 @@ and similar for <span class="math notranslate nohighlight">\(\hat{v}_{kl}, \hat{
 solving for only the positive <span class="math notranslate nohighlight">\(l\)</span>’s, as long as we remember that the sum in the end goes over both positive
 and negative <span class="math notranslate nohighlight">\(l's\)</span>. This is actually automatically taken care of by the FFT provider and is
 not much of an additional complexity in the implementation. So from now on <span class="math notranslate nohighlight">\(\boldsymbol{l} = \{0, 1, \ldots, M/2\}\)</span>.</p>
-<p>We can now take a look at why Eq. (<a class="reference external" href="#eq:v">6</a>) is needed. If we first solve (<a class="reference external" href="#eq:rb:u2">5</a>) for
-<span class="math notranslate nohighlight">\(\hat{u}_{kl}(t), (k, l) \in \boldsymbol{k}_B \times \boldsymbol{l}\)</span>, then we can use (<a class="reference external" href="#eq:div2">8</a>) to
+<p>We can now take a look at why Eq. (<span class="xref myst">6</span>) is needed. If we first solve (<span class="xref myst">5</span>) for
+<span class="math notranslate nohighlight">\(\hat{u}_{kl}(t), (k, l) \in \boldsymbol{k}_B \times \boldsymbol{l}\)</span>, then we can use (<span class="xref myst">8</span>) to
 solve for <span class="math notranslate nohighlight">\(\hat{v}_{kl}(t)\)</span>. But here there is a problem. We can see this by creating the variational
-form required to solve (<a class="reference external" href="#eq:div2">8</a>) by the spectral Galerkin method. To this end make <span class="math notranslate nohighlight">\(v=v_N\)</span> in (<a class="reference external" href="#eq:div2">8</a>)
+form required to solve (<span class="xref myst">8</span>) by the spectral Galerkin method. To this end make <span class="math notranslate nohighlight">\(v=v_N\)</span> in (<span class="xref myst">8</span>)
 a trial function, use <span class="math notranslate nohighlight">\(u=u_N\)</span> a known function and take the weighted inner product over the
 domain using test function <span class="math notranslate nohighlight">\(q \in W_{DF}\)</span></p>
 <!-- Equation labels as ordinary links -->
@@ -840,10 +777,10 @@ we get the following equation</p>
 <p>We see that this equation can be solved for
 <span class="math notranslate nohighlight">\(\hat{v}_{kl} \text{ for } (k, l) \in \boldsymbol{k}_D \times [1, 2, \ldots, M/2]\)</span>, but try with
 <span class="math notranslate nohighlight">\(l=0\)</span> and you hit division by zero, which obviously is not allowed. And this is the reason
-why Eq. (<a class="reference external" href="#eq:v">6</a>) is still needed, to solve for <span class="math notranslate nohighlight">\(\hat{v}_{k,0}\)</span>! Fortunately,
+why Eq. (<span class="xref myst">6</span>) is still needed, to solve for <span class="math notranslate nohighlight">\(\hat{v}_{k,0}\)</span>! Fortunately,
 since <span class="math notranslate nohighlight">\(\exp(\imath 0 y) = 1\)</span>, the pressure derivative <span class="math notranslate nohighlight">\(\frac{\partial p}{\partial y} = 0\)</span>,
 and as such the pressure is still not required. When used only for
-Fourier coefficient 0, Eq. (<a class="reference external" href="#eq:v">6</a>) becomes</p>
+Fourier coefficient 0, Eq. (<span class="xref myst">6</span>) becomes</p>
 <!-- Equation labels as ordinary links -->
 <p><a id="eq:vx"></a></p>
 <div class="math notranslate nohighlight">
@@ -852,7 +789,7 @@ Fourier coefficient 0, Eq. (<a class="reference external" href="#eq:v">6</a>) be
 \frac{\partial v}{\partial t} + N_y = \sqrt{\frac{Pr}{Ra}} \frac{\partial^2 v}{\partial x^2}. \label{eq:vx} \tag{27}
 \end{equation}
 \]</div>
-<p>There is still one more revelation to be made from Eq. (<a class="reference external" href="#eq:div3">26</a>). When <span class="math notranslate nohighlight">\(l=0\)</span> we get</p>
+<p>There is still one more revelation to be made from Eq. (<span class="xref myst">26</span>). When <span class="math notranslate nohighlight">\(l=0\)</span> we get</p>
 <!-- Equation labels as ordinary links -->
 <p><a id="_auto9"></a></p>
 <div class="math notranslate nohighlight">
@@ -863,8 +800,8 @@ Fourier coefficient 0, Eq. (<a class="reference external" href="#eq:v">6</a>) be
 \end{equation}
 \]</div>
 <p>which is trivially satisfied if <span class="math notranslate nohighlight">\(\hat{u}_{k,0}=0\)</span> for <span class="math notranslate nohighlight">\(k\in\boldsymbol{k}_B\)</span>. Bottom line is
-that we only need to solve Eq. (<a class="reference external" href="#eq:rb:u2">5</a>) for <span class="math notranslate nohighlight">\(l \in \boldsymbol{l}/\{0\}\)</span>, whereas we can use</p>
-<p>directly <span class="math notranslate nohighlight">\(\hat{u}_{k,0}=0 \text{ for } k \in \boldsymbol{k}_B\)</span>.</p>
+that we only need to solve Eq. (<span class="xref myst">5</span>) for <span class="math notranslate nohighlight">\(l \in \boldsymbol{l}/\{0\}\)</span>, whereas we can use
+directly <span class="math notranslate nohighlight">\(\hat{u}_{k,0}=0 \text{ for } k \in \boldsymbol{k}_B\)</span>.</p>
 <p>To sum up, with the solution known at <span class="math notranslate nohighlight">\(t = t - \Delta t\)</span>, we solve</p>
 <table class="table table-striped table-hover table-condensed">
 <colgroup>
@@ -881,9 +818,9 @@ that we only need to solve Eq. (<a class="reference external" href="#eq:rb:u2">5
 <tr><td style="text-align:center">   (<a class="reference external" href="#eq:vx">27</a>)        </td> <td style="text-align:center">       $\hat{v}_{kl}(t)$    </td> <td style="text-align:center">       $(k, l) \in \boldsymbol{k}_D \times \{0\}$                   </td> </tr>
 <tr><td style="text-align:center">   (<a class="reference external" href="#eq:T2">7</a>)        </td> <td style="text-align:center">       $\hat{T}_{kl}(t)$    </td> <td style="text-align:center">       $(k, l) \in \boldsymbol{k}_T \times \boldsymbol{l}$          </td> </tr>
 </tbody>
-</table></div>
-<div class="section" id="temporal-discretization">
-<h2>Temporal discretization<a class="headerlink" href="#temporal-discretization" title="Permalink to this headline">#</a></h2>
+</table></section>
+<section id="temporal-discretization">
+<h2>Temporal discretization<a class="headerlink" href="#temporal-discretization" title="Permalink to this heading">#</a></h2>
 <p>The governing equations are integrated in time using any one of the time steppers available in
 shenfun. There are several possible IMEX Runge Kutta methods, see <a class="reference external" href="https://github.com/spectralDNS/shenfun/blob/master/shenfun/utilities/integrators.py">integrators.py</a>.
 The time steppers are used for any generic equation</p>
@@ -901,11 +838,11 @@ linear algebra solvers, and solvers are then further assembled under the hood.</
 <p>All the timesteppers split one time step into one or several stages.
 The classes <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.utilities.html#shenfun.utilities.integrators.IMEXRK222">IMEXRK222</a>, <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.utilities.html#shenfun.utilities.integrators.IMEXRK3">IMEXRK3</a> and <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.utilities.html#shenfun.utilities.integrators.IMEXRK443">IMEXRK443</a>
 have 2, 3 and 4 steps, respectively, and the cost is proportional.</p>
-</div>
-<div class="section" id="implementation">
-<h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="implementation">
+<h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this heading">#</a></h2>
 <p>To get started we need instances of the approximation spaces discussed in
-Eqs. (<a class="reference external" href="#eq:VB">9</a>) - (<a class="reference external" href="#eq:WWF">17</a>). When the spaces are created we also need
+Eqs. (<span class="xref myst">9</span>) - (<span class="xref myst">17</span>). When the spaces are created we also need
 to specify the family and the dimension of each space. Here we simply
 choose Chebyshev and Fourier with 100 and 256 quadrature points in <span class="math notranslate nohighlight">\(x\)</span> and
 <span class="math notranslate nohighlight">\(y\)</span>-directions, respectively. We could replace ‘Chebyshev’ by ‘Legendre’,
@@ -925,7 +862,7 @@ but the former is known to be faster due to the existence of fast transforms.</p
 </div>
 </div>
 </div>
-<p>And then we create tensor product spaces by combining these bases (like in Eqs. (<a class="reference external" href="#eq:WBF">14</a>)-(<a class="reference external" href="#eq:WWF">17</a>)).</p>
+<p>And then we create tensor product spaces by combining these bases (like in Eqs. (<span class="xref myst">14</span>)-(<span class="xref myst">17</span>)).</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">W_BF</span> <span class="o">=</span> <span class="n">TensorProductSpace</span><span class="p">(</span><span class="n">comm</span><span class="p">,</span> <span class="p">(</span><span class="n">VB</span><span class="p">,</span> <span class="n">VF</span><span class="p">))</span>    <span class="c1"># Wall-normal velocity</span>
@@ -956,9 +893,9 @@ segregated approach outlined above.</p>
 </div>
 </div>
 </div>
-<div class="section" id="wall-normal-velocity-equation">
-<h3>Wall-normal velocity equation<a class="headerlink" href="#wall-normal-velocity-equation" title="Permalink to this headline">#</a></h3>
-<p>We implement Eq. (<a class="reference external" href="#eq:rb:u2">5</a>) using a generic time stepper.
+<section id="wall-normal-velocity-equation">
+<h3>Wall-normal velocity equation<a class="headerlink" href="#wall-normal-velocity-equation" title="Permalink to this heading">#</a></h3>
+<p>We implement Eq. (<span class="xref myst">5</span>) using a generic time stepper.
 To this end we first need to declare some test- and trial functions, as well as
 some model constants and the length of the time step. We store the
 PDE time stepper in a dictionary called <code class="docutils literal notranslate"><span class="pre">pdes</span></code> just for convenience:</p>
@@ -991,7 +928,7 @@ PDE time stepper in a dictionary called <code class="docutils literal notranslat
 </div>
 </div>
 </div>
-<p>Notice the one-to-one resemblance with (<a class="reference external" href="#eq:rb:u2">5</a>).</p>
+<p>Notice the one-to-one resemblance with (<span class="xref myst">5</span>).</p>
 <p>The right hand side depends on the convection vector <span class="math notranslate nohighlight">\(\boldsymbol{H}\)</span>, which can be computed in many different ways.
 Here we will make use of
 the identity <span class="math notranslate nohighlight">\((\boldsymbol{u} \cdot \nabla) \boldsymbol{u} = -\boldsymbol{u} \times (\nabla \times \boldsymbol{u}) + 0.5 \nabla\boldsymbol{u} \cdot \boldsymbol{u}\)</span>,
@@ -1019,10 +956,10 @@ The velocity is simply transformed backwards with padding.</p>
 </div>
 <p>Note that the convection has a homogeneous Dirichlet boundary condition in the
 non-periodic direction.</p>
-</div>
-<div class="section" id="streamwise-velocity">
-<h3>Streamwise velocity<a class="headerlink" href="#streamwise-velocity" title="Permalink to this headline">#</a></h3>
-<p>The streamwise velocity is computed using Eq. (<a class="reference external" href="#eq:div3">26</a>) and (<a class="reference external" href="#eq:vx">27</a>).
+</section>
+<section id="streamwise-velocity">
+<h3>Streamwise velocity<a class="headerlink" href="#streamwise-velocity" title="Permalink to this heading">#</a></h3>
+<p>The streamwise velocity is computed using Eq. (<span class="xref myst">26</span>) and (<span class="xref myst">27</span>).
 The first part is done fastest by projecting <span class="math notranslate nohighlight">\(f=\frac{\partial u}{\partial x}\)</span>
 to the same Dirichlet space <code class="docutils literal notranslate"><span class="pre">W_DF</span></code> used by <span class="math notranslate nohighlight">\(v\)</span>. This is most efficiently
 done by creating a class to do it</p>
@@ -1033,7 +970,7 @@ done by creating a class to do it</p>
 </div>
 </div>
 </div>
-<p>Since <span class="math notranslate nohighlight">\(f\)</span> now is in the same space as the streamwise velocity, Eq. (<a class="reference external" href="#eq:div3">26</a>)
+<p>Since <span class="math notranslate nohighlight">\(f\)</span> now is in the same space as the streamwise velocity, Eq. (<span class="xref myst">26</span>)
 simplifies to</p>
 <!-- Equation labels as ordinary links -->
 <p><a id="eq:fdiv"></a></p>
@@ -1063,7 +1000,7 @@ simplifies to</p>
 </div>
 </div>
 </div>
-<p>which leaves only <span class="math notranslate nohighlight">\(\hat{v}_{k0}\)</span>. For this we use (<a class="reference external" href="#eq:vx">27</a>) and get</p>
+<p>which leaves only <span class="math notranslate nohighlight">\(\hat{v}_{k0}\)</span>. For this we use (<span class="xref myst">27</span>) and get</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v00</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">VD</span><span class="p">)</span>
@@ -1096,10 +1033,10 @@ simplifies to</p>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="temperature">
-<h3>Temperature<a class="headerlink" href="#temperature" title="Permalink to this headline">#</a></h3>
-<p>The temperature equation (<a class="reference external" href="#eq:T">2</a>) is implemented using a Helmholtz solver.
+</section>
+<section id="temperature">
+<h3>Temperature<a class="headerlink" href="#temperature" title="Permalink to this heading">#</a></h3>
+<p>The temperature equation (<span class="xref myst">2</span>) is implemented using a Helmholtz solver.
 The main difficulty with the temperature is the non-homogeneous boundary
 condition that requires special attention. A non-zero Dirichlet boundary
 condition is implemented by adding two basis functions to the
@@ -1177,8 +1114,8 @@ T_N(-1, y, t) = \sum_{k=N-2}^{N-1} \sum_{l \in \boldsymbol{l}} \hat{T}_{kl} \phi
               = \sum_{l \in \boldsymbol{l}} \hat{T}_{N-1, l} \exp(\imath l y). \label{eq:TN1} \tag{39}
 \end{equation}
 \]</div>
-<p>We find <span class="math notranslate nohighlight">\(\hat{T}_{N-2, l}\)</span> and <span class="math notranslate nohighlight">\(\hat{T}_{N-1, l}\)</span> using orthogonality. Multiply (<a class="reference external" href="#eq:TN0">37</a>) and
-(<a class="reference external" href="#eq:TN1">39</a>) by <span class="math notranslate nohighlight">\(\exp(-\imath m y)\)</span> and integrate over the domain <span class="math notranslate nohighlight">\([0, 2\pi]\)</span>. We get</p>
+<p>We find <span class="math notranslate nohighlight">\(\hat{T}_{N-2, l}\)</span> and <span class="math notranslate nohighlight">\(\hat{T}_{N-1, l}\)</span> using orthogonality. Multiply (<span class="xref myst">37</span>) and
+(<span class="xref myst">39</span>) by <span class="math notranslate nohighlight">\(\exp(-\imath m y)\)</span> and integrate over the domain <span class="math notranslate nohighlight">\([0, 2\pi]\)</span>. We get</p>
 <!-- Equation labels as ordinary links -->
 <p><a id="_auto17"></a></p>
 <div class="math notranslate nohighlight">
@@ -1273,12 +1210,12 @@ for the hot wall. And the solver can also be configured to store intermediate re
 an <code class="docutils literal notranslate"><span class="pre">HDF5</span></code> format that later can be visualized in, e.g., Paraview. The movie in the
 beginning of this demo has been created in Paraview.</p>
 <!-- ======= Bibliography ======= -->
-<ol class="simple">
+<ol class="arabic simple">
 <li><p><a id="pandey18"></a> <strong>A. Pandey, J. D. Scheel and J. Schumacher</strong>.  Turbulent Superstructures in Rayleigh-B’enard Convection, <em>Nature Communications</em>, 9(1), pp. 2118, <a class="reference external" href="https://dx.doi.org/10.1038/s41467-018-04478-0">doi: 10.1038/s41467-018-04478-0</a>, 2018.</p></li>
 </ol>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1300,50 +1237,108 @@ beginning of this demo has been created in Paraview.</p>
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="drivencavity.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Demo - Lid driven cavity</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="drivencavity.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Demo - Lid driven cavity</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="functions.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="functions.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Demo - Working with Functions</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-rayleigh-benard-equations">The Rayleigh Bénard equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#temporal-discretization">Temporal discretization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">Implementation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wall-normal-velocity-equation">Wall-normal velocity equation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#streamwise-velocity">Streamwise velocity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#temperature">Temperature</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By Mikael Mortensen<br/>
-  
-      &copy; Copyright 2023.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+<p class="component-author">
+By Mikael Mortensen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
 </div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

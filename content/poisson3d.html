@@ -1,43 +1,59 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Demo - 3D Poisson’s equation &#8212; Shenfun executable demos</title>
-    
-  <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    <title>Demo - 3D Poisson’s equation &#8212; Shenfun executable demos</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script kind="utterances">
 
     var commentsRunWhenDOMLoaded = cb => {
@@ -73,7 +89,7 @@ var addUtterances = () => {
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -83,61 +99,102 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"TeX": {"Macros": {"bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}, "extensions": ["cancel.js", "AMSmath.js"]}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/poisson3d';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Demo - Helmholtz equation in polar coordinates" href="polarhelmholtz.html" />
     <link rel="prev" title="Demo - Cubic nonlinear Klein-Gordon equation" href="kleingordon.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
 
-    
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/seashell3.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Shenfun executable demos</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../_static/seashell3.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/seashell3.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -146,435 +203,277 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Shenfun executable demos
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Shenfun executable demos</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="poisson.html">
-   Demo - 1D Poisson’s equation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kleingordon.html">
-   Demo - Cubic nonlinear Klein-Gordon equation
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Demo - 3D Poisson’s equation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="polarhelmholtz.html">
-   Demo - Helmholtz equation in polar coordinates
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="sphericalhelmholtz.html">
-   Demo - Helmholtz equation on the unit sphere
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kuramatosivashinsky.html">
-   Demo - Kuramato-Sivashinsky equation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="stokes.html">
-   Demo - Stokes equations
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="drivencavity.html">
-   Demo - Lid driven cavity
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="rayleighbenard.html">
-   Demo - Rayleigh Benard
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="functions.html">
-   Demo - Working with Functions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="surfaceintegration.html">
-   Demo - Integration of functions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="moebius.html">
-   Demo - Eigenvalues on the Möbius strip
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="mixingbases.html">
-   Demo - Mixed bases for the Helmholtz problem
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="tau.html">
-   Demo - The Tau method
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="sparsity.html">
-   Demo - Sparse Chebyshev-Petrov-Galerkin methods for differentiation
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="poisson.html">Demo - 1D Poisson’s equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kleingordon.html">Demo - Cubic nonlinear Klein-Gordon equation</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Demo - 3D Poisson’s equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="polarhelmholtz.html">Demo - Helmholtz equation in polar coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sphericalhelmholtz.html">Demo - Helmholtz equation on the unit sphere</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kuramatosivashinsky.html">Demo - Kuramato-Sivashinsky equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stokes.html">Demo - Stokes equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drivencavity.html">Demo - Lid driven cavity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rayleighbenard.html">Demo - Rayleigh Benard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Demo - Working with Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="surfaceintegration.html">Demo - Integration of functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="moebius.html">Demo - Eigenvalues on the Möbius strip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mixingbases.html">Demo - Mixed bases for the Helmholtz problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tau.html">Demo - The Tau method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sparsity.html">Demo - Sparse Chebyshev-Petrov-Galerkin methods for differentiation</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
-          
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
 
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
 <div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
 
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/mikaem/shenfun-demos/master?urlpath=tree/content/poisson3d.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/mikaem/shenfun-demos/master?urlpath=tree/content/poisson3d.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../_static/images/logo_binder.svg">
   </span>
-<span class="headerbtn__text-container">Binder</span>
+<span class="btn__text-container">Binder</span>
 </a>
-
-      </li>
+</li>
+      
+      
+      
       
       <li>
-        
 <button onclick="initThebeSBT()"
-  class="headerbtn headerbtn-launch-thebe"
-  data-toggle="tooltip"
-data-placement="left"
-title="Launch Thebe"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-play"></i>
   </span>
-<span class="headerbtn__text-container">Live Code</span>
+<span class="btn__text-container">Live Code</span>
 </button>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+
+<a href="https://github.com/mikaem/shenfun-demos" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-<a href="https://github.com/mikaem/shenfun-demos"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="bottom"
-title="Source repository"
->
-  
-
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fab fa-github"></i>
   </span>
 
 </a>
 
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/content/poisson3d.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/content/poisson3d.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.ipynb</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
-
-      </li>
+</li>
+      
+      
+      
       
       <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file-pdf"></i>
   </span>
-<span class="headerbtn__text-container">.pdf</span>
+<span class="btn__text-container">.pdf</span>
 </button>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
   </span>
 
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#poisson-s-equation">
-   Poisson’s equation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#method-of-manufactured-solutions">
-     Method of manufactured solutions
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#implementation">
-   Implementation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#preamble">
-     Preamble
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#manufactured-solution">
-     Manufactured solution
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#discretization-and-mpi">
-     Discretization and MPI
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#variational-formulation">
-     Variational formulation
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#solve-linear-equations">
-     Solve linear equations
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#convergence-test">
-     Convergence test
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#complete-solver">
-   Complete solver
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Demo - 3D Poisson’s equation</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#poisson-s-equation">
-   Poisson’s equation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#method-of-manufactured-solutions">
-     Method of manufactured solutions
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#implementation">
-   Implementation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#preamble">
-     Preamble
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#manufactured-solution">
-     Manufactured solution
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#discretization-and-mpi">
-     Discretization and MPI
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#variational-formulation">
-     Variational formulation
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#solve-linear-equations">
-     Solve linear equations
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#convergence-test">
-     Convergence test
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#complete-solver">
-   Complete solver
-  </a>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Demo - 3D Poisson’s equation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#poisson-s-equation">Poisson’s equation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#method-of-manufactured-solutions">Method of manufactured solutions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">Implementation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preamble">Preamble</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manufactured-solution">Manufactured solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discretization-and-mpi">Discretization and MPI</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variational-formulation">Variational formulation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-linear-equations">Solve linear equations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convergence-test">Convergence test</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complete-solver">Complete solver</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <!-- File automatically generated using DocOnce (https://github.com/doconce/doconce/):
 doconce format ipynb poisson3d.do.txt  -->
-<div class="tex2jax_ignore mathjax_ignore section" id="demo-3d-poisson-s-equation">
-<h1>Demo - 3D Poisson’s equation<a class="headerlink" href="#demo-3d-poisson-s-equation" title="Permalink to this headline">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="demo-3d-poisson-s-equation">
+<h1>Demo - 3D Poisson’s equation<a class="headerlink" href="#demo-3d-poisson-s-equation" title="Permalink to this heading">#</a></h1>
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
 <p>Date: <strong>April 13, 2018</strong></p>
 <p><strong>Summary.</strong> This is a demonstration of how the Python module <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a> can be used to solve a 3D Poisson
 equation in a 3D tensor product domain that has homogeneous Dirichlet boundary
 conditions in one direction and periodicity in the
 remaining two. The solver described runs with MPI without any further
-considerations required from the user. Spectral convergence, as shown in <a class="reference external" href="#fig:3d:ct0">Figure 1</a>, is demonstrated.
+considerations required from the user. Spectral convergence, as shown in <span class="xref myst">Figure 1</span>, is demonstrated.
 The demo is implemented in slightly more generic terms (more boundary conditions) in
-<a class="reference external" href="https://github.com/spectralDNS/shenfun/blob/master/demo/poisson3D.py">poisson3D.py</a>, and the numerical method is is described in more detail by J. Shen <a class="reference external" href="#shen1">[shen1]</a> and <a class="reference external" href="#shen95">[shen95]</a>.</p>
+<a class="reference external" href="https://github.com/spectralDNS/shenfun/blob/master/demo/poisson3D.py">poisson3D.py</a>, and the numerical method is is described in more detail by J. Shen <span class="xref myst">[shen1]</span> and <span class="xref myst">[shen95]</span>.</p>
 <!-- dom:FIGURE: [https://rawgit.com/spectralDNS/spectralutilities/master/figures/poisson3D_errornorm.png] Convergence of 3D Poisson solvers for both Legendre and Chebyshev modified basis function. <a id="fig:3d:ct0"></a> -->
 <!-- begin figure -->
 <p><a id="fig:3d:ct0"></a></p>
 <p><img src="https://rawgit.com/spectralDNS/spectralutilities/master/figures/poisson3D_errornorm.png" ><p style="font-size: 0.9em"><i>Figure 1: Convergence of 3D Poisson solvers for both Legendre and Chebyshev modified basis function.</i></p></p>
-<!-- end figure --><div class="section" id="poisson-s-equation">
-<h2>Poisson’s equation<a class="headerlink" href="#poisson-s-equation" title="Permalink to this headline">#</a></h2>
+<!-- end figure --><section id="poisson-s-equation">
+<h2>Poisson’s equation<a class="headerlink" href="#poisson-s-equation" title="Permalink to this heading">#</a></h2>
 <p><a id="demo:poisson3d"></a></p>
 <p>Poisson’s equation is given as</p>
 <!-- Equation labels as ordinary links -->
@@ -614,9 +513,8 @@ u(x, y, 2\pi) = u(x, y, 0),
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(u(\boldsymbol{x})\)</span> is the solution and <span class="math notranslate nohighlight">\(f(\boldsymbol{x})\)</span> is a function. The domain
 <span class="math notranslate nohighlight">\(\Omega = [-1, 1]\times [0, 2\pi]^2\)</span>.</p>
-<p>To solve Eq. (<a class="reference external" href="#eq:3d:poisson">1</a>) with the Galerkin method we need smooth basis
-functions, <span class="math notranslate nohighlight">\(v(\boldsymbol{x})\)</span>, that live
-in the Hilbert space <span class="math notranslate nohighlight">\(H^1(\Omega)\)</span> and that satisfy the given boundary
+<p>To solve Eq. (<span class="xref myst">1</span>) with the Galerkin method we will make use of
+smooth basis functions, <span class="math notranslate nohighlight">\(v(\boldsymbol{x})\)</span>, that satisfy the given boundary
 conditions. To this end we will use one basis function for the <span class="math notranslate nohighlight">\(x\)</span>-direction,
 <span class="math notranslate nohighlight">\(\mathcal{X}(x)\)</span>,
 one for the <span class="math notranslate nohighlight">\(y\)</span>-direction, <span class="math notranslate nohighlight">\(\mathcal{Y}(y)\)</span>, and one for the <span class="math notranslate nohighlight">\(z\)</span>-direction,
@@ -753,8 +651,10 @@ The weighted integrals, weighted by <span class="math notranslate nohighlight">\
 \end{equation}
 \]</div>
 <p>The integral can either be computed exactly, or with quadrature. The advantage
-of the latter is that it is generally faster, and that non-linear terms may be
-computed just as quickly as linear. For a linear problem, it does not make much of a difference, if any at all. Approximating the integral with quadrature, we obtain</p>
+of the latter is that it is faster (through Fast Fourier transforms),
+and that non-linear terms may be computed just as quickly as linear.
+For a linear problem, it does not make much of a difference, if any at all.
+Approximating the integral with quadrature, we obtain</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align*}
@@ -766,12 +666,12 @@ computed just as quickly as linear. For a linear problem, it does not make much 
 <p>where <span class="math notranslate nohighlight">\(w(\boldsymbol{x})\)</span> now are the quadrature weights. The quadrature points
 <span class="math notranslate nohighlight">\(\{x_i\}_{i=0}^{N_0-1}\)</span> are specific to the chosen basis, and even within basis there
 are two different choices based on which quadrature rule is selected, either
-Gauss or Gauss-Lobatto. The quadrature points for the Fourier bases are the
-uniform <span class="math notranslate nohighlight">\(\{y_j\}_{j=0}^{N_1-1}=2\pi j / N_1\)</span> and <span class="math notranslate nohighlight">\(\{z_k\}_{k=0}^{N_2-1} = 2 \pi
-k/N_2\)</span>.</p>
-<p>Inserting for test function (<a class="reference external" href="#eq:3d:u">12</a>) and trialfunction
+Gauss or Gauss-Lobatto. The quadrature points for the Fourier bases are simply
+uniformly distributed throughout the domain.</p>
+<p>Inserting for test function (<span class="xref myst">12</span>) and trialfunction
 <span class="math notranslate nohighlight">\(v_{pqr} = \mathcal{X}_{p} \mathcal{Y}_q \mathcal{Z}_r\)</span> on the
-left hand side of (<a class="reference external" href="#eq:3d:varform">14</a>), we get</p>
+left hand side of (<span class="xref myst">14</span>), we get (with summation on repeated indices
+to avoid too much clutter)</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align*}
@@ -780,7 +680,7 @@ left hand side of (<a class="reference external" href="#eq:3d:varform">14</a>), 
 \mathcal{X}_{l} \mathcal{Y}_m \mathcal{Z}_n,
 \mathcal{X}_{p} \mathcal{Y}_q \mathcal{Z}_r \right\rangle_w^{\boldsymbol{N}}, \\ 
     &amp;= \left[\left(\mathcal{X}_l^{''}, \mathcal{X}_p \right)_w^N - (m^2+n^2)\left(\mathcal{X}_l, \mathcal{X}_p \right)_w^N  \right]\delta_{mq} \delta_{nr} \hat{u}_{lmn}, \\ 
-    &amp;= \left( a_{pl} - (m^2 + n^2)b_{pl}\right) \hat{u}_{lqr},
+    &amp;= \left( a_{pl} - (m^2 + n^2)b_{pl}\right) \hat{u}_{lqr}, \quad \forall (p,q,r) \in \boldsymbol{k},
 \end{align*}
 \end{split}\]</div>
 <p>where the notation <span class="math notranslate nohighlight">\((\cdot, \cdot)_w^{N_0}\)</span></p>
@@ -794,7 +694,7 @@ b_{pl} = \left( \mathcal{X}_l, \mathcal{X}_p \right)_w^{N_0} = \sum_{i=0}^{N_0-1
 \label{_auto13} \tag{16}
 \end{equation}
 \]</div>
-<p>is used to represent an <span class="math notranslate nohighlight">\(L_2\)</span> inner product along only the first, nonperiodic,
+<p>is used to represent a discrete <span class="math notranslate nohighlight">\(L_2\)</span> inner product along only the first, nonperiodic,
 direction. The delta functions above come from integrating over the two periodic
 directions, where we use constant weight functions <span class="math notranslate nohighlight">\(w=1/(2\pi)\)</span> in the
 inner products</p>
@@ -816,7 +716,7 @@ inner products</p>
 \]</div>
 <p>The Kronecker delta-function <span class="math notranslate nohighlight">\(\delta_{ij}\)</span> is one for <span class="math notranslate nohighlight">\(i=j\)</span> and
 zero otherwise.</p>
-<p>The right hand side of Eq. (<a class="reference external" href="#eq:3d:varform">14</a>) is computed as</p>
+<p>The right hand side of Eq. (<span class="xref myst">14</span>) is computed as</p>
 <!-- Equation labels as ordinary links -->
 <p><a id="_auto14"></a></p>
 <div class="math notranslate nohighlight">
@@ -836,22 +736,22 @@ be found as follows</p>
 <div class="math notranslate nohighlight">
 \[
 \begin{equation}
-\left(a_{lj} - (m^2+n^2)b_{lj}\right) \hat{u}_{jmn} =
+\left(a_{lp} - (m^2+n^2)b_{lp}\right) \hat{u}_{pmn} =
 \tilde{f}_{lmn}\quad \forall \, (l,m,n) \in \boldsymbol{k}. \label{eq:AB} \tag{20}
 \end{equation}
 \]</div>
 <p>Now, when <span class="math notranslate nohighlight">\(\hat{\boldsymbol{u}} = \{\hat{u}_{\boldsymbol{\textsf{k}}}\}_{\boldsymbol{\textsf{k}} \in \boldsymbol{k}}\)</span> is
 found by solving this linear system over the
 entire computational mesh, it may be
-transformed to real space <span class="math notranslate nohighlight">\(u(\boldsymbol{x})\)</span> using (<a class="reference external" href="#eq:3d:u">12</a>). Note that the matrices
+transformed to real space <span class="math notranslate nohighlight">\(u(\boldsymbol{x})\)</span> using (<span class="xref myst">12</span>). Note that the matrices
 <span class="math notranslate nohighlight">\(A \in \mathbb{R}^{N_0-2 \times N_0-2}\)</span> and <span class="math notranslate nohighlight">\(B \in \mathbb{R}^{N_0-2 \times N_0-2}\)</span>
 differ for Legendre or Chebyshev bases, but
 for either case they have a
 special structure that allows for a solution to be found very efficiently
 in the order of <span class="math notranslate nohighlight">\(\mathcal{O}(N_0-3)\)</span> operations given <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span>, see
-<a class="reference external" href="#shen1">[shen1]</a> and <a class="reference external" href="#shen95">[shen95]</a>. Fast solvers for (<a class="reference external" href="#eq:AB">20</a>) are implemented in <code class="docutils literal notranslate"><span class="pre">shenfun</span></code> for both bases.</p>
-<div class="section" id="method-of-manufactured-solutions">
-<h3>Method of manufactured solutions<a class="headerlink" href="#method-of-manufactured-solutions" title="Permalink to this headline">#</a></h3>
+<span class="xref myst">[shen1]</span> and <span class="xref myst">[shen95]</span>. Fast solvers for (<span class="xref myst">20</span>) are implemented in <code class="docutils literal notranslate"><span class="pre">shenfun</span></code> for both bases.</p>
+<section id="method-of-manufactured-solutions">
+<h3>Method of manufactured solutions<a class="headerlink" href="#method-of-manufactured-solutions" title="Permalink to this heading">#</a></h3>
 <p>In this demo we will use the method of manufactured
 solutions to demonstrate spectral accuracy of the <code class="docutils literal notranslate"><span class="pre">shenfun</span></code> bases. To
 this end we choose a smooth analytical function that satisfies the given boundary
@@ -877,12 +777,12 @@ u_e(x, y, z) = \left(\cos(4x) + \sin(2y) + \sin(4z)\right)(1-x^2). \label{eq:3d:
 <p>Now, setting <span class="math notranslate nohighlight">\(f_e(\boldsymbol{x}) = \nabla^2 u_e(\boldsymbol{x})\)</span> and solving for <span class="math notranslate nohighlight">\(\nabla^2
 u(\boldsymbol{x}) = f_e(\boldsymbol{x})\)</span>, we can compare the numerical solution <span class="math notranslate nohighlight">\(u(\boldsymbol{x})\)</span> with
 the analytical solution <span class="math notranslate nohighlight">\(u_e(\boldsymbol{x})\)</span> and compute error norms.</p>
-</div>
-</div>
-<div class="section" id="implementation">
-<h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">#</a></h2>
-<div class="section" id="preamble">
-<h3>Preamble<a class="headerlink" href="#preamble" title="Permalink to this headline">#</a></h3>
+</section>
+</section>
+<section id="implementation">
+<h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this heading">#</a></h2>
+<section id="preamble">
+<h3>Preamble<a class="headerlink" href="#preamble" title="Permalink to this heading">#</a></h3>
 <p>We will solve the Poisson problem using the <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a> Python module. The first thing needed
 is then to import some of this module’s functionality
 plus some other helper modules, like <a class="reference external" href="https://numpy.org">Numpy</a> and <a class="reference external" href="https://sympy.org">Sympy</a>:</p>
@@ -899,9 +799,9 @@ plus some other helper modules, like <a class="reference external" href="https:/
 </div>
 <p>We use <code class="docutils literal notranslate"><span class="pre">Sympy</span></code> for the manufactured solution and <code class="docutils literal notranslate"><span class="pre">Numpy</span></code> for testing. MPI for
 Python (<code class="docutils literal notranslate"><span class="pre">mpi4py</span></code>) is required for running the solver with MPI.</p>
-</div>
-<div class="section" id="manufactured-solution">
-<h3>Manufactured solution<a class="headerlink" href="#manufactured-solution" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="manufactured-solution">
+<h3>Manufactured solution<a class="headerlink" href="#manufactured-solution" title="Permalink to this heading">#</a></h3>
 <p>The exact solution <span class="math notranslate nohighlight">\(u_e(x, y, z)\)</span> and the right hand side <span class="math notranslate nohighlight">\(f_e(x, y, z)\)</span> are created using <code class="docutils literal notranslate"><span class="pre">Sympy</span></code> as follows</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
@@ -920,12 +820,12 @@ discretize, using the computational mesh</p>
 \]</div>
 <p>and a finite number of basis functions.</p>
 <p>Note that it is not mandatory to use <code class="docutils literal notranslate"><span class="pre">Sympy</span></code> for the manufactured solution. Since the
-solution is known (<a class="reference external" href="#eq:3d:solution">22</a>), we could just as well simply use <code class="docutils literal notranslate"><span class="pre">Numpy</span></code>
+solution is known (<span class="xref myst">22</span>), we could just as well simply use <code class="docutils literal notranslate"><span class="pre">Numpy</span></code>
 to compute <span class="math notranslate nohighlight">\(f_e\)</span>. However, with <code class="docutils literal notranslate"><span class="pre">Sympy</span></code> it is much
 easier to experiment and quickly change the solution.</p>
-</div>
-<div class="section" id="discretization-and-mpi">
-<h3>Discretization and MPI<a class="headerlink" href="#discretization-and-mpi" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="discretization-and-mpi">
+<h3>Discretization and MPI<a class="headerlink" href="#discretization-and-mpi" title="Permalink to this heading">#</a></h3>
 <p>We create three function spaces with given size, one for each dimension of the problem.
 From these three spaces a <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.html#shenfun.tensorproductspace.TensorProductSpace">TensorProductSpace</a> is created.</p>
 <div class="cell tag_thebe-init docutils container">
@@ -1021,10 +921,10 @@ and <span class="math notranslate nohighlight">\(y\)</span>-direction in spectra
 <p>Note that the <em>slab</em> decomposition is usually the fastest choice. However, the maximum
 number of processors with <em>slab</em> is <span class="math notranslate nohighlight">\(\min \{N_0, N_1\}\)</span>, whereas a <em>pencil</em>
 approach can be used with up to <span class="math notranslate nohighlight">\(\min \{N_1(N_2/2+1), N_0 N_1\}\)</span> processors.</p>
-</div>
-<div class="section" id="variational-formulation">
-<h3>Variational formulation<a class="headerlink" href="#variational-formulation" title="Permalink to this headline">#</a></h3>
-<p>The variational problem (<a class="reference external" href="#eq:3d:varform">14</a>) can be assembled using <code class="docutils literal notranslate"><span class="pre">shenfun</span></code>’s
+</section>
+<section id="variational-formulation">
+<h3>Variational formulation<a class="headerlink" href="#variational-formulation" title="Permalink to this heading">#</a></h3>
+<p>The variational problem (<span class="xref myst">14</span>) can be assembled using <code class="docutils literal notranslate"><span class="pre">shenfun</span></code>’s
 form language, which is perhaps surprisingly similar to FEniCS.</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
@@ -1047,7 +947,7 @@ The two tensor product matrices represents</p>
 \[
 a_{pl} \delta_{mq} \delta_{nr}\, \text{ and }\, -(m^2 + n^2)b_{pl} \delta_{mq} \delta_{nr}
 \]</div>
-<p>from Eqs. (<a class="reference external" href="#eq:AB">20</a>), (<a class="reference external" href="#eq:delta0">17</a>) and (<a class="reference external" href="#eq:delta1">18</a>).
+<p>from Eqs. (<span class="xref myst">20</span>), (<span class="xref myst">17</span>) and (<span class="xref myst">18</span>).
 The second matrix (<span class="math notranslate nohighlight">\(-(m^2 + n^2)b_{pl} \delta_{mq} \delta_{nr}\)</span>) has an
 attribute <code class="docutils literal notranslate"><span class="pre">scale</span></code> that is equal to <span class="math notranslate nohighlight">\(-(m^2+n^2)\)</span>.
 This <code class="docutils literal notranslate"><span class="pre">scale</span></code> is stored as a numpy array of shape <span class="math notranslate nohighlight">\((1, 15, 9)\)</span>, representing the set
@@ -1055,9 +955,9 @@ This <code class="docutils literal notranslate"><span class="pre">scale</span></
 simply as an array of length <span class="math notranslate nohighlight">\(N_2/2+1\)</span> (here 9), since the transform in direction <span class="math notranslate nohighlight">\(z\)</span>
 takes a real signal and transforms it taking advantage of Hermitian symmetry,
 see <a class="reference external" href="https://docs.scipy.org/doc/numpy-1.13.0/reference/generated/numpy.fft.rfft.html">rfft</a>.</p>
-</div>
-<div class="section" id="solve-linear-equations">
-<h3>Solve linear equations<a class="headerlink" href="#solve-linear-equations" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="solve-linear-equations">
+<h3>Solve linear equations<a class="headerlink" href="#solve-linear-equations" title="Permalink to this heading">#</a></h3>
 <p>Finally, solve linear equation system and transform solution from spectral
 <span class="math notranslate nohighlight">\(\hat{u}_{\boldsymbol{\textsf{k}}}\)</span> vector to the real space <span class="math notranslate nohighlight">\(u(\boldsymbol{x})\)</span> and then check how the solution corresponds with the exact solution <span class="math notranslate nohighlight">\(u_e\)</span>.</p>
 <div class="cell tag_thebe-init docutils container">
@@ -1081,9 +981,9 @@ see <a class="reference external" href="https://docs.scipy.org/doc/numpy-1.13.0/
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="convergence-test">
-<h3>Convergence test<a class="headerlink" href="#convergence-test" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="convergence-test">
+<h3>Convergence test<a class="headerlink" href="#convergence-test" title="Permalink to this heading">#</a></h3>
 <p>To do a convergence test we will now create a function <code class="docutils literal notranslate"><span class="pre">main</span></code>, that takes the
 number of quadrature points as parameter, and prints out
 the error.</p>
@@ -1175,20 +1075,20 @@ figure is also shown in this demos summary.</p>
 </div>
 <p>The spectral convergence is evident and we can see that
 after <span class="math notranslate nohighlight">\(N=24\)</span> roundoff errors dominate as the errornorm trails off around <span class="math notranslate nohighlight">\(10^{-14}\)</span>.</p>
-</div>
-</div>
-<div class="section" id="complete-solver">
-<h2>Complete solver<a class="headerlink" href="#complete-solver" title="Permalink to this headline">#</a></h2>
+</section>
+</section>
+<section id="complete-solver">
+<h2>Complete solver<a class="headerlink" href="#complete-solver" title="Permalink to this heading">#</a></h2>
 <p><a id="sec:complete"></a></p>
 <p>A complete solver, that can use any family of bases (Chebyshev, Legendre, Jacobi, Chebyshev second kind),
 and any kind of boundary condition, can be found <a class="reference external" href="https://github.com/spectralDNS/shenfun/blob/master/demo/poisson3D.py">here</a>.</p>
 <!-- ======= Bibliography ======= -->
-<ol class="simple">
+<ol class="arabic simple">
 <li><p><a id="shen1"></a> <strong>J. Shen</strong>.  Efficient Spectral-Galerkin Method I. Direct Solvers of Second- and Fourth-Order Equations Using Legendre Polynomials, <em>SIAM Journal on Scientific Computing</em>, 15(6), pp. 1489-1505, <a class="reference external" href="https://dx.doi.org/10.1137/0915089">doi: 10.1137/0915089</a>, 1994.</p></li>
 <li><p><a id="shen95"></a> <strong>J. Shen</strong>.  Efficient Spectral-Galerkin Method II. Direct Solvers of Second- and Fourth-Order Equations Using Chebyshev Polynomials, <em>SIAM Journal on Scientific Computing</em>, 16(1), pp. 74-87, <a class="reference external" href="https://dx.doi.org/10.1137/0916006">doi: 10.1137/0916006</a>, 1995.</p></li>
 </ol>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1210,50 +1110,114 @@ and any kind of boundary condition, can be found <a class="reference external" h
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="kleingordon.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Demo - Cubic nonlinear Klein-Gordon equation</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="kleingordon.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Demo - Cubic nonlinear Klein-Gordon equation</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="polarhelmholtz.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="polarhelmholtz.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Demo - Helmholtz equation in polar coordinates</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#poisson-s-equation">Poisson’s equation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#method-of-manufactured-solutions">Method of manufactured solutions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">Implementation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preamble">Preamble</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manufactured-solution">Manufactured solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discretization-and-mpi">Discretization and MPI</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variational-formulation">Variational formulation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-linear-equations">Solve linear equations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convergence-test">Convergence test</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complete-solver">Complete solver</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By Mikael Mortensen<br/>
-  
-      &copy; Copyright 2023.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+<p class="component-author">
+By Mikael Mortensen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
 </div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

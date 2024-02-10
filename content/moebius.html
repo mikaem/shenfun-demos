@@ -1,43 +1,59 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Demo - Eigenvalues on the Möbius strip &#8212; Shenfun executable demos</title>
-    
-  <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    <title>Demo - Eigenvalues on the Möbius strip &#8212; Shenfun executable demos</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script kind="utterances">
 
     var commentsRunWhenDOMLoaded = cb => {
@@ -73,7 +89,7 @@ var addUtterances = () => {
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -83,61 +99,102 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"TeX": {"Macros": {"bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}, "extensions": ["cancel.js", "AMSmath.js"]}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/moebius';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Demo - Mixed bases for the Helmholtz problem" href="mixingbases.html" />
     <link rel="prev" title="Demo - Integration of functions" href="surfaceintegration.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
 
-    
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/seashell3.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Shenfun executable demos</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../_static/seashell3.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/seashell3.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -146,342 +203,251 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Shenfun executable demos
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Shenfun executable demos</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="poisson.html">
-   Demo - 1D Poisson’s equation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kleingordon.html">
-   Demo - Cubic nonlinear Klein-Gordon equation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="poisson3d.html">
-   Demo - 3D Poisson’s equation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="polarhelmholtz.html">
-   Demo - Helmholtz equation in polar coordinates
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="sphericalhelmholtz.html">
-   Demo - Helmholtz equation on the unit sphere
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kuramatosivashinsky.html">
-   Demo - Kuramato-Sivashinsky equation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="stokes.html">
-   Demo - Stokes equations
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="drivencavity.html">
-   Demo - Lid driven cavity
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="rayleighbenard.html">
-   Demo - Rayleigh Benard
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="functions.html">
-   Demo - Working with Functions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="surfaceintegration.html">
-   Demo - Integration of functions
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Demo - Eigenvalues on the Möbius strip
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="mixingbases.html">
-   Demo - Mixed bases for the Helmholtz problem
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="tau.html">
-   Demo - The Tau method
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="sparsity.html">
-   Demo - Sparse Chebyshev-Petrov-Galerkin methods for differentiation
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="poisson.html">Demo - 1D Poisson’s equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kleingordon.html">Demo - Cubic nonlinear Klein-Gordon equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="poisson3d.html">Demo - 3D Poisson’s equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="polarhelmholtz.html">Demo - Helmholtz equation in polar coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sphericalhelmholtz.html">Demo - Helmholtz equation on the unit sphere</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kuramatosivashinsky.html">Demo - Kuramato-Sivashinsky equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stokes.html">Demo - Stokes equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drivencavity.html">Demo - Lid driven cavity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rayleighbenard.html">Demo - Rayleigh Benard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Demo - Working with Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="surfaceintegration.html">Demo - Integration of functions</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Demo - Eigenvalues on the Möbius strip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mixingbases.html">Demo - Mixed bases for the Helmholtz problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tau.html">Demo - The Tau method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sparsity.html">Demo - Sparse Chebyshev-Petrov-Galerkin methods for differentiation</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
-          
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
 
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
 <div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
 
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/mikaem/shenfun-demos/master?urlpath=tree/content/moebius.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/mikaem/shenfun-demos/master?urlpath=tree/content/moebius.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../_static/images/logo_binder.svg">
   </span>
-<span class="headerbtn__text-container">Binder</span>
+<span class="btn__text-container">Binder</span>
 </a>
-
-      </li>
+</li>
+      
+      
+      
       
       <li>
-        
 <button onclick="initThebeSBT()"
-  class="headerbtn headerbtn-launch-thebe"
-  data-toggle="tooltip"
-data-placement="left"
-title="Launch Thebe"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-play"></i>
   </span>
-<span class="headerbtn__text-container">Live Code</span>
+<span class="btn__text-container">Live Code</span>
 </button>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+
+<a href="https://github.com/mikaem/shenfun-demos" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-<a href="https://github.com/mikaem/shenfun-demos"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="bottom"
-title="Source repository"
->
-  
-
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fab fa-github"></i>
   </span>
 
 </a>
 
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/content/moebius.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/content/moebius.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.ipynb</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
-
-      </li>
+</li>
+      
+      
+      
       
       <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file-pdf"></i>
   </span>
-<span class="headerbtn__text-container">.pdf</span>
+<span class="btn__text-container">.pdf</span>
 </button>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
   </span>
 
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-mobius-strip">
-   The Möbius strip
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-laplace-beltrami-operator">
-   The Laplace Beltrami operator
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#implementation">
-   Implementation
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Demo - Eigenvalues on the Möbius strip</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-mobius-strip">
-   The Möbius strip
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-laplace-beltrami-operator">
-   The Laplace Beltrami operator
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#implementation">
-   Implementation
-  </a>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Demo - Eigenvalues on the Möbius strip</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-mobius-strip">The Möbius strip</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-laplace-beltrami-operator">The Laplace Beltrami operator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">Implementation</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <!-- File automatically generated using DocOnce (https://github.com/doconce/doconce/):
 doconce format ipynb moebius.do.txt  -->
-<div class="tex2jax_ignore mathjax_ignore section" id="demo-eigenvalues-on-the-mobius-strip">
-<h1>Demo - Eigenvalues on the Möbius strip<a class="headerlink" href="#demo-eigenvalues-on-the-mobius-strip" title="Permalink to this headline">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="demo-eigenvalues-on-the-mobius-strip">
+<h1>Demo - Eigenvalues on the Möbius strip<a class="headerlink" href="#demo-eigenvalues-on-the-mobius-strip" title="Permalink to this heading">#</a></h1>
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
 <p>Date: <strong>October 15, 2020</strong></p>
 <p><strong>Summary.</strong> This is a demonstration of how the Python module <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a> can be used to
@@ -492,11 +458,11 @@ is shown in the figure below, read on to see how it was computed.</p>
 <!-- dom:FIGURE: [https://cdn.jsdelivr.net/gh/spectralDNS/spectralutilities@master/figures/moebius8_trans.png] -->
 <!-- begin figure -->
 <p><img src="https://cdn.jsdelivr.net/gh/spectralDNS/spectralutilities@master/figures/moebius8_trans.png" ><p style="font-size: 0.9em"><i>Figure 1</i></p></p>
-<!-- end figure --><div class="section" id="the-mobius-strip">
-<h2>The Möbius strip<a class="headerlink" href="#the-mobius-strip" title="Permalink to this headline">#</a></h2>
+<!-- end figure --><section id="the-mobius-strip">
+<h2>The Möbius strip<a class="headerlink" href="#the-mobius-strip" title="Permalink to this heading">#</a></h2>
 <p>A Möbius strip is the simplest non-orientable surface embedded in
 <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>. There are several realizations possible, and we
-will here consider the one parametrized by <a class="reference external" href="#Kalvoda2020">[Kalvoda2020]</a></p>
+will here consider the one parametrized by <span class="xref myst">[Kalvoda2020]</span></p>
 <!-- Equation labels as ordinary links -->
 <p><a id="_auto1"></a></p>
 <div class="math notranslate nohighlight">
@@ -561,7 +527,7 @@ regular periodic boundary conditions</p>
 \label{_auto6} \tag{6}
 \end{equation}
 \]</div>
-<p>will apply <a class="reference external" href="#Kalvoda2020">[Kalvoda2020]</a>, and we can discretize using Fourier
+<p>will apply <span class="xref myst">[Kalvoda2020]</span>, and we can discretize using Fourier
 exponentials in the <span class="math notranslate nohighlight">\(\theta\)</span>-direction. Since the reference domain of Fourier
 exponentials is <span class="math notranslate nohighlight">\([-\pi, \pi]\)</span> we define <span class="math notranslate nohighlight">\(\varphi = \theta /(2 R)\)</span>, such that
 the computational domain is <span class="math notranslate nohighlight">\((\varphi, t) \in \mathbb{I}^2 = [-\pi, \pi] \times [-1, 1]\)</span>,
@@ -604,16 +570,16 @@ basis can be used and we obtain a regular tensor product basis.
 The Legendre basis leads to more sparse matrices, and will be chosen
 as default, but Chebyshev also works just fine.
 Note that the same problem is
-solved by Kalvoda et al. <a class="reference external" href="#Kalvoda2020">[Kalvoda2020]</a> using a tensor product
+solved by Kalvoda et al. <span class="xref myst">[Kalvoda2020]</span> using a tensor product
 basis with Fourier exponentials for the <span class="math notranslate nohighlight">\(\theta\)</span>-direction and a mix
 of cosines and sines for the <span class="math notranslate nohighlight">\(t\)</span>-direction. Kalvoda et al. cannot
 make use of tensor product matrices and integrates using a
 two-dimensional quadrature scheme over the entire domain, leading
 to a dense matrix. We will here only use 1D quadrature and
 tensor products to get the coefficient matrix.</p>
-</div>
-<div class="section" id="the-laplace-beltrami-operator">
-<h2>The Laplace Beltrami operator<a class="headerlink" href="#the-laplace-beltrami-operator" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="the-laplace-beltrami-operator">
+<h2>The Laplace Beltrami operator<a class="headerlink" href="#the-laplace-beltrami-operator" title="Permalink to this heading">#</a></h2>
 <p>We consider the eigenvalue problem of the
 Laplace Beltrami operator by solving</p>
 <!-- Equation labels as ordinary links -->
@@ -651,9 +617,9 @@ is the position vector</p>
 \]</div>
 <p>From the position vector we compute the he covariant
 basis vectors <span class="math notranslate nohighlight">\(\mathbf{b}_i = \partial \mathbf{r} / \partial X^{i}\)</span>,
-where <span class="math notranslate nohighlight">\(\mathbf{X} = \{X^{i}\}_{i\in(1,2)} = (\varphi, t)\)</span>,
+where <span class="math notranslate nohighlight">\(\mathbf{X} = (X^{i})_{i\in(1,2)} = (\varphi, t)\)</span>,
 and get the covariant metric tensor <span class="math notranslate nohighlight">\(g_{ij}=\mathbf{b}_i \cdot \mathbf{b}_j\)</span>
-and its determinant <span class="math notranslate nohighlight">\(g = \text{det}\{g_{ij}\}\)</span>. We get</p>
+and its determinant <span class="math notranslate nohighlight">\(g = \text{det}(g_{ij})\)</span>. We get</p>
 <!-- Equation labels as ordinary links -->
 <p><a id="_auto12"></a></p>
 <div class="math notranslate nohighlight">
@@ -666,7 +632,7 @@ and its determinant <span class="math notranslate nohighlight">\(g = \text{det}\
 <p>and</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-g_{ij} =
+(g_{ij}) =
 \begin{pmatrix}
   g &amp; 0 \\ 
   0 &amp; 1
@@ -676,7 +642,7 @@ g_{ij} =
 inverse of the covariant</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-g^{ij} =
+(g^{ij}) =
 \begin{pmatrix}
   \frac{1}{g} &amp; 0 \\ 
   0 &amp; 1
@@ -739,9 +705,9 @@ where no single 1D matrix has more than 9 diagonals.</p>
 <p>Fortunately we do not have to do all this by hand since we have a
 software that automatically assembles such matrices for us.
 Now let’s see how this problem can be handled with shenfun.</p>
-</div>
-<div class="section" id="implementation">
-<h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="implementation">
+<h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this heading">#</a></h2>
 <p>First we need to create function spaces for each direction <span class="math notranslate nohighlight">\(\varphi\)</span>
 and <span class="math notranslate nohighlight">\(t\)</span>, and then a tensor product space from the two. We use the
 parametrization given above and shenfun will then automatically
@@ -867,13 +833,13 @@ bit, checking the boundary:</p>
     <span class="c1"># Check for twisted periodic</span>
     <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">tt</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">tt</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">tt</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="n">tt</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mf">1e-7</span> <span class="ow">and</span> <span class="nb">abs</span><span class="p">(</span><span class="n">dt</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">dt</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">dt</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="n">dt</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mf">1e-8</span><span class="p">:</span>
         <span class="n">eigvals</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">i</span><span class="p">,</span> <span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">real</span><span class="p">))</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Twisted eigenvalue </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">eigvals</span><span class="p">)</span><span class="si">:</span><span class="s1">2d</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="s1">2d</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">real</span><span class="si">:</span><span class="s1">2.12e</span><span class="si">}</span><span class="s1"> Error </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">Mc</span><span class="o">*</span><span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">][:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">Bc</span><span class="o">*</span><span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">][:,</span> <span class="n">i</span><span class="p">])</span><span class="si">:</span><span class="s1">2.4e</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Twisted eigenvalue </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">eigvals</span><span class="p">)</span><span class="si">:</span><span class="s1">2d</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="s1">2d</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">real</span><span class="si">:</span><span class="s1">2.12e</span><span class="si">}</span><span class="s1"> Error </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">Mc</span><span class="o">*</span><span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">][:,</span><span class="w"> </span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">Bc</span><span class="o">*</span><span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">][:,</span><span class="w"> </span><span class="n">i</span><span class="p">])</span><span class="si">:</span><span class="s1">2.4e</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <p>These are the lowest true eigenvalues of the Möbius strip.
-We note that they are very similar to Table 2 in <a class="reference external" href="#Kalvoda2020">[Kalvoda2020]</a>. We can now
+We note that they are very similar to Table 2 in <span class="xref myst">[Kalvoda2020]</span>. We can now
 plot the eigenvectors using, e.g., mayavi or plotly.
 Choose the eigenvalue number first and then the rest follows</p>
 <div class="cell tag_thebe-init docutils container">
@@ -937,11 +903,11 @@ much alike.</p>
 </div>
 </div>
 <!-- ======= Bibliography ======= -->
-<ol class="simple">
+<ol class="arabic simple">
 <li><p><a id="Kalvoda2020"></a> <strong>T. Kalvoda, D. Krejcirik and K. Zahradová</strong>.  Effective Quantum Dynamics on the Möbius Strip, <em>Journal of Physics A: Mathematical and Theoretical</em>, 53(37), pp. 375201, <a class="reference external" href="https://dx.doi.org/10.1088/1751-8121/ab8b3a">doi: 10.1088/1751-8121/ab8b3a</a>, 2020.</p></li>
 </ol>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -963,50 +929,103 @@ much alike.</p>
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="surfaceintegration.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Demo - Integration of functions</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="surfaceintegration.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Demo - Integration of functions</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="mixingbases.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="mixingbases.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Demo - Mixed bases for the Helmholtz problem</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-mobius-strip">The Möbius strip</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-laplace-beltrami-operator">The Laplace Beltrami operator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">Implementation</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By Mikael Mortensen<br/>
-  
-      &copy; Copyright 2023.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+<p class="component-author">
+By Mikael Mortensen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
 </div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

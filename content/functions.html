@@ -1,43 +1,59 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Demo - Working with Functions &#8212; Shenfun executable demos</title>
-    
-  <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    <title>Demo - Working with Functions &#8212; Shenfun executable demos</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script kind="utterances">
 
     var commentsRunWhenDOMLoaded = cb => {
@@ -73,7 +89,7 @@ var addUtterances = () => {
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -83,61 +99,102 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"TeX": {"Macros": {"bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}, "extensions": ["cancel.js", "AMSmath.js"]}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/functions';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Demo - Integration of functions" href="surfaceintegration.html" />
     <link rel="prev" title="Demo - Rayleigh Benard" href="rayleighbenard.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
 
-    
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/seashell3.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Shenfun executable demos</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../_static/seashell3.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/seashell3.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -146,398 +203,271 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Shenfun executable demos
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Shenfun executable demos</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="poisson.html">
-   Demo - 1D Poisson’s equation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kleingordon.html">
-   Demo - Cubic nonlinear Klein-Gordon equation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="poisson3d.html">
-   Demo - 3D Poisson’s equation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="polarhelmholtz.html">
-   Demo - Helmholtz equation in polar coordinates
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="sphericalhelmholtz.html">
-   Demo - Helmholtz equation on the unit sphere
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kuramatosivashinsky.html">
-   Demo - Kuramato-Sivashinsky equation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="stokes.html">
-   Demo - Stokes equations
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="drivencavity.html">
-   Demo - Lid driven cavity
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="rayleighbenard.html">
-   Demo - Rayleigh Benard
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Demo - Working with Functions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="surfaceintegration.html">
-   Demo - Integration of functions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="moebius.html">
-   Demo - Eigenvalues on the Möbius strip
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="mixingbases.html">
-   Demo - Mixed bases for the Helmholtz problem
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="tau.html">
-   Demo - The Tau method
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="sparsity.html">
-   Demo - Sparse Chebyshev-Petrov-Galerkin methods for differentiation
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="poisson.html">Demo - 1D Poisson’s equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kleingordon.html">Demo - Cubic nonlinear Klein-Gordon equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="poisson3d.html">Demo - 3D Poisson’s equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="polarhelmholtz.html">Demo - Helmholtz equation in polar coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sphericalhelmholtz.html">Demo - Helmholtz equation on the unit sphere</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kuramatosivashinsky.html">Demo - Kuramato-Sivashinsky equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stokes.html">Demo - Stokes equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drivencavity.html">Demo - Lid driven cavity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rayleighbenard.html">Demo - Rayleigh Benard</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Demo - Working with Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="surfaceintegration.html">Demo - Integration of functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="moebius.html">Demo - Eigenvalues on the Möbius strip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mixingbases.html">Demo - Mixed bases for the Helmholtz problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tau.html">Demo - The Tau method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sparsity.html">Demo - Sparse Chebyshev-Petrov-Galerkin methods for differentiation</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
-          
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
 
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
 <div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
 
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/mikaem/shenfun-demos/master?urlpath=tree/content/functions.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/mikaem/shenfun-demos/master?urlpath=tree/content/functions.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../_static/images/logo_binder.svg">
   </span>
-<span class="headerbtn__text-container">Binder</span>
+<span class="btn__text-container">Binder</span>
 </a>
-
-      </li>
+</li>
+      
+      
+      
       
       <li>
-        
 <button onclick="initThebeSBT()"
-  class="headerbtn headerbtn-launch-thebe"
-  data-toggle="tooltip"
-data-placement="left"
-title="Launch Thebe"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-play"></i>
   </span>
-<span class="headerbtn__text-container">Live Code</span>
+<span class="btn__text-container">Live Code</span>
 </button>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+
+<a href="https://github.com/mikaem/shenfun-demos" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-<a href="https://github.com/mikaem/shenfun-demos"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="bottom"
-title="Source repository"
->
-  
-
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fab fa-github"></i>
   </span>
 
 </a>
 
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/content/functions.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/content/functions.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.ipynb</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
-
-      </li>
+</li>
+      
+      
+      
       
       <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file-pdf"></i>
   </span>
-<span class="headerbtn__text-container">.pdf</span>
+<span class="btn__text-container">.pdf</span>
 </button>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
   </span>
 
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#construction">
-   Construction
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#approximating-analytical-functions">
-   Approximating analytical functions
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#adaptive-function-size">
-   Adaptive function size
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#more-features">
-   More features
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#multidimensional-functions">
-   Multidimensional functions
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#curvilinear-coordinates">
-   Curvilinear coordinates
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#adaptive-functions-in-multiple-dimensions">
-   Adaptive functions in multiple dimensions
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Demo - Working with Functions</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#construction">
-   Construction
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#approximating-analytical-functions">
-   Approximating analytical functions
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#adaptive-function-size">
-   Adaptive function size
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#more-features">
-   More features
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#multidimensional-functions">
-   Multidimensional functions
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#curvilinear-coordinates">
-   Curvilinear coordinates
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#adaptive-functions-in-multiple-dimensions">
-   Adaptive functions in multiple dimensions
-  </a>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Demo - Working with Functions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#construction">Construction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#approximating-analytical-functions">Approximating analytical functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adaptive-function-size">Adaptive function size</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-features">More features</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multidimensional-functions">Multidimensional functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#curvilinear-coordinates">Curvilinear coordinates</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adaptive-functions-in-multiple-dimensions">Adaptive functions in multiple dimensions</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <!-- File automatically generated using DocOnce (https://github.com/doconce/doconce/):
 doconce format ipynb functions.do.txt  -->
-<div class="tex2jax_ignore mathjax_ignore section" id="demo-working-with-functions">
-<h1>Demo - Working with Functions<a class="headerlink" href="#demo-working-with-functions" title="Permalink to this headline">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="demo-working-with-functions">
+<h1>Demo - Working with Functions<a class="headerlink" href="#demo-working-with-functions" title="Permalink to this heading">#</a></h1>
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
 <p>Date: <strong>August 7, 2020</strong></p>
 <p><strong>Summary.</strong> This is a demonstration of how the Python module <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a> can be used to work with
 global spectral functions in one and several dimensions.</p>
-<div class="section" id="construction">
-<h2>Construction<a class="headerlink" href="#construction" title="Permalink to this headline">#</a></h2>
-<p>A global spectral function <span class="math notranslate nohighlight">\(u(x)\)</span> is represented on a one-dimensional
-domain (a line) as</p>
+<section id="construction">
+<h2>Construction<a class="headerlink" href="#construction" title="Permalink to this heading">#</a></h2>
+<p>A global spectral function <span class="math notranslate nohighlight">\(u(x)\)</span> can be represented on the real line as</p>
 <div class="math notranslate nohighlight">
 \[
-u(x) = \sum_{k=0}^{N-1} \hat{u}_k \psi_k(x)
+u(x) = \sum_{k=0}^{N-1} \hat{u}_k \psi_k(x), \quad x \in \Omega = [a, b],
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(\psi_k(x)\)</span> is the <span class="math notranslate nohighlight">\(k\)</span>’th basis function and <span class="math notranslate nohighlight">\(x\)</span> is a
-position inside the domain. <span class="math notranslate nohighlight">\(\{\hat{u}_k\}_{k=0}^{N-1}\)</span> are the
-expansion coefficient for the series, and often referred to as the
-degrees of freedom. There is one degree of freedom per basis function.
+<p>where the domain <span class="math notranslate nohighlight">\(\Omega\)</span> has to be defined such that <span class="math notranslate nohighlight">\(b &gt; a\)</span>.
+The array <span class="math notranslate nohighlight">\(\{\hat{u}_k\}_{k=0}^{N-1}\)</span> contains the
+expansion coefficient for the series, often referred to as the
+degrees of freedom. There is one degree of freedom per basis function and
+<span class="math notranslate nohighlight">\(\psi_k(x)\)</span> is the <span class="math notranslate nohighlight">\(k\)</span>’th basis function.
 We can use any number of basis functions,
 and the span of the chosen basis is then a function space. Also part of the
 function space is the domain, which is
@@ -579,9 +509,9 @@ domain through</p>
 \[
 u(x) = \sum_{k=0}^{N-1} \hat{u}_k \psi_k(2(x-0.5))
 \]</div>
-</div>
-<div class="section" id="approximating-analytical-functions">
-<h2>Approximating analytical functions<a class="headerlink" href="#approximating-analytical-functions" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="approximating-analytical-functions">
+<h2>Approximating analytical functions<a class="headerlink" href="#approximating-analytical-functions" title="Permalink to this heading">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">u</span></code> function above was created with only zero
 valued coefficients, which is the default. Alternatively,
 a <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.Function">Function</a> may be initialized using a constant
@@ -610,59 +540,55 @@ Sympy function.</p>
 <p>Here the analytical Sympy function will first be evaluated
 on the entire quadrature mesh of the <code class="docutils literal notranslate"><span class="pre">T</span></code> function space,
 and then forward transformed to get the coefficients. This
-corresponds to a projection to <code class="docutils literal notranslate"><span class="pre">T</span></code>. The projection is</p>
+corresponds to a finite-dimensional projection to <code class="docutils literal notranslate"><span class="pre">T</span></code>.
+The projection is</p>
 <p>Find <span class="math notranslate nohighlight">\(u_h \in T\)</span>, such that</p>
+<!-- Equation labels as ordinary links -->
+<p><a id="eq:proj1"></a></p>
 <div class="math notranslate nohighlight">
 \[
-(u_h - u, v)_w = 0 \quad \forall v \in T,
+(u_h - u, v)^{N}_w = 0 \quad \forall v \in T, \label{eq:proj1} \tag{1}
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(v \in \{T_j\}_{j=0}^{N-1}\)</span> is a test function,
-<span class="math notranslate nohighlight">\(u_h=\sum_{k=0}^{N-1} \hat{u}_k T_k\)</span> is a trial function and the
-notation <span class="math notranslate nohighlight">\((\cdot, \cdot)_w\)</span> represents a weighted inner product.
-In this projection <span class="math notranslate nohighlight">\(u_h\)</span> is the <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.Function">Function</a>, <span class="math notranslate nohighlight">\(u\)</span> is the sympy function and we use sympy
-to exactly evaluate <span class="math notranslate nohighlight">\(u\)</span> on all quadrature points
-<span class="math notranslate nohighlight">\(\{x_j\}_{j=0}^{N-1}\)</span>. With quadrature we then have</p>
+<p>where <span class="math notranslate nohighlight">\(v\)</span> is a test function and
+<span class="math notranslate nohighlight">\(u_h=\sum_{k=0}^{N-1} \hat{u}_k T_k\)</span> is a trial function. The
+notation <span class="math notranslate nohighlight">\((\cdot, \cdot)^N_w\)</span> represents a discrete version of
+the weighted inner product <span class="math notranslate nohighlight">\((u, v)_w\)</span> defined as</p>
 <div class="math notranslate nohighlight">
 \[
-(u, v)_w = \sum_{j\in\mathcal{I}^N} u(x_j) v(x_j) w_j \forall v \in T,
+(u, v)_{\omega} = \int_{\Omega} u \overline{v} \omega d\Omega,
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(\mathcal{I}^N = (0, 1, \ldots, N-1)\)</span> and <span class="math notranslate nohighlight">\(\{w_j\}_{j\in \mathcal{I}^N}\)</span>
-are the quadrature weights. The left hand side of the projection is</p>
+<p>where <span class="math notranslate nohighlight">\(\omega(x)\)</span> is a weight functions and <span class="math notranslate nohighlight">\(\overline{v}\)</span> is the
+complex conjugate of <span class="math notranslate nohighlight">\(v\)</span>. If <span class="math notranslate nohighlight">\(v\)</span> is
+a real function, then <span class="math notranslate nohighlight">\(\overline{v}=v\)</span>.
+With quadrature we approximate the integral such that</p>
 <div class="math notranslate nohighlight">
 \[
-(u_h, v)_w = \sum_{j\in\mathcal{I}^N} u_h(x_j) v(x_j) w_j \forall v \in T.
+(u, v)_{\omega} \approx (u, v)^N_{\omega} = \sum_{j\in\mathcal{I}^N} u(x_j) v(x_j) w_j.
 \]</div>
-<p>A linear system of equations arise when inserting for the
-basis functions</p>
+<p>where the index set <span class="math notranslate nohighlight">\(\mathcal{I}^N = \{0, 1, \ldots, N-1\}\)</span> and <span class="math notranslate nohighlight">\(\{x_j\}_{j\in \mathcal{I}^N}\)</span> and <span class="math notranslate nohighlight">\(\{w_j\}_{j\in \mathcal{I}^N}\)</span>
+are the quadrature points and weights.</p>
+<p>A linear system of equations arise when inserting for the chosen
+basis functions in Eq. (<span class="xref myst">1</span>). We get</p>
 <div class="math notranslate nohighlight">
 \[
-\left(u, T_i\right)_w = \tilde{u}_i \forall i \in \mathcal{I}^N,
+\sum_{k\in \mathcal{I}^N} \left( T_k, T_i\right)^N_{\omega} \hat{u}_k =
+\left(u, T_i\right)^N_{\omega}\, \forall \, i \in \mathcal{I}^N,
 \]</div>
-<p>and</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{align*}
-\left(u_h, T_i \right)_w &amp;= (\sum_{k\in \mathcal{I}^N} \hat{u}_k T_k , T_i)_w \\ 
-  &amp;= \sum_{k\in \mathcal{I}^N} \left( T_k, T_i\right)_w \hat{u}_k
-\end{align*}
-\end{split}\]</div>
-<p>with the mass matrix</p>
+<p>In matrix notation the solution becomes</p>
 <div class="math notranslate nohighlight">
 \[
-a_{ik} = \left( T_k, T_i\right)_w   \forall (i, k) \in \mathcal{I}^N \times \mathcal{I}^N,
+\boldsymbol{\hat{u}} = A^{-1} \boldsymbol{\tilde{u}},
 \]</div>
-<p>we can now solve to get the unknown
-expansion coefficients. In matrix notation</p>
-<div class="math notranslate nohighlight">
-\[
-\hat{u} = A^{-1} \tilde{u},
-\]</div>
-<p>where <span class="math notranslate nohighlight">\(\hat{u}=\{\hat{u}_i\}_{i\in \mathcal{I}^N}\)</span>,
-<span class="math notranslate nohighlight">\(\tilde{u}=\{\tilde{u}_i\}_{i \in \mathcal{I}^N}\)</span> and
-<span class="math notranslate nohighlight">\(A=\{a_{ki}\}_{(i,k) \in \mathcal{I}^N \times \mathcal{I}^N}\)</span></p>
-</div>
-<div class="section" id="adaptive-function-size">
-<h2>Adaptive function size<a class="headerlink" href="#adaptive-function-size" title="Permalink to this headline">#</a></h2>
+<p>where we use two column vectors <span class="math notranslate nohighlight">\(\boldsymbol{\hat{u}}=(\hat{u}_i)^T_{i\in \mathcal{I}^N}\)</span>,
+<span class="math notranslate nohighlight">\(\boldsymbol{\tilde{u}}=\left(\tilde{u}_i\right)^T_{i \in \mathcal{I}^N}\)</span>,
+<span class="math notranslate nohighlight">\(\tilde{u}_i = (u, T_i)^N_{\omega}\)</span> and the matrix
+<span class="math notranslate nohighlight">\(A=(a_{ik}) \in \mathbb{R}^{N \times N}\)</span>, that is diagonal with
+<span class="math notranslate nohighlight">\(a_{ik}=\left( T_k, T_i\right)^N_{\omega}\)</span>. For the default
+Gauss-Chebyshev quadrature this matrix is <span class="math notranslate nohighlight">\(a_{ik} = c_i \pi/2 \delta_{ik}\)</span>,
+where <span class="math notranslate nohighlight">\(c_0=2\)</span> and <span class="math notranslate nohighlight">\(c_i=1\)</span> for <span class="math notranslate nohighlight">\(i&gt;0\)</span>.</p>
+</section>
+<section id="adaptive-function-size">
+<h2>Adaptive function size<a class="headerlink" href="#adaptive-function-size" title="Permalink to this heading">#</a></h2>
 <p>The number of basis functions can also be left open during creation
 of the function space, through</p>
 <div class="cell tag_thebe-init docutils container">
@@ -728,7 +654,7 @@ a bit ragged, though:</p>
 
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="n">Tu</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">function_space</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tu</span><span class="o">.</span><span class="n">mesh</span><span class="p">(),</span> <span class="n">u</span><span class="o">.</span><span class="n">backward</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tu</span><span class="o">.</span><span class="n">mesh</span><span class="p">(),</span> <span class="n">u</span><span class="o">.</span><span class="n">backward</span><span class="p">());</span>
 </pre></div>
 </div>
 </div>
@@ -738,7 +664,7 @@ function on more points</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xj</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xj</span><span class="p">,</span> <span class="n">u</span><span class="p">(</span><span class="n">xj</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xj</span><span class="p">,</span> <span class="n">u</span><span class="p">(</span><span class="n">xj</span><span class="p">));</span>
 </pre></div>
 </div>
 </div>
@@ -749,7 +675,7 @@ pads zeros to <span class="math notranslate nohighlight">\(\hat{u}\)</span></p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">up</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">refine</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
 <span class="n">Tp</span> <span class="o">=</span> <span class="n">up</span><span class="o">.</span><span class="n">function_space</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tp</span><span class="o">.</span><span class="n">mesh</span><span class="p">(),</span> <span class="n">up</span><span class="o">.</span><span class="n">backward</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tp</span><span class="o">.</span><span class="n">mesh</span><span class="p">(),</span> <span class="n">up</span><span class="o">.</span><span class="n">backward</span><span class="p">());</span>
 </pre></div>
 </div>
 </div>
@@ -762,9 +688,9 @@ pads zeros to <span class="math notranslate nohighlight">\(\hat{u}\)</span></p>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="more-features">
-<h2>More features<a class="headerlink" href="#more-features" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="more-features">
+<h2>More features<a class="headerlink" href="#more-features" title="Permalink to this heading">#</a></h2>
 <p>Since we have used a regular Chebyshev basis above, there
 are many more features that could be explored simply by going through
 <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.polynomials.chebyshev.html">Numpy’s Chebyshev module</a>.
@@ -824,12 +750,12 @@ in, like</p>
 very similar to the orthogonal space.</p>
 <p>The major advantages of working with a space with boundary conditions
 built in only comes to life when solving differential equations. As
-long as we are only interested in approximating functions, we may just
-as well stick to the orthogonal spaces. This goes for Legendre as
+long as we are only interested in approximating functions, we are better off
+sticking to the orthogonal spaces. This goes for Legendre as
 well as Chebyshev.</p>
-</div>
-<div class="section" id="multidimensional-functions">
-<h2>Multidimensional functions<a class="headerlink" href="#multidimensional-functions" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="multidimensional-functions">
+<h2>Multidimensional functions<a class="headerlink" href="#multidimensional-functions" title="Permalink to this heading">#</a></h2>
 <p>Multidimensional tensor product spaces are created
 by taking the tensor products of one-dimensional function spaces.
 For example</p>
@@ -856,7 +782,7 @@ u(x, y) = \sum_{i=0}^{N-1} \sum_{j=0}^{N-1} \hat{u}_{ij} T_i(x) T_j(y).
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">u</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">buffer</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="n">y</span><span class="p">))</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">local_mesh</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">u</span><span class="o">.</span><span class="n">backward</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">u</span><span class="o">.</span><span class="n">backward</span><span class="p">());</span>
 </pre></div>
 </div>
 </div>
@@ -881,14 +807,14 @@ two function spaces, and can be visualized as follows</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">local_mesh</span><span class="p">(</span><span class="n">bcast</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">u</span><span class="o">.</span><span class="n">backward</span><span class="p">(</span><span class="n">mesh</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">u</span><span class="o">.</span><span class="n">backward</span><span class="p">(</span><span class="n">mesh</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">));</span>
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="curvilinear-coordinates">
-<h2>Curvilinear coordinates<a class="headerlink" href="#curvilinear-coordinates" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="curvilinear-coordinates">
+<h2>Curvilinear coordinates<a class="headerlink" href="#curvilinear-coordinates" title="Permalink to this heading">#</a></h2>
 <p>With shenfun it is possible to use curvilinear coordinates,
 and not necessarily with orthogonal basis vectors. With
 curvilinear coordinates the computational coordinates are
@@ -898,11 +824,11 @@ coordinates can be very complex.</p>
 the position vector <span class="math notranslate nohighlight">\(\mathbf{r}\)</span> is given by</p>
 <div class="math notranslate nohighlight">
 \[
-\mathbf{r} = r\cos \theta \mathbf{i} + r\sin \theta \mathbf{j}
+\mathbf{r} = r\cos \theta \mathbf{i} + r\sin \theta \mathbf{j}.
 \]</div>
 <p>The physical domain is <span class="math notranslate nohighlight">\(\Omega = \{(x, y): x^2 + y^2 &lt; 1\}\)</span>,
 whereas the computational domain is the Cartesian product
-<span class="math notranslate nohighlight">\(D = \{(r, \theta) \in [0, 1] \times [0, 2 \pi]\}\)</span>.</p>
+<span class="math notranslate nohighlight">\(D = [0, 1] \times [0, 2 \pi] = \{(r, \theta) | r \in [0, 1] \text{ and } \theta \in [0, 2 \pi]\}\)</span>.</p>
 <p>We create this domain in shenfun through</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
@@ -930,7 +856,7 @@ analytical function in computational coordinates</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">local_mesh</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">u</span><span class="o">.</span><span class="n">backward</span><span class="p">(),</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">u</span><span class="o">.</span><span class="n">backward</span><span class="p">(),</span> <span class="mi">100</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -941,7 +867,7 @@ the disc we need the physical mesh, and not the computational</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">local_cartesian_mesh</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">u</span><span class="o">.</span><span class="n">backward</span><span class="p">(),</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">u</span><span class="o">.</span><span class="n">backward</span><span class="p">(),</span> <span class="mi">100</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -955,14 +881,14 @@ grid all the way around and re-plot.</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">up</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
 <span class="n">xp</span><span class="p">,</span> <span class="n">yp</span><span class="p">,</span> <span class="n">up</span> <span class="o">=</span> <span class="n">wrap_periodic</span><span class="p">([</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">up</span><span class="p">],</span> <span class="n">axes</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span> <span class="n">yp</span><span class="p">,</span> <span class="n">up</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span> <span class="n">yp</span><span class="p">,</span> <span class="n">up</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="adaptive-functions-in-multiple-dimensions">
-<h2>Adaptive functions in multiple dimensions<a class="headerlink" href="#adaptive-functions-in-multiple-dimensions" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="adaptive-functions-in-multiple-dimensions">
+<h2>Adaptive functions in multiple dimensions<a class="headerlink" href="#adaptive-functions-in-multiple-dimensions" title="Permalink to this heading">#</a></h2>
 <p>If you want to find a good resolution for a function in multiple
 dimensions, the procedure is exactly like in 1D. First create function
 spaces with 0 quadrature points, and then call <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.Function">Function</a></p>
@@ -982,8 +908,8 @@ simply treat the problem one direction at the time. So in this case
 we would first find a space in the first direction by using
 a function <code class="docutils literal notranslate"> <span class="pre">~</span> <span class="pre">((1-r)*r)**2</span></code>, and then along the second using
 a function <code class="docutils literal notranslate"> <span class="pre">~</span> <span class="pre">sp.sin(sp.cos(theta))</span></code>.</p>
-<!-- ======= Bibliography ======= --></div>
-</div>
+<!-- ======= Bibliography ======= --></section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1005,50 +931,107 @@ a function <code class="docutils literal notranslate"> <span class="pre">~</span
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="rayleighbenard.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Demo - Rayleigh Benard</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="rayleighbenard.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Demo - Rayleigh Benard</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="surfaceintegration.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="surfaceintegration.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Demo - Integration of functions</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#construction">Construction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#approximating-analytical-functions">Approximating analytical functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adaptive-function-size">Adaptive function size</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-features">More features</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multidimensional-functions">Multidimensional functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#curvilinear-coordinates">Curvilinear coordinates</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adaptive-functions-in-multiple-dimensions">Adaptive functions in multiple dimensions</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By Mikael Mortensen<br/>
-  
-      &copy; Copyright 2023.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+<p class="component-author">
+By Mikael Mortensen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
 </div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

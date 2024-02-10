@@ -1,43 +1,59 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Demo - Cubic nonlinear Klein-Gordon equation &#8212; Shenfun executable demos</title>
-    
-  <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    <title>Demo - Cubic nonlinear Klein-Gordon equation &#8212; Shenfun executable demos</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script kind="utterances">
 
     var commentsRunWhenDOMLoaded = cb => {
@@ -73,7 +89,7 @@ var addUtterances = () => {
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -83,61 +99,102 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"TeX": {"Macros": {"bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}, "extensions": ["cancel.js", "AMSmath.js"]}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/kleingordon';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Demo - 3D Poisson’s equation" href="poisson3d.html" />
     <link rel="prev" title="Demo - 1D Poisson’s equation" href="poisson.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
 
-    
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/seashell3.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Shenfun executable demos</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../_static/seashell3.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/seashell3.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -146,366 +203,255 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Shenfun executable demos
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Shenfun executable demos</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="poisson.html">
-   Demo - 1D Poisson’s equation
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Demo - Cubic nonlinear Klein-Gordon equation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="poisson3d.html">
-   Demo - 3D Poisson’s equation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="polarhelmholtz.html">
-   Demo - Helmholtz equation in polar coordinates
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="sphericalhelmholtz.html">
-   Demo - Helmholtz equation on the unit sphere
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kuramatosivashinsky.html">
-   Demo - Kuramato-Sivashinsky equation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="stokes.html">
-   Demo - Stokes equations
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="drivencavity.html">
-   Demo - Lid driven cavity
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="rayleighbenard.html">
-   Demo - Rayleigh Benard
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="functions.html">
-   Demo - Working with Functions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="surfaceintegration.html">
-   Demo - Integration of functions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="moebius.html">
-   Demo - Eigenvalues on the Möbius strip
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="mixingbases.html">
-   Demo - Mixed bases for the Helmholtz problem
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="tau.html">
-   Demo - The Tau method
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="sparsity.html">
-   Demo - Sparse Chebyshev-Petrov-Galerkin methods for differentiation
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="poisson.html">Demo - 1D Poisson’s equation</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Demo - Cubic nonlinear Klein-Gordon equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="poisson3d.html">Demo - 3D Poisson’s equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="polarhelmholtz.html">Demo - Helmholtz equation in polar coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sphericalhelmholtz.html">Demo - Helmholtz equation on the unit sphere</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kuramatosivashinsky.html">Demo - Kuramato-Sivashinsky equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stokes.html">Demo - Stokes equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drivencavity.html">Demo - Lid driven cavity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rayleighbenard.html">Demo - Rayleigh Benard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Demo - Working with Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="surfaceintegration.html">Demo - Integration of functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="moebius.html">Demo - Eigenvalues on the Möbius strip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mixingbases.html">Demo - Mixed bases for the Helmholtz problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tau.html">Demo - The Tau method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sparsity.html">Demo - Sparse Chebyshev-Petrov-Galerkin methods for differentiation</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
-          
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
 
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
 <div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
 
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/mikaem/shenfun-demos/master?urlpath=tree/content/kleingordon.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/mikaem/shenfun-demos/master?urlpath=tree/content/kleingordon.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../_static/images/logo_binder.svg">
   </span>
-<span class="headerbtn__text-container">Binder</span>
+<span class="btn__text-container">Binder</span>
 </a>
-
-      </li>
+</li>
+      
+      
+      
       
       <li>
-        
 <button onclick="initThebeSBT()"
-  class="headerbtn headerbtn-launch-thebe"
-  data-toggle="tooltip"
-data-placement="left"
-title="Launch Thebe"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-play"></i>
   </span>
-<span class="headerbtn__text-container">Live Code</span>
+<span class="btn__text-container">Live Code</span>
 </button>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+
+<a href="https://github.com/mikaem/shenfun-demos" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-<a href="https://github.com/mikaem/shenfun-demos"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="bottom"
-title="Source repository"
->
-  
-
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fab fa-github"></i>
   </span>
 
 </a>
 
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/content/kleingordon.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/content/kleingordon.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.ipynb</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
-
-      </li>
+</li>
+      
+      
+      
       
       <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file-pdf"></i>
   </span>
-<span class="headerbtn__text-container">.pdf</span>
+<span class="btn__text-container">.pdf</span>
 </button>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
   </span>
 
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-nonlinear-klein-gordon-equation">
-   The nonlinear Klein-Gordon equation
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#spectral-galerkin-formulation">
-   Spectral Galerkin formulation
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#discretization">
-   Discretization
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#implementation">
-   Implementation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#runge-kutta-integrator">
-     Runge-Kutta integrator
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Demo - Cubic nonlinear Klein-Gordon equation</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-nonlinear-klein-gordon-equation">
-   The nonlinear Klein-Gordon equation
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#spectral-galerkin-formulation">
-   Spectral Galerkin formulation
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#discretization">
-   Discretization
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#implementation">
-   Implementation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#runge-kutta-integrator">
-     Runge-Kutta integrator
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Demo - Cubic nonlinear Klein-Gordon equation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-nonlinear-klein-gordon-equation">The nonlinear Klein-Gordon equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spectral-galerkin-formulation">Spectral Galerkin formulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discretization">Discretization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">Implementation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runge-kutta-integrator">Runge-Kutta integrator</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <!-- File automatically generated using DocOnce (https://github.com/doconce/doconce/):
 doconce format ipynb kleingordon.do.txt  -->
-<div class="tex2jax_ignore mathjax_ignore section" id="demo-cubic-nonlinear-klein-gordon-equation">
-<h1>Demo - Cubic nonlinear Klein-Gordon equation<a class="headerlink" href="#demo-cubic-nonlinear-klein-gordon-equation" title="Permalink to this headline">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="demo-cubic-nonlinear-klein-gordon-equation">
+<h1>Demo - Cubic nonlinear Klein-Gordon equation<a class="headerlink" href="#demo-cubic-nonlinear-klein-gordon-equation" title="Permalink to this heading">#</a></h1>
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
 <p>Date: <strong>April 13, 2018</strong></p>
 <p><strong>Summary.</strong> This is a demonstration of how the Python module <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a> can be used to solve the time-dependent,
@@ -521,11 +467,11 @@ implementation.</p>
 <p><img src="https://rawgit.com/spectralDNS/spectralutilities/master/movies/KleinGordon.gif" ><p style="font-size: 0.9em"><i>Figure 1</i></p></p>
 <!-- end figure -->
 <p>Movie showing the evolution of the solution <span class="math notranslate nohighlight">\(u\)</span> from the Klein-Gordon equation, in a slice through the center of the domain, computed with the code described in this demo.</p>
-<div class="section" id="the-nonlinear-klein-gordon-equation">
-<h2>The nonlinear Klein-Gordon equation<a class="headerlink" href="#the-nonlinear-klein-gordon-equation" title="Permalink to this headline">#</a></h2>
+<section id="the-nonlinear-klein-gordon-equation">
+<h2>The nonlinear Klein-Gordon equation<a class="headerlink" href="#the-nonlinear-klein-gordon-equation" title="Permalink to this heading">#</a></h2>
 <p>The cubic nonlinear Klein-Gordon equation is a wave equation important for many
 scientific applications such as solid state physics, nonlinear optics and
-quantum field theory <a class="reference external" href="#abdul08">[abdul08]</a>. The equation is given as</p>
+quantum field theory <span class="xref myst">[abdul08]</span>. The equation is given as</p>
 <!-- Equation labels as ordinary links -->
 <p><a id="eq:kg"></a></p>
 <div class="math notranslate nohighlight">
@@ -548,7 +494,8 @@ t=0)}{\partial t} = u_t^0. \label{eq:init} \tag{2}
 \]</div>
 <p>The spatial coordinates are here denoted as <span class="math notranslate nohighlight">\(\boldsymbol{x} = (x, y, z)\)</span>, and
 <span class="math notranslate nohighlight">\(t\)</span> is time. The parameter <span class="math notranslate nohighlight">\(\gamma=\pm 1\)</span> determines whether the equations are focusing
-(<span class="math notranslate nohighlight">\(+1\)</span>) or defocusing (<span class="math notranslate nohighlight">\(-1\)</span>) (in the movie we have used <span class="math notranslate nohighlight">\(\gamma=1\)</span>). The domain <span class="math notranslate nohighlight">\(\Omega=[-2\pi, 2\pi]^3\)</span> is triply
+(<span class="math notranslate nohighlight">\(+1\)</span>) or defocusing (<span class="math notranslate nohighlight">\(-1\)</span>) (in the movie we have used <span class="math notranslate nohighlight">\(\gamma=1\)</span>).
+The domain <span class="math notranslate nohighlight">\(\Omega=[-2\pi, 2\pi]^3\)</span> is triply
 periodic and initial conditions will here be set as</p>
 <!-- Equation labels as ordinary links -->
 <p><a id="_auto1"></a></p>
@@ -597,28 +544,30 @@ E(u) = \int_{\Omega} \left( \frac{1}{2} f^2 + \frac{1}{2}|\nabla u|^2 + \gamma(\
 \end{equation}
 \]</div>
 <p>and it is crucial that this energy remains constant in time.</p>
-<p>The movie (<a class="reference external" href="#mov:kleingordon">mov:kleingordon</a>) is showing the solution <span class="math notranslate nohighlight">\(u\)</span>, computed with the
+<p>The movie above is showing the solution <span class="math notranslate nohighlight">\(u\)</span>, computed with the
 code shown below.</p>
-</div>
-<div class="section" id="spectral-galerkin-formulation">
-<h2>Spectral Galerkin formulation<a class="headerlink" href="#spectral-galerkin-formulation" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="spectral-galerkin-formulation">
+<h2>Spectral Galerkin formulation<a class="headerlink" href="#spectral-galerkin-formulation" title="Permalink to this heading">#</a></h2>
 <p><a id="sec:specgal"></a>
-The PDEs in (<a class="reference external" href="#eq:df">5</a>) and (<a class="reference external" href="#eq:du">6</a>) can be solved with many different
+The PDEs in (<span class="xref myst">5</span>) and (<span class="xref myst">6</span>) can be solved with many different
 numerical methods. We will here use the <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a> software and this software makes use of
 the spectral Galerkin method. Being a Galerkin method, we need to reshape the
 governing equations into proper variational forms, and this is done by
-multiplying  (<a class="reference external" href="#eq:df">5</a>) and (<a class="reference external" href="#eq:du">6</a>) with the complex conjugate of proper
+multiplying  (<span class="xref myst">5</span>) and (<span class="xref myst">6</span>) with the complex conjugate of proper
 test functions and then integrating
-over the domain. To this end we use testfunctions <span class="math notranslate nohighlight">\(g\in V(\Omega)\)</span>
-with Eq. (<a class="reference external" href="#eq:df">5</a>)  and  <span class="math notranslate nohighlight">\(v \in V(\Omega)\)</span> with Eq. (<a class="reference external" href="#eq:du">6</a>), where
-<span class="math notranslate nohighlight">\(V(\omega)\)</span> is a suitable function space, and obtain</p>
+over the domain. To this end we make use of the triply periodic tensor product
+function space <span class="math notranslate nohighlight">\(W^{\boldsymbol{N}}(\Omega)\)</span> (defined in Eq. (<span class="xref myst">14</span>))
+and use testfunctions <span class="math notranslate nohighlight">\(g \in W^{\boldsymbol{N}}\)</span>
+with Eq. (<span class="xref myst">5</span>)  and  <span class="math notranslate nohighlight">\(v \in W^{\boldsymbol{N}}\)</span> with Eq. (<span class="xref myst">6</span>),
+and obtain</p>
 <!-- Equation labels as ordinary links -->
 <p><a id="eq:df_var"></a></p>
 <div class="math notranslate nohighlight">
 \[
 \begin{equation}
-\frac{\partial}{\partial t} \int_{\Omega} f\, \overline{g}\, w \,dx = \int_{\Omega}
-\left(\nabla^2 u - \gamma( u\, - u|u|^2) \right) \overline{g} \, w \,dx, \label{eq:df_var} \tag{8} 
+\frac{\partial}{\partial t} \int_{\Omega} f\, \overline{g}\, w \,d\Omega = \int_{\Omega}
+\left(\nabla^2 u - \gamma( u\, - u|u|^2) \right) \overline{g} \, w \,d\Omega, \label{eq:df_var} \tag{8} 
 \end{equation}
 \]</div>
 <!-- Equation labels as ordinary links -->
@@ -627,14 +576,14 @@ with Eq. (<a class="reference external" href="#eq:df">5</a>)  and  <span class="
 \[
 \begin{equation}  
 \frac{\partial }{\partial t} \int_{\Omega} u\, \overline{v}\, w \, dx =
-\int_{\Omega} f\, \overline{v} \, w \, dx. \label{eq:kg:du_var} \tag{9}
+\int_{\Omega} f\, \overline{v} \, w \, d\Omega. \label{eq:kg:du_var} \tag{9}
 \end{equation}
 \]</div>
 <p>Note that the overline is used to indicate a complex conjugate, and
 <span class="math notranslate nohighlight">\(w\)</span> is a weight function associated with the test functions. The functions
 <span class="math notranslate nohighlight">\(f\)</span> and <span class="math notranslate nohighlight">\(u\)</span> are now
 to be considered as trial functions, and the integrals over the
-domain are often referred to as inner products. With inner product notation</p>
+domain are referred to as inner products. With inner product notation</p>
 <div class="math notranslate nohighlight">
 \[
 \left(u, v\right) = \int_{\Omega} u \, \overline{v} \, w\, dx.
@@ -661,13 +610,16 @@ formulated as:</p>
 <p>The time and space discretizations are
 still left open. There are numerous different approaches that one could take for
 discretizing in time, and the first two terms on the right hand side of
-(<a class="reference external" href="#eq:df_var2">10</a>) can easily be treated implicitly as well as explicitly. However,
-the approach we will follow in Sec. (<a class="reference external" href="#sec:rk">Runge-Kutta integrator</a>) is a fully explicit 4th order <a class="reference external" href="https://en.wikipedia.org/wiki/Runge-Kutta_methods">Runge-Kutta</a> method.</p>
-</div>
-<div class="section" id="discretization">
-<h2>Discretization<a class="headerlink" href="#discretization" title="Permalink to this headline">#</a></h2>
+(<span class="xref myst">10</span>) can easily be treated implicitly as well as explicitly. However,
+the approach we will follow in Sec. (<span class="xref myst">Runge-Kutta integrator</span>) is a fully explicit 4th order <a class="reference external" href="https://en.wikipedia.org/wiki/Runge-Kutta_methods">Runge-Kutta</a> method. Also note that
+the inner product in the demo will be computed numerically with quadrature
+through fast Fourier transforms, and the integrals are thus not computed exactly
+for all terms.</p>
+</section>
+<section id="discretization">
+<h2>Discretization<a class="headerlink" href="#discretization" title="Permalink to this heading">#</a></h2>
 <p>To find a numerical solution we need to discretize the continuous problem
-(<a class="reference external" href="#eq:df_var2">10</a>) and (<a class="reference external" href="#eq:kg:du_var2">11</a>) in space as well as time. Since the
+(<span class="xref myst">10</span>) and (<span class="xref myst">11</span>) in space as well as time. Since the
 problem is triply periodic, Fourier exponentials are normally the best choice
 for trial and test functions, and as such we use basis functions</p>
 <!-- Equation labels as ordinary links -->
@@ -691,8 +643,8 @@ a finite number of test functions. A function space <span class="math notranslat
 V^N(x) = \text{span} \{\phi_l(x)\}_{l\in \boldsymbol{l}}, \label{eq:kg:Vn} \tag{13}
 \end{equation}
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(N\)</span> is chosen as an even positive integer and <span class="math notranslate nohighlight">\(\boldsymbol{l} = (-N/2,
--N/2+1, \ldots, N/2-1)\)</span>. And now, since <span class="math notranslate nohighlight">\(\Omega\)</span> is a
+<p>where <span class="math notranslate nohighlight">\(N\)</span> is chosen as an even positive integer and <span class="math notranslate nohighlight">\(\boldsymbol{l} = -N/2,
+-N/2+1, \ldots, N/2-1\)</span>. And now, since <span class="math notranslate nohighlight">\(\Omega\)</span> is a
 three-dimensional domain, we can create tensor products of such bases to get,
 e.g., for three dimensions</p>
 <!-- Equation labels as ordinary links -->
@@ -713,7 +665,7 @@ for simplicity. A 3D tensor product basis function is now defined as</p>
 \begin{equation}
 \Phi_{lmn}(x,y,z) = e^{\imath \underline{l} x} e^{\imath \underline{m} y}
 e^{\imath \underline{n} z} = e^{\imath
-(\underline{l}x + \underline{m}y + \underline{n}z)}
+(\underline{l}x + \underline{m}y + \underline{n}z)},
 \label{_auto5} \tag{15}
 \end{equation}
 \]</div>
@@ -721,14 +673,15 @@ e^{\imath \underline{n} z} = e^{\imath
 \underline{n}=\frac{2\pi}{L}n\)</span>, and <span class="math notranslate nohighlight">\(\boldsymbol{m}\)</span> and <span class="math notranslate nohighlight">\(\boldsymbol{n}\)</span> are the same as
 <span class="math notranslate nohighlight">\(\boldsymbol{l}\)</span> due to using the same number of basis functions for each direction. One
 distinction, though, is that for the <span class="math notranslate nohighlight">\(z\)</span>-direction expansion coefficients are only stored for
-<span class="math notranslate nohighlight">\(n=(0, 1, \ldots, N/2)\)</span> due to Hermitian symmetry (real input data).</p>
+<span class="math notranslate nohighlight">\(n=0, 1, \ldots, N/2\)</span> due to Hermitian symmetry (real input data). However, for simplicity,
+we still write the sum in Eq. (<span class="xref myst">16</span>) over the entire range of basis functions.</p>
 <p>We now look for solutions of the form</p>
 <!-- Equation labels as ordinary links -->
 <p><a id="eq:usg"></a></p>
 <div class="math notranslate nohighlight">
 \[
 \begin{equation}
-u(x, y, z, t) = \sum_{n=-N/2}^{N/2-1}\sum_{m=-N/2}^{N/2-1}\sum_{l=-N/2}^{N/2-1}
+u(x, y, z, t) = \sum_{l=-N/2}^{N/2-1}\sum_{m=-N/2}^{N/2-1}\sum_{n=-N/2}^{N/2-1}
 \hat{u}_{lmn} (t)\Phi_{lmn}(x,y,z). \label{eq:usg} \tag{16}
 \end{equation}
 \]</div>
@@ -774,13 +727,12 @@ is set to <span class="math notranslate nohighlight">\([-2\pi, 2\pi]^3\)</span> 
 <div class="math notranslate nohighlight">
 \[
 \begin{equation}
-\boldsymbol{u} = \mathcal{F}_k^{-1}\left(\mathcal{F}_j^{-1}\left(\mathcal{F}_i^{-1}\left(\hat{\boldsymbol{u}}\right)\right)\right) \label{eq:uxyz} \tag{20}
+\boldsymbol{u} = \mathcal{F}_x^{-1}\left(\mathcal{F}_y^{-1}\left(\mathcal{F}_z^{-1}\left(\hat{\boldsymbol{u}}\right)\right)\right) \label{eq:uxyz} \tag{20}
 \end{equation}
 \]</div>
 <p>with <span class="math notranslate nohighlight">\(\boldsymbol{u} = \{u(x_i, y_j, z_k)\}_{(i,j,k)\in \boldsymbol{i} \times \boldsymbol{j} \times \boldsymbol{k}}\)</span>
-and where <span class="math notranslate nohighlight">\(\mathcal{F}_i^{-1}\)</span> is the inverse Fourier transform along the direction
-of index <span class="math notranslate nohighlight">\(i\)</span>, for
-all <span class="math notranslate nohighlight">\((j, k) \in \boldsymbol{j} \times \boldsymbol{k}\)</span>. Note that the three
+and where <span class="math notranslate nohighlight">\(\mathcal{F}_x^{-1}\)</span> is the inverse Fourier transform along the direction <span class="math notranslate nohighlight">\(x\)</span>, for
+all indices in the other direction. Note that the three
 inverse FFTs are performed sequentially, one direction at the time, and that there is no
 scaling factor due to
 the definition used for the inverse <a class="reference external" href="https://mpi4py-fft.readthedocs.io/en/latest/dft.html">Fourier transform</a></p>
@@ -796,7 +748,7 @@ x_j}, \quad \,\, \forall \, j \in \, \boldsymbol{j}.
 \]</div>
 <p>Note that this differs from the definition used by, e.g.,
 <a class="reference external" href="https://docs.scipy.org/doc/numpy-1.13.0/reference/routines.fft.html">Numpy</a>.</p>
-<p>The inner products used in Eqs. (<a class="reference external" href="#eq:df_var2">10</a>), (<a class="reference external" href="#eq:kg:du_var2">11</a>) may be
+<p>The inner products used in Eqs. (<span class="xref myst">10</span>), (<span class="xref myst">11</span>) may be
 computed using forward FFTs. However, there is a tiny detail that deserves
 a comment. The regular Fourier inner product is given as</p>
 <div class="math notranslate nohighlight">
@@ -811,22 +763,20 @@ unity:</p>
 \[
 \int_{0}^{L} e^{\imath \underline{k}x} e^{- \imath \underline{l}x} \frac{1}{L} dx = \delta_{kl}.
 \]</div>
-<p>With this weight function the scalar product and the forward transform
+<p>With this weight function the (discrete) scalar product and the forward transform
 are the same and we obtain:</p>
 <!-- Equation labels as ordinary links -->
 <p><a id="_auto10"></a></p>
 <div class="math notranslate nohighlight">
 \[
 \begin{equation}
-\left(u, \Phi_{lmn}\right) = \hat{u}_{lmn} =
+\left(u, v \right) = \boldsymbol{\hat{u}} =
 \left(\frac{1}{N}\right)^3
-\mathcal{F}_l\left(\mathcal{F}_m\left(\mathcal{F}_n\left(\boldsymbol{u}\right)\right)\right)
-\quad \forall (l,m,n) \in \boldsymbol{l} \times \boldsymbol{m} \times
-\boldsymbol{n},
+\mathcal{F}_z\left(\mathcal{F}_y\left(\mathcal{F}_x\left(\boldsymbol{u}\right)\right)\right).
 \label{_auto10} \tag{22}
 \end{equation}
 \]</div>
-<p>From this we see that the variational forms (<a class="reference external" href="#eq:df_var2">10</a>) and (<a class="reference external" href="#eq:kg:du_var2">11</a>)
+<p>From this we see that the variational forms (<span class="xref myst">10</span>) and (<span class="xref myst">11</span>)
 may be written in terms of the Fourier transformed quantities <span class="math notranslate nohighlight">\(\hat{\boldsymbol{u}}\)</span> and
 <span class="math notranslate nohighlight">\(\hat{\boldsymbol{f}}\)</span>. Expanding the exact derivatives of the nabla operator, we have</p>
 <!-- Equation labels as ordinary links -->
@@ -835,7 +785,7 @@ may be written in terms of the Fourier transformed quantities <span class="math 
 \[
 \begin{equation}
 (\nabla u, \nabla v) =
-(\underline{l}^2+\underline{m}^2+\underline{n}^2)\hat{u}_{lmn}, 
+\left((\underline{l}^2+\underline{m}^2+\underline{n}^2)\hat{u}_{lmn}\right), 
 \label{_auto11} \tag{23}
 \end{equation}
 \]</div>
@@ -844,7 +794,7 @@ may be written in terms of the Fourier transformed quantities <span class="math 
 <div class="math notranslate nohighlight">
 \[
 \begin{equation}  
-(u, v) = \hat{u}_{lmn}, 
+(u, v) = \left(\hat{u}_{lmn}\right), 
 \label{_auto12} \tag{24}
 \end{equation}
 \]</div>
@@ -853,11 +803,12 @@ may be written in terms of the Fourier transformed quantities <span class="math 
 <div class="math notranslate nohighlight">
 \[
 \begin{equation}  
-(u|u|^2, v) = \widehat{u|u|^2}_{lmn}
+(u|u|^2, v) = \left(\widehat{u|u|^2}_{lmn}\right)
 \label{_auto13} \tag{25}
 \end{equation}
 \]</div>
-<p>and as such the equations to be solved for each wavenumber can be found directly as</p>
+<p>where the indices on the right hand side run over <span class="math notranslate nohighlight">\((l, m, n) \in \boldsymbol{l} \times \boldsymbol{m} \times \boldsymbol{n}\)</span>.
+The equations to be solved for each wavenumber can now be found directly as</p>
 <!-- Equation labels as ordinary links -->
 <p><a id="eq:df_var3"></a></p>
 <div class="math notranslate nohighlight">
@@ -876,10 +827,10 @@ may be written in terms of the Fourier transformed quantities <span class="math 
 \end{equation}
 \]</div>
 <p>There is more than one way to arrive at these equations. Taking the 3D Fourier
-transform of both equations  (<a class="reference external" href="#eq:df">5</a>) and (<a class="reference external" href="#eq:du">6</a>) is one obvious way.
+transform of both equations  (<span class="xref myst">5</span>) and (<span class="xref myst">6</span>) is one obvious way.
 With the Python module <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a>, one can work with the
-inner products as seen in (<a class="reference external" href="#eq:df_var2">10</a>) and (<a class="reference external" href="#eq:kg:du_var2">11</a>), or the Fourier
-transforms directly. See for example Sec. <a class="reference external" href="#sec:rk">Runge-Kutta integrator</a> for how <span class="math notranslate nohighlight">\((\nabla u, \nabla
+inner products as seen in (<span class="xref myst">10</span>) and (<span class="xref myst">11</span>), or the Fourier
+transforms directly. See for example Sec. <span class="xref myst">Runge-Kutta integrator</span> for how <span class="math notranslate nohighlight">\((\nabla u, \nabla
 v)\)</span> can be
 implemented.  In short, <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.html#module-shenfun">shenfun</a> contains all the tools required to work with
 the spectral Galerkin method, and we will now see how <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.html#module-shenfun">shenfun</a> can be used to solve
@@ -893,7 +844,7 @@ for all <span class="math notranslate nohighlight">\(t&gt;0\)</span>, find <span
 \[
 \begin{equation}
 \frac{\partial}{\partial t} (f, g) = -(\nabla u, \nabla g)
--\gamma \left( u - u|u|^2, g \right), \label{eq:dff} \tag{28} 
+-\gamma \left( u - u|u|^2, g \right) \quad \forall \, g \in W^{N}, \label{eq:dff} \tag{28} 
 \end{equation}
 \]</div>
 <!-- Equation labels as ordinary links -->
@@ -901,14 +852,14 @@ for all <span class="math notranslate nohighlight">\(t&gt;0\)</span>, find <span
 <div class="math notranslate nohighlight">
 \[
 \begin{equation}  
-\frac{\partial }{\partial t} (u, v) = (f, v) \quad \forall \, (g, v) \in W^N \times W^N. \label{eq:kg:duu} \tag{29}
+\frac{\partial }{\partial t} (u, v) = (f, v) \quad \forall \, v \in W^N. \label{eq:kg:duu} \tag{29}
 \end{equation}
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(u(x, y, z, 0)\)</span> and <span class="math notranslate nohighlight">\(f(x, y, z, 0)\)</span> are given as the initial conditions
-according to Eq. (<a class="reference external" href="#eq:init">2</a>).</p>
-</div>
-<div class="section" id="implementation">
-<h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">#</a></h2>
+according to Eq. (<span class="xref myst">2</span>).</p>
+</section>
+<section id="implementation">
+<h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this heading">#</a></h2>
 <p>To solve the Klein-Gordon equations we need to make use of the Fourier function
 spaces defined in
 <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.html#module-shenfun">shenfun</a>, and these are found in submodule
@@ -946,9 +897,9 @@ real data is now complex. We may start implementing the solver as follows</p>
 </div>
 </div>
 <p>We now have three instances <code class="docutils literal notranslate"><span class="pre">K0</span></code>, <code class="docutils literal notranslate"><span class="pre">K1</span></code> and <code class="docutils literal notranslate"><span class="pre">K2</span></code>, corresponding to the space
-(<a class="reference external" href="#eq:kg:Vn">13</a>), that each can be used to solve
+(<span class="xref myst">13</span>), that each can be used to solve
 one-dimensional problems. However, we want to solve a 3D problem, and for this
-we need a tensor product space, like (<a class="reference external" href="#eq:kg:Wn">14</a>), created as a tensor
+we need a tensor product space, like (<span class="xref myst">14</span>), created as a tensor
 product of these three spaces</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
@@ -1008,15 +959,15 @@ whereas <code class="docutils literal notranslate"><span class="pre">u</span> <s
 <p>The <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.Array">Array</a> class is a subclass of Numpy’s <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html">ndarray</a>,
 without much more functionality than constructors that return arrays of the
 correct shape according to the basis used in the construction. The
-<a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.Array">Array</a> represents the left hand side of (<a class="reference external" href="#eq:usg">16</a>),
+<a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.Array">Array</a> represents the left hand side of (<span class="xref myst">16</span>),
 evaluated on the quadrature mesh. A different type
 of array is returned by the <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.Function">Function</a>
 class, that subclasses both Nympy’s ndarray as well as an internal
 <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.BasisFunction">BasisFunction</a>
 class. An instance of the <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.Function">Function</a> represents the entire
-spectral Galerkin function (<a class="reference external" href="#eq:usg">16</a>).</p>
-<div class="section" id="runge-kutta-integrator">
-<h3>Runge-Kutta integrator<a class="headerlink" href="#runge-kutta-integrator" title="Permalink to this headline">#</a></h3>
+spectral Galerkin function (<span class="xref myst">16</span>).</p>
+<section id="runge-kutta-integrator">
+<h3>Runge-Kutta integrator<a class="headerlink" href="#runge-kutta-integrator" title="Permalink to this heading">#</a></h3>
 <p><a id="sec:rk"></a></p>
 <p>We use an explicit fourth order Runge-Kutta integrator,
 imported from <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.utilities.html#module-shenfun.utilities.integrators">shenfun.utilities.integrators</a>. The solver
@@ -1046,7 +997,7 @@ just one function that computes both, and call it
 </div>
 </div>
 <p>Note that <code class="docutils literal notranslate"><span class="pre">L</span></code> now is an array that represents the linear
-coefficients in (<a class="reference external" href="#eq:kg:du_var3">27</a>).</p>
+coefficients in (<span class="xref myst">27</span>).</p>
 <p>All that is left is to write a function that is called
 on each time step, which will allow us to store intermediate
 solutions, compute intermediate energies, and plot
@@ -1122,12 +1073,12 @@ can be created and called as</p>
 </div>
 <p>A complete solver is found <a class="reference external" href="https://github.com/spectralDNS/shenfun/blob/master/demo/KleinGordon.py">here</a>.</p>
 <!-- ======= Bibliography ======= -->
-<ol class="simple">
+<ol class="arabic simple">
 <li><p><a id="abdul08"></a> <strong>A.-M. Wazwaz</strong>.  New Travelling Wave Solutions to the Boussinesq and the Klein-Gordon Equations, <em>Communications in Nonlinear Science and Numerical Simulation</em>, 13(5), pp. 889-901, <a class="reference external" href="https://dx.doi.org/10.1016/j.cnsns.2006.08.005">doi: 10.1016/j.cnsns.2006.08.005</a>, 2008.</p></li>
 </ol>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1149,50 +1100,107 @@ can be created and called as</p>
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="poisson.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Demo - 1D Poisson’s equation</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="poisson.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Demo - 1D Poisson’s equation</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="poisson3d.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="poisson3d.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Demo - 3D Poisson’s equation</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-nonlinear-klein-gordon-equation">The nonlinear Klein-Gordon equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spectral-galerkin-formulation">Spectral Galerkin formulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discretization">Discretization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">Implementation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runge-kutta-integrator">Runge-Kutta integrator</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By Mikael Mortensen<br/>
-  
-      &copy; Copyright 2023.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+<p class="component-author">
+By Mikael Mortensen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
 </div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
