@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Demo - Lid driven cavity &#8212; Shenfun executable demos</title>
   
@@ -19,41 +18,39 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script kind="utterances">
 
     var commentsRunWhenDOMLoaded = cb => {
@@ -88,18 +85,16 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"TeX": {"Macros": {"bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}, "extensions": ["cancel.js", "AMSmath.js"]}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/drivencavity';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Demo - Rayleigh Benard" href="rayleighbenard.html" />
@@ -113,10 +108,9 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -157,11 +151,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -176,9 +173,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="intro.html">
+  
   
   
   
@@ -188,12 +187,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/seashell3.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/seashell3.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/seashell3.png" class="logo__image only-light" alt="Shenfun executable demos - Home"/>
+    <script>document.write(`<img src="../_static/seashell3.png" class="logo__image only-dark" alt="Shenfun executable demos - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -390,6 +400,7 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -399,6 +410,7 @@ document.write(`
   </button>
 `);
 </script>
+
 
 <script>
 document.write(`
@@ -444,12 +456,12 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <!-- File automatically generated using DocOnce (https://github.com/doconce/doconce/):
 doconce format ipynb drivencavity.do.txt  -->
 <section class="tex2jax_ignore mathjax_ignore" id="demo-lid-driven-cavity">
-<h1>Demo - Lid driven cavity<a class="headerlink" href="#demo-lid-driven-cavity" title="Permalink to this heading">#</a></h1>
+<h1>Demo - Lid driven cavity<a class="headerlink" href="#demo-lid-driven-cavity" title="Link to this heading">#</a></h1>
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
 <p>Date: <strong>May 6, 2019</strong></p>
 <p><strong>Summary.</strong> The lid driven cavity is a classical benchmark for Navier Stokes solvers.
@@ -470,7 +482,7 @@ the corner discontinuities.</p>
 <p><a id="fig:drivencavity"></a></p>
 <p><img src="https://raw.githack.com/spectralDNS/spectralutilities/master/figures/DrivenCavity.png" ><p style="font-size: 0.9em"><i>Figure 1: Velocity vectors for the lid driven cavity at Reynolds number 100.</i></p></p>
 <!-- end figure --><section id="navier-stokes-equations">
-<h2>Navier Stokes equations<a class="headerlink" href="#navier-stokes-equations" title="Permalink to this heading">#</a></h2>
+<h2>Navier Stokes equations<a class="headerlink" href="#navier-stokes-equations" title="Link to this heading">#</a></h2>
 <p><a id="demo:navierstokes"></a></p>
 <p>The nonlinear steady Navier Stokes equations are given in strong form as</p>
 <div class="math notranslate nohighlight">
@@ -486,7 +498,7 @@ the corner discontinuities.</p>
 \end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\boldsymbol{u}, p\)</span> and <span class="math notranslate nohighlight">\(\nu\)</span> are, respectively, the
 fluid velocity vector, pressure and kinematic viscosity. The domain
-<span class="math notranslate nohighlight">\(\Omega = [-1, 1]^2\)</span> and the nonlinear term <span class="math notranslate nohighlight">\(\boldsymbol{u} \boldsymbol{u}\)</span> is the
+<span class="math notranslate nohighlight">\(\Omega = (-1, 1)^2\)</span> and the nonlinear term <span class="math notranslate nohighlight">\(\boldsymbol{u} \boldsymbol{u}\)</span> is the
 outer product of vector <span class="math notranslate nohighlight">\(\boldsymbol{u}\)</span> with itself. Note that the final
 <span class="math notranslate nohighlight">\(\int_{\Omega} p dx = 0\)</span> is there because there is no Dirichlet boundary
 condition on the pressure and the system of equations would otherwise be
@@ -510,7 +522,7 @@ is a requirement for shenfun, but the current solver cannot be used with more
 than one processor.</p>
 </section>
 <section id="tensor-product-spaces">
-<h2>Tensor product spaces<a class="headerlink" href="#tensor-product-spaces" title="Permalink to this heading">#</a></h2>
+<h2>Tensor product spaces<a class="headerlink" href="#tensor-product-spaces" title="Link to this heading">#</a></h2>
 <p><a id="sec:bases"></a></p>
 <p>With the Galerkin method we need function spaces for both velocity and
 pressure, as well as for the
@@ -558,8 +570,8 @@ Legendre polynomials (we could also use Chebyshev):</p>
 <p>where <span class="math notranslate nohighlight">\(\boldsymbol{k}^{N_0-2} = (0, 1, \ldots, N_0-3)\)</span>, <span class="math notranslate nohighlight">\(\boldsymbol{l}^{N_1-2} = (0, 1, \ldots, N_1-3)\)</span>
 and <span class="math notranslate nohighlight">\(N = (N_0, N_1)\)</span> is the number
 of quadrature points in each direction. Note that <span class="math notranslate nohighlight">\(N_0\)</span> and <span class="math notranslate nohighlight">\(N_1\)</span> do not need
-to be the same. The basis funciton (<span class="xref myst">3</span>) satisfies
-the homogeneous Dirichlet boundary conditions at <span class="math notranslate nohighlight">\(x=\pm 1\)</span> and (<span class="xref myst">4</span>) the same
+to be the same. The basis funciton (<a class="reference internal" href="#eq:D0"><span class="xref myst">3</span></a>) satisfies
+the homogeneous Dirichlet boundary conditions at <span class="math notranslate nohighlight">\(x=\pm 1\)</span> and (<a class="reference internal" href="#eq:D1"><span class="xref myst">4</span></a>) the same
 at <span class="math notranslate nohighlight">\(y=\pm 1\)</span>. As such, the basis function <span class="math notranslate nohighlight">\(v_{kl}(x, y)\)</span> satisfies the homogeneous Dirichlet boundary
 condition for the entire domain.</p>
 <p>With shenfun we create these homogeneous spaces, <span class="math notranslate nohighlight">\(D_0^{N_0}(x)=\text{span}\{L_k-L_{k+2}\}_{k=0}^{N_0-2}\)</span> and
@@ -728,7 +740,7 @@ in shenfun as</p>
 homogeneous boundary conditions throughout.</p>
 </section>
 <section id="mixed-variational-form">
-<h2>Mixed variational form<a class="headerlink" href="#mixed-variational-form" title="Permalink to this heading">#</a></h2>
+<h2>Mixed variational form<a class="headerlink" href="#mixed-variational-form" title="Link to this heading">#</a></h2>
 <p><a id="sec:mixedform"></a></p>
 <p>We now formulate a variational problem using the
 Galerkin method: Find
@@ -752,7 +764,7 @@ Galerkin method: Find
 \]</div>
 <p>Note that we are using test functions <span class="math notranslate nohighlight">\(\boldsymbol{v}\)</span> with homogeneous
 boundary conditions.</p>
-<p>The first obvious issue with Eq (<span class="xref myst">11</span>) is the nonlinearity.
+<p>The first obvious issue with Eq (<a class="reference internal" href="#eq:nsvarform"><span class="xref myst">11</span></a>) is the nonlinearity.
 In other words we will
 need to linearize and iterate to be able to solve these equations with
 the Galerkin method. To this end we will introduce the solution on
@@ -834,7 +846,7 @@ an iteration loop.</p>
 </ul>
 </section>
 <section id="implementation-of-solver">
-<h2>Implementation of solver<a class="headerlink" href="#implementation-of-solver" title="Permalink to this heading">#</a></h2>
+<h2>Implementation of solver<a class="headerlink" href="#implementation-of-solver" title="Link to this heading">#</a></h2>
 <p>We will now implement the coupled variational problem described in previous
 sections. First of all, since we want to solve for the velocity and pressure
 in a coupled solver, we have to
@@ -926,7 +938,7 @@ Notice that the sum over the second
 index runs all the way to <span class="math notranslate nohighlight">\(N_1-1\)</span>, whereas the other indices runs to either
 <span class="math notranslate nohighlight">\(N_0-3\)</span> or <span class="math notranslate nohighlight">\(N_1-3\)</span>. This is because of the additional basis functions required
 for the inhomogeneous boundary condition.</p>
-<p>Inserting for these basis functions into (<span class="xref myst">18</span>), we obtain after a few trivial
+<p>Inserting for these basis functions into (<a class="reference internal" href="#eq:partialeq1"><span class="xref myst">18</span></a>), we obtain after a few trivial
 manipulations</p>
 <!-- Equation labels as ordinary links -->
 <p><a id="_auto14"></a></p>
@@ -1091,12 +1103,12 @@ ensures that the pressure integrates to zero, i.e., <span class="math notranslat
 Here the number 2 tells us that block component 2 in the mixed space
 (the pressure) should be integrated, dof 0 should be fixed, and it
 should be fixed to 0.</p>
-<p>The last three lines plots velocity vectors, like also seen in the <span class="xref myst">figure 1</span>
+<p>The last three lines plots velocity vectors, like also seen in the <a class="reference internal" href="#fig:drivencavity"><span class="xref myst">figure 1</span></a>
 in the top of this demo. The solution is apparently nice
 and smooth, but hidden underneath are Gibbs oscillations from the
 corner discontinuities. This is painfully obvious when switching from
 Legendre to Chebyshev polynomials. With Chebyshev the same plot looks
-like the <span class="xref myst">Figure 2</span> below. However, choosing instead the
+like the <a class="reference internal" href="#fig:drivencavitycheb"><span class="xref myst">Figure 2</span></a> below. However, choosing instead the
 regularized lid, with no discontinuities, the solutions will be nice and
 smooth, both for Legendre and Chebyshev polynomials.</p>
 <!-- dom:FIGURE: [https://raw.githack.com/spectralDNS/spectralutilities/master/figures/DrivenCavityCheb.png] Velocity vectors for Re=100 using Chebyshev.   <a id="fig:drivencavitycheb"></a> -->
@@ -1105,7 +1117,7 @@ smooth, both for Legendre and Chebyshev polynomials.</p>
 <p><img src="https://raw.githack.com/spectralDNS/spectralutilities/master/figures/DrivenCavityCheb.png" ><p style="font-size: 0.9em"><i>Figure 2: Velocity vectors for Re=100 using Chebyshev.</i></p></p>
 <!-- end figure --></section>
 <section id="complete-solver">
-<h2>Complete solver<a class="headerlink" href="#complete-solver" title="Permalink to this heading">#</a></h2>
+<h2>Complete solver<a class="headerlink" href="#complete-solver" title="Link to this heading">#</a></h2>
 <p><a id="sec:nscomplete"></a></p>
 <p>A complete solver can be found in demo <a class="reference external" href="https://github.com/spectralDNS/shenfun/blob/master/demo/NavierStokesDrivenCavity.py">NavierStokesDrivenCavity.py</a>.</p>
 </section>
@@ -1139,7 +1151,7 @@ smooth, both for Legendre and Chebyshev polynomials.</p>
               
               
                 <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="stokes.html"
@@ -1167,6 +1179,7 @@ smooth, both for Legendre and Chebyshev polynomials.</p>
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1200,6 +1213,7 @@ By Mikael Mortensen
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2023.
@@ -1226,8 +1240,8 @@ By Mikael Mortensen
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

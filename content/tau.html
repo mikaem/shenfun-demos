@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Demo - The Tau method &#8212; Shenfun executable demos</title>
   
@@ -19,41 +18,39 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script kind="utterances">
 
     var commentsRunWhenDOMLoaded = cb => {
@@ -88,18 +85,16 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"TeX": {"Macros": {"bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}, "extensions": ["cancel.js", "AMSmath.js"]}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/tau';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Demo - Sparse Chebyshev-Petrov-Galerkin methods for differentiation" href="sparsity.html" />
@@ -113,10 +108,9 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -157,11 +151,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -176,9 +173,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="intro.html">
+  
   
   
   
@@ -188,12 +187,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/seashell3.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/seashell3.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/seashell3.png" class="logo__image only-light" alt="Shenfun executable demos - Home"/>
+    <script>document.write(`<img src="../_static/seashell3.png" class="logo__image only-dark" alt="Shenfun executable demos - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -390,6 +400,7 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -399,6 +410,7 @@ document.write(`
   </button>
 `);
 </script>
+
 
 <script>
 document.write(`
@@ -450,12 +462,12 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <!-- File automatically generated using DocOnce (https://github.com/doconce/doconce/):
 doconce format ipynb tau.do.txt  -->
 <section class="tex2jax_ignore mathjax_ignore" id="demo-the-tau-method">
-<h1>Demo - The Tau method<a class="headerlink" href="#demo-the-tau-method" title="Permalink to this heading">#</a></h1>
+<h1>Demo - The Tau method<a class="headerlink" href="#demo-the-tau-method" title="Link to this heading">#</a></h1>
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
 <p>Date: <strong>June 15, 2021</strong></p>
 <p><strong>Summary.</strong> Shenfun has primarily been developed for the spectral Galerkin method.
@@ -473,14 +485,14 @@ are then usually fixed through manipulation of a couple of rows of the
 differentiation matrix. In this demo we will show how the original
 tau-method can be easily implemented using <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a>.</p>
 <section id="the-tau-method-for-poisson-s-equation-in-1d">
-<h2>The tau method for Poisson’s equation in 1D<a class="headerlink" href="#the-tau-method-for-poisson-s-equation-in-1d" title="Permalink to this heading">#</a></h2>
-<p>Poisson’s equation is given on a domain <span class="math notranslate nohighlight">\([-1, 1]\)</span> as</p>
+<h2>The tau method for Poisson’s equation in 1D<a class="headerlink" href="#the-tau-method-for-poisson-s-equation-in-1d" title="Link to this heading">#</a></h2>
+<p>Poisson’s equation is given on a domain <span class="math notranslate nohighlight">\(\Omega = (-1, 1)\)</span> as</p>
 <!-- Equation labels as ordinary links -->
 <p><a id="eq:poisson"></a></p>
 <div class="math notranslate nohighlight">
 \[
 \begin{equation}
-\nabla^2 u(x) = f(x) \quad \text{for }\, x \in [-1, 1], \label{eq:poisson} \tag{1}
+\nabla^2 u(x) = f(x) \quad \text{for }\, x \in \Omega, \label{eq:poisson} \tag{1}
 \end{equation}
 \]</div>
 <!-- Equation labels as ordinary links -->
@@ -493,7 +505,7 @@ u(-1)=a, u(1)=b, \notag
 \end{equation}
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(u(x)\)</span> is the solution, <span class="math notranslate nohighlight">\(f(x)\)</span> is a function and <span class="math notranslate nohighlight">\(a, b\)</span> are two possibly
-non-zero constants. To solve Eq. (<span class="xref myst">1</span>) with the tau method we choose either
+non-zero constants. To solve Eq. (<a class="reference internal" href="#eq:poisson"><span class="xref myst">1</span></a>) with the tau method we choose either
 Legendre of Chebyshev basis functions <span class="math notranslate nohighlight">\(\phi_k\)</span>, and then look for
 solutions</p>
 <!-- Equation labels as ordinary links -->
@@ -580,9 +592,9 @@ the right hand sides <span class="math notranslate nohighlight">\(\tilde{f}_{N-2
 two boundary conditions will be satisfied.</p>
 </section>
 <section id="implementation">
-<h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this heading">#</a></h2>
+<h2>Implementation<a class="headerlink" href="#implementation" title="Link to this heading">#</a></h2>
 <section id="preamble">
-<h3>Preamble<a class="headerlink" href="#preamble" title="Permalink to this heading">#</a></h3>
+<h3>Preamble<a class="headerlink" href="#preamble" title="Link to this heading">#</a></h3>
 <p>We will solve Poisson’s equation using the <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a> Python module. The first thing needed
 is then to import some of this module’s functionality
 plus some other helper modules, like <a class="reference external" href="https://numpy.org">Numpy</a> and <a class="reference external" href="https://sympy.org">Sympy</a>, and the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/sparse.html">scipy.sparse</a>
@@ -614,7 +626,7 @@ The exact manufactured solution <span class="math notranslate nohighlight">\(u_e
 the manufactured solution <code class="docutils literal notranslate"><span class="pre">ue</span></code>.</p>
 </section>
 <section id="discretization">
-<h3>Discretization<a class="headerlink" href="#discretization" title="Permalink to this heading">#</a></h3>
+<h3>Discretization<a class="headerlink" href="#discretization" title="Link to this heading">#</a></h3>
 <p>We create a basis with a given number of basis functions,</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
@@ -629,8 +641,8 @@ the manufactured solution <code class="docutils literal notranslate"><span class
 remaining code will work either way.</p>
 </section>
 <section id="variational-formulation">
-<h3>Variational formulation<a class="headerlink" href="#variational-formulation" title="Permalink to this heading">#</a></h3>
-<p>The variational problem (<span class="xref myst">6</span>) can be assembled using <code class="docutils literal notranslate"><span class="pre">shenfun</span></code>’s
+<h3>Variational formulation<a class="headerlink" href="#variational-formulation" title="Link to this heading">#</a></h3>
+<p>The variational problem (<a class="reference internal" href="#eq:varform"><span class="xref myst">6</span></a>) can be assembled using <code class="docutils literal notranslate"><span class="pre">shenfun</span></code>’s
 <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.TrialFunction">TrialFunction</a>, <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.TestFunction">TestFunction</a> and <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.inner.inner">inner()</a> functions.</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
@@ -651,13 +663,13 @@ remaining code will work either way.</p>
 is required as input to the <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.inner.inner">inner()</a> function. An
 <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.Array">Array</a> contains the solution evaluated on the
 quadrature mesh. A <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.Function">Function</a> represents a global
-expansion, like Eq. (<span class="xref myst">3</span>), and its values are the
+expansion, like Eq. (<a class="reference internal" href="#eq:u"><span class="xref myst">3</span></a>), and its values are the
 expansion coefficients <span class="math notranslate nohighlight">\(\{\hat{u}_{k}\}_{k=0}^{N-1}\)</span>.</p>
 </section>
 <section id="fix-boundary-conditions">
-<h3>Fix boundary conditions<a class="headerlink" href="#fix-boundary-conditions" title="Permalink to this heading">#</a></h3>
+<h3>Fix boundary conditions<a class="headerlink" href="#fix-boundary-conditions" title="Link to this heading">#</a></h3>
 <p>We fix two rows of the differentiation matrix in order to satisfy
-Eqs. (<span class="xref myst">4</span>) and (<span class="xref myst">5</span>).</p>
+Eqs. (<a class="reference internal" href="#eq:dirichleta"><span class="xref myst">4</span></a>) and (<a class="reference internal" href="#eq:dirichletb"><span class="xref myst">5</span></a>).</p>
 <div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">diags</span><span class="p">(</span><span class="s1">&#39;lil&#39;</span><span class="p">)</span>
@@ -687,7 +699,7 @@ with the typical tau-lines that we can visualize using <a class="reference exter
 </div>
 </section>
 <section id="solve-linear-equations">
-<h3>Solve linear equations<a class="headerlink" href="#solve-linear-equations" title="Permalink to this heading">#</a></h3>
+<h3>Solve linear equations<a class="headerlink" href="#solve-linear-equations" title="Link to this heading">#</a></h3>
 <p>Finally, solve the linear equation system and transform the solution from the spectral
 <span class="math notranslate nohighlight">\(\{\hat{u}_k\}_{k=0}^{N-1}\)</span> vector to the real space <span class="math notranslate nohighlight">\(\{u(x_j)\}_{j=0}^{N-1}\)</span>
 and then check how the solution corresponds with the exact solution <span class="math notranslate nohighlight">\(u_e\)</span>.
@@ -707,7 +719,7 @@ To this end we compute the <span class="math notranslate nohighlight">\(L_2\)</s
 </div>
 </section>
 <section id="convergence-test">
-<h3>Convergence test<a class="headerlink" href="#convergence-test" title="Permalink to this heading">#</a></h3>
+<h3>Convergence test<a class="headerlink" href="#convergence-test" title="Link to this heading">#</a></h3>
 <p>To do a convergence test we will now create a function <code class="docutils literal notranslate"><span class="pre">main</span></code>, that takes the
 number of quadrature points as parameter, and prints out
 the error.</p>
@@ -790,7 +802,7 @@ after <span class="math notranslate nohighlight">\(N=40\)</span> roundoff errors
 </section>
 </section>
 <section id="complete-solver">
-<h2>Complete solver<a class="headerlink" href="#complete-solver" title="Permalink to this heading">#</a></h2>
+<h2>Complete solver<a class="headerlink" href="#complete-solver" title="Link to this heading">#</a></h2>
 <p><a id="sec:complete"></a></p>
 <p>A complete solver, that can use either Legendre or Chebyshev bases, chosen as a
 command-line argument, can also be found <a class="reference external" href="https://github.com/spectralDNS/shenfun/blob/master/demo/poisson1D_tau.py">here</a>.</p>
@@ -825,7 +837,7 @@ command-line argument, can also be found <a class="reference external" href="htt
               
               
                 <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="mixingbases.html"
@@ -853,6 +865,7 @@ command-line argument, can also be found <a class="reference external" href="htt
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -892,6 +905,7 @@ By Mikael Mortensen
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2023.
@@ -918,8 +932,8 @@ By Mikael Mortensen
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

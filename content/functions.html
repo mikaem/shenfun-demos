@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Demo - Working with Functions &#8212; Shenfun executable demos</title>
   
@@ -19,41 +18,39 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script kind="utterances">
 
     var commentsRunWhenDOMLoaded = cb => {
@@ -88,18 +85,16 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"TeX": {"Macros": {"bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}, "extensions": ["cancel.js", "AMSmath.js"]}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/functions';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Demo - Integration of functions" href="surfaceintegration.html" />
@@ -113,10 +108,9 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -157,11 +151,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -176,9 +173,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="intro.html">
+  
   
   
   
@@ -188,12 +187,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/seashell3.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/seashell3.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/seashell3.png" class="logo__image only-light" alt="Shenfun executable demos - Home"/>
+    <script>document.write(`<img src="../_static/seashell3.png" class="logo__image only-dark" alt="Shenfun executable demos - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -390,6 +400,7 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -399,6 +410,7 @@ document.write(`
   </button>
 `);
 </script>
+
 
 <script>
 document.write(`
@@ -446,18 +458,18 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <!-- File automatically generated using DocOnce (https://github.com/doconce/doconce/):
 doconce format ipynb functions.do.txt  -->
 <section class="tex2jax_ignore mathjax_ignore" id="demo-working-with-functions">
-<h1>Demo - Working with Functions<a class="headerlink" href="#demo-working-with-functions" title="Permalink to this heading">#</a></h1>
+<h1>Demo - Working with Functions<a class="headerlink" href="#demo-working-with-functions" title="Link to this heading">#</a></h1>
 <p><strong>Mikael Mortensen</strong> (email: <code class="docutils literal notranslate"><span class="pre">mikaem&#64;math.uio.no</span></code>), Department of Mathematics, University of Oslo.</p>
 <p>Date: <strong>August 7, 2020</strong></p>
 <p><strong>Summary.</strong> This is a demonstration of how the Python module <a class="reference external" href="https://github.com/spectralDNS/shenfun">shenfun</a> can be used to work with
 global spectral functions in one and several dimensions.</p>
 <section id="construction">
-<h2>Construction<a class="headerlink" href="#construction" title="Permalink to this heading">#</a></h2>
+<h2>Construction<a class="headerlink" href="#construction" title="Link to this heading">#</a></h2>
 <p>A global spectral function <span class="math notranslate nohighlight">\(u(x)\)</span> can be represented on the real line as</p>
 <div class="math notranslate nohighlight">
 \[
@@ -511,7 +523,7 @@ u(x) = \sum_{k=0}^{N-1} \hat{u}_k \psi_k(2(x-0.5))
 \]</div>
 </section>
 <section id="approximating-analytical-functions">
-<h2>Approximating analytical functions<a class="headerlink" href="#approximating-analytical-functions" title="Permalink to this heading">#</a></h2>
+<h2>Approximating analytical functions<a class="headerlink" href="#approximating-analytical-functions" title="Link to this heading">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">u</span></code> function above was created with only zero
 valued coefficients, which is the default. Alternatively,
 a <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.Function">Function</a> may be initialized using a constant
@@ -568,7 +580,7 @@ With quadrature we approximate the integral such that</p>
 <p>where the index set <span class="math notranslate nohighlight">\(\mathcal{I}^N = \{0, 1, \ldots, N-1\}\)</span> and <span class="math notranslate nohighlight">\(\{x_j\}_{j\in \mathcal{I}^N}\)</span> and <span class="math notranslate nohighlight">\(\{w_j\}_{j\in \mathcal{I}^N}\)</span>
 are the quadrature points and weights.</p>
 <p>A linear system of equations arise when inserting for the chosen
-basis functions in Eq. (<span class="xref myst">1</span>). We get</p>
+basis functions in Eq. (<a class="reference internal" href="#eq:proj1"><span class="xref myst">1</span></a>). We get</p>
 <div class="math notranslate nohighlight">
 \[
 \sum_{k\in \mathcal{I}^N} \left( T_k, T_i\right)^N_{\omega} \hat{u}_k =
@@ -588,7 +600,7 @@ Gauss-Chebyshev quadrature this matrix is <span class="math notranslate nohighli
 where <span class="math notranslate nohighlight">\(c_0=2\)</span> and <span class="math notranslate nohighlight">\(c_i=1\)</span> for <span class="math notranslate nohighlight">\(i&gt;0\)</span>.</p>
 </section>
 <section id="adaptive-function-size">
-<h2>Adaptive function size<a class="headerlink" href="#adaptive-function-size" title="Permalink to this heading">#</a></h2>
+<h2>Adaptive function size<a class="headerlink" href="#adaptive-function-size" title="Link to this heading">#</a></h2>
 <p>The number of basis functions can also be left open during creation
 of the function space, through</p>
 <div class="cell tag_thebe-init docutils container">
@@ -690,7 +702,7 @@ pads zeros to <span class="math notranslate nohighlight">\(\hat{u}\)</span></p>
 </div>
 </section>
 <section id="more-features">
-<h2>More features<a class="headerlink" href="#more-features" title="Permalink to this heading">#</a></h2>
+<h2>More features<a class="headerlink" href="#more-features" title="Link to this heading">#</a></h2>
 <p>Since we have used a regular Chebyshev basis above, there
 are many more features that could be explored simply by going through
 <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.polynomials.chebyshev.html">Numpy’s Chebyshev module</a>.
@@ -755,7 +767,7 @@ sticking to the orthogonal spaces. This goes for Legendre as
 well as Chebyshev.</p>
 </section>
 <section id="multidimensional-functions">
-<h2>Multidimensional functions<a class="headerlink" href="#multidimensional-functions" title="Permalink to this heading">#</a></h2>
+<h2>Multidimensional functions<a class="headerlink" href="#multidimensional-functions" title="Link to this heading">#</a></h2>
 <p>Multidimensional tensor product spaces are created
 by taking the tensor products of one-dimensional function spaces.
 For example</p>
@@ -814,7 +826,7 @@ two function spaces, and can be visualized as follows</p>
 </div>
 </section>
 <section id="curvilinear-coordinates">
-<h2>Curvilinear coordinates<a class="headerlink" href="#curvilinear-coordinates" title="Permalink to this heading">#</a></h2>
+<h2>Curvilinear coordinates<a class="headerlink" href="#curvilinear-coordinates" title="Link to this heading">#</a></h2>
 <p>With shenfun it is possible to use curvilinear coordinates,
 and not necessarily with orthogonal basis vectors. With
 curvilinear coordinates the computational coordinates are
@@ -888,7 +900,7 @@ grid all the way around and re-plot.</p>
 </div>
 </section>
 <section id="adaptive-functions-in-multiple-dimensions">
-<h2>Adaptive functions in multiple dimensions<a class="headerlink" href="#adaptive-functions-in-multiple-dimensions" title="Permalink to this heading">#</a></h2>
+<h2>Adaptive functions in multiple dimensions<a class="headerlink" href="#adaptive-functions-in-multiple-dimensions" title="Link to this heading">#</a></h2>
 <p>If you want to find a good resolution for a function in multiple
 dimensions, the procedure is exactly like in 1D. First create function
 spaces with 0 quadrature points, and then call <a class="reference external" href="https://shenfun.readthedocs.io/en/latest/shenfun.forms.html#shenfun.forms.arguments.Function">Function</a></p>
@@ -939,7 +951,7 @@ a function <code class="docutils literal notranslate"> <span class="pre">~</span
               
               
                 <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="rayleighbenard.html"
@@ -967,6 +979,7 @@ a function <code class="docutils literal notranslate"> <span class="pre">~</span
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1002,6 +1015,7 @@ By Mikael Mortensen
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2023.
@@ -1028,8 +1042,8 @@ By Mikael Mortensen
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>
