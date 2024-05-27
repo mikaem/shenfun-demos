@@ -871,11 +871,13 @@ and then split them up into components afterwards:</p>
 </div>
 </div>
 </div>
-<p><strong>Notice.</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>The test function <code class="docutils literal notranslate"><span class="pre">v</span></code> is using homogeneous Dirichlet boundary conditions even
 though it is derived from <code class="docutils literal notranslate"><span class="pre">VQ</span></code>, which contains <code class="docutils literal notranslate"><span class="pre">W1</span></code>. It is currently not (and will
 probably never be) possible to use test functions with inhomogeneous
 boundary conditions.</p>
+</div>
 <p>With the basisfunctions in place we may assemble the different blocks of the
 final coefficient matrix. For this we also need to specify the kinematic
 viscosity, which is given here in terms of the Reynolds number:</p>
